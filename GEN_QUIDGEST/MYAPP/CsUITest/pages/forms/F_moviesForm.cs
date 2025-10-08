@@ -38,6 +38,11 @@ public class F_moviesForm : Form
 	public DateInputControl MovieCreateat => new DateInputControl(driver, ContainerLocator, "#F_MOVIESMOVIECREATEAT");
 
 	/// <summary>
+	/// Like
+	/// </summary>
+	public ButtonControl PseudField001 => new ButtonControl(driver, ContainerLocator, "#F_MOVIESPSEUDFIELD001");
+
+	/// <summary>
 	/// Comments
 	/// </summary>
 	public ListControl PseudDatacome => new ListControl(driver, ContainerLocator, "#F_MOVIESPSEUDDATACOME");

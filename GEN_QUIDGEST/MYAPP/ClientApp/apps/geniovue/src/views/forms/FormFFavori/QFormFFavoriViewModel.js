@@ -70,6 +70,8 @@ export default class ViewModel extends FormViewModelBase
 			area: 'FAVOR',
 			field: 'MOVIEID',
 			relatedArea: 'MOVIE',
+			isUnique: true,
+			uniquePrefixField: 'CODUSERP',
 			description: computed(() => this.Resources.MOVIE_ID54960),
 		}).cloneFrom(values?.ValMovieid))
 		this.stopWatchers.push(watch(() => this.ValMovieid.value, (newValue, oldValue) => this.onUpdate('favor.movieid', this.ValMovieid, newValue, oldValue)))

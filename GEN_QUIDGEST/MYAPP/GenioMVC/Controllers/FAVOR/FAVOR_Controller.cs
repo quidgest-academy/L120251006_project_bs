@@ -92,6 +92,8 @@ namespace GenioMVC.Controllers
 						{
 							var model = new F_favori_ViewModel(UserContext.Current) { editable = false };
 							model.MapFromModel(row);
+							// Map received value to field - The non-duplication prefix field for foreign key field with the unique value
+							model.SetViewModelValue("favor.coduserp", Navigation.GetValue<string>("favor.coduserp"));
 							model.Load_F_favorimovietitle___(qs);
 							result = model.TableMovieTitle;
 						}

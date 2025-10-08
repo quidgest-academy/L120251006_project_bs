@@ -281,7 +281,7 @@
 				},
 
 				formInfo: {
-					type: 'normal',
+					type: 'popup',
 					name: 'F_FAVORI',
 					route: 'form-F_FAVORI',
 					area: 'FAVOR',
@@ -564,6 +564,13 @@
 							set 'movie.title'(value) { vm.model.TableMovieTitle.updateValue(value) },
 						}),
 						controlLimits: [
+							// The non-duplication prefix field of the unique foreign key field.
+							{
+								identifier: 'favor.coduserp',
+								dependencyEvents: ['fieldChange:favor.coduserp'],
+								dependencyField: 'FAVOR.CODUSERP',
+								fnValueSelector: (model) => model.ValCoduserp.value,
+							},
 						],
 					}, this),
 				},
@@ -622,6 +629,8 @@
 			// Called before the route that renders this component is confirmed.
 			// Does NOT have access to `this` component instance, because
 			// it has not been created yet when this guard is called!
+
+			to.params.isPopup = 'true'
 
 			next((vm) => {
 				vm.initFormProperties(to)

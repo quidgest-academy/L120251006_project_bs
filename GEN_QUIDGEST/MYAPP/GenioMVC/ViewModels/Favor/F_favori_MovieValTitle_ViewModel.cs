@@ -92,6 +92,11 @@ namespace GenioMVC.ViewModels.Favor
 			return crs;
 		}
 
+		/// <summary>
+		/// The non-duplication prefix field for foreign key field with the unique value
+		/// </summary>
+		public string ValCoduserp { get; set; }
+
 		public override int GetCount(User user)
 		{
 			throw new NotImplementedException("This operation is not supported");
@@ -209,6 +214,31 @@ namespace GenioMVC.ViewModels.Favor
 			// Limitation by Zzstate
 			crs.Criterias.Add(new Criteria(new ColumnReference(CSGenioAmovie.FldZzstate), CriteriaOperator.Equal, 0));
 
+			// If this filter is not in the table configuration, it is applied by default.
+			var applyUniqueValuesCondition = tableConfig.StaticFilters["applyUniqueValuesCondition"] == "true";
+			if (applyUniqueValuesCondition)
+			{
+					// The foreign key field with the unique value: 'MOVIEID' | non-duplication prefix field: 'CODUSERP'
+					// Apply the limit of the unique value field, to avoid choosing an option that is not valid.
+
+					// First, apply the condition to see the records already used, except the record itself.
+					var uniqueCondition = CriteriaSet.And()
+							.Equal(CSGenioAfavor.FldMovieid, CSGenioAmovie.FldCodmovie)
+							.NotEqual(CSGenioAfavor.FldCodfavor, Navigation.GetValue("favor"))
+							.Equal(CSGenioAfavor.FldZzstate, 0);
+
+					// Apply a non-duplication prefix to the condition.
+					var prefixFieldRef = CSGenioAfavor.FldCoduserp;
+					// Get the value of the non-duplication prefix field from the view model (field present in the form)
+					uniqueCondition
+						.Equal(prefixFieldRef, CSGenio.persistence.QueryUtils.ToValidDbValue(ValCoduserp, CSGenioAfavor.GetInformation().DBFields[prefixFieldRef.Field]));
+					// Apply the subquery that will filter the records to display only the available ones.
+					var uniqueConditionSql = new SelectQuery()
+						.Select(new SqlValue(1), "exists")
+						.From(CSGenio.business.Area.AreaFAVOR)
+						.Where(uniqueCondition);
+				crs.NotExists(uniqueConditionSql);
+			}
 
 			if (tableReload)
 			{

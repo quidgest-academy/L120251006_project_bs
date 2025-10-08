@@ -357,6 +357,9 @@
 	<data name="AGGREGATE05721" xml:space="preserve">
 		<value>Aggregate</value>
 	</data>
+	<data name="LIKE38722" xml:space="preserve">
+		<value>Like</value>
+	</data>
 	<data name="ERRO38355" xml:space="preserve">
 		<value>Erro</value>
 	</data>

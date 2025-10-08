@@ -5,7 +5,7 @@
 namespace quidgest.uitests.pages.forms;
 
 [System.CodeDom.Compiler.GeneratedCode("Genio", "")]
-public class F_favoriForm : Form
+public class F_favoriForm : PopupForm
 {
 	/// <summary>
 	/// Name
@@ -25,5 +25,5 @@ public class F_favoriForm : Form
 	public SeeMorePage MovieTitleSeeMorePage => new SeeMorePage(driver, "F_FAVORI", "F_FAVORIMOVIETITLE___");
 
 	public F_favoriForm(IWebDriver driver, FORM_MODE mode, By? containerLocator = null)
-		: base(driver, mode, "F_FAVORI", containerLocator: containerLocator) { }
+		: base(driver, mode, "F_FAVORI") { }
 }

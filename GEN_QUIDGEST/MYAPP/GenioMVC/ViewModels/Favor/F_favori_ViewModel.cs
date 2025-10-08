@@ -642,6 +642,29 @@ namespace GenioMVC.ViewModels.Favor
 
 			if (f_favorimovietitle___DoLoad)
 			{
+				{
+					// The foreign key field with the unique value: 'MOVIEID' | non-duplication prefix field: 'CODUSERP'
+					// Apply the limit of the unique value field, to avoid choosing an option that is not valid.
+
+					// First, apply the condition to see the records already used, except the record itself.
+					var uniqueCondition = CriteriaSet.And()
+							.Equal(CSGenioAfavor.FldMovieid, CSGenioAmovie.FldCodmovie)
+							.NotEqual(CSGenioAfavor.FldCodfavor, Navigation.GetValue("favor"))
+							.Equal(CSGenioAfavor.FldZzstate, 0);
+
+					// Apply a non-duplication prefix to the condition.
+					var prefixFieldRef = CSGenioAfavor.FldCoduserp;
+					// Get the value of the non-duplication prefix field from the view model (field present in the form)
+					uniqueCondition
+						.Equal(prefixFieldRef, CSGenio.persistence.QueryUtils.ToValidDbValue(ValCoduserp, CSGenioAfavor.GetInformation().DBFields[prefixFieldRef.Field]));
+					// Apply the subquery that will filter the records to display only the available ones.
+					var uniqueConditionSql = new SelectQuery()
+						.Select(new SqlValue(1), "exists")
+						.From(CSGenio.business.Area.AreaFAVOR)
+						.Where(uniqueCondition);
+					f_favorimovietitle___Conds.NotExists(uniqueConditionSql);
+				}
+
 				List<ColumnSort> sorts = new List<ColumnSort>();
 				ColumnSort requestedSort = GetRequestSort(TableMovieTitle, "sTableMovieTitle", "dTableMovieTitle", qs, "movie");
 				if (requestedSort != null)

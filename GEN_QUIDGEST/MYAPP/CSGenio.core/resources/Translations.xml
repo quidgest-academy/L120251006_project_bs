@@ -240,6 +240,9 @@
   <msg id="Aggregate" code="AGGREGATE05721">
     <ENUS>Aggregate</ENUS>
   </msg>
+  <msg id="Like" code="LIKE38722">
+    <ENUS>Like</ENUS>
+  </msg>
   <msg id="Erro" code="ERRO38355">
     <ENUS>Erro</ENUS>
   </msg>

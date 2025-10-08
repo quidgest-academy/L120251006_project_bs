@@ -61,6 +61,7 @@ namespace CSGenio.business
 			Qfield.CavDesignation = "USER_ID19581";
 
 			Qfield.Dupmsg = "";
+            Qfield.SufNDup = "movieid";
 			info.RegisterFieldDB(Qfield);
 
 			//- - - - - - - - - - - - - - - - - - -
@@ -81,6 +82,8 @@ namespace CSGenio.business
 			Qfield.CavDesignation = "MOVIE_ID54960";
 
 			Qfield.Dupmsg = "";
+            Qfield.NotDup = true;
+            Qfield.PrefNDup = "coduserp";
 			info.RegisterFieldDB(Qfield);
 
 			//- - - - - - - - - - - - - - - - - - -

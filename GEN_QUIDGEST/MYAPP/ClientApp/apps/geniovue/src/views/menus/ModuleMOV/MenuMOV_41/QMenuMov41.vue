@@ -305,7 +305,7 @@
 							formsDefinition: {
 								'F_FAVORI': {
 									fnKeySelector: (row) => row.Fields.ValCodfavor,
-									isPopup: false
+									isPopup: true
 								},
 							},
 							defaultSearchColumnName: '',

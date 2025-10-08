@@ -781,6 +781,15 @@ namespace Administration.Resources {
         }
 
         /// <summary>
+        ///   Looks up a localized string similar to "Like"
+        /// </summary>
+        public static string LIKE38722 {
+            get {
+                return ResourceManager.GetString("LIKE38722", resourceCulture);
+            }
+        }
+
+        /// <summary>
         ///   Looks up a localized string similar to "Erro"
         /// </summary>
         public static string ERRO38355 {
