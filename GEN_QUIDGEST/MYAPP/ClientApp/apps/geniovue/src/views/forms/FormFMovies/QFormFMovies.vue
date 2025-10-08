@@ -956,6 +956,18 @@
 								dataLength: 80,
 								scrollData: 30,
 							}, computed(() => vm.model), computed(() => vm.internalEvents)),
+							new listColumnTypes.ImageColumn({
+								order: 6,
+								name: 'ValPhoto',
+								area: 'CHARA',
+								field: 'PHOTO',
+								label: computed(() => this.Resources.PHOTO51874),
+								dataTitle: computed(() => genericFunctions.formatString(vm.Resources.IMAGEM_UTILIZADA_PAR58591, vm.Resources.PHOTO51874)),
+								scrollData: 3,
+								isVisible: false,
+								sortable: false,
+								searchable: false,
+							}, computed(() => vm.model), computed(() => vm.internalEvents)),
 						],
 						config: {
 							name: 'ValDatachar',
@@ -1016,6 +1028,12 @@
 										allowsMultiple: false,
 										sources: [
 											'CHARA.GENRE',
+										]
+									},
+									image: {
+										allowsMultiple: false,
+										sources: [
+											'CHARA.PHOTO',
 										]
 									},
 								}),

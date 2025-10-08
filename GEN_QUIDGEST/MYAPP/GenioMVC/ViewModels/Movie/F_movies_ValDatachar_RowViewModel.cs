@@ -63,6 +63,12 @@ public class F_movies_ValDatachar_RowViewModel : Models.Chara
 				Area = "CHARA",
 				Field = "ACTORNAME",
 			},
+			new ListColumn()
+			{
+				Order = 6,
+				Area = "CHARA",
+				Field = "PHOTO",
+			},
 		];
 	}
 

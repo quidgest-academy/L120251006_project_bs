@@ -318,7 +318,7 @@ namespace GenioMVC.ViewModels.Movie
 				List<ColumnSort> sorts = GetRequestSorts(this.Menu, tableConfig.ColumnOrderBy, "chara", allSortOrders);
 
 
-				FieldRef[] fields = new FieldRef[] { CSGenioAchara.FldCodchara, CSGenioAchara.FldZzstate, CSGenioAchara.FldGenre, CSGenioAchara.FldMovieid, CSGenioAmovie.FldCodmovie, CSGenioAmovie.FldTitle, CSGenioAchara.FldCreateat, CSGenioAchara.FldName, CSGenioAchara.FldActorname };
+				FieldRef[] fields = new FieldRef[] { CSGenioAchara.FldCodchara, CSGenioAchara.FldZzstate, CSGenioAchara.FldGenre, CSGenioAchara.FldMovieid, CSGenioAmovie.FldCodmovie, CSGenioAmovie.FldTitle, CSGenioAchara.FldCreateat, CSGenioAchara.FldName, CSGenioAchara.FldActorname, CSGenioAchara.FldPhoto };
 
 
 				// Totalizers
@@ -474,6 +474,7 @@ namespace GenioMVC.ViewModels.Movie
 			// Use the parent context, so the formulas are calculated with the current values.
 			model.Movie = ParentCtx as Models.Movie;
 
+			SetTicketToImageFields(model);
 			return model;
 		}
 
@@ -518,7 +519,7 @@ namespace GenioMVC.ViewModels.Movie
 
 		private static readonly string[] _fieldsToSerialize =
 		[
-			"Chara", "Chara.ValCodchara", "Chara.ValZzstate", "Chara.ValGenre", "Movie", "Movie.ValTitle", "Chara.ValCreateat", "Chara.ValName", "Chara.ValActorname", "Chara.ValMovieid"
+			"Chara", "Chara.ValCodchara", "Chara.ValZzstate", "Chara.ValGenre", "Movie", "Movie.ValTitle", "Chara.ValCreateat", "Chara.ValName", "Chara.ValActorname", "Chara.ValPhoto", "Chara.ValMovieid"
 		];
 
 		private static readonly List<TableSearchColumn> _searchableColumns =
@@ -529,5 +530,12 @@ namespace GenioMVC.ViewModels.Movie
 			new TableSearchColumn("ValName", CSGenioAchara.FldName, typeof(string), defaultSearch : true),
 			new TableSearchColumn("ValActorname", CSGenioAchara.FldActorname, typeof(string)),
 		];
+		protected void SetTicketToImageFields(Models.Chara row)
+		{
+			if (row == null)
+				return;
+
+			row.ValPhotoQTicket = Helpers.Helpers.GetFileTicket(m_userContext.User, CSGenio.business.Area.AreaCHARA, CSGenioAchara.FldPhoto.Field, null, row.ValCodchara);
+		}
 	}
 }
