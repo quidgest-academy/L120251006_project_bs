@@ -120,12 +120,12 @@
 				menuInfo: {
 					id: '21',
 					isMenuList: true,
-					designation: computed(() => this.Resources.CHARACTERS03735),
+					designation: computed(() => this.Resources.MOVIES48538),
 					acronym: 'MOV_21',
-					name: 'CHARA',
+					name: 'MOVIE',
 					route: 'menu-MOV_21',
 					order: '21',
-					controller: 'CHARA',
+					controller: 'MOVIE',
 					action: 'MOV_Menu_21',
 					isPopup: false
 				},
@@ -133,10 +133,10 @@
 				model: new MenuViewModel(this),
 
 				controls: {
-					menu: new controlClass.TableListControl({
+					menu: new controlClass.TableSpecialRenderingControl({
 						fnHydrateViewModel: (data) => vm.model.hydrate(data),
 						id: 'MOV_Menu_21',
-						controller: 'CHARA',
+						controller: 'MOVIE',
 						action: 'MOV_Menu_21',
 						hasDependencies: false,
 						isInCollapsible: false,
@@ -145,65 +145,74 @@
 							'page-full-height'
 						],
 						columnsOriginal: [
-							new listColumnTypes.ArrayColumn({
+							new listColumnTypes.TextColumn({
 								order: 1,
-								name: 'ValGenre',
-								area: 'CHARA',
-								field: 'GENRE',
-								label: computed(() => this.Resources.GENRE63303),
-								dataLength: 1,
-								scrollData: 1,
-								array: computed(() => new qProjArrays.QArrayGenre(vm.$getResource).elements),
-								arrayType: qProjArrays.QArrayGenre.type,
+								name: 'ValDescription',
+								area: 'MOVIE',
+								field: 'DESCRIPTION',
+								label: computed(() => this.Resources.DISCRIPTION02169),
+								scrollData: 30,
+							}, computed(() => vm.model), computed(() => vm.internalEvents)),
+							new listColumnTypes.DateColumn({
+								order: 2,
+								name: 'ValRealease_date',
+								area: 'MOVIE',
+								field: 'REALEASE_DATE',
+								label: computed(() => this.Resources.REALEASE_DATE49316),
+								scrollData: 8,
+								dateTimeType: 'date',
+							}, computed(() => vm.model), computed(() => vm.internalEvents)),
+							new listColumnTypes.ArrayColumn({
+								order: 3,
+								name: 'ValMoviesgenre',
+								area: 'MOVIE',
+								field: 'MOVIESGENRE',
+								label: computed(() => this.Resources.MOVIES_GENRE22042),
+								dataLength: 15,
+								scrollData: 15,
+								array: computed(() => new qProjArrays.QArrayMoviegenre(vm.$getResource).elements),
+								arrayType: qProjArrays.QArrayMoviegenre.type,
 								arrayDisplayMode: 'D',
 							}, computed(() => vm.model), computed(() => vm.internalEvents)),
 							new listColumnTypes.TextColumn({
-								order: 2,
-								name: 'Movie.ValTitle',
+								order: 4,
+								name: 'ValTitle',
 								area: 'MOVIE',
 								field: 'TITLE',
 								label: computed(() => this.Resources.TITLE21885),
 								dataLength: 80,
 								scrollData: 30,
-								pkColumn: 'ValCodmovie',
+							}, computed(() => vm.model), computed(() => vm.internalEvents)),
+							new listColumnTypes.ImageColumn({
+								order: 5,
+								name: 'ValPoster',
+								area: 'MOVIE',
+								field: 'POSTER',
+								label: computed(() => this.Resources.POSTER52933),
+								dataTitle: computed(() => genericFunctions.formatString(vm.Resources.IMAGEM_UTILIZADA_PAR58591, vm.Resources.POSTER52933)),
+								scrollData: 3,
+								sortable: false,
+								searchable: false,
 							}, computed(() => vm.model), computed(() => vm.internalEvents)),
 							new listColumnTypes.DateColumn({
-								order: 3,
+								order: 6,
 								name: 'ValCreateat',
-								area: 'CHARA',
+								area: 'MOVIE',
 								field: 'CREATEAT',
 								label: computed(() => this.Resources.CREATE_AT36393),
 								scrollData: 8,
 								dateTimeType: 'date',
 							}, computed(() => vm.model), computed(() => vm.internalEvents)),
-							new listColumnTypes.TextColumn({
-								order: 4,
-								name: 'ValName',
-								area: 'CHARA',
-								field: 'NAME',
-								label: computed(() => this.Resources.NAME31974),
-								dataLength: 80,
-								scrollData: 30,
-							}, computed(() => vm.model), computed(() => vm.internalEvents)),
-							new listColumnTypes.TextColumn({
-								order: 5,
-								name: 'ValActorname',
-								area: 'CHARA',
-								field: 'ACTORNAME',
-								label: computed(() => this.Resources.ACTOR_NAME48089),
-								dataLength: 80,
-								scrollData: 30,
-							}, computed(() => vm.model), computed(() => vm.internalEvents)),
 						],
 						config: {
 							name: 'MOV_Menu_21',
 							serverMode: true,
-							pkColumn: 'ValCodchara',
-							tableAlias: 'CHARA',
-							tableNamePlural: computed(() => this.Resources.CHARACTERS03735),
+							pkColumn: 'ValCodmovie',
+							tableAlias: 'MOVIE',
+							tableNamePlural: computed(() => this.Resources.MOVIES48538),
 							viewManagement: '',
 							showLimitsInfo: true,
-							tableTitle: computed(() => this.Resources.CHARACTERS03735),
+							tableTitle: computed(() => this.Resources.MOVIES48538),
 							showAlternatePagination: true,
 							permissions: {
 							},
@@ -226,7 +235,7 @@
 									params: {
 										action: vm.openFormAction,
 										type: 'form',
-										formName: 'F_CHARAC',
+										formName: 'F_MOVIES',
 										mode: 'SHOW',
 										isControlled: true
 									}
@@ -242,7 +251,7 @@
 									params: {
 										action: vm.openFormAction,
 										type: 'form',
-										formName: 'F_CHARAC',
+										formName: 'F_MOVIES',
 										mode: 'EDIT',
 										isControlled: true
 									}
@@ -258,7 +267,7 @@
 									params: {
 										action: vm.openFormAction,
 										type: 'form',
-										formName: 'F_CHARAC',
+										formName: 'F_MOVIES',
 										mode: 'DUPLICATE',
 										isControlled: true
 									}
@@ -274,7 +283,7 @@
 									params: {
 										action: vm.openFormAction,
 										type: 'form',
-										formName: 'F_CHARAC',
+										formName: 'F_MOVIES',
 										mode: 'DELETE',
 										isControlled: true
 									}
@@ -292,7 +301,7 @@
 									params: {
 										action: vm.openFormAction,
 										type: 'form',
-										formName: 'F_CHARAC',
+										formName: 'F_MOVIES',
 										mode: 'NEW',
 										repeatInsertion: false,
 										isControlled: true
@@ -309,35 +318,142 @@
 							],
 							rowClickAction: {
 								id: 'RCA_MOV_211',
-								name: 'form-F_CHARAC',
+								name: 'form-F_MOVIES',
 								params: {
 									isRoute: true,
 									limits: [
 										{
 											identifier: 'id',
-											fnValueSelector: (row) => row.ValCodchara
+											fnValueSelector: (row) => row.ValCodmovie
 										},
 									],
 									isControlled: true,
-									action: vm.openFormAction, type: 'form', mode: 'SHOW', formName: 'F_CHARAC'
+									action: vm.openFormAction, type: 'form', mode: 'SHOW', formName: 'F_MOVIES'
 								}
 							},
 							formsDefinition: {
-								'F_CHARAC': {
-									fnKeySelector: (row) => row.Fields.ValCodchara,
+								'F_MOVIES': {
+									fnKeySelector: (row) => row.Fields.ValCodmovie,
 									isPopup: false
 								},
 							},
-							defaultSearchColumnName: 'ValName',
-							defaultSearchColumnNameOriginal: 'ValName',
+							insertCondition: {
+								// eslint-disable-next-line @typescript-eslint/no-unused-vars
+								fnFormula(params)
+								{
+									return netAPI.postData(
+										'Movie',
+										'F_MOVIES_InsertCondition',
+										this.serverObjModel,
+										undefined,
+										undefined,
+										undefined,
+										this.navigationId)
+								},
+								dependencyEvents: [],
+								isServerRecalc: false,
+							},
+							defaultSearchColumnName: 'ValTitle',
+							defaultSearchColumnNameOriginal: 'ValTitle',
 							defaultColumnSorting: {
-								columnName: 'ValCreateat',
+								columnName: 'ValRealease_date',
 								sortOrder: 'asc'
 							}
 						},
-						globalEvents: ['changed-MOVIE', 'changed-CHARA'],
-						uuid: '1647ff0a-85ba-4bf0-84d7-1d1ad3b4b641',
+						globalEvents: ['changed-MOVIE'],
+						uuid: '0ab18b24-3098-4f93-bff5-84f64079d8a9',
 						allSelectedRows: 'false',
+						viewModes: [
+							{
+								id: 'CARDS',
+								type: 'cards',
+								subtype: 'card-horizontal',
+								label: computed(() => this.Resources.CARTOES27587),
+								order: 1,
+								mappingVariables: readonly({
+									title: {
+										allowsMultiple: false,
+										sources: [
+											'MOVIE.TITLE',
+										]
+									},
+									subtitle: {
+										allowsMultiple: false,
+										sources: [
+											'MOVIE.REALEASE_DATE',
+										]
+									},
+									text: {
+										allowsMultiple: true,
+										sources: [
+											'MOVIE.DESCRIPTION',
+										]
+									},
+									image: {
+										allowsMultiple: false,
+										sources: [
+											'MOVIE.POSTER',
+										]
+									},
+								}),
+								styleVariables: {
+									actionsAlignment: {
+										rawValue: 'left',
+										isMapped: false
+									},
+									actionsStyle: {
+										rawValue: 'dropdown',
+										isMapped: false
+									},
+									backgroundColor: {
+										rawValue: 'auto',
+										isMapped: false
+									},
+									customFollowupDefaultTarget: {
+										rawValue: 'blank',
+										isMapped: false
+									},
+									customInsertCard: {
+										rawValue: false,
+										isMapped: false
+									},
+									customInsertCardStyle: {
+										rawValue: 'secondary',
+										isMapped: false
+									},
+									displayMode: {
+										rawValue: 'grid',
+										isMapped: false
+									},
+									gridMode: {
+										rawValue: 'fixed',
+										isMapped: false
+									},
+									containerAlignment: {
+										rawValue: 'left',
+										isMapped: false
+									},
+									hoverScaleAmount: {
+										rawValue: '1.00',
+										isMapped: false
+									},
+									showColumnTitles: {
+										rawValue: false,
+										isMapped: false
+									},
+									showEmptyColumnTitles: {
+										rawValue: true,
+										isMapped: false
+									},
+									size: {
+										rawValue: 'regular',
+										isMapped: false
+									},
+								},
+								groups: {
+								}
+							},
+						],
 						headerLevel: 1,
 					}, this),
 				}

@@ -68,6 +68,12 @@ namespace GenioMVC.Models
 		[DataType(DataType.MultilineText)]
 		public string ValDescription { get { return klass.ValDescription; } set { klass.ValDescription = value; } }
 
+		[DisplayName("")]
+		/// <summary>Field : "" Tipo: "N" Formula: SR ""</summary>
+		[ShouldSerialize("Movie.ValNumberoflikes")]
+		[NumericAttribute(0)]
+		public decimal? ValNumberoflikes { get { return Convert.ToDecimal(GenFunctions.RoundQG(klass.ValNumberoflikes, 0)); } set { klass.ValNumberoflikes = Convert.ToDecimal(value); } }
+
 		[DisplayName("ZZSTATE")]
 		[ShouldSerialize("Movie.ValZzstate")]
 		/// <summary>Field: "ZZSTATE", Type: "INT", Formula: ""</summary>

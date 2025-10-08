@@ -4,18 +4,18 @@ using CSGenio.business;
 using CSGenio.framework;
 using GenioMVC.Models.Navigation;
 
-namespace GenioMVC.ViewModels.Movie;
+namespace GenioMVC.ViewModels.Userp;
 
-public class F_movies_ValDatacome_RowViewModel : Models.Comme
+public class MOV_Menu_61_RowViewModel : Models.Userp
 {
 	#region Constructors
 
-	public F_movies_ValDatacome_RowViewModel(UserContext userContext, bool isEmpty = false, string[]? fieldsToSerialize = null) : base(userContext, isEmpty, fieldsToSerialize)
+	public MOV_Menu_61_RowViewModel(UserContext userContext, bool isEmpty = false, string[]? fieldsToSerialize = null) : base(userContext, isEmpty, fieldsToSerialize)
 	{
 		InitRowProperties();
 	}
 
-	public F_movies_ValDatacome_RowViewModel(UserContext userContext, CSGenioAcomme val, bool isEmpty = false, string[]? fieldsToSerialize = null) : base(userContext, val, isEmpty, fieldsToSerialize)
+	public MOV_Menu_61_RowViewModel(UserContext userContext, CSGenioAuserp val, bool isEmpty = false, string[]? fieldsToSerialize = null) : base(userContext, val, isEmpty, fieldsToSerialize)
 	{
 		InitRowProperties();
 	}
@@ -36,26 +36,20 @@ public class F_movies_ValDatacome_RowViewModel : Models.Comme
 			new ListColumn()
 			{
 				Order = 1,
-				Area = "COMME",
-				Field = "POST",
+				Area = "USERP",
+				Field = "EMAIL",
 			},
 			new ListColumn()
 			{
 				Order = 2,
 				Area = "USERP",
-				Field = "NAME",
+				Field = "PHOTO",
 			},
 			new ListColumn()
 			{
 				Order = 3,
-				Area = "COMME",
-				Field = "CREATEAT",
-			},
-			new ListColumn()
-			{
-				Order = 4,
-				Area = "MOVIE",
-				Field = "TITLE",
+				Area = "USERP",
+				Field = "NAME",
 			},
 		];
 	}
@@ -70,6 +64,10 @@ public class F_movies_ValDatacome_RowViewModel : Models.Comme
 		bool canDelete = true;
 		bool canDuplicate = true;
 		bool canInsert = true;
+
+		using (new CSGenio.persistence.ScopedPersistentSupport(m_userContext.PersistentSupport))
+		{
+		}
 
 		BtnPermission = new TableRowCrudButtonPermissions()
 		{

@@ -4,18 +4,18 @@ using CSGenio.business;
 using CSGenio.framework;
 using GenioMVC.Models.Navigation;
 
-namespace GenioMVC.ViewModels.Favor;
+namespace GenioMVC.ViewModels.Chara;
 
-public class MOV_Menu_41_RowViewModel : Models.Favor
+public class MOV_Menu_31_RowViewModel : Models.Chara
 {
 	#region Constructors
 
-	public MOV_Menu_41_RowViewModel(UserContext userContext, bool isEmpty = false, string[]? fieldsToSerialize = null) : base(userContext, isEmpty, fieldsToSerialize)
+	public MOV_Menu_31_RowViewModel(UserContext userContext, bool isEmpty = false, string[]? fieldsToSerialize = null) : base(userContext, isEmpty, fieldsToSerialize)
 	{
 		InitRowProperties();
 	}
 
-	public MOV_Menu_41_RowViewModel(UserContext userContext, CSGenioAfavor val, bool isEmpty = false, string[]? fieldsToSerialize = null) : base(userContext, val, isEmpty, fieldsToSerialize)
+	public MOV_Menu_31_RowViewModel(UserContext userContext, CSGenioAchara val, bool isEmpty = false, string[]? fieldsToSerialize = null) : base(userContext, val, isEmpty, fieldsToSerialize)
 	{
 		InitRowProperties();
 	}
@@ -36,8 +36,8 @@ public class MOV_Menu_41_RowViewModel : Models.Favor
 			new ListColumn()
 			{
 				Order = 1,
-				Area = "FAVOR",
-				Field = "FAVORITE_AT",
+				Area = "CHARA",
+				Field = "GENRE",
 			},
 			new ListColumn()
 			{
@@ -48,8 +48,20 @@ public class MOV_Menu_41_RowViewModel : Models.Favor
 			new ListColumn()
 			{
 				Order = 3,
-				Area = "USERP",
+				Area = "CHARA",
+				Field = "CREATEAT",
+			},
+			new ListColumn()
+			{
+				Order = 4,
+				Area = "CHARA",
 				Field = "NAME",
+			},
+			new ListColumn()
+			{
+				Order = 5,
+				Area = "CHARA",
+				Field = "ACTORNAME",
 			},
 		];
 	}

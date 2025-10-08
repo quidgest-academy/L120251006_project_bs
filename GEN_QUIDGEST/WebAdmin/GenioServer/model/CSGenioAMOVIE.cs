@@ -118,6 +118,17 @@ namespace CSGenio.business
 			info.RegisterFieldDB(Qfield);
 
 			//- - - - - - - - - - - - - - - - - - -
+			Qfield = new Field(info.Alias, "numberoflikes", FieldType.NUMERIC);
+			Qfield.FieldDescription = "";
+			Qfield.FieldSize =  9;
+			Qfield.MQueue = false;
+			Qfield.IntegerDigits = 9;
+			Qfield.CavDesignation = "";
+
+			Qfield.Dupmsg = "";
+			info.RegisterFieldDB(Qfield);
+
+			//- - - - - - - - - - - - - - - - - - -
 			Qfield = new Field(info.Alias, "zzstate", FieldType.INTEGER);
 			Qfield.FieldDescription = "Estado da ficha";
 			info.RegisterFieldDB(Qfield);
@@ -165,6 +176,10 @@ namespace CSGenio.business
 			 "createat"
 			};
 
+
+			info.RelatedSumFields = new string[] {
+			 "numberoflikes"
+			};
 
 
 
@@ -349,6 +364,17 @@ namespace CSGenio.business
 			set { insertNameValueField(FldDescription, value); }
 		}
 
+		/// <summary>Field : "" Tipo: "N" Formula: SR ""</summary>
+		public static FieldRef FldNumberoflikes { get { return m_fldNumberoflikes; } }
+		private static FieldRef m_fldNumberoflikes = new FieldRef("movie", "numberoflikes");
+
+		/// <summary>Field : "" Tipo: "N" Formula: SR ""</summary>
+		public decimal ValNumberoflikes
+		{
+			get { return (decimal)returnValueField(FldNumberoflikes); }
+			set { insertNameValueField(FldNumberoflikes, value); }
+		}
+
 		/// <summary>Field : "ZZSTATE" Type: "INT" Formula:  ""</summary>
 		public static FieldRef FldZzstate { get { return m_fldZzstate; } }
 		private static FieldRef m_fldZzstate = new FieldRef("movie", "zzstate");
@@ -446,7 +472,7 @@ namespace CSGenio.business
 
  
 
-        
+         
 
 	}
 }

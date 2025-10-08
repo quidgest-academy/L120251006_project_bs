@@ -792,91 +792,6 @@
 							filtersVisible: false,
 							allowColumnFilters: false,
 							allowColumnSort: true,
-							crudActions: [
-								{
-									id: 'show',
-									name: 'show',
-									title: computed(() => this.Resources.CONSULTAR57388),
-									icon: {
-										icon: 'view'
-									},
-									isInReadOnly: true,
-									params: {
-										action: vm.openFormAction,
-										type: 'form',
-										formName: 'F_COMMEN',
-										mode: 'SHOW',
-										isControlled: true
-									}
-								},
-								{
-									id: 'edit',
-									name: 'edit',
-									title: computed(() => this.Resources.EDITAR11616),
-									icon: {
-										icon: 'pencil'
-									},
-									isInReadOnly: false,
-									params: {
-										action: vm.openFormAction,
-										type: 'form',
-										formName: 'F_COMMEN',
-										mode: 'EDIT',
-										isControlled: true
-									}
-								},
-								{
-									id: 'duplicate',
-									name: 'duplicate',
-									title: computed(() => this.Resources.DUPLICAR09748),
-									icon: {
-										icon: 'duplicate'
-									},
-									isInReadOnly: false,
-									params: {
-										action: vm.openFormAction,
-										type: 'form',
-										formName: 'F_COMMEN',
-										mode: 'DUPLICATE',
-										isControlled: true
-									}
-								},
-								{
-									id: 'delete',
-									name: 'delete',
-									title: computed(() => this.Resources.ELIMINAR21155),
-									icon: {
-										icon: 'delete'
-									},
-									isInReadOnly: false,
-									params: {
-										action: vm.openFormAction,
-										type: 'form',
-										formName: 'F_COMMEN',
-										mode: 'DELETE',
-										isControlled: true
-									}
-								}
-							],
-							generalActions: [
-								{
-									id: 'insert',
-									name: 'insert',
-									title: computed(() => this.Resources.INSERIR43365),
-									icon: {
-										icon: 'add'
-									},
-									isInReadOnly: false,
-									params: {
-										action: vm.openFormAction,
-										type: 'form',
-										formName: 'F_COMMEN',
-										mode: 'NEW',
-										repeatInsertion: false,
-										isControlled: true
-									}
-								},
-							],
 							generalCustomActions: [
 							],
 							groupActions: [
@@ -886,24 +801,8 @@
 							MCActions: [
 							],
 							rowClickAction: {
-								id: 'RCA__F_COMMEN',
-								name: '_F_COMMEN',
-								title: '',
-								isInReadOnly: true,
-								params: {
-									isRoute: true,
-									action: vm.openFormAction,
-									type: 'form',
-									formName: 'F_COMMEN',
-									mode: 'SHOW',
-									isControlled: true
-								}
 							},
 							formsDefinition: {
-								'F_COMMEN': {
-									fnKeySelector: (row) => row.Fields.ValCodcomme,
-									isPopup: false
-								},
 							},
 							defaultSearchColumnName: 'Movie.ValTitle',
 							defaultSearchColumnNameOriginal: 'Movie.ValTitle',

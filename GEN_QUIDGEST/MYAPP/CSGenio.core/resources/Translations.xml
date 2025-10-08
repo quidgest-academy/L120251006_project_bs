@@ -33,6 +33,9 @@
   <msg id="Photo" code="PHOTO51874">
     <ENUS>Photo</ENUS>
   </msg>
+  <msg id="Fav Movies" code="FAV_MOVIES00898">
+    <ENUS>Fav Movies</ENUS>
+  </msg>
   <msg id="Cc" code="CC35482">
     <ENUS>Cc</ENUS>
   </msg>
