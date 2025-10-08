@@ -8,6 +8,11 @@ namespace quidgest.uitests.pages.forms;
 public class F_characForm : Form
 {
 	/// <summary>
+	/// Photo
+	/// </summary>
+	public BaseInputControl CharaPhoto => new BaseInputControl(driver, ContainerLocator, "container-F_CHARACCHARAPHOTO___", "#F_CHARACCHARAPHOTO___");
+
+	/// <summary>
 	/// Name
 	/// </summary>
 	public BaseInputControl CharaName => new BaseInputControl(driver, ContainerLocator, "container-F_CHARACCHARANAME____", "#F_CHARACCHARANAME____");

@@ -72,6 +72,14 @@ namespace GenioMVC.Models
 			set { _movie = value; }
 		}
 
+		[DisplayName("Photo")]
+		/// <summary>Field : "Photo" Tipo: "IJ" Formula:  ""</summary>
+		[ShouldSerialize("Chara.ValPhoto")]
+		[ImageThumbnailJsonConverter(75, 75)]
+		public ImageModel ValPhoto { get { return new ImageModel(klass.ValPhoto) { Ticket = ValPhotoQTicket }; } set { klass.ValPhoto = value; } }
+		[JsonIgnore]
+		public string ValPhotoQTicket = null;
+
 		[DisplayName("ZZSTATE")]
 		[ShouldSerialize("Chara.ValZzstate")]
 		/// <summary>Field: "ZZSTATE", Type: "INT", Formula: ""</summary>

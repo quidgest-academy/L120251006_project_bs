@@ -107,6 +107,16 @@ namespace CSGenio.business
 			info.RegisterFieldDB(Qfield);
 
 			//- - - - - - - - - - - - - - - - - - -
+			Qfield = new Field(info.Alias, "photo", FieldType.IMAGE);
+			Qfield.FieldDescription = "Photo";
+			Qfield.FieldSize =  3;
+			Qfield.MQueue = false;
+			Qfield.CavDesignation = "PHOTO51874";
+
+			Qfield.Dupmsg = "";
+			info.RegisterFieldDB(Qfield);
+
+			//- - - - - - - - - - - - - - - - - - -
 			Qfield = new Field(info.Alias, "zzstate", FieldType.INTEGER);
 			Qfield.FieldDescription = "Estado da ficha";
 			info.RegisterFieldDB(Qfield);
@@ -325,6 +335,17 @@ namespace CSGenio.business
 			set { insertNameValueField(FldMovieid, value); }
 		}
 
+		/// <summary>Field : "Photo" Tipo: "IJ" Formula:  ""</summary>
+		public static FieldRef FldPhoto { get { return m_fldPhoto; } }
+		private static FieldRef m_fldPhoto = new FieldRef("chara", "photo");
+
+		/// <summary>Field : "Photo" Tipo: "IJ" Formula:  ""</summary>
+		public byte[] ValPhoto
+		{
+			get { return (byte[])returnValueField(FldPhoto); }
+			set { insertNameValueField(FldPhoto, value); }
+		}
+
 		/// <summary>Field : "ZZSTATE" Type: "INT" Formula:  ""</summary>
 		public static FieldRef FldZzstate { get { return m_fldZzstate; } }
 		private static FieldRef m_fldZzstate = new FieldRef("chara", "zzstate");
@@ -422,7 +443,7 @@ namespace CSGenio.business
 
  
 
-       
+        
 
 	}
 }

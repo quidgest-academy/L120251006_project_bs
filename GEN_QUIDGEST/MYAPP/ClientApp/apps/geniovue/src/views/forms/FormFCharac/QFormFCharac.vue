@@ -91,6 +91,25 @@
 			data-key="F_CHARAC"
 			:data-loading="!formInitialDataLoaded">
 			<template v-if="formControl.initialized && showFormBody">
+				<q-row-container v-if="controls.F_CHARACCHARAPHOTO___.isVisible">
+					<q-control-wrapper
+						v-if="controls.F_CHARACCHARAPHOTO___.isVisible"
+						class="control-join-group">
+						<base-input-structure
+							v-if="controls.F_CHARACCHARAPHOTO___.isVisible"
+							class="q-image"
+							v-bind="controls.F_CHARACCHARAPHOTO___"
+							v-on="controls.F_CHARACCHARAPHOTO___.handlers"
+							:loading="controls.F_CHARACCHARAPHOTO___.props.loading"
+							:reporting-mode-on="reportingModeCAV"
+							:suggestion-mode-on="suggestionModeOn">
+							<q-image
+								v-if="controls.F_CHARACCHARAPHOTO___.isVisible"
+								v-bind="controls.F_CHARACCHARAPHOTO___.props"
+								v-on="controls.F_CHARACCHARAPHOTO___.handlers" />
+						</base-input-structure>
+					</q-control-wrapper>
+				</q-row-container>
 				<q-row-container v-if="controls.F_CHARACCHARANAME____.isVisible || controls.F_CHARACCHARAACTORNAM.isVisible || controls.F_CHARACCHARACREATEAT.isVisible">
 					<q-control-wrapper
 						v-if="controls.F_CHARACCHARANAME____.isVisible"
@@ -537,6 +556,23 @@
 				},
 
 				controls: {
+					F_CHARACCHARAPHOTO___: new fieldControlClass.ImageControl({
+						modelField: 'ValPhoto',
+						valueChangeEvent: 'fieldChange:chara.photo',
+						id: 'F_CHARACCHARAPHOTO___',
+						name: 'PHOTO',
+						size: 'mini',
+						label: computed(() => this.Resources.PHOTO51874),
+						placeholder: '',
+						labelPosition: computed(() => this.labelAlignment.topleft),
+						height: 0,
+						width: 30,
+						dataTitle: computed(() => genericFunctions.formatString(vm.Resources.IMAGEM_UTILIZADA_PAR17299, vm.Resources.PHOTO51874)),
+						maxFileSize: 10485760, // In bytes.
+						maxFileSizeLabel: '10 MB',
+						controlLimits: [
+						],
+					}, this),
 					F_CHARACCHARANAME____: new fieldControlClass.StringControl({
 						modelField: 'ValName',
 						valueChangeEvent: 'fieldChange:chara.name',
@@ -654,6 +690,8 @@
 						set ValMovieid(value) { vm.model.ValMovieid.updateValue(value) },
 						get ValName() { return vm.model.ValName.value },
 						set ValName(value) { vm.model.ValName.updateValue(value) },
+						get ValPhoto() { return vm.model.ValPhoto.value },
+						set ValPhoto(value) { vm.model.ValPhoto.updateValue(value) },
 					},
 					Movie: {
 						get ValTitle() { return vm.model.TableMovieTitle.value },

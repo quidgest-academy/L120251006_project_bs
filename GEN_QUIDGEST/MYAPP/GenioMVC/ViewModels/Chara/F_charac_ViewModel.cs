@@ -37,6 +37,11 @@ namespace GenioMVC.ViewModels.Chara
 
 		#endregion
 		/// <summary>
+		/// Title: "Photo" | Type: "IJ"
+		/// </summary>
+		[ImageThumbnailJsonConverter(30, 0)]
+		public GenioMVC.Models.ImageModel ValPhoto { get; set; }
+		/// <summary>
 		/// Title: "Name" | Type: "C"
 		/// </summary>
 		public string ValName { get; set; }
@@ -196,6 +201,7 @@ namespace GenioMVC.ViewModels.Chara
 			try
 			{
 				ValMovieid = ViewModelConversion.ToString(m.ValMovieid);
+				ValPhoto = ViewModelConversion.ToImage(m.ValPhoto);
 				ValName = ViewModelConversion.ToString(m.ValName);
 				ValActorname = ViewModelConversion.ToString(m.ValActorname);
 				ValCreateat = ViewModelConversion.ToDateTime(m.ValCreateat);
@@ -227,6 +233,8 @@ namespace GenioMVC.ViewModels.Chara
 			try
 			{
 				m.ValMovieid = ViewModelConversion.ToString(ValMovieid);
+				if (ValPhoto == null || !ValPhoto.IsThumbnail)
+					m.ValPhoto = ViewModelConversion.ToImage(ValPhoto);
 				m.ValName = ViewModelConversion.ToString(ValName);
 				m.ValActorname = ViewModelConversion.ToString(ValActorname);
 				m.ValCreateat = ViewModelConversion.ToDateTime(ValCreateat);
@@ -258,6 +266,9 @@ namespace GenioMVC.ViewModels.Chara
 				{
 					case "chara.movieid":
 						this.ValMovieid = ViewModelConversion.ToString(_value);
+						break;
+					case "chara.photo":
+						this.ValPhoto = ViewModelConversion.ToImage(_value);
 						break;
 					case "chara.name":
 						this.ValName = ViewModelConversion.ToString(_value);
@@ -630,6 +641,7 @@ namespace GenioMVC.ViewModels.Chara
 			return identifier switch
 			{
 				"chara.movieid" => ViewModelConversion.ToString(modelValue),
+				"chara.photo" => ViewModelConversion.ToImage(modelValue),
 				"chara.name" => ViewModelConversion.ToString(modelValue),
 				"chara.actorname" => ViewModelConversion.ToString(modelValue),
 				"chara.createat" => ViewModelConversion.ToDateTime(modelValue),
@@ -639,6 +651,13 @@ namespace GenioMVC.ViewModels.Chara
 				"movie.title" => ViewModelConversion.ToString(modelValue),
 				_ => modelValue
 			};
+		}
+
+		/// <inheritdoc/>
+		protected override void SetTicketToImageFields()
+		{
+			if (ValPhoto != null)
+				ValPhoto.Ticket = Helpers.Helpers.GetFileTicket(m_userContext.User, CSGenio.business.Area.AreaCHARA, CSGenioAchara.FldPhoto.Field, null, ValCodchara);
 		}
 
 		#region Charts
