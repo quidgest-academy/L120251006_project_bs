@@ -110,63 +110,6 @@
 						</base-input-structure>
 					</q-control-wrapper>
 				</q-row-container>
-				<q-row-container v-if="controls.F_MOVIESMOVIETITLE___.isVisible || controls.F_MOVIESMOVIERELDATE_.isVisible || controls.F_MOVIESMOVIECREATEAT.isVisible">
-					<q-control-wrapper
-						v-if="controls.F_MOVIESMOVIETITLE___.isVisible"
-						class="control-join-group">
-						<base-input-structure
-							v-if="controls.F_MOVIESMOVIETITLE___.isVisible"
-							class="i-text"
-							v-bind="controls.F_MOVIESMOVIETITLE___"
-							v-on="controls.F_MOVIESMOVIETITLE___.handlers"
-							:loading="controls.F_MOVIESMOVIETITLE___.props.loading"
-							:reporting-mode-on="reportingModeCAV"
-							:suggestion-mode-on="suggestionModeOn">
-							<q-text-field
-								v-bind="controls.F_MOVIESMOVIETITLE___.props"
-								@blur="onBlur(controls.F_MOVIESMOVIETITLE___, model.ValTitle.value)"
-								@change="model.ValTitle.fnUpdateValueOnChange" />
-						</base-input-structure>
-					</q-control-wrapper>
-					<q-control-wrapper
-						v-if="controls.F_MOVIESMOVIERELDATE_.isVisible"
-						class="control-join-group">
-						<base-input-structure
-							v-if="controls.F_MOVIESMOVIERELDATE_.isVisible"
-							class="i-text"
-							v-bind="controls.F_MOVIESMOVIERELDATE_"
-							v-on="controls.F_MOVIESMOVIERELDATE_.handlers"
-							:loading="controls.F_MOVIESMOVIERELDATE_.props.loading"
-							:reporting-mode-on="reportingModeCAV"
-							:suggestion-mode-on="suggestionModeOn">
-							<q-date-time-picker
-								v-if="controls.F_MOVIESMOVIERELDATE_.isVisible"
-								v-bind="controls.F_MOVIESMOVIERELDATE_.props"
-								:model-value="model.ValRealease_date.value"
-								@reset-icon-click="model.ValRealease_date.fnUpdateValue(model.ValRealease_date.originalValue ?? new Date())"
-								@update:model-value="model.ValRealease_date.fnUpdateValue($event ?? '')" />
-						</base-input-structure>
-					</q-control-wrapper>
-					<q-control-wrapper
-						v-if="controls.F_MOVIESMOVIECREATEAT.isVisible"
-						class="control-join-group">
-						<base-input-structure
-							v-if="controls.F_MOVIESMOVIECREATEAT.isVisible"
-							class="i-text"
-							v-bind="controls.F_MOVIESMOVIECREATEAT"
-							v-on="controls.F_MOVIESMOVIECREATEAT.handlers"
-							:loading="controls.F_MOVIESMOVIECREATEAT.props.loading"
-							:reporting-mode-on="reportingModeCAV"
-							:suggestion-mode-on="suggestionModeOn">
-							<q-date-time-picker
-								v-if="controls.F_MOVIESMOVIECREATEAT.isVisible"
-								v-bind="controls.F_MOVIESMOVIECREATEAT.props"
-								:model-value="model.ValCreateat.value"
-								@reset-icon-click="model.ValCreateat.fnUpdateValue(model.ValCreateat.originalValue ?? new Date())"
-								@update:model-value="model.ValCreateat.fnUpdateValue($event ?? '')" />
-						</base-input-structure>
-					</q-control-wrapper>
-				</q-row-container>
 				<q-row-container v-if="controls.F_MOVIESMOVIEMOVIEGEN.isVisible">
 					<q-control-wrapper
 						v-if="controls.F_MOVIESMOVIEMOVIEGEN.isVisible"
@@ -193,6 +136,46 @@
 						</base-input-structure>
 					</q-control-wrapper>
 				</q-row-container>
+				<q-row-container v-if="controls.F_MOVIESMOVIETITLE___.isVisible">
+					<q-control-wrapper
+						v-if="controls.F_MOVIESMOVIETITLE___.isVisible"
+						class="control-join-group">
+						<base-input-structure
+							v-if="controls.F_MOVIESMOVIETITLE___.isVisible"
+							class="i-text"
+							v-bind="controls.F_MOVIESMOVIETITLE___"
+							v-on="controls.F_MOVIESMOVIETITLE___.handlers"
+							:loading="controls.F_MOVIESMOVIETITLE___.props.loading"
+							:reporting-mode-on="reportingModeCAV"
+							:suggestion-mode-on="suggestionModeOn">
+							<q-text-field
+								v-bind="controls.F_MOVIESMOVIETITLE___.props"
+								@blur="onBlur(controls.F_MOVIESMOVIETITLE___, model.ValTitle.value)"
+								@change="model.ValTitle.fnUpdateValueOnChange" />
+						</base-input-structure>
+					</q-control-wrapper>
+				</q-row-container>
+				<q-row-container v-if="controls.F_MOVIESMOVIERELDATE_.isVisible">
+					<q-control-wrapper
+						v-if="controls.F_MOVIESMOVIERELDATE_.isVisible"
+						class="control-join-group">
+						<base-input-structure
+							v-if="controls.F_MOVIESMOVIERELDATE_.isVisible"
+							class="i-text"
+							v-bind="controls.F_MOVIESMOVIERELDATE_"
+							v-on="controls.F_MOVIESMOVIERELDATE_.handlers"
+							:loading="controls.F_MOVIESMOVIERELDATE_.props.loading"
+							:reporting-mode-on="reportingModeCAV"
+							:suggestion-mode-on="suggestionModeOn">
+							<q-date-time-picker
+								v-if="controls.F_MOVIESMOVIERELDATE_.isVisible"
+								v-bind="controls.F_MOVIESMOVIERELDATE_.props"
+								:model-value="model.ValRealease_date.value"
+								@reset-icon-click="model.ValRealease_date.fnUpdateValue(model.ValRealease_date.originalValue ?? new Date())"
+								@update:model-value="model.ValRealease_date.fnUpdateValue($event ?? '')" />
+						</base-input-structure>
+					</q-control-wrapper>
+				</q-row-container>
 				<q-row-container v-if="controls.F_MOVIESMOVIEDISCRIPT.isVisible">
 					<q-control-wrapper
 						v-if="controls.F_MOVIESMOVIEDISCRIPT.isVisible"
@@ -210,6 +193,42 @@
 								v-bind="controls.F_MOVIESMOVIEDISCRIPT.props"
 								v-on="controls.F_MOVIESMOVIEDISCRIPT.handlers" />
 						</base-input-structure>
+					</q-control-wrapper>
+				</q-row-container>
+				<q-row-container v-if="controls.F_MOVIESMOVIECREATEAT.isVisible">
+					<q-control-wrapper
+						v-if="controls.F_MOVIESMOVIECREATEAT.isVisible"
+						class="control-join-group">
+						<base-input-structure
+							v-if="controls.F_MOVIESMOVIECREATEAT.isVisible"
+							class="i-text"
+							v-bind="controls.F_MOVIESMOVIECREATEAT"
+							v-on="controls.F_MOVIESMOVIECREATEAT.handlers"
+							:loading="controls.F_MOVIESMOVIECREATEAT.props.loading"
+							:reporting-mode-on="reportingModeCAV"
+							:suggestion-mode-on="suggestionModeOn">
+							<q-date-time-picker
+								v-if="controls.F_MOVIESMOVIECREATEAT.isVisible"
+								v-bind="controls.F_MOVIESMOVIECREATEAT.props"
+								:model-value="model.ValCreateat.value"
+								@reset-icon-click="model.ValCreateat.fnUpdateValue(model.ValCreateat.originalValue ?? new Date())"
+								@update:model-value="model.ValCreateat.fnUpdateValue($event ?? '')" />
+						</base-input-structure>
+					</q-control-wrapper>
+				</q-row-container>
+				<q-row-container v-if="controls.F_MOVIESPSEUDDATACOME.isVisible">
+					<q-control-wrapper
+						v-if="controls.F_MOVIESPSEUDDATACOME.isVisible"
+						class="control-join-group">
+						<q-table
+							v-if="controls.F_MOVIESPSEUDDATACOME.isVisible"
+							v-bind="controls.F_MOVIESPSEUDDATACOME"
+							v-on="controls.F_MOVIESPSEUDDATACOME.handlers" />
+						<q-table-extra-extension
+							v-if="controls.F_MOVIESPSEUDDATACOME.isVisible"
+							:list-ctrl="controls.F_MOVIESPSEUDDATACOME"
+							:filter-operators="controls.F_MOVIESPSEUDDATACOME.filterOperators"
+							v-on="controls.F_MOVIESPSEUDDATACOME.handlers" />
 					</q-control-wrapper>
 				</q-row-container>
 			</template>
@@ -570,6 +589,21 @@
 						controlLimits: [
 						],
 					}, this),
+					F_MOVIESMOVIEMOVIEGEN: new fieldControlClass.RadioGroupControl({
+						modelField: 'ValMoviesgenre',
+						valueChangeEvent: 'fieldChange:movie.moviesgenre',
+						id: 'F_MOVIESMOVIEMOVIEGEN',
+						name: 'MOVIEGEN',
+						label: computed(() => this.Resources.MOVIES_GENRE22042),
+						placeholder: '',
+						labelPosition: computed(() => this.labelAlignment.topleft),
+						maxLength: 15,
+						labelId: 'label_F_MOVIESMOVIEMOVIEGEN',
+						arrayName: 'MOVIEGENRE',
+						columns: 0,
+						controlLimits: [
+						],
+					}, this),
 					F_MOVIESMOVIETITLE___: new fieldControlClass.StringControl({
 						modelField: 'ValTitle',
 						valueChangeEvent: 'fieldChange:movie.title',
@@ -597,6 +631,20 @@
 						controlLimits: [
 						],
 					}, this),
+					F_MOVIESMOVIEDISCRIPT: new fieldControlClass.MultilineStringControl({
+						modelField: 'ValDescription',
+						valueChangeEvent: 'fieldChange:movie.description',
+						id: 'F_MOVIESMOVIEDISCRIPT',
+						name: 'DISCRIPT',
+						size: 'xxlarge',
+						label: computed(() => this.Resources.DISCRIPTION02169),
+						placeholder: '',
+						labelPosition: computed(() => this.labelAlignment.topleft),
+						rows: 3,
+						cols: 200,
+						controlLimits: [
+						],
+					}, this),
 					F_MOVIESMOVIECREATEAT: new fieldControlClass.DateControl({
 						modelField: 'ValCreateat',
 						valueChangeEvent: 'fieldChange:movie.createat',
@@ -610,33 +658,205 @@
 						controlLimits: [
 						],
 					}, this),
-					F_MOVIESMOVIEMOVIEGEN: new fieldControlClass.RadioGroupControl({
-						modelField: 'ValMoviesgenre',
-						valueChangeEvent: 'fieldChange:movie.moviesgenre',
-						id: 'F_MOVIESMOVIEMOVIEGEN',
-						name: 'MOVIEGEN',
-						label: computed(() => this.Resources.MOVIES_GENRE22042),
+					F_MOVIESPSEUDDATACOME: new fieldControlClass.TableListControl({
+						id: 'F_MOVIESPSEUDDATACOME',
+						name: 'DATACOME',
+						size: '',
+						label: computed(() => this.Resources.COMMENTS30895),
 						placeholder: '',
 						labelPosition: computed(() => this.labelAlignment.topleft),
-						maxLength: 15,
-						labelId: 'label_F_MOVIESMOVIEMOVIEGEN',
-						arrayName: 'MOVIEGENRE',
-						columns: 0,
-						controlLimits: [
+						controller: 'MOVIE',
+						action: 'F_movies_ValDatacome',
+						hasDependencies: false,
+						isInCollapsible: false,
+						columnsOriginal: [
+							new listColumnTypes.TextColumn({
+								order: 1,
+								name: 'ValPost',
+								area: 'COMME',
+								field: 'POST',
+								label: computed(() => this.Resources.POST24992),
+								scrollData: 30,
+							}, computed(() => vm.model), computed(() => vm.internalEvents)),
+							new listColumnTypes.TextColumn({
+								order: 2,
+								name: 'Userp.ValName',
+								area: 'USERP',
+								field: 'NAME',
+								label: computed(() => this.Resources.NAME31974),
+								dataLength: 50,
+								scrollData: 30,
+								pkColumn: 'ValCoduserp',
+							}, computed(() => vm.model), computed(() => vm.internalEvents)),
+							new listColumnTypes.DateColumn({
+								order: 3,
+								name: 'ValCreateat',
+								area: 'COMME',
+								field: 'CREATEAT',
+								label: computed(() => this.Resources.CREATE_AT36393),
+								scrollData: 8,
+								dateTimeType: 'date',
+							}, computed(() => vm.model), computed(() => vm.internalEvents)),
+							new listColumnTypes.TextColumn({
+								order: 4,
+								name: 'Movie.ValTitle',
+								area: 'MOVIE',
+								field: 'TITLE',
+								label: computed(() => this.Resources.TITLE21885),
+								dataLength: 80,
+								scrollData: 30,
+								pkColumn: 'ValCodmovie',
+							}, computed(() => vm.model), computed(() => vm.internalEvents)),
 						],
-					}, this),
-					F_MOVIESMOVIEDISCRIPT: new fieldControlClass.MultilineStringControl({
-						modelField: 'ValDescription',
-						valueChangeEvent: 'fieldChange:movie.description',
-						id: 'F_MOVIESMOVIEDISCRIPT',
-						name: 'DISCRIPT',
-						size: 'xxlarge',
-						label: computed(() => this.Resources.DISCRIPTION02169),
-						placeholder: '',
-						labelPosition: computed(() => this.labelAlignment.topleft),
-						rows: 3,
-						cols: 200,
+						config: {
+							name: 'ValDatacome',
+							serverMode: true,
+							pkColumn: 'ValCodcomme',
+							tableAlias: 'COMME',
+							tableNamePlural: computed(() => this.Resources.COMMENTS30895),
+							viewManagement: '',
+							showLimitsInfo: true,
+							tableTitle: computed(() => this.Resources.COMMENTS30895),
+							showAlternatePagination: true,
+							permissions: {
+							},
+							searchBarConfig: {
+								visibility: false,
+								searchOnPressEnter: true
+							},
+							filtersVisible: false,
+							allowColumnFilters: false,
+							allowColumnSort: true,
+							crudActions: [
+								{
+									id: 'show',
+									name: 'show',
+									title: computed(() => this.Resources.CONSULTAR57388),
+									icon: {
+										icon: 'view'
+									},
+									isInReadOnly: true,
+									params: {
+										action: vm.openFormAction,
+										type: 'form',
+										formName: 'F_COMMEN',
+										mode: 'SHOW',
+										isControlled: true
+									}
+								},
+								{
+									id: 'edit',
+									name: 'edit',
+									title: computed(() => this.Resources.EDITAR11616),
+									icon: {
+										icon: 'pencil'
+									},
+									isInReadOnly: false,
+									params: {
+										action: vm.openFormAction,
+										type: 'form',
+										formName: 'F_COMMEN',
+										mode: 'EDIT',
+										isControlled: true
+									}
+								},
+								{
+									id: 'duplicate',
+									name: 'duplicate',
+									title: computed(() => this.Resources.DUPLICAR09748),
+									icon: {
+										icon: 'duplicate'
+									},
+									isInReadOnly: false,
+									params: {
+										action: vm.openFormAction,
+										type: 'form',
+										formName: 'F_COMMEN',
+										mode: 'DUPLICATE',
+										isControlled: true
+									}
+								},
+								{
+									id: 'delete',
+									name: 'delete',
+									title: computed(() => this.Resources.ELIMINAR21155),
+									icon: {
+										icon: 'delete'
+									},
+									isInReadOnly: false,
+									params: {
+										action: vm.openFormAction,
+										type: 'form',
+										formName: 'F_COMMEN',
+										mode: 'DELETE',
+										isControlled: true
+									}
+								}
+							],
+							generalActions: [
+								{
+									id: 'insert',
+									name: 'insert',
+									title: computed(() => this.Resources.INSERIR43365),
+									icon: {
+										icon: 'add'
+									},
+									isInReadOnly: false,
+									params: {
+										action: vm.openFormAction,
+										type: 'form',
+										formName: 'F_COMMEN',
+										mode: 'NEW',
+										repeatInsertion: false,
+										isControlled: true
+									}
+								},
+							],
+							generalCustomActions: [
+							],
+							groupActions: [
+							],
+							customActions: [
+							],
+							MCActions: [
+							],
+							rowClickAction: {
+								id: 'RCA__F_COMMEN',
+								name: '_F_COMMEN',
+								title: '',
+								isInReadOnly: true,
+								params: {
+									isRoute: true,
+									action: vm.openFormAction,
+									type: 'form',
+									formName: 'F_COMMEN',
+									mode: 'SHOW',
+									isControlled: true
+								}
+							},
+							formsDefinition: {
+								'F_COMMEN': {
+									fnKeySelector: (row) => row.Fields.ValCodcomme,
+									isPopup: false
+								},
+							},
+							defaultSearchColumnName: 'Movie.ValTitle',
+							defaultSearchColumnNameOriginal: 'Movie.ValTitle',
+							defaultColumnSorting: {
+								columnName: '',
+								sortOrder: 'asc'
+							}
+						},
+						globalEvents: ['changed-COMME', 'changed-USERP', 'changed-MOVIE'],
+						uuid: 'F_movies_ValDatacome',
+						allSelectedRows: 'false',
 						controlLimits: [
+							{
+								identifier: ['id', 'movie'],
+								dependencyEvents: ['fieldChange:movie.codmovie'],
+								dependencyField: 'MOVIE.CODMOVIE',
+								fnValueSelector: (model) => model.ValCodmovie.value
+							},
 						],
 					}, this),
 				},
@@ -652,6 +872,7 @@
 				]),
 
 				tableFields: readonly([
+					'F_MOVIESPSEUDDATACOME',
 				]),
 
 				timelineFields: readonly([

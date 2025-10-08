@@ -38,18 +38,6 @@ namespace GenioMVC.ViewModels.Movie
 		[ImageThumbnailJsonConverter(30, 50)]
 		public GenioMVC.Models.ImageModel ValPoster { get; set; }
 		/// <summary>
-		/// Title: "Title" | Type: "C"
-		/// </summary>
-		public string ValTitle { get; set; }
-		/// <summary>
-		/// Title: "Realease date" | Type: "D"
-		/// </summary>
-		public DateTime? ValRealease_date { get; set; }
-		/// <summary>
-		/// Title: "Create at" | Type: "D"
-		/// </summary>
-		public DateTime? ValCreateat { get; set; }
-		/// <summary>
 		/// Title: "Movies Genre" | Type: "AC"
 		/// </summary>
 		public string ValMoviesgenre { get; set; }
@@ -59,9 +47,21 @@ namespace GenioMVC.ViewModels.Movie
 		[JsonIgnore]
 		public SelectList List_ValMoviesgenre { get; set; }
 		/// <summary>
+		/// Title: "Title" | Type: "C"
+		/// </summary>
+		public string ValTitle { get; set; }
+		/// <summary>
+		/// Title: "Realease date" | Type: "D"
+		/// </summary>
+		public DateTime? ValRealease_date { get; set; }
+		/// <summary>
 		/// Title: "Discription" | Type: "MO"
 		/// </summary>
 		public string ValDescription { get; set; }
+		/// <summary>
+		/// Title: "Create at" | Type: "D"
+		/// </summary>
+		public DateTime? ValCreateat { get; set; }
 
 
 
@@ -196,11 +196,11 @@ namespace GenioMVC.ViewModels.Movie
 			try
 			{
 				ValPoster = ViewModelConversion.ToImage(m.ValPoster);
+				ValMoviesgenre = ViewModelConversion.ToString(m.ValMoviesgenre);
 				ValTitle = ViewModelConversion.ToString(m.ValTitle);
 				ValRealease_date = ViewModelConversion.ToDateTime(m.ValRealease_date);
-				ValCreateat = ViewModelConversion.ToDateTime(m.ValCreateat);
-				ValMoviesgenre = ViewModelConversion.ToString(m.ValMoviesgenre);
 				ValDescription = ViewModelConversion.ToString(m.ValDescription);
+				ValCreateat = ViewModelConversion.ToDateTime(m.ValCreateat);
 				ValCodmovie = ViewModelConversion.ToString(m.ValCodmovie);
 			}
 			catch (Exception)
@@ -229,11 +229,11 @@ namespace GenioMVC.ViewModels.Movie
 			{
 				if (ValPoster == null || !ValPoster.IsThumbnail)
 					m.ValPoster = ViewModelConversion.ToImage(ValPoster);
+				m.ValMoviesgenre = ViewModelConversion.ToString(ValMoviesgenre);
 				m.ValTitle = ViewModelConversion.ToString(ValTitle);
 				m.ValRealease_date = ViewModelConversion.ToDateTime(ValRealease_date);
-				m.ValCreateat = ViewModelConversion.ToDateTime(ValCreateat);
-				m.ValMoviesgenre = ViewModelConversion.ToString(ValMoviesgenre);
 				m.ValDescription = ViewModelConversion.ToString(ValDescription);
+				m.ValCreateat = ViewModelConversion.ToDateTime(ValCreateat);
 				m.ValCodmovie = ViewModelConversion.ToString(ValCodmovie);
 			}
 			catch (Exception)
@@ -262,20 +262,20 @@ namespace GenioMVC.ViewModels.Movie
 					case "movie.poster":
 						this.ValPoster = ViewModelConversion.ToImage(_value);
 						break;
+					case "movie.moviesgenre":
+						this.ValMoviesgenre = ViewModelConversion.ToString(_value);
+						break;
 					case "movie.title":
 						this.ValTitle = ViewModelConversion.ToString(_value);
 						break;
 					case "movie.realease_date":
 						this.ValRealease_date = ViewModelConversion.ToDateTime(_value);
 						break;
-					case "movie.createat":
-						this.ValCreateat = ViewModelConversion.ToDateTime(_value);
-						break;
-					case "movie.moviesgenre":
-						this.ValMoviesgenre = ViewModelConversion.ToString(_value);
-						break;
 					case "movie.description":
 						this.ValDescription = ViewModelConversion.ToString(_value);
+						break;
+					case "movie.createat":
+						this.ValCreateat = ViewModelConversion.ToDateTime(_value);
 						break;
 					case "movie.codmovie":
 						this.ValCodmovie = ViewModelConversion.ToString(_value);
@@ -444,11 +444,11 @@ namespace GenioMVC.ViewModels.Movie
 			return identifier switch
 			{
 				"movie.poster" => ViewModelConversion.ToImage(modelValue),
+				"movie.moviesgenre" => ViewModelConversion.ToString(modelValue),
 				"movie.title" => ViewModelConversion.ToString(modelValue),
 				"movie.realease_date" => ViewModelConversion.ToDateTime(modelValue),
-				"movie.createat" => ViewModelConversion.ToDateTime(modelValue),
-				"movie.moviesgenre" => ViewModelConversion.ToString(modelValue),
 				"movie.description" => ViewModelConversion.ToString(modelValue),
+				"movie.createat" => ViewModelConversion.ToDateTime(modelValue),
 				"movie.codmovie" => ViewModelConversion.ToString(modelValue),
 				_ => modelValue
 			};
