@@ -267,6 +267,9 @@
   <data name="PASSWORD_DATE16593" xml:space="preserve">
     <value>Password date</value>
   </data>
+  <data name="LIST_OF_FAVORITES05973" xml:space="preserve">
+    <value>List of Favorites</value>
+  </data>
   <data name="NAME31974" xml:space="preserve">
     <value>Name</value>
   </data>
@@ -296,6 +299,9 @@
   </data>
   <data name="NOTIFICATION_EMAIL_S37352" xml:space="preserve">
     <value>Notification Email Signatures</value>
+  </data>
+  <data name="LIST_OF_CHARACTERS34112" xml:space="preserve">
+    <value>List of Characters</value>
   </data>
   <data name="LOGBOOK00124" xml:space="preserve">
     <value>Logbook</value>
@@ -338,6 +344,9 @@
   </data>
   <data name="COMEDY64227" xml:space="preserve">
     <value>Comedy</value>
+  </data>
+  <data name="LIST_OF_COMMENTS08505" xml:space="preserve">
+    <value>List of Comments</value>
   </data>
   <data name="ROLES61449" xml:space="preserve">
     <value>Roles</value>

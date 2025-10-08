@@ -150,6 +150,9 @@
   <msg id="Password date" code="PASSWORD_DATE16593">
     <ENUS>Password date</ENUS>
   </msg>
+  <msg id="List of Favorites" code="LIST_OF_FAVORITES05973">
+    <ENUS>List of Favorites</ENUS>
+  </msg>
   <msg id="Name" code="NAME31974">
     <ENUS>Name</ENUS>
   </msg>
@@ -179,6 +182,9 @@
   </msg>
   <msg id="Notification Email Signatures" code="NOTIFICATION_EMAIL_S37352">
     <ENUS>Notification Email Signatures</ENUS>
+  </msg>
+  <msg id="List of Characters" code="LIST_OF_CHARACTERS34112">
+    <ENUS>List of Characters</ENUS>
   </msg>
   <msg id="Logbook" code="LOGBOOK00124">
     <ENUS>Logbook</ENUS>
@@ -221,6 +227,9 @@
   </msg>
   <msg id="Comedy" code="COMEDY64227">
     <ENUS>Comedy</ENUS>
+  </msg>
+  <msg id="List of Comments" code="LIST_OF_COMMENTS08505">
+    <ENUS>List of Comments</ENUS>
   </msg>
   <msg id="Roles" code="ROLES61449">
     <ENUS>Roles</ENUS>

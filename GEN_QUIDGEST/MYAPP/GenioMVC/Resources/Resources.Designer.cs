@@ -513,6 +513,15 @@ namespace GenioMVC.Resources
 		}
 
 		/// <summary>
+		///   Looks up a localized string similar to "List of Favorites"
+		/// </summary>
+		public static string LIST_OF_FAVORITES05973 {
+			get {
+				return ResourceManager.GetString("LIST_OF_FAVORITES05973", resourceCulture);
+			}
+		}
+
+		/// <summary>
 		///   Looks up a localized string similar to "Name"
 		/// </summary>
 		public static string NAME31974 {
@@ -599,6 +608,15 @@ namespace GenioMVC.Resources
 		public static string NOTIFICATION_EMAIL_S37352 {
 			get {
 				return ResourceManager.GetString("NOTIFICATION_EMAIL_S37352", resourceCulture);
+			}
+		}
+
+		/// <summary>
+		///   Looks up a localized string similar to "List of Characters"
+		/// </summary>
+		public static string LIST_OF_CHARACTERS34112 {
+			get {
+				return ResourceManager.GetString("LIST_OF_CHARACTERS34112", resourceCulture);
 			}
 		}
 
@@ -725,6 +743,15 @@ namespace GenioMVC.Resources
 		public static string COMEDY64227 {
 			get {
 				return ResourceManager.GetString("COMEDY64227", resourceCulture);
+			}
+		}
+
+		/// <summary>
+		///   Looks up a localized string similar to "List of Comments"
+		/// </summary>
+		public static string LIST_OF_COMMENTS08505 {
+			get {
+				return ResourceManager.GetString("LIST_OF_COMMENTS08505", resourceCulture);
 			}
 		}
 
