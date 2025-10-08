@@ -1,38 +1,24 @@
 ﻿<template>
-	<div
-		id="modules-title"
-		:class="[
-			{ 'modules-list-view': $app.layout.ModulesStyle === 'list' },
-			'n-sidebar__title'
-		]">
-		<q-icon icon="modules" />
+	<q-icon icon="modules" />
 
-		<p style="margin: 0">
-			{{ texts.modules }}
-		</p>
-	</div>
+	<span
+		v-if="!isEmpty(currentModuleTitle)"
+		:class="[
+			{ 'dropdown-toggle': Object.keys(system.availableModules).length > 1 },
+			'i-change-module-placeholder'
+		]">
+		{{ currentModuleTitle }}
+	</span>
 </template>
 
 <script>
-	import { computed } from 'vue'
-
-	import hardcodedTexts from '@/hardcodedTexts'
-	import LayoutHandlers from '@/mixins/layoutHandlers'
+	import LayoutHandlers from '@/mixins/layoutHandlers.js'
 
 	export default {
 		name: 'ModuleHeader',
 
 		mixins: [LayoutHandlers],
 
-		expose: [],
-
-		data()
-		{
-			return {
-				texts: {
-					modules: computed(() => this.Resources[hardcodedTexts.modules])
-				}
-			}
-		}
+		expose: []
 	}
 </script>

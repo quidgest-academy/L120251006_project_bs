@@ -1,6 +1,6 @@
 ﻿<template>
 	<div
-		:class="['layout-container', ...layoutClasses, ...customClasses]"
+		:class="[...layoutClasses, ...customClasses]"
 		:data-loading="loading">
 		<slot name="layout-loading-effect"></slot>
 
@@ -13,9 +13,7 @@
 			</span>
 		</div>
 
-		<div
-			v-if="showContent"
-			id="header-container">
+		<template v-if="showContent">
 <!-- eslint-disable indent, vue/html-indent, vue/script-indent -->
 <!-- USE /[MANUAL MOV LAYOUT_HEADER]/ -->
 <!-- eslint-disable-next-line -->
@@ -23,7 +21,7 @@
 			<navigational-bar :loading-menus="loadingMenus" />
 
 			<slot name="layout-header"></slot>
-		</div>
+		</template>
 
 <!-- eslint-disable indent, vue/html-indent, vue/script-indent -->
 <!-- USE /[MANUAL MOV LAYOUT_CONTENT]/ -->
@@ -34,8 +32,7 @@
 </template>
 
 <script>
-	import { computed } from 'vue'
-	import NavigationalBar from './NavigationalBar.vue'
+	import { defineAsyncComponent, computed } from 'vue'
 	import LayoutHandlers from '@/mixins/layoutHandlers.js'
 	import hardcodedTexts from '@/hardcodedTexts.js'
 
@@ -48,7 +45,7 @@
 		name: 'QLayout',
 
 		components: {
-			NavigationalBar
+			NavigationalBar: defineAsyncComponent(() => import('./NavigationalBar.vue'))
 		},
 
 		mixins: [
@@ -97,15 +94,27 @@
 
 		computed: {
 			/**
-			 * List of classes to control the behavior of the sidebar.
+			 * True if the layout content should be visible, false otherwise.
+			 */
+			showContent()
+			{
+				return !this.isFullScreenPage && (this.userIsLoggedIn || this.isPublicRoute || this.$app.layout.LoginStyle !== 'single_page')
+			},
+
+			/**
+			 * Classes used in the layout container.
 			 */
 			layoutClasses()
 			{
-				const classes = ['sidebar-mini', 'layout-fixed']
+				const classes = ['layout-container'];
 
 				if (!this.showContent)
 					classes.push('login-page')
 
+				if (this.rightSidebarIsCollapsed)
+					classes.push('right-sidebar-collapse')
+
+				//< Mobile
 				if (!this.sidebarIsVisible ||
 					this.isFullScreenPage ||
 					!this.userIsLoggedIn && !this.isPublicRoute && this.$app.layout.LoginStyle === 'single_page' ||
@@ -114,9 +123,7 @@
 
 				if (this.sidebarIsCollapsed)
 					classes.push('sidebar-collapse')
-
-				if (this.rightSidebarIsCollapsed)
-					classes.push('right-sidebar-collapse')
+				//> Mobile
 
 				if (this.maintenance.isScheduled || this.maintenance.isActive)
 					classes.push('maintenance')
@@ -124,32 +131,76 @@
 				return classes
 			},
 
-			/**
-			 * True if the layout content should be visible, false otherwise.
-			 */
-			showContent()
-			{
-				return !this.isFullScreenPage && (this.userIsLoggedIn || this.isPublicRoute || this.$app.layout.LoginStyle !== 'single_page')
-			},
-
 			maintenanceMessage() {
 				return this.maintenance.isScheduled ? this.texts.maintenanceScheduled : this.texts.maintenanceActive
 			},
 		},
 
+		methods: {
+			/**
+			 * Sets a custom text that appears in the header.
+			 */
+			async setCustomHeaderText()
+			{
+				let text
+
+/* eslint-disable indent, vue/html-indent, vue/script-indent */
+// USE /[MANUAL MOV LAYOUT_HEADER_TEXT]/
+// eslint-disable-next-line
+/* eslint-enable indent, vue/html-indent, vue/script-indent */
+
+				this.setHeaderText(text)
+			},
+
+			/**
+			 * Checks if the header text is ready to be shown.
+			 */
+			showHeaderText(userIsLoggedIn)
+			{
+				if (this.isEmpty(this.headerText) && this.$app.layout.MenuStyle === 'double_navbar' && userIsLoggedIn)
+					this.setCustomHeaderText()
+			},
+
+			/**
+			 * Collapse the mobile menu on bigger screen sizes.
+			 */
+			checkCollapseMobileMenu()
+			{
+				if(!this.mobileLayoutActive)
+				{
+					this.collapseSidebar()
+					this.setSidebarVisibility(false)
+				}
+			}
+		},
+
+		mounted() {
+			// Collapse mobile menu initially
+			this.collapseSidebar()
+
+			// Add resize handler to collapse mobile menu on bigger screen sizes
+			window.addEventListener("resize", this.checkCollapseMobileMenu)
+		},
+
+		unmounted() {
+			// Remove resize handler to collapse mobile menu on bigger screen sizes
+			window.removeEventListener("resize", this.checkCollapseMobileMenu)
+		},
+
 		watch: {
-			hasMenus: {
+			// If the user logged off and logged back in the custom text would disappear, this prevents that.
+			headerText: {
+				handler()
+				{
+					this.showHeaderText(this.userIsLoggedIn)
+				},
+				immediate: true
+			},
+
+			userIsLoggedIn: {
 				handler(val)
 				{
-					this.setHeaderHeight(50)
-
-					if (val)
-						this.expandSidebar()
-					else
-					{
-						this.setSidebarVisibility(false)
-						this.setSidebarCollapseState(true)
-					}
+					this.showHeaderText(val)
 				},
 				immediate: true
 			}
