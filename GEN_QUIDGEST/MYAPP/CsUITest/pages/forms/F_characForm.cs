@@ -25,7 +25,7 @@ public class F_characForm : Form
 	/// <summary>
 	/// Genre
 	/// </summary>
-	public IWebElement CharaGenre => throw new NotImplementedException();
+	public RadiobuttonControl CharaGenre => new RadiobuttonControl(driver, ContainerLocator, "container-F_CHARACCHARAGENRE___");
 
 	/// <summary>
 	/// Title

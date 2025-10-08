@@ -91,7 +91,7 @@
 			data-key="F_CHARAC"
 			:data-loading="!formInitialDataLoaded">
 			<template v-if="formControl.initialized && showFormBody">
-				<q-row-container v-if="controls.F_CHARACCHARANAME____.isVisible || controls.F_CHARACCHARAACTORNAM.isVisible || controls.F_CHARACCHARACREATEAT.isVisible || controls.F_CHARACCHARAGENRE___.isVisible || controls.F_CHARACMOVIETITLE___.isVisible">
+				<q-row-container v-if="controls.F_CHARACCHARANAME____.isVisible || controls.F_CHARACCHARAACTORNAM.isVisible || controls.F_CHARACCHARACREATEAT.isVisible">
 					<q-control-wrapper
 						v-if="controls.F_CHARACCHARANAME____.isVisible"
 						class="control-join-group">
@@ -145,24 +145,34 @@
 								@update:model-value="model.ValCreateat.fnUpdateValue($event ?? '')" />
 						</base-input-structure>
 					</q-control-wrapper>
+				</q-row-container>
+				<q-row-container v-if="controls.F_CHARACCHARAGENRE___.isVisible">
 					<q-control-wrapper
 						v-if="controls.F_CHARACCHARAGENRE___.isVisible"
 						class="control-join-group">
 						<base-input-structure
 							v-if="controls.F_CHARACCHARAGENRE___.isVisible"
-							class="i-text"
+							class="i-radio-container"
 							v-bind="controls.F_CHARACCHARAGENRE___"
 							v-on="controls.F_CHARACCHARAGENRE___.handlers"
+							:label-position="labelAlignment.topleft"
 							:loading="controls.F_CHARACCHARAGENRE___.props.loading"
 							:reporting-mode-on="reportingModeCAV"
 							:suggestion-mode-on="suggestionModeOn">
-							<q-combobox
+							<q-radio-group
 								v-if="controls.F_CHARACCHARAGENRE___.isVisible"
 								v-bind="controls.F_CHARACCHARAGENRE___.props"
-								:model-value="model.ValGenre.value"
-								@update:model-value="model.ValGenre.fnUpdateValue" />
+								v-on="controls.F_CHARACCHARAGENRE___.handlers">
+								<q-radio-button
+									v-for="radio in controls.F_CHARACCHARAGENRE___.items"
+									:key="radio.key"
+									:label="radio.value"
+									:value="radio.key" />
+							</q-radio-group>
 						</base-input-structure>
 					</q-control-wrapper>
+				</q-row-container>
+				<q-row-container v-if="controls.F_CHARACMOVIETITLE___.isVisible">
 					<q-control-wrapper
 						v-if="controls.F_CHARACMOVIETITLE___.isVisible"
 						class="control-join-group">
@@ -568,18 +578,18 @@
 						controlLimits: [
 						],
 					}, this),
-					F_CHARACCHARAGENRE___: new fieldControlClass.ArrayStringControl({
+					F_CHARACCHARAGENRE___: new fieldControlClass.RadioGroupControl({
 						modelField: 'ValGenre',
 						valueChangeEvent: 'fieldChange:chara.genre',
 						id: 'F_CHARACCHARAGENRE___',
 						name: 'GENRE',
-						size: 'mini',
 						label: computed(() => this.Resources.GENRE63303),
 						placeholder: '',
 						labelPosition: computed(() => this.labelAlignment.topleft),
+						maxLength: 1,
+						labelId: 'label_F_CHARACCHARAGENRE___',
 						arrayName: 'GENRE',
-						helpShortItem: 'None',
-						helpDetailedItem: 'None',
+						columns: 0,
 						controlLimits: [
 						],
 					}, this),

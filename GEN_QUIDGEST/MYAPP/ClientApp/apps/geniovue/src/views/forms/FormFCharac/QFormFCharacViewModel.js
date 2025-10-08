@@ -95,7 +95,6 @@ export default class ViewModel extends FormViewModelBase
 		this.stopWatchers.push(watch(() => this.ValCreateat.value, (newValue, oldValue) => this.onUpdate('chara.createat', this.ValCreateat, newValue, oldValue)))
 
 		this.ValGenre = reactive(new modelFieldType.String({
-			type: 'Combobox',
 			id: 'ValGenre',
 			originId: 'ValGenre',
 			area: 'CHARA',
