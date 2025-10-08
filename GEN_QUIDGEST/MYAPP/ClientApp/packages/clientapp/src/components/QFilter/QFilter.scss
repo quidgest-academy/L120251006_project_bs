@@ -1,0 +1,32 @@
+.q-filter {
+  padding-top: 0.25rem;
+  margin-right: 0.5rem;
+
+  &-checkbox {
+    --q-filter-checkbox-columns: 1;
+
+    &--group {
+      display: flex;
+      flex-direction: column;
+    }
+
+    &--horizontal {
+      flex-direction: row;
+      gap: 0.5rem;
+
+      > .q-checkbox {
+        gap: 0.25rem;
+      }
+    }
+
+    &--grid {
+      display: grid;
+      grid-template-columns: repeat(var(--q-filter-checkbox-columns), auto);
+      column-gap: 0.5rem;
+
+      > .q-checkbox {
+        gap: 0.25rem;
+      }
+    }
+  }
+}

@@ -1,0 +1,4 @@
+﻿<?xml version="1.0" encoding="utf-16"?>
+<ArrayOfMenuEntry xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <MenuEntry TYPE="ITEM" DESC="MY_APPLICATION56216" ID="MOV" IMG="" IMGVUE="" LVL="0" PREVIEW="false" SEPARATES="false" SUMMENU="false" HIDEMENUSUM="false" HASCONDITION="false" ISFORM="false" />
+</ArrayOfMenuEntry>
