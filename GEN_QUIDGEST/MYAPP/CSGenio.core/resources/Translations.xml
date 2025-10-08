@@ -354,6 +354,9 @@
   <msg id="Horário" code="HORARIO56549">
     <ENUS>Horário</ENUS>
   </msg>
+  <msg id="Comment" code="COMMENT01969">
+    <ENUS>Comment</ENUS>
+  </msg>
   <msg id="Subject" code="SUBJECT33942">
     <ENUS>Subject</ENUS>
   </msg>

@@ -1123,6 +1123,15 @@ namespace Administration.Resources {
         }
 
         /// <summary>
+        ///   Looks up a localized string similar to "Comment"
+        /// </summary>
+        public static string COMMENT01969 {
+            get {
+                return ResourceManager.GetString("COMMENT01969", resourceCulture);
+            }
+        }
+
+        /// <summary>
         ///   Looks up a localized string similar to "Subject"
         /// </summary>
         public static string SUBJECT33942 {

@@ -38,14 +38,19 @@ public class F_moviesForm : Form
 	public DateInputControl MovieCreateat => new DateInputControl(driver, ContainerLocator, "#F_MOVIESMOVIECREATEAT");
 
 	/// <summary>
+	/// Comments
+	/// </summary>
+	public ListControl PseudDatacome => new ListControl(driver, ContainerLocator, "#F_MOVIESPSEUDDATACOME");
+
+	/// <summary>
 	/// Like
 	/// </summary>
 	public ButtonControl PseudField001 => new ButtonControl(driver, ContainerLocator, "#F_MOVIESPSEUDFIELD001");
 
 	/// <summary>
-	/// Comments
+	/// Comment
 	/// </summary>
-	public ListControl PseudDatacome => new ListControl(driver, ContainerLocator, "#F_MOVIESPSEUDDATACOME");
+	public ButtonControl PseudField002 => new ButtonControl(driver, ContainerLocator, "#F_MOVIESPSEUDFIELD002");
 
 	public F_moviesForm(IWebDriver driver, FORM_MODE mode, By? containerLocator = null)
 		: base(driver, mode, "F_MOVIES", containerLocator: containerLocator) { }

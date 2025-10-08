@@ -337,8 +337,6 @@
 									isPopup: false
 								},
 							},
-							allowFileExport: true,
-							allowFileImport: true,
 							insertCondition: {
 								// eslint-disable-next-line @typescript-eslint/no-unused-vars
 								fnFormula(params)

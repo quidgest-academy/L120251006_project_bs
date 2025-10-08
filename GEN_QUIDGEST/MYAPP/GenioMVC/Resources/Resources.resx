@@ -471,6 +471,9 @@
 	<data name="HORARIO56549" xml:space="preserve">
 		<value>Horário</value>
 	</data>
+	<data name="COMMENT01969" xml:space="preserve">
+		<value>Comment</value>
+	</data>
 	<data name="SUBJECT33942" xml:space="preserve">
 		<value>Subject</value>
 	</data>

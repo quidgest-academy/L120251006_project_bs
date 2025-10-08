@@ -216,9 +216,24 @@
 						</base-input-structure>
 					</q-control-wrapper>
 				</q-row-container>
-				<q-row-container v-if="controls.F_MOVIESPSEUDFIELD001.isVisible || controls.F_MOVIESPSEUDDATACOME.isVisible">
+				<q-row-container v-if="controls.F_MOVIESPSEUDDATACOME.isVisible">
 					<q-control-wrapper
-						v-if="controls.F_MOVIESPSEUDFIELD001.isVisible"
+						v-if="controls.F_MOVIESPSEUDDATACOME.isVisible"
+						class="control-join-group">
+						<q-table
+							v-if="controls.F_MOVIESPSEUDDATACOME.isVisible"
+							v-bind="controls.F_MOVIESPSEUDDATACOME"
+							v-on="controls.F_MOVIESPSEUDDATACOME.handlers" />
+						<q-table-extra-extension
+							v-if="controls.F_MOVIESPSEUDDATACOME.isVisible"
+							:list-ctrl="controls.F_MOVIESPSEUDDATACOME"
+							:filter-operators="controls.F_MOVIESPSEUDDATACOME.filterOperators"
+							v-on="controls.F_MOVIESPSEUDDATACOME.handlers" />
+					</q-control-wrapper>
+				</q-row-container>
+				<q-row-container v-if="controls.F_MOVIESPSEUDFIELD001.isVisible || controls.F_MOVIESPSEUDFIELD002.isVisible">
+					<q-control-wrapper
+						v-if="controls.F_MOVIESPSEUDFIELD001.isVisible || controls.F_MOVIESPSEUDFIELD002.isVisible"
 						class="control-join-group">
 						<base-input-structure
 							v-if="controls.F_MOVIESPSEUDFIELD001.isVisible"
@@ -234,19 +249,20 @@
 								@click="controls.F_MOVIESPSEUDFIELD001.action($event)">
 							</q-button>
 						</base-input-structure>
-					</q-control-wrapper>
-					<q-control-wrapper
-						v-if="controls.F_MOVIESPSEUDDATACOME.isVisible"
-						class="control-join-group">
-						<q-table
-							v-if="controls.F_MOVIESPSEUDDATACOME.isVisible"
-							v-bind="controls.F_MOVIESPSEUDDATACOME"
-							v-on="controls.F_MOVIESPSEUDDATACOME.handlers" />
-						<q-table-extra-extension
-							v-if="controls.F_MOVIESPSEUDDATACOME.isVisible"
-							:list-ctrl="controls.F_MOVIESPSEUDDATACOME"
-							:filter-operators="controls.F_MOVIESPSEUDDATACOME.filterOperators"
-							v-on="controls.F_MOVIESPSEUDDATACOME.handlers" />
+						<base-input-structure
+							v-if="controls.F_MOVIESPSEUDFIELD002.isVisible"
+							class="i-button"
+							v-bind="controls.F_MOVIESPSEUDFIELD002"
+							v-on="controls.F_MOVIESPSEUDFIELD002.handlers"
+							:loading="controls.F_MOVIESPSEUDFIELD002.props.loading"
+							:reporting-mode-on="reportingModeCAV"
+							:suggestion-mode-on="suggestionModeOn">
+							<q-button
+								v-if="controls.F_MOVIESPSEUDFIELD002.isVisible"
+								v-bind="controls.F_MOVIESPSEUDFIELD002.props"
+								@click="controls.F_MOVIESPSEUDFIELD002.action($event)">
+							</q-button>
+						</base-input-structure>
 					</q-control-wrapper>
 				</q-row-container>
 			</template>
@@ -676,35 +692,6 @@
 						controlLimits: [
 						],
 					}, this),
-					F_MOVIESPSEUDFIELD001: new fieldControlClass.ButtonControl({
-						id: 'F_MOVIESPSEUDFIELD001',
-						name: 'FIELD001',
-						hasLabel: false,
-						label: computed(() => this.Resources.LIKE38722),
-						placeholder: '',
-						labelPosition: computed(() => this.labelAlignment.topleft),
-						// eslint-disable-next-line
-						action: (event) => {
-							const btnAction = () => {
-								// Button to open the form "F_FAVORI" in "INS" mode.
-								const params = {
-									mode: vm.formModes.new,
-									modes: 'vedai',
-									isControlled: true,
-									extraData: JSON.stringify(event)
-								}
-
-								vm.navigateToForm('F_FAVORI', vm.formModes.new, null, params)
-							}
-							const options = {
-								form: 'F_MOVIES',
-								callback: btnAction
-							}
-							vm.$eventHub.emit('form-apply', options)
-						},
-						controlLimits: [
-						],
-					}, this),
 					F_MOVIESPSEUDDATACOME: new fieldControlClass.TableListControl({
 						id: 'F_MOVIESPSEUDDATACOME',
 						name: 'DATACOME',
@@ -904,6 +891,64 @@
 								dependencyField: 'MOVIE.CODMOVIE',
 								fnValueSelector: (model) => model.ValCodmovie.value
 							},
+						],
+					}, this),
+					F_MOVIESPSEUDFIELD001: new fieldControlClass.ButtonControl({
+						id: 'F_MOVIESPSEUDFIELD001',
+						name: 'FIELD001',
+						hasLabel: false,
+						label: computed(() => this.Resources.LIKE38722),
+						placeholder: '',
+						labelPosition: computed(() => this.labelAlignment.topleft),
+						// eslint-disable-next-line
+						action: (event) => {
+							const btnAction = () => {
+								// Button to open the form "F_FAVORI" in "INS" mode.
+								const params = {
+									mode: vm.formModes.new,
+									modes: 'vedai',
+									isControlled: true,
+									extraData: JSON.stringify(event)
+								}
+
+								vm.navigateToForm('F_FAVORI', vm.formModes.new, null, params)
+							}
+							const options = {
+								form: 'F_MOVIES',
+								callback: btnAction
+							}
+							vm.$eventHub.emit('form-apply', options)
+						},
+						controlLimits: [
+						],
+					}, this),
+					F_MOVIESPSEUDFIELD002: new fieldControlClass.ButtonControl({
+						id: 'F_MOVIESPSEUDFIELD002',
+						name: 'FIELD002',
+						hasLabel: false,
+						label: computed(() => this.Resources.COMMENT01969),
+						placeholder: '',
+						labelPosition: computed(() => this.labelAlignment.topleft),
+						// eslint-disable-next-line
+						action: (event) => {
+							const btnAction = () => {
+								// Button to open the form "F_COMMEN" in "INS" mode.
+								const params = {
+									mode: vm.formModes.new,
+									modes: 'vedai',
+									isControlled: true,
+									extraData: JSON.stringify(event)
+								}
+
+								vm.navigateToForm('F_COMMEN', vm.formModes.new, null, params)
+							}
+							const options = {
+								form: 'F_MOVIES',
+								callback: btnAction
+							}
+							vm.$eventHub.emit('form-apply', options)
+						},
+						controlLimits: [
 						],
 					}, this),
 				},
