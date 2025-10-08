@@ -81,6 +81,7 @@ namespace CSGenio.business
 			Qfield.CavDesignation = "CREATE_AT36393";
 
 			Qfield.Dupmsg = "";
+			Qfield.DefaultValue = new DefaultValue(DefaultValue.getToday);
 			info.RegisterFieldDB(Qfield);
 
 			//- - - - - - - - - - - - - - - - - - -
@@ -159,6 +160,10 @@ namespace CSGenio.business
 			//------------------------------
 
 
+
+			info.DefaultValues = new string[] {
+			 "createat"
+			};
 
 
 
