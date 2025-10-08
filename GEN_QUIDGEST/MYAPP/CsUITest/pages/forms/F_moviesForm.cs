@@ -58,9 +58,9 @@ public class F_moviesForm : Form
 	public CollapsibleZoneControl PseudNewgrp01 => new CollapsibleZoneControl(driver, ContainerLocator, "#F_MOVIESPSEUDNEWGRP01-container");
 
 	/// <summary>
-	/// Actors
+	/// Characters
 	/// </summary>
-	public IWebElement PseudDatachar => throw new NotImplementedException();
+	public ListControl PseudDatachar => new ListControl(driver, ContainerLocator, "#F_MOVIESPSEUDDATACHAR");
 
 	public F_moviesForm(IWebDriver driver, FORM_MODE mode, By? containerLocator = null)
 		: base(driver, mode, "F_MOVIES", containerLocator: containerLocator) { }
