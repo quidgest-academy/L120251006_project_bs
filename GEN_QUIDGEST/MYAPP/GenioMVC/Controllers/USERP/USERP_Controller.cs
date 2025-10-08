@@ -20,6 +20,7 @@ using GenioMVC.Models.Exception;
 using GenioMVC.Models.Navigation;
 using GenioMVC.Resources;
 using GenioMVC.ViewModels;
+using GenioMVC.ViewModels.Userp;
 using GenioServer.business;
 using CSGenio.core.ai;
 
@@ -50,6 +51,22 @@ namespace GenioMVC.Controllers
 // USE /[MANUAL MOV MANUAL_CONTROLLER USERP]/
 
 
+
+
+
+		/// <summary>
+		/// Recalculate formulas of the "F_user" form. (++, CT, SR, CL and U1)
+		/// </summary>
+		/// <param name="formData">Current form data</param>
+		/// <returns></returns>
+		[HttpPost]
+		public JsonResult RecalculateFormulas_F_user([FromBody]F_user_ViewModel formData)
+		{
+			return GenericRecalculateFormulas(formData, "userp",
+				(primaryKey) => Models.Userp.Find(primaryKey, UserContext.Current, "FF_USER"),
+				(model) => formData.MapToModel(model as Models.Userp)
+			);
+		}
 
 		/// <summary>
 		/// Get "See more..." tree structure
