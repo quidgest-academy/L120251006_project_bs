@@ -135,6 +135,22 @@ namespace GenioMVC.ViewModels.Movie
 			if (navigation != null)
 				model.LoadKeysFromHistory(navigation, navigation.CurrentLevel.Level);
 
+			Models.Movie areaMovie = model;
+			try
+			{
+				// (F_MOVIES form condition) HasRole("99")
+				if (!(CSGenio.business.GlobalFunctions.HasRole(m_userContext.User,"99")))
+				{
+					var status = Status.E;
+					StatusMessage message = new(status, Resources.Resources.YOU_DON_T_HAVE_PERMI39725); // Message: "You don't have permission!! Only Admins"
+					result.MergeStatusMessage(message);
+				}
+			}
+			catch (Exception exc)
+			{
+				Log.Error($"Error executing form FF_MOVIES access condition: {exc.Message}");
+				throw;
+			}
 			var tableResult = model.EvaluateTableConditions(ConditionType.INSERT);
 			result.MergeStatusMessage(tableResult);
 			return result;
@@ -145,6 +161,23 @@ namespace GenioMVC.ViewModels.Movie
 			StatusMessage result = new StatusMessage(Status.OK, "");
 			var model = Model;
 
+			NavigationContext Navigation = m_userContext.CurrentNavigation;
+			Models.Movie areaMovie = model;
+			try
+			{
+				// (F_MOVIES form condition) HasRole("99")
+				if (!(CSGenio.business.GlobalFunctions.HasRole(m_userContext.User,"99")))
+				{
+					var status = Status.E;
+					StatusMessage message = new(status, Resources.Resources.YOU_DON_T_HAVE_PERMI39725); // Message: "You don't have permission!! Only Admins"
+					result.MergeStatusMessage(message);
+				}
+			}
+			catch (Exception exc)
+			{
+				Log.Error($"Error executing form FF_MOVIES access condition: {exc.Message}");
+				throw;
+			}
 			var tableResult = model.EvaluateTableConditions(ConditionType.UPDATE);
 			result.MergeStatusMessage(tableResult);
 			return result;
@@ -155,6 +188,23 @@ namespace GenioMVC.ViewModels.Movie
 			StatusMessage result = new StatusMessage(Status.OK, "");
 			var model = Model;
 
+			NavigationContext Navigation = m_userContext.CurrentNavigation;
+			Models.Movie areaMovie = model;
+			try
+			{
+				// (F_MOVIES form condition) HasRole("99")
+				if (!(CSGenio.business.GlobalFunctions.HasRole(m_userContext.User,"99")))
+				{
+					var status = Status.E;
+					StatusMessage message = new(status, Resources.Resources.YOU_DON_T_HAVE_PERMI39725); // Message: "You don't have permission!! Only Admins"
+					result.MergeStatusMessage(message);
+				}
+			}
+			catch (Exception exc)
+			{
+				Log.Error($"Error executing form FF_MOVIES access condition: {exc.Message}");
+				throw;
+			}
 			var tableResult = model.EvaluateTableConditions(ConditionType.DELETE);
 			result.MergeStatusMessage(tableResult);
 			return result;

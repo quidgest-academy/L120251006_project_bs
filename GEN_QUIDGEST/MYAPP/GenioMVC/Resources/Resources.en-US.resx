@@ -231,6 +231,9 @@
 	<data name="GLOBAL58588" xml:space="preserve">
 		<value>Global</value>
 	</data>
+	<data name="YOU_DON_T_HAVE_PERMI39725" xml:space="preserve">
+		<value>You don&apos;t have permission!! Only Admins</value>
+	</data>
 	<data name="DESCRIPTION07383" xml:space="preserve">
 		<value>Description</value>
 	</data>
@@ -413,6 +416,9 @@
 	</data>
 	<data name="SAVES_ON_DB_61384" xml:space="preserve">
 		<value>Saves on DB?</value>
+	</data>
+	<data name="ALREADY_LIKE_MOVIE17895" xml:space="preserve">
+		<value>Already like movie</value>
 	</data>
 	<data name="CREATE_AT36393" xml:space="preserve">
 		<value>Create at</value>

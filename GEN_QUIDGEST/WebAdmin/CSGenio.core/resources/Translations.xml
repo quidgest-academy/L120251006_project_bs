@@ -114,6 +114,9 @@
   <msg id="Global" code="GLOBAL58588">
     <ENUS>Global</ENUS>
   </msg>
+  <msg id="You don&apos;t have permission!! Only Admins" code="YOU_DON_T_HAVE_PERMI39725">
+    <ENUS>You don&apos;t have permission!! Only Admins</ENUS>
+  </msg>
   <msg id="Description" code="DESCRIPTION07383">
     <ENUS>Description</ENUS>
   </msg>
@@ -296,6 +299,9 @@
   </msg>
   <msg id="Saves on DB?" code="SAVES_ON_DB_61384">
     <ENUS>Saves on DB?</ENUS>
+  </msg>
+  <msg id="Already like movie" code="ALREADY_LIKE_MOVIE17895">
+    <ENUS>Already like movie</ENUS>
   </msg>
   <msg id="Create at" code="CREATE_AT36393">
     <ENUS>Create at</ENUS>

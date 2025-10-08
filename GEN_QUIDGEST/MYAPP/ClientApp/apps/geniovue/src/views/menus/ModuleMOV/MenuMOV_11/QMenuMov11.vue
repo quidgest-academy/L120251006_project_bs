@@ -339,6 +339,22 @@
 							},
 							allowFileExport: true,
 							allowFileImport: true,
+							insertCondition: {
+								// eslint-disable-next-line @typescript-eslint/no-unused-vars
+								fnFormula(params)
+								{
+									return netAPI.postData(
+										'Movie',
+										'F_MOVIES_InsertCondition',
+										this.serverObjModel,
+										undefined,
+										undefined,
+										undefined,
+										this.navigationId)
+								},
+								dependencyEvents: [],
+								isServerRecalc: false,
+							},
 							defaultSearchColumnName: 'ValTitle',
 							defaultSearchColumnNameOriginal: 'ValTitle',
 							defaultColumnSorting: {

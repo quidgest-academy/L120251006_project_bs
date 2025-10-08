@@ -405,6 +405,15 @@ namespace GenioMVC.Resources
 		}
 
 		/// <summary>
+		///   Looks up a localized string similar to "You don't have permission!! Only Admins"
+		/// </summary>
+		public static string YOU_DON_T_HAVE_PERMI39725 {
+			get {
+				return ResourceManager.GetString("YOU_DON_T_HAVE_PERMI39725", resourceCulture);
+			}
+		}
+
+		/// <summary>
 		///   Looks up a localized string similar to "Description"
 		/// </summary>
 		public static string DESCRIPTION07383 {
@@ -950,6 +959,15 @@ namespace GenioMVC.Resources
 		public static string SAVES_ON_DB_61384 {
 			get {
 				return ResourceManager.GetString("SAVES_ON_DB_61384", resourceCulture);
+			}
+		}
+
+		/// <summary>
+		///   Looks up a localized string similar to "Already like movie"
+		/// </summary>
+		public static string ALREADY_LIKE_MOVIE17895 {
+			get {
+				return ResourceManager.GetString("ALREADY_LIKE_MOVIE17895", resourceCulture);
 			}
 		}
 

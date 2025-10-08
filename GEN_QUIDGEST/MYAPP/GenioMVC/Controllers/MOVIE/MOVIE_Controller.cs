@@ -52,6 +52,26 @@ namespace GenioMVC.Controllers
 
 
 
+		// POST: /Movie/F_MOVIES_InsertCondition
+		[HttpPost]
+		public JsonResult F_MOVIES_InsertCondition()
+		{
+			try
+			{
+				// Create a model from form data to avoid extra database queries.
+				var p = new Models.Movie(UserContext.Current);
+
+				// Formula: HasRole("99")
+				if (!((Logical)(CSGenio.business.GlobalFunctions.HasRole(m_userContext.User,"99"))))
+					return JsonOK(false);
+
+				return JsonOK(true);
+			}
+			catch (Exception ex)
+			{
+				return JsonERROR(ex.Message);
+			}
+		}
 
 
 		/// <summary>

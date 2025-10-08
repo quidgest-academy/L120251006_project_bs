@@ -85,6 +85,18 @@ public class MOV_Menu_11_RowViewModel : Models.Movie
 
 		using (new CSGenio.persistence.ScopedPersistentSupport(m_userContext.PersistentSupport))
 		{
+			// Support Form F_MOVIES CRUD conditions.
+			// HasRole("99")
+			canEdit &= (Logical)(CSGenio.business.GlobalFunctions.HasRole(m_userContext.User,"99"));
+			// HasRole("99")
+			canDelete &= (Logical)(CSGenio.business.GlobalFunctions.HasRole(m_userContext.User,"99"));
+			// HasRole("99")
+			{
+				bool formulaResult = (Logical)(CSGenio.business.GlobalFunctions.HasRole(m_userContext.User,"99"));
+				canInsert &= formulaResult;
+				// If Insert is blocked by CRUD condition, Duplicate should also be blocked.
+				canDuplicate &= formulaResult;
+			}
 		}
 
 		BtnPermission = new TableRowCrudButtonPermissions()

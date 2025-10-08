@@ -7,12 +7,12 @@ export const systemInfo = {
 	applicationName: 'My application',
 
 	genio: {
-		buildVersion: 10,
+		buildVersion: 11,
 		dbIdxVersion: 2,
 		dbVersion: '2502',
 		genioVersion: '374,11',
 		trackChangesVersion: '0',
-		assemblyVersion: '374,11.2502.0.10',
+		assemblyVersion: '374,11.2502.0.11',
 		generationDate: {
 			year: 2025,
 			month: 10,

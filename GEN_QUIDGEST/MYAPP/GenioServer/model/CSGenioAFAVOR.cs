@@ -81,7 +81,7 @@ namespace CSGenio.business
 			Qfield.MQueue = false;
 			Qfield.CavDesignation = "MOVIE_ID54960";
 
-			Qfield.Dupmsg = "";
+			Qfield.Dupmsg = "Already like movie";
             Qfield.NotDup = true;
             Qfield.PrefNDup = "coduserp";
 			info.RegisterFieldDB(Qfield);
