@@ -240,6 +240,9 @@
   <msg id="User Authorization" code="USER_AUTHORIZATION53599">
     <ENUS>User Authorization</ENUS>
   </msg>
+  <msg id="Actors" code="ACTORS28110">
+    <ENUS>Actors</ENUS>
+  </msg>
   <msg id="Aggregate" code="AGGREGATE05721">
     <ENUS>Aggregate</ENUS>
   </msg>

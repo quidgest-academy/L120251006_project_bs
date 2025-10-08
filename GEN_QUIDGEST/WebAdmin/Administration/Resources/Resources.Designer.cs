@@ -781,6 +781,15 @@ namespace Administration.Resources {
         }
 
         /// <summary>
+        ///   Looks up a localized string similar to "Actors"
+        /// </summary>
+        public static string ACTORS28110 {
+            get {
+                return ResourceManager.GetString("ACTORS28110", resourceCulture);
+            }
+        }
+
+        /// <summary>
         ///   Looks up a localized string similar to "Aggregate"
         /// </summary>
         public static string AGGREGATE05721 {

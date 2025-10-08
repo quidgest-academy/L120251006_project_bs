@@ -357,6 +357,9 @@
 	<data name="USER_AUTHORIZATION53599" xml:space="preserve">
 		<value>User Authorization</value>
 	</data>
+	<data name="ACTORS28110" xml:space="preserve">
+		<value>Actors</value>
+	</data>
 	<data name="AGGREGATE05721" xml:space="preserve">
 		<value>Aggregate</value>
 	</data>

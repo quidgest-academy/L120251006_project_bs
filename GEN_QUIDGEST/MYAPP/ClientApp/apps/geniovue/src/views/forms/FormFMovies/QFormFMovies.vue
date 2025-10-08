@@ -265,6 +265,37 @@
 						</base-input-structure>
 					</q-control-wrapper>
 				</q-row-container>
+				<q-row-container
+					v-if="controls.F_MOVIESPSEUDNEWGRP01.isVisible"
+					is-large>
+					<q-control-wrapper
+						v-if="controls.F_MOVIESPSEUDNEWGRP01.isVisible"
+						class="row-line-group">
+						<q-group-collapsible
+							v-if="controls.F_MOVIESPSEUDNEWGRP01.isVisible"
+							id="F_MOVIESPSEUDNEWGRP01"
+							v-bind="controls.F_MOVIESPSEUDNEWGRP01"
+							v-on="controls.F_MOVIESPSEUDNEWGRP01.handlers">
+							<!-- Start F_MOVIESPSEUDNEWGRP01 -->
+							<q-row-container v-if="controls.F_MOVIESPSEUDDATACHAR.isVisible">
+								<q-control-wrapper
+									v-if="controls.F_MOVIESPSEUDDATACHAR.isVisible"
+									class="control-join-group">
+									<q-table
+										v-if="controls.F_MOVIESPSEUDDATACHAR.isVisible"
+										v-bind="controls.F_MOVIESPSEUDDATACHAR"
+										v-on="controls.F_MOVIESPSEUDDATACHAR.handlers" />
+									<q-table-extra-extension
+										v-if="controls.F_MOVIESPSEUDDATACHAR.isVisible"
+										:list-ctrl="controls.F_MOVIESPSEUDDATACHAR"
+										:filter-operators="controls.F_MOVIESPSEUDDATACHAR.filterOperators"
+										v-on="controls.F_MOVIESPSEUDDATACHAR.handlers" />
+								</q-control-wrapper>
+							</q-row-container>
+							<!-- End F_MOVIESPSEUDNEWGRP01 -->
+						</q-group-collapsible>
+					</q-control-wrapper>
+				</q-row-container>
 			</template>
 		</div>
 	</teleport>
@@ -951,6 +982,132 @@
 						controlLimits: [
 						],
 					}, this),
+					F_MOVIESPSEUDNEWGRP01: new fieldControlClass.GroupControl({
+						id: 'F_MOVIESPSEUDNEWGRP01',
+						name: 'NEWGRP01',
+						size: 'block',
+						label: computed(() => this.Resources.CHARACTERS03735),
+						placeholder: '',
+						labelPosition: computed(() => this.labelAlignment.topleft),
+						isCollapsible: true,
+						anchored: false,
+						directChildren: ['F_MOVIESPSEUDDATACHAR'],
+						controlLimits: [
+						],
+					}, this),
+					F_MOVIESPSEUDDATACHAR: new fieldControlClass.TableListControl({
+						id: 'F_MOVIESPSEUDDATACHAR',
+						name: 'DATACHAR',
+						size: '',
+						label: computed(() => this.Resources.ACTORS28110),
+						placeholder: '',
+						labelPosition: computed(() => this.labelAlignment.topleft),
+						container: 'F_MOVIESPSEUDNEWGRP01',
+						controller: 'MOVIE',
+						action: 'F_movies_ValDatachar',
+						hasDependencies: false,
+						isInCollapsible: true,
+						columnsOriginal: [
+							new listColumnTypes.ArrayColumn({
+								order: 1,
+								name: 'ValGenre',
+								area: 'CHARA',
+								field: 'GENRE',
+								label: computed(() => this.Resources.GENRE63303),
+								dataLength: 1,
+								scrollData: 1,
+								array: computed(() => new qProjArrays.QArrayGenre(vm.$getResource).elements),
+								arrayType: qProjArrays.QArrayGenre.type,
+								arrayDisplayMode: 'D',
+							}, computed(() => vm.model), computed(() => vm.internalEvents)),
+							new listColumnTypes.TextColumn({
+								order: 2,
+								name: 'Movie.ValTitle',
+								area: 'MOVIE',
+								field: 'TITLE',
+								label: computed(() => this.Resources.TITLE21885),
+								dataLength: 80,
+								scrollData: 30,
+								pkColumn: 'ValCodmovie',
+							}, computed(() => vm.model), computed(() => vm.internalEvents)),
+							new listColumnTypes.DateColumn({
+								order: 3,
+								name: 'ValCreateat',
+								area: 'CHARA',
+								field: 'CREATEAT',
+								label: computed(() => this.Resources.CREATE_AT36393),
+								scrollData: 8,
+								dateTimeType: 'date',
+							}, computed(() => vm.model), computed(() => vm.internalEvents)),
+							new listColumnTypes.TextColumn({
+								order: 4,
+								name: 'ValName',
+								area: 'CHARA',
+								field: 'NAME',
+								label: computed(() => this.Resources.NAME31974),
+								dataLength: 80,
+								scrollData: 30,
+							}, computed(() => vm.model), computed(() => vm.internalEvents)),
+							new listColumnTypes.TextColumn({
+								order: 5,
+								name: 'ValActorname',
+								area: 'CHARA',
+								field: 'ACTORNAME',
+								label: computed(() => this.Resources.ACTOR_NAME48089),
+								dataLength: 80,
+								scrollData: 30,
+							}, computed(() => vm.model), computed(() => vm.internalEvents)),
+						],
+						config: {
+							name: 'ValDatachar',
+							serverMode: true,
+							pkColumn: 'ValCodchara',
+							tableAlias: 'CHARA',
+							tableNamePlural: computed(() => this.Resources.CHARACTERS03735),
+							viewManagement: '',
+							showLimitsInfo: true,
+							tableTitle: computed(() => this.Resources.ACTORS28110),
+							showAlternatePagination: true,
+							permissions: {
+							},
+							searchBarConfig: {
+								visibility: false,
+								searchOnPressEnter: true
+							},
+							filtersVisible: false,
+							allowColumnFilters: false,
+							allowColumnSort: true,
+							generalCustomActions: [
+							],
+							groupActions: [
+							],
+							customActions: [
+							],
+							MCActions: [
+							],
+							rowClickAction: {
+							},
+							formsDefinition: {
+							},
+							defaultSearchColumnName: 'ValName',
+							defaultSearchColumnNameOriginal: 'ValName',
+							defaultColumnSorting: {
+								columnName: '',
+								sortOrder: 'asc'
+							}
+						},
+						globalEvents: ['changed-MOVIE', 'changed-CHARA'],
+						uuid: 'F_movies_ValDatachar',
+						allSelectedRows: 'false',
+						controlLimits: [
+							{
+								identifier: ['id', 'movie'],
+								dependencyEvents: ['fieldChange:movie.codmovie'],
+								dependencyField: 'MOVIE.CODMOVIE',
+								fnValueSelector: (model) => model.ValCodmovie.value
+							},
+						],
+					}, this),
 				},
 
 				model: new FormViewModel(this, {
@@ -961,10 +1118,12 @@
 				}),
 
 				groupFields: readonly([
+					'F_MOVIESPSEUDNEWGRP01',
 				]),
 
 				tableFields: readonly([
 					'F_MOVIESPSEUDDATACOME',
+					'F_MOVIESPSEUDDATACHAR',
 				]),
 
 				timelineFields: readonly([

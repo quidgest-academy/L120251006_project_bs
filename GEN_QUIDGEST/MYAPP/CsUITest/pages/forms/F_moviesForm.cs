@@ -52,6 +52,16 @@ public class F_moviesForm : Form
 	/// </summary>
 	public ButtonControl PseudField002 => new ButtonControl(driver, ContainerLocator, "#F_MOVIESPSEUDFIELD002");
 
+	/// <summary>
+	/// Characters
+	/// </summary>
+	public CollapsibleZoneControl PseudNewgrp01 => new CollapsibleZoneControl(driver, ContainerLocator, "#F_MOVIESPSEUDNEWGRP01-container");
+
+	/// <summary>
+	/// Actors
+	/// </summary>
+	public ListControl PseudDatachar => new ListControl(driver, ContainerLocator, "#F_MOVIESPSEUDDATACHAR");
+
 	public F_moviesForm(IWebDriver driver, FORM_MODE mode, By? containerLocator = null)
 		: base(driver, mode, "F_MOVIES", containerLocator: containerLocator) { }
 }
