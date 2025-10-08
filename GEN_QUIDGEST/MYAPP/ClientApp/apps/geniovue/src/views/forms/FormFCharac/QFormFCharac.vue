@@ -156,10 +156,11 @@
 							:loading="controls.F_CHARACCHARAGENRE___.props.loading"
 							:reporting-mode-on="reportingModeCAV"
 							:suggestion-mode-on="suggestionModeOn">
-							<q-text-field
+							<q-combobox
+								v-if="controls.F_CHARACCHARAGENRE___.isVisible"
 								v-bind="controls.F_CHARACCHARAGENRE___.props"
-								@blur="onBlur(controls.F_CHARACCHARAGENRE___, model.ValGenre.value)"
-								@change="model.ValGenre.fnUpdateValueOnChange" />
+								:model-value="model.ValGenre.value"
+								@update:model-value="model.ValGenre.fnUpdateValue" />
 						</base-input-structure>
 					</q-control-wrapper>
 					<q-control-wrapper
@@ -576,11 +577,9 @@
 						label: computed(() => this.Resources.GENRE63303),
 						placeholder: '',
 						labelPosition: computed(() => this.labelAlignment.topleft),
-						maxLength: 1,
-						labelId: 'label_F_CHARACCHARAGENRE___',
 						arrayName: 'GENRE',
-						helpShortItem: '',
-						helpDetailedItem: '',
+						helpShortItem: 'None',
+						helpDetailedItem: 'None',
 						controlLimits: [
 						],
 					}, this),
