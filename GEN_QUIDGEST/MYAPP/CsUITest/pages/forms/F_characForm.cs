@@ -25,7 +25,7 @@ public class F_characForm : Form
 	/// <summary>
 	/// Genre
 	/// </summary>
-	public EnumControl CharaGenre => new EnumControl(driver, ContainerLocator, "container-F_CHARACCHARAGENRE___");
+	public IWebElement CharaGenre => throw new NotImplementedException();
 
 	/// <summary>
 	/// Title

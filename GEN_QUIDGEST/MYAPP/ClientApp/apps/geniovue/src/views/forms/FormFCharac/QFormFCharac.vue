@@ -156,10 +156,10 @@
 							:loading="controls.F_CHARACCHARAGENRE___.props.loading"
 							:reporting-mode-on="reportingModeCAV"
 							:suggestion-mode-on="suggestionModeOn">
-							<q-select
-								v-if="controls.F_CHARACCHARAGENRE___.isVisible"
+							<q-text-field
 								v-bind="controls.F_CHARACCHARAGENRE___.props"
-								@update:model-value="model.ValGenre.fnUpdateValue" />
+								@blur="onBlur(controls.F_CHARACCHARAGENRE___, model.ValGenre.value)"
+								@change="model.ValGenre.fnUpdateValueOnChange" />
 						</base-input-structure>
 					</q-control-wrapper>
 					<q-control-wrapper
@@ -579,8 +579,8 @@
 						maxLength: 1,
 						labelId: 'label_F_CHARACCHARAGENRE___',
 						arrayName: 'GENRE',
-						helpShortItem: 'None',
-						helpDetailedItem: 'None',
+						helpShortItem: '',
+						helpDetailedItem: '',
 						controlLimits: [
 						],
 					}, this),

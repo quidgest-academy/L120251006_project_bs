@@ -110,7 +110,7 @@
 						</base-input-structure>
 					</q-control-wrapper>
 				</q-row-container>
-				<q-row-container v-if="controls.F_MOVIESMOVIETITLE___.isVisible || controls.F_MOVIESMOVIERELDATE_.isVisible || controls.F_MOVIESMOVIECREATEAT.isVisible || controls.F_MOVIESMOVIEMOVIEGEN.isVisible || controls.F_MOVIESMOVIEDISCRIPT.isVisible">
+				<q-row-container v-if="controls.F_MOVIESMOVIETITLE___.isVisible || controls.F_MOVIESMOVIERELDATE_.isVisible || controls.F_MOVIESMOVIECREATEAT.isVisible">
 					<q-control-wrapper
 						v-if="controls.F_MOVIESMOVIETITLE___.isVisible"
 						class="control-join-group">
@@ -166,23 +166,34 @@
 								@update:model-value="model.ValCreateat.fnUpdateValue($event ?? '')" />
 						</base-input-structure>
 					</q-control-wrapper>
+				</q-row-container>
+				<q-row-container v-if="controls.F_MOVIESMOVIEMOVIEGEN.isVisible">
 					<q-control-wrapper
 						v-if="controls.F_MOVIESMOVIEMOVIEGEN.isVisible"
 						class="control-join-group">
 						<base-input-structure
 							v-if="controls.F_MOVIESMOVIEMOVIEGEN.isVisible"
-							class="i-text"
+							class="i-radio-container"
 							v-bind="controls.F_MOVIESMOVIEMOVIEGEN"
 							v-on="controls.F_MOVIESMOVIEMOVIEGEN.handlers"
+							:label-position="labelAlignment.topleft"
 							:loading="controls.F_MOVIESMOVIEMOVIEGEN.props.loading"
 							:reporting-mode-on="reportingModeCAV"
 							:suggestion-mode-on="suggestionModeOn">
-							<q-select
+							<q-radio-group
 								v-if="controls.F_MOVIESMOVIEMOVIEGEN.isVisible"
 								v-bind="controls.F_MOVIESMOVIEMOVIEGEN.props"
-								@update:model-value="model.ValMoviesgenre.fnUpdateValue" />
+								v-on="controls.F_MOVIESMOVIEMOVIEGEN.handlers">
+								<q-radio-button
+									v-for="radio in controls.F_MOVIESMOVIEMOVIEGEN.items"
+									:key="radio.key"
+									:label="radio.value"
+									:value="radio.key" />
+							</q-radio-group>
 						</base-input-structure>
 					</q-control-wrapper>
+				</q-row-container>
+				<q-row-container v-if="controls.F_MOVIESMOVIEDISCRIPT.isVisible">
 					<q-control-wrapper
 						v-if="controls.F_MOVIESMOVIEDISCRIPT.isVisible"
 						class="control-join-group">
@@ -552,7 +563,7 @@
 						placeholder: '',
 						labelPosition: computed(() => this.labelAlignment.topleft),
 						height: 50,
-						width: 100,
+						width: 30,
 						dataTitle: computed(() => genericFunctions.formatString(vm.Resources.IMAGEM_UTILIZADA_PAR17299, vm.Resources.POSTER52933)),
 						maxFileSize: 10485760, // In bytes.
 						maxFileSizeLabel: '10 MB',
@@ -599,20 +610,18 @@
 						controlLimits: [
 						],
 					}, this),
-					F_MOVIESMOVIEMOVIEGEN: new fieldControlClass.ArrayStringControl({
+					F_MOVIESMOVIEMOVIEGEN: new fieldControlClass.RadioGroupControl({
 						modelField: 'ValMoviesgenre',
 						valueChangeEvent: 'fieldChange:movie.moviesgenre',
 						id: 'F_MOVIESMOVIEMOVIEGEN',
 						name: 'MOVIEGEN',
-						size: 'large',
 						label: computed(() => this.Resources.MOVIES_GENRE22042),
 						placeholder: '',
 						labelPosition: computed(() => this.labelAlignment.topleft),
 						maxLength: 15,
 						labelId: 'label_F_MOVIESMOVIEMOVIEGEN',
 						arrayName: 'MOVIEGENRE',
-						helpShortItem: 'None',
-						helpDetailedItem: 'None',
+						columns: 0,
 						controlLimits: [
 						],
 					}, this),

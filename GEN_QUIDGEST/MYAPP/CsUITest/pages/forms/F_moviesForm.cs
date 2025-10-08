@@ -30,7 +30,7 @@ public class F_moviesForm : Form
 	/// <summary>
 	/// Movies Genre
 	/// </summary>
-	public EnumControl MovieMoviegen => new EnumControl(driver, ContainerLocator, "container-F_MOVIESMOVIEMOVIEGEN");
+	public RadiobuttonControl MovieMoviegen => new RadiobuttonControl(driver, ContainerLocator, "container-F_MOVIESMOVIEMOVIEGEN");
 
 	/// <summary>
 	/// Discription
