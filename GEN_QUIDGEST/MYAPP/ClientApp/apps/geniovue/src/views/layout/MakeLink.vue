@@ -4,42 +4,34 @@
 		:class="classes"
 		:menu="menu"
 		:show-sub-menu="showSubMenu"
-		:sub-menu-id="subMenuId">
+		:sub-menu-id="subMenuId"
+		:first-sub-menu-as-link="firstSubMenuAsLink"
+		@menu-action="(...args) => $emit('menu-action', ...args)"
+		@toggle-menu="(...args) => $emit('toggle-menu', ...args)"
+		@keyup="(...args) => $emit('keyup', ...args)">
 		<q-icon
 			v-if="menu.Vector"
 			:icon="menu.Vector" />
 		<i
 			v-else-if="menu.ImageVUE"
-			class="nav-icon n-sidebar__icon q-icon section-header-icon icon-custom">
+			class="nav-icon n-sidebar__icon section-header-icon icon-custom">
 			<img
 				height="14"
-				:src="`${$app.resourcesPath}${menu.ImageVUE}?v=${$app.genio.buildVersion}`" />
+				:src="`${$app.resourcesPath}${menu.ImageVUE}`" />
 		</i>
-		<i
+		<q-icon-font
 			v-else-if="menu.Font"
-			:class="[menu.Font, 'nav-icon', 'n-sidebar__icon', 'q-icon', 'section-header-icon']">
-		</i>
+			:icon="menu.Font"
+			class="nav-icon n-sidebar__icon section-header-icon" />
+
+		{{ Resources[menu.Title] }}
+
 		<span
-			v-else-if="menu.Sigla"
-			class="e-badge--mini-menu">
-			{{ menu.Sigla }}
+			v-if="menu.Count > 0 && !menu.HideMenuSum"
+			class="e-badge e-badge--dark"
+			:title="menu.Count">
+			<span aria-hidden="true">{{ menu.Count }}</span>
 		</span>
-
-		<p>
-			{{ Resources[menu.Title] }}
-
-			<span
-				v-if="!menu.HideMenuSum && menu.Count > 0"
-				:title="menu.Count"
-				class="e-badge e-badge--dark">
-				<span aria-hidden="true">{{ menu.Count }}</span>
-			</span>
-
-			<q-icon
-				v-if="menu.Children.length > 0"
-				icon="expand"
-				class="right" />
-		</p>
 	</menu-action>
 </template>
 
@@ -51,6 +43,8 @@
 	export default {
 		name: 'QMenuLink',
 
+		emits: ['keyup', 'menu-action', 'toggle-menu'],
+
 		components: {
 			MenuAction
 		},
@@ -61,7 +55,7 @@
 
 		props: {
 			/**
-			 * The menu object containing information about the menu action, icon, counts, children, and other properties.
+			 * The menu object containing configuration and state data for the displayed menu link.
 			 */
 			menu: {
 				type: Object,
@@ -69,7 +63,7 @@
 			},
 
 			/**
-			 * Determines if the menu action belongs to the first level, affecting its styles and behavior.
+			 * Flag indicating if this menu link is part of the first level in the menu hierarchy.
 			 */
 			firstLevel: {
 				type: Boolean,
@@ -91,33 +85,54 @@
 				type: String,
 				default: ''
 			},
+
+			/**
+			 * Flag indicating if the first sub-menu item should also be the main link.
+			 */
+			firstSubMenuAsLink: {
+				type: Boolean,
+				default: false
+			},
 		},
 
 		expose: ['focusSubMenuToggle'],
 
 		computed: {
 			/**
-			 * Determines the classes to apply to the menu action based on its level, action, and other properties.
+			 * Calculates the appropriate CSS classes for the menu link based on various properties of the menu object.
 			 */
 			classes()
 			{
 				const classes = []
 
-				if (this.menu.Action && !this.menu.Action.includes('Menu') && this.menu.TreeLevel > 1)
-					classes.push('dropdown-submenu')
-				else if (this.firstLevel ||
-					this.menu.Action && this.menu.Action.includes('Menu') && this.menu.TreeLevel === 1 ||
-					this.menu.TreeLevel > 1)
+				if (this.firstLevel && this.menu.Children.length > 0)
 				{
 					classes.push('nav-link')
-					classes.push('n-sidebar__nav-link')
+					classes.push('dropdown-toggle')
 				}
 
-				if (this.menu.Font)
-					classes.push('has-icon')
+				if (this.menu.TreeLevel <= 2 && this.hasDoubleNavbar)
+					classes.push('n-menu__link--double-navbar')
 
-				if (this.menuIsOpen(this.menu))
-					classes.push('n-sidebar__nav-link-selected')
+				if (this.menu.Action)
+				{
+					if (this.menu.Action.includes('Menu'))
+					{
+						if (this.menu.TreeLevel === 1 && !classes.includes('nav-link'))
+							classes.push('nav-link')
+						else
+						{
+							if (this.hasDoubleNavbar)
+								classes.push('n-menu__link')
+
+							classes.push('dropdown-item')
+						}
+					}
+					else if (this.menu.TreeLevel > 1)
+						classes.push('dropdown-submenu')
+				}
+				else if (this.menu.TreeLevel > 1)
+					classes.push('dropdown-item')
 
 				return classes
 			}

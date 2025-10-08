@@ -1,27 +1,27 @@
 ﻿<template>
-	<li
-		v-for="mod in system.availableModules"
-		:key="mod.id"
-		:class="[{ 'n-sidebar__nav-link--active': mod.id === system.currentModule }, 'has-treeview', 'nav-item', 'n-sidebar__nav-item']">
-		<a
-			:href="getLinkToModule(mod.id)"
-			class="d-block nav-link n-sidebar__nav-link n-sidebar__module-link"
-			:data-key="mod.id"
-			@click.prevent="handleClick(mod.id)"
-			@keyup="(...args) => $emit('keyup', ...args)">
-
-			<q-icon 
-				v-if="getModuleIconProps(mod)"
-				v-bind="getModuleIconProps(mod)" 
-				class="nav-icon n-sidebar__icon"
-			/>
-			<p>
-				<span>
+	<ul
+		v-if="!isEmpty(system.availableModules)"
+		class="dropdown-menu">
+		<template
+			v-for="mod in system.availableModules"
+			:key="mod.id">
+			<li
+				v-if="mod.id !== system.currentModule"
+				class="i-change-module__item">
+				<a
+					class="dropdown-item"
+					:href="getLinkToModule(mod.id)"
+					:data-key="mod.id"
+					@click.prevent="selectItem(mod.id)"
+					@keyup="(...args) => $emit('keyup', ...args)">
+					<i 
+						v-if="mod.font"
+						:class="['dropdown__icon', mod.font]"></i>
 					{{ Resources[mod.title] }}
-				</span>
-			</p>
-		</a>
-	</li>
+				</a>
+			</li>
+		</template>
+	</ul>
 </template>
 
 <script>
@@ -31,10 +31,7 @@
 	export default {
 		name: 'QMenuAllModules',
 
-		emits: [
-			'navigate-to-module',
-			'keyup'
-		],
+		emits: ['keyup', 'menu-action'],
 
 		mixins: [
 			LayoutHandlers,
@@ -44,10 +41,14 @@
 		expose: [],
 
 		methods: {
-			handleClick(moduleId)
+			/**
+			 * Select menu item.
+			 * @param {string} id Module ID
+			 */
+			selectItem(id)
 			{
-				this.navigateToModule(moduleId)
-				this.$emit('navigate-to-module')
+				this.$emit('menu-action')
+				this.navigateToModule(id)
 			},
 
 			getLinkToModule(moduleId) {

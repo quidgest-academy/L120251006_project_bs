@@ -1,97 +1,34 @@
 ﻿<template>
-	<ul
-		v-if="$app.layout.ModulesStyle === 'collapsible'"
-		id="modules-tree-view"
-		class="nav nav-pills nav-sidebar n-sidebar__nav d-block collpased-modules">
-		<li :class="[{ 'menu-open': moduleMenuIsOpen }, 'nav-item', 'n-sidebar__nav-item', 'has-treeview']">
-			<a
-				ref="menuButton"
-				id="modules__toggle"
-				href="javascript:void(0)"
-				:class="['nav-link n-sidebar__nav-link', 'has-icon']"
-				:data-key="system.currentModule"
-				@click.stop.prevent="toggleModulesMenu"
-				@keyup="menuItemKeyup">
-				<q-icon-svg
-					icon="modules"
-					:custom-classes="['nav-icon', 'n-sidebar__icon', 'e-icon', 'section-header-icon']" />
-
-				<p>
-					{{ texts.modules }}
-					<q-icon
-						icon="expand"
-						class="right" />
-				</p>
-			</a>
-
-			<transition name="sidebar-dropdown">
-				<ul
-					v-if="moduleMenuIsOpen"
-					id="collapsible-modules"
-					class="nav nav-treeview">
-					<all-modules
-						@navigate-to-module="toggleModulesMenu"
-						@keyup="menuItemKeyup" />
-				</ul>
-			</transition>
-		</li>
-	</ul>
-	<ul
-		v-else-if="$app.layout.ModulesStyle === 'list'"
-		id="modules-tree-view"
-		class="nav nav-pills nav-sidebar n-sidebar__nav d-block modules-list-view">
-		<all-modules />
-	</ul>
-	<div
-		v-else-if="$app.layout.ModulesStyle === 'dropdown'"
-		id="modules-tree-view"
-		class="n-sidebar__nav-item--dropdown">
-		<ul class="nav">
-			<li class="dropdown">
+	<div class="modules__container">
+		<ul
+			v-if="Object.keys(system.availableModules).length > 1"
+			class="nav">
+			<li
+				ref="menuContainer"
+				class="dropdown"
+				@focusout="onFocusoutMenu">
 				<a
 					ref="menuButton"
-					id="modules__toggle_dropdown"
+					:class="['brand', 'modules__header']"
 					href="javascript:void(0)"
-					class="nav-link n-sidebar__nav-link has-icon brand"
-					@click="toggleModulesDropdown"
-					@focusout="onDropdownFocusout($event)"
-					@keyup.escape="closeModulesDropdownAndFocusButton">
+					:aria-expanded="moduleMenuIsOpen"
+					:data-key="system.currentModule"
+					@click.stop.prevent="toggleMenu"
+					@keyup="menuItemKeyup">
 					<module-header />
 				</a>
 
-				<ul
-					ref="modulesDropdown"
-					:class="['dropdown-menu', { 'show': showDropdownMenu }]"
-					@focusout="onDropdownFocusout($event)"
-					@keyup.escape="closeModulesDropdownAndFocusButton">
-					<template
-						v-for="mod in system.availableModules"
-						:key="mod.id">
-						<li v-if="mod.id !== system.currentModule">
-							<a
-								class="dropdown-item"
-								href="javascript:void(0)"
-								:data-key="mod.id"
-								@click.prevent="navigateToModule(mod.id)">
-								<q-icon
-									v-if="getModuleIconProps(mod)"
-									v-bind="getModuleIconProps(mod)" />
-								{{ Resources[mod.title] }}
-							</a>
-						</li>
-					</template>
-				</ul>
+				<all-modules
+					:class="['dropdown-menu', { 'show': moduleMenuIsOpen }]"
+					@menu-action="setModuleMenuState(false)"
+					@keyup="menuItemKeyup" />
 			</li>
 		</ul>
 	</div>
 </template>
 
 <script>
-	import { computed } from 'vue'
-
-	import hardcodedTexts from '@/hardcodedTexts.js'
 	import LayoutHandlers from '@/mixins/layoutHandlers.js'
-	import VueNavigation from '@/mixins/vueNavigation.js'
 
 	import ModuleHeader from './ModuleHeader.vue'
 	import AllModules from './AllModules.vue'
@@ -99,29 +36,36 @@
 	export default {
 		name: 'QModules',
 
+		emits: ['open-menu'],
+
 		components: {
 			ModuleHeader,
 			AllModules
 		},
 
 		mixins: [
-			LayoutHandlers,
-			VueNavigation
+			LayoutHandlers
 		],
 
 		expose: [],
 
-		data()
-		{
-			return {
-				texts: {
-					modules: computed(() => this.Resources[hardcodedTexts.modules])
-				},
-				showDropdownMenu: false
-			}
-		},
-
 		methods: {
+			/**
+			 * Called when focusing away from the modules button or dropdown.
+			 */
+			onFocusoutMenu(event)
+			{
+				const menuContainer = this.$refs?.menuContainer
+				const focusedElem = event?.relatedTarget
+				//If the focus went to an element within the menu button or dropdown,
+				//logically, the menu is still focused
+				if(menuContainer.contains(focusedElem))
+					return
+
+				//Menu not focused. Close dropdown.
+				this.setModuleMenuState(false)
+			},
+
 			/**
 			 * Focus on the menu toggle button.
 			 */
@@ -155,33 +99,16 @@
 			},
 
 			/**
-			 * Close the modules menu and focus on the toggle button.
+			 * Toggle the menu.
 			 */
-			closeModulesDropdownAndFocusButton()
+			toggleMenu()
 			{
-				this.showDropdownMenu = false
-				this.$refs.menuButton.$el.focus()
-			},
+				//Toggle modules menu
+				this.toggleModulesMenu()
 
-			/**
-			 * Toggle showing or hiding the modules dropdown menu.
-			 */
-			toggleModulesDropdown()
-			{
-				this.showDropdownMenu = !this.showDropdownMenu
-			},
-
-			/**
-			 * Handler for focusout on the dropdown menu.
-			 * @param {object} event Event object
-			 */
-			onDropdownFocusout(event)
-			{
-				if(this.$refs.modulesDropdown.contains(event.relatedTarget)
-					|| event.relatedTarget === this.$refs.modulesDropdown
-					|| event.relatedTarget === this.$refs.menuButton.$el)
-					return
-				this.showDropdownMenu = false
+				//Signal if opening
+				if(this.moduleMenuIsOpen)
+					this.$emit('open-menu')
 			}
 		}
 	}

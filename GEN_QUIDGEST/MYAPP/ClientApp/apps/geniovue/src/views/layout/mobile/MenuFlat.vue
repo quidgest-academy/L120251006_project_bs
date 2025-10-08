@@ -7,25 +7,6 @@
 		ref="sidebarMenu"
 		@focusout="onFocusOut"
 		tabindex="-1">
-		<div class="n-sidebar__brand">
-			<q-router-link link="/">
-				<img
-					:src="`${$app.resourcesPath}Q_icon.png?v=${$app.genio.buildVersion}`"
-					:alt="texts.initialPage"
-					class="n-sidebar__img" />
-
-				<template v-if="$app.layout.MenuBrand === 'Text'">
-					<span class="brand-text n-sidebar__brand-text">{{ texts.appName }}</span>
-				</template>
-				<template v-else>
-					<img
-						:src="`${$app.resourcesPath}logotipo_header.png?v=${$app.genio.buildVersion}`"
-						:alt="texts.initialPage"
-						class="n-sidebar__img brand-image" />
-				</template>
-			</q-router-link>
-		</div>
-
 		<div
 			class="sidebar n-sidebar"
 			tabindex="-1">
@@ -35,43 +16,9 @@
 
 			<bookmarks />
 
-			<div
-				v-if="moduleCount > 1"
-				class="n-sidebar__section">
-				<module-header v-if="$app.layout.ModulesStyle === 'list'" />
-
-				<modules />
-			</div>
+			<modules />
 
 			<div class="n-sidebar__section">
-				<template v-if="moduleCount > 1">
-					<div
-						v-if="$app.layout.ModulesStyle === 'list'"
-						id="module-items-title"
-						class="n-sidebar__title">
-						<q-icon icon="menu-hamburger" />
-
-						<p>
-							{{ texts.moduleItems }}
-						</p>
-					</div>
-					<div
-						v-else
-						class="nav-sidebar">
-						<div class="n-sidebar__nav-link--active nav-item active-module">
-							<span class="d-flex nav-link">
-								<q-icon v-bind="currentModuleIcon" />
-
-								<p>
-									<span>
-										{{ currentModuleTitle }}
-									</span>
-								</p>
-							</span>
-						</div>
-					</div>
-				</template>
-
 				<div
 					v-if="loading"
 					class="n-sidebar__section--loading">
@@ -113,9 +60,7 @@
 	import Bookmarks from './Bookmarks.vue'
 	import MenuSearchBox from './MenuSearchBox.vue'
 	import MenuSubItems from './MenuSubItems.vue'
-	import ModuleHeader from './ModuleHeader.vue'
 	import Modules from './Modules.vue'
-	import QRouterLink from '@/views/shared/QRouterLink.vue'
 
 	const DEFAULT_SKELETON_LOADERS = 10
 
@@ -123,8 +68,6 @@
 		name: 'QMenu',
 
 		components: {
-			QRouterLink,
-			ModuleHeader,
 			MenuSearchBox,
 			Bookmarks,
 			Modules,
@@ -223,7 +166,7 @@
 				 */
 				if (!this.sidebarIsVisible)
 					this.setNavBarVisibility(false)
-				else if (!this.sidebarIsCollapsed)
+				else
 					//give focus to the sidebar so ensure it is closed if the user clicks outside of it on mobile
 					this.$refs.sidebarMenu.focus();
 			},
