@@ -41,6 +41,24 @@ namespace GenioMVC.ViewModels.Favor
 
 		#endregion
 		/// <summary>
+		/// Title: "Poster" | Type: "IJ"
+		/// </summary>
+		[ImageThumbnailJsonConverter(30, 0)]
+		[ValidateSetAccess]
+		public GenioMVC.Models.ImageModel MovieValPoster 
+		{
+			get
+			{
+				return funcMovieValPoster != null ? funcMovieValPoster() : _auxMovieValPoster;
+			}
+			set { funcMovieValPoster = () => value; }
+		}
+
+		[JsonIgnore]
+		public Func<GenioMVC.Models.ImageModel> funcMovieValPoster { get; set; }
+
+		private GenioMVC.Models.ImageModel _auxMovieValPoster { get; set; }
+		/// <summary>
 		/// Title: "Name" | Type: "C"
 		/// </summary>
 		[ValidateSetAccess]
@@ -189,6 +207,7 @@ namespace GenioMVC.ViewModels.Favor
 			{
 				ValMovieid = ViewModelConversion.ToString(m.ValMovieid);
 				ValCoduserp = ViewModelConversion.ToString(m.ValCoduserp);
+				funcMovieValPoster = () => ViewModelConversion.ToImage(m.Movie.ValPoster);
 				ValFavorite_at = ViewModelConversion.ToDateTime(m.ValFavorite_at);
 				ValCodfavor = ViewModelConversion.ToString(m.ValCodfavor);
 			}
@@ -220,6 +239,14 @@ namespace GenioMVC.ViewModels.Favor
 				m.ValCoduserp = ViewModelConversion.ToString(ValCoduserp);
 				m.ValFavorite_at = ViewModelConversion.ToDateTime(ValFavorite_at);
 				m.ValCodfavor = ViewModelConversion.ToString(ValCodfavor);
+
+				/*
+					At this moment, in the case of runtime calculation of server-side formulas, to improve performance and reduce database load,
+						the values coming from the client-side will be accepted as valid, since they will not be saved and are only being used for calculation.
+				*/
+				if (!HasDisabledUserValuesSecurity)
+					return;
+
 			}
 			catch (Exception)
 			{
@@ -736,7 +763,7 @@ namespace GenioMVC.ViewModels.Favor
 		/// <param name="PKey">Primary Key of Movie</param>
 		public ConcurrentDictionary<string, object> GetDependant_F_favoriTableMovieTitle(string PKey)
 		{
-			FieldRef[] refDependantFields = [CSGenioAmovie.FldCodmovie, CSGenioAmovie.FldTitle];
+			FieldRef[] refDependantFields = [CSGenioAmovie.FldCodmovie, CSGenioAmovie.FldTitle, CSGenioAmovie.FldPoster];
 
 			var returnEmptyDependants = false;
 			CriteriaSet wherecodition = CriteriaSet.And();
@@ -785,6 +812,7 @@ namespace GenioMVC.ViewModels.Favor
 			var row = GetDependant_F_favoriTableMovieTitle(this.ValMovieid);
 			try
 			{
+				this.funcMovieValPoster = () => (GenioMVC.Models.ImageModel)row["movie.poster"];
 
 				// Fill List fields
 				this.ValMovieid = ViewModelConversion.ToString(row["movie.codmovie"]);
@@ -825,14 +853,22 @@ namespace GenioMVC.ViewModels.Favor
 			{
 				"favor.movieid" => ViewModelConversion.ToString(modelValue),
 				"favor.coduserp" => ViewModelConversion.ToString(modelValue),
+				"movie.poster" => ViewModelConversion.ToImage(modelValue),
 				"favor.favorite_at" => ViewModelConversion.ToDateTime(modelValue),
 				"favor.codfavor" => ViewModelConversion.ToString(modelValue),
+				"movie.codmovie" => ViewModelConversion.ToString(modelValue),
 				"userp.coduserp" => ViewModelConversion.ToString(modelValue),
 				"userp.name" => ViewModelConversion.ToString(modelValue),
-				"movie.codmovie" => ViewModelConversion.ToString(modelValue),
 				"movie.title" => ViewModelConversion.ToString(modelValue),
 				_ => modelValue
 			};
+		}
+
+		/// <inheritdoc/>
+		protected override void SetTicketToImageFields()
+		{
+			if (MovieValPoster != null)
+				MovieValPoster.Ticket = Helpers.Helpers.GetFileTicket(m_userContext.User, CSGenio.business.Area.AreaMOVIE, CSGenioAmovie.FldPoster.Field, null, ValMovieid);
 		}
 
 		#region Charts

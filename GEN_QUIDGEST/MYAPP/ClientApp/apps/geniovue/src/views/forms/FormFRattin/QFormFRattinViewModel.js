@@ -77,6 +77,16 @@ export default class ViewModel extends FormViewModelBase
 		this.stopWatchers.push(watch(() => this.ValCoduserp.value, (newValue, oldValue) => this.onUpdate('ratti.coduserp', this.ValCoduserp, newValue, oldValue)))
 
 		/** The remaining form fields. */
+		this.MovieValPoster = reactive(new modelFieldType.Image({
+			id: 'MovieValPoster',
+			originId: 'ValPoster',
+			area: 'MOVIE',
+			field: 'POSTER',
+			isFixed: true,
+			description: computed(() => this.Resources.POSTER52933),
+		}).cloneFrom(values?.MovieValPoster))
+		this.stopWatchers.push(watch(() => this.MovieValPoster.value, (newValue, oldValue) => this.onUpdate('movie.poster', this.MovieValPoster, newValue, oldValue)))
+
 		this.TableMovieTitle = reactive(new modelFieldType.String({
 			type: 'Lookup',
 			id: 'TableMovieTitle',

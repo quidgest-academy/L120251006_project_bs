@@ -54,16 +54,6 @@ export default class ViewModel extends FormViewModelBase
 		this.stopWatchers.push(watch(() => this.ValCodfavor.value, (newValue, oldValue) => this.onUpdate('favor.codfavor', this.ValCodfavor, newValue, oldValue)))
 
 		/** The used foreign keys. */
-		this.ValCoduserp = reactive(new modelFieldType.ForeignKey({
-			id: 'ValCoduserp',
-			originId: 'ValCoduserp',
-			area: 'FAVOR',
-			field: 'CODUSERP',
-			relatedArea: 'USERP',
-			description: computed(() => this.Resources.USER_ID19581),
-		}).cloneFrom(values?.ValCoduserp))
-		this.stopWatchers.push(watch(() => this.ValCoduserp.value, (newValue, oldValue) => this.onUpdate('favor.coduserp', this.ValCoduserp, newValue, oldValue)))
-
 		this.ValMovieid = reactive(new modelFieldType.ForeignKey({
 			id: 'ValMovieid',
 			originId: 'ValMovieid',
@@ -76,7 +66,27 @@ export default class ViewModel extends FormViewModelBase
 		}).cloneFrom(values?.ValMovieid))
 		this.stopWatchers.push(watch(() => this.ValMovieid.value, (newValue, oldValue) => this.onUpdate('favor.movieid', this.ValMovieid, newValue, oldValue)))
 
+		this.ValCoduserp = reactive(new modelFieldType.ForeignKey({
+			id: 'ValCoduserp',
+			originId: 'ValCoduserp',
+			area: 'FAVOR',
+			field: 'CODUSERP',
+			relatedArea: 'USERP',
+			description: computed(() => this.Resources.USER_ID19581),
+		}).cloneFrom(values?.ValCoduserp))
+		this.stopWatchers.push(watch(() => this.ValCoduserp.value, (newValue, oldValue) => this.onUpdate('favor.coduserp', this.ValCoduserp, newValue, oldValue)))
+
 		/** The remaining form fields. */
+		this.MovieValPoster = reactive(new modelFieldType.Image({
+			id: 'MovieValPoster',
+			originId: 'ValPoster',
+			area: 'MOVIE',
+			field: 'POSTER',
+			isFixed: true,
+			description: computed(() => this.Resources.POSTER52933),
+		}).cloneFrom(values?.MovieValPoster))
+		this.stopWatchers.push(watch(() => this.MovieValPoster.value, (newValue, oldValue) => this.onUpdate('movie.poster', this.MovieValPoster, newValue, oldValue)))
+
 		this.TableUserpName = reactive(new modelFieldType.String({
 			type: 'Lookup',
 			id: 'TableUserpName',

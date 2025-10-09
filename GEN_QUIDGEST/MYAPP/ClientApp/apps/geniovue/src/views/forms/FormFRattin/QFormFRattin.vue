@@ -91,6 +91,25 @@
 			data-key="F_RATTIN"
 			:data-loading="!formInitialDataLoaded">
 			<template v-if="formControl.initialized && showFormBody">
+				<q-row-container v-if="controls.F_RATTINMOVIEPOSTER__.isVisible">
+					<q-control-wrapper
+						v-if="controls.F_RATTINMOVIEPOSTER__.isVisible"
+						class="control-join-group">
+						<base-input-structure
+							v-if="controls.F_RATTINMOVIEPOSTER__.isVisible"
+							class="q-image"
+							v-bind="controls.F_RATTINMOVIEPOSTER__"
+							v-on="controls.F_RATTINMOVIEPOSTER__.handlers"
+							:loading="controls.F_RATTINMOVIEPOSTER__.props.loading"
+							:reporting-mode-on="reportingModeCAV"
+							:suggestion-mode-on="suggestionModeOn">
+							<q-image
+								v-if="controls.F_RATTINMOVIEPOSTER__.isVisible"
+								v-bind="controls.F_RATTINMOVIEPOSTER__.props"
+								v-on="controls.F_RATTINMOVIEPOSTER__.handlers" />
+						</base-input-structure>
+					</q-control-wrapper>
+				</q-row-container>
 				<q-row-container v-if="controls.F_RATTINMOVIETITLE___.isVisible">
 					<q-control-wrapper
 						v-if="controls.F_RATTINMOVIETITLE___.isVisible"
@@ -520,6 +539,23 @@
 				},
 
 				controls: {
+					F_RATTINMOVIEPOSTER__: new fieldControlClass.ImageControl({
+						modelField: 'MovieValPoster',
+						valueChangeEvent: 'fieldChange:movie.poster',
+						id: 'F_RATTINMOVIEPOSTER__',
+						name: 'POSTER',
+						size: 'mini',
+						label: computed(() => this.Resources.POSTER52933),
+						placeholder: '',
+						labelPosition: computed(() => this.labelAlignment.topleft),
+						height: 50,
+						width: 100,
+						dataTitle: computed(() => genericFunctions.formatString(vm.Resources.IMAGEM_UTILIZADA_PAR17299, vm.Resources.POSTER52933)),
+						maxFileSize: 10485760, // In bytes.
+						maxFileSizeLabel: '10 MB',
+						controlLimits: [
+						],
+					}, this),
 					F_RATTINMOVIETITLE___: new fieldControlClass.LookupControl({
 						modelField: 'TableMovieTitle',
 						valueChangeEvent: 'fieldChange:movie.title',
@@ -678,6 +714,8 @@
 				 */
 				dataApi: {
 					Movie: {
+						get ValPoster() { return vm.model.MovieValPoster.value },
+						set ValPoster(value) { vm.model.MovieValPoster.updateValue(value) },
 						get ValTitle() { return vm.model.TableMovieTitle.value },
 						set ValTitle(value) { vm.model.TableMovieTitle.updateValue(value) },
 					},

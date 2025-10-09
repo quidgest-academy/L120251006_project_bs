@@ -8,6 +8,11 @@ namespace quidgest.uitests.pages.forms;
 public class F_favoriForm : PopupForm
 {
 	/// <summary>
+	/// Poster
+	/// </summary>
+	public IWebElement MoviePoster => throw new NotImplementedException();
+
+	/// <summary>
 	/// Name
 	/// </summary>
 	public LookupControl UserpName => new LookupControl(driver, ContainerLocator, "container-F_FAVORIUSERPNAME____");

@@ -8,6 +8,11 @@ namespace quidgest.uitests.pages.forms;
 public class F_rattinForm : PopupForm
 {
 	/// <summary>
+	/// Poster
+	/// </summary>
+	public BaseInputControl MoviePoster => new BaseInputControl(driver, ContainerLocator, "container-F_RATTINMOVIEPOSTER__", "#F_RATTINMOVIEPOSTER__");
+
+	/// <summary>
 	/// Title
 	/// </summary>
 	public LookupControl MovieTitle => new LookupControl(driver, ContainerLocator, "container-F_RATTINMOVIETITLE___");

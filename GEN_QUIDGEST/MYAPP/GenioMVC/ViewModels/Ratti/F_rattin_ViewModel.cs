@@ -41,6 +41,24 @@ namespace GenioMVC.ViewModels.Ratti
 
 		#endregion
 		/// <summary>
+		/// Title: "Poster" | Type: "IJ"
+		/// </summary>
+		[ImageThumbnailJsonConverter(100, 50)]
+		[ValidateSetAccess]
+		public GenioMVC.Models.ImageModel MovieValPoster 
+		{
+			get
+			{
+				return funcMovieValPoster != null ? funcMovieValPoster() : _auxMovieValPoster;
+			}
+			set { funcMovieValPoster = () => value; }
+		}
+
+		[JsonIgnore]
+		public Func<GenioMVC.Models.ImageModel> funcMovieValPoster { get; set; }
+
+		private GenioMVC.Models.ImageModel _auxMovieValPoster { get; set; }
+		/// <summary>
 		/// Title: "Title" | Type: "C"
 		/// </summary>
 		[ValidateSetAccess]
@@ -193,6 +211,7 @@ namespace GenioMVC.ViewModels.Ratti
 			{
 				ValCodmovie = ViewModelConversion.ToString(m.ValCodmovie);
 				ValCoduserp = ViewModelConversion.ToString(m.ValCoduserp);
+				funcMovieValPoster = () => ViewModelConversion.ToImage(m.Movie.ValPoster);
 				ValRate = ViewModelConversion.ToNumeric(m.ValRate);
 				ValRatedat = ViewModelConversion.ToDateTime(m.ValRatedat);
 				ValCodratti = ViewModelConversion.ToString(m.ValCodratti);
@@ -226,6 +245,14 @@ namespace GenioMVC.ViewModels.Ratti
 				m.ValRate = ViewModelConversion.ToNumeric(ValRate);
 				m.ValRatedat = ViewModelConversion.ToDateTime(ValRatedat);
 				m.ValCodratti = ViewModelConversion.ToString(ValCodratti);
+
+				/*
+					At this moment, in the case of runtime calculation of server-side formulas, to improve performance and reduce database load,
+						the values coming from the client-side will be accepted as valid, since they will not be saved and are only being used for calculation.
+				*/
+				if (!HasDisabledUserValuesSecurity)
+					return;
+
 			}
 			catch (Exception)
 			{
@@ -834,6 +861,7 @@ namespace GenioMVC.ViewModels.Ratti
 			{
 				"ratti.codmovie" => ViewModelConversion.ToString(modelValue),
 				"ratti.coduserp" => ViewModelConversion.ToString(modelValue),
+				"movie.poster" => ViewModelConversion.ToImage(modelValue),
 				"ratti.rate" => ViewModelConversion.ToNumeric(modelValue),
 				"ratti.ratedat" => ViewModelConversion.ToDateTime(modelValue),
 				"ratti.codratti" => ViewModelConversion.ToString(modelValue),
@@ -843,6 +871,13 @@ namespace GenioMVC.ViewModels.Ratti
 				"userp.name" => ViewModelConversion.ToString(modelValue),
 				_ => modelValue
 			};
+		}
+
+		/// <inheritdoc/>
+		protected override void SetTicketToImageFields()
+		{
+			if (MovieValPoster != null)
+				MovieValPoster.Ticket = Helpers.Helpers.GetFileTicket(m_userContext.User, CSGenio.business.Area.AreaMOVIE, CSGenioAmovie.FldPoster.Field, null, ValCodmovie);
 		}
 
 		#region Charts
