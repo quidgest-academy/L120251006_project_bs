@@ -757,7 +757,6 @@
 							tableAlias: 'MOVIE',
 							tableNamePlural: computed(() => this.Resources.MOVIES48538),
 							viewManagement: '',
-							showLimitsInfo: true,
 							tableTitle: computed(() => this.Resources.MOVIES48538),
 							showAlternatePagination: true,
 							permissions: {
@@ -1047,6 +1046,16 @@
 								scrollData: 8,
 								dateTimeType: 'date',
 							}, computed(() => vm.model), computed(() => vm.internalEvents)),
+							new listColumnTypes.NumericColumn({
+								order: 4,
+								name: 'ValAveragerate',
+								area: 'MOVIE',
+								field: 'AVERAGERATE',
+								label: computed(() => this.Resources.AVERAGE_RATE24140),
+								scrollData: 9,
+								maxDigits: 9,
+								decimalPlaces: 0,
+							}, computed(() => vm.model), computed(() => vm.internalEvents)),
 						],
 						config: {
 							name: 'ValField003',
@@ -1206,8 +1215,8 @@
 							defaultSearchColumnName: 'ValTitle',
 							defaultSearchColumnNameOriginal: 'ValTitle',
 							defaultColumnSorting: {
-								columnName: 'ValRealease_date',
-								sortOrder: 'desc'
+								columnName: 'ValAveragerate',
+								sortOrder: 'asc'
 							}
 						},
 						globalEvents: ['changed-MOVIE'],

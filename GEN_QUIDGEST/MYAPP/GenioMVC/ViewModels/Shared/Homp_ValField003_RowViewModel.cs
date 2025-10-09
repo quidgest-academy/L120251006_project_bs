@@ -51,6 +51,12 @@ public class Homp_ValField003_RowViewModel : Models.Movie
 				Area = "MOVIE",
 				Field = "REALEASE_DATE",
 			},
+			new ListColumn()
+			{
+				Order = 4,
+				Area = "MOVIE",
+				Field = "AVERAGERATE",
+			},
 		];
 	}
 

@@ -122,6 +122,7 @@ namespace GenioMVC.ViewModels
 			[
 				new Exports.QColumn(CSGenioAmovie.FldTitle, FieldType.TEXT, Resources.Resources.TITLE21885, 30, 0, true),
 				new Exports.QColumn(CSGenioAmovie.FldRealease_date, FieldType.DATE, Resources.Resources.REALEASE_DATE49316, 8, 0, true),
+				new Exports.QColumn(CSGenioAmovie.FldAveragerate, FieldType.NUMERIC, Resources.Resources.AVERAGE_RATE24140, 9, 0, true),
 			];
 		}
 
@@ -292,8 +293,8 @@ namespace GenioMVC.ViewModels
 
 				//FOR: MENU LIST SORTING
 				Dictionary<string, OrderedDictionary> allSortOrders = new Dictionary<string, OrderedDictionary>();
-				allSortOrders.Add("MOVIE.REALEASE_DATE", new OrderedDictionary());
-				allSortOrders["MOVIE.REALEASE_DATE"].Add("MOVIE.REALEASE_DATE", "D");
+				allSortOrders.Add("MOVIE.AVERAGERATE", new OrderedDictionary());
+				allSortOrders["MOVIE.AVERAGERATE"].Add("MOVIE.AVERAGERATE", "A");
 
 
 
@@ -309,11 +310,11 @@ namespace GenioMVC.ViewModels
 				if (sorts == null || sorts.Count == 0)
 				{
 					sorts = new List<ColumnSort>();
-				sorts.Add(new ColumnSort(new ColumnReference(CSGenioAmovie.FldRealease_date), SortOrder.Descending));
+				sorts.Add(new ColumnSort(new ColumnReference(CSGenioAmovie.FldAveragerate), SortOrder.Ascending));
 
 				}
 
-				FieldRef[] fields = new FieldRef[] { CSGenioAmovie.FldCodmovie, CSGenioAmovie.FldZzstate, CSGenioAmovie.FldTitle, CSGenioAmovie.FldPoster, CSGenioAmovie.FldRealease_date };
+				FieldRef[] fields = new FieldRef[] { CSGenioAmovie.FldCodmovie, CSGenioAmovie.FldZzstate, CSGenioAmovie.FldTitle, CSGenioAmovie.FldPoster, CSGenioAmovie.FldRealease_date, CSGenioAmovie.FldAveragerate };
 
 
 				// Totalizers
@@ -509,13 +510,14 @@ namespace GenioMVC.ViewModels
 
 		private static readonly string[] _fieldsToSerialize =
 		[
-			"Movie", "Movie.ValCodmovie", "Movie.ValZzstate", "Movie.ValTitle", "Movie.ValPoster", "Movie.ValRealease_date"
+			"Movie", "Movie.ValCodmovie", "Movie.ValZzstate", "Movie.ValTitle", "Movie.ValPoster", "Movie.ValRealease_date", "Movie.ValAveragerate"
 		];
 
 		private static readonly List<TableSearchColumn> _searchableColumns =
 		[
 			new TableSearchColumn("ValTitle", CSGenioAmovie.FldTitle, typeof(string), defaultSearch : true),
 			new TableSearchColumn("ValRealease_date", CSGenioAmovie.FldRealease_date, typeof(DateTime?)),
+			new TableSearchColumn("ValAveragerate", CSGenioAmovie.FldAveragerate, typeof(decimal?)),
 		];
 		protected void SetTicketToImageFields(Models.Movie row)
 		{

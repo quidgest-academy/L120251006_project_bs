@@ -326,16 +326,6 @@ namespace GenioMVC.ViewModels
 				// Comparer to check if limit is already present in tableLimits
 				LimitComparer limitComparer = new();
 
-				//Tooltip for EPHs affecting this viewmodel list
-				{
-					Limit limit = new Limit();
-					limit.TipoLimite = LimitType.EPH;
-					CSGenioAmovie model_limit_area = new CSGenioAmovie(m_userContext.User);
-					List<Limit> area_EPH_limits = EPH_Limit_Filler(ref limit, model_limit_area, "IBL_HOMP____PSEUDFIELD002");
-					if (area_EPH_limits.Count > 0)
-						this.tableLimits.AddRange(area_EPH_limits);
-				}
-
 
 				if (conditions == null)
 					conditions = CriteriaSet.And();
