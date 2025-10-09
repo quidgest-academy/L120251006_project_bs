@@ -33,12 +33,12 @@ namespace GenioMVC.Controllers
 	{
 		#region NavigationLocation Names
 
-		private static readonly NavigationLocation ACTION_F_RATTIN_CANCEL = new("RATTING61217", "F_rattin_Cancel", "Ratti") { vueRouteName = "form-F_RATTIN", mode = "CANCEL" };
-		private static readonly NavigationLocation ACTION_F_RATTIN_SHOW = new("RATTING61217", "F_rattin_Show", "Ratti") { vueRouteName = "form-F_RATTIN", mode = "SHOW" };
-		private static readonly NavigationLocation ACTION_F_RATTIN_NEW = new("RATTING61217", "F_rattin_New", "Ratti") { vueRouteName = "form-F_RATTIN", mode = "NEW" };
-		private static readonly NavigationLocation ACTION_F_RATTIN_EDIT = new("RATTING61217", "F_rattin_Edit", "Ratti") { vueRouteName = "form-F_RATTIN", mode = "EDIT" };
-		private static readonly NavigationLocation ACTION_F_RATTIN_DUPLICATE = new("RATTING61217", "F_rattin_Duplicate", "Ratti") { vueRouteName = "form-F_RATTIN", mode = "DUPLICATE" };
-		private static readonly NavigationLocation ACTION_F_RATTIN_DELETE = new("RATTING61217", "F_rattin_Delete", "Ratti") { vueRouteName = "form-F_RATTIN", mode = "DELETE" };
+		private static readonly NavigationLocation ACTION_F_RATTIN_CANCEL = new("RATING45804", "F_rattin_Cancel", "Ratti") { vueRouteName = "form-F_RATTIN", mode = "CANCEL" };
+		private static readonly NavigationLocation ACTION_F_RATTIN_SHOW = new("RATING45804", "F_rattin_Show", "Ratti") { vueRouteName = "form-F_RATTIN", mode = "SHOW" };
+		private static readonly NavigationLocation ACTION_F_RATTIN_NEW = new("RATING45804", "F_rattin_New", "Ratti") { vueRouteName = "form-F_RATTIN", mode = "NEW" };
+		private static readonly NavigationLocation ACTION_F_RATTIN_EDIT = new("RATING45804", "F_rattin_Edit", "Ratti") { vueRouteName = "form-F_RATTIN", mode = "EDIT" };
+		private static readonly NavigationLocation ACTION_F_RATTIN_DUPLICATE = new("RATING45804", "F_rattin_Duplicate", "Ratti") { vueRouteName = "form-F_RATTIN", mode = "DUPLICATE" };
+		private static readonly NavigationLocation ACTION_F_RATTIN_DELETE = new("RATING45804", "F_rattin_Delete", "Ratti") { vueRouteName = "form-F_RATTIN", mode = "DELETE" };
 
 		#endregion
 

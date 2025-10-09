@@ -309,7 +309,7 @@
 					route: 'form-F_RATTIN',
 					area: 'RATTI',
 					primaryKey: 'ValCodratti',
-					designation: computed(() => this.Resources.RATTING61217),
+					designation: computed(() => this.Resources.RATING45804),
 					identifier: '', // Unique identifier received by route (when it's nested).
 					mode: '',
 					availableAgents: [],
@@ -583,7 +583,7 @@
 							},
 						],
 					}, this),
-					F_RATTINRATTIRATE____: new fieldControlClass.NumberControl({
+					F_RATTINRATTIRATE____: new fieldControlClass.FieldSpecialRenderingControl({
 						modelField: 'ValRate',
 						valueChangeEvent: 'fieldChange:ratti.rate',
 						id: 'F_RATTINRATTIRATE____',
@@ -594,6 +594,51 @@
 						labelPosition: computed(() => this.labelAlignment.topleft),
 						maxIntegers: 1,
 						maxDecimals: 0,
+						viewModes: [
+							{
+								id: 'RATING',
+								type: 'rating',
+								subtype: '',
+								label: computed(() => this.Resources.AVALIACAO18442),
+								order: 1,
+								implicitVariable: 'rating',
+								implicitIsMultiple: true,
+								mappingVariables: readonly({
+								}),
+								styleVariables: {
+									maxRating: {
+										rawValue: 9,
+										isMapped: false
+									},
+									increment: {
+										rawValue: 1,
+										isMapped: false
+									},
+									shapeSize: {
+										rawValue: 40,
+										isMapped: false
+									},
+									activeColor: {
+										rawValue: '$primary',
+										isMapped: false
+									},
+									inactiveColor: {
+										rawValue: '$gray-light',
+										isMapped: false
+									},
+									showRating: {
+										rawValue: true,
+										isMapped: false
+									},
+									padding: {
+										rawValue: 0,
+										isMapped: false
+									},
+								},
+								groups: {
+								}
+							},
+						],
 						controlLimits: [
 						],
 					}, this),

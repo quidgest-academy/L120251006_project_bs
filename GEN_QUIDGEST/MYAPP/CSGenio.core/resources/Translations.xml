@@ -462,6 +462,9 @@
   <msg id="Passwords" code="PASSWORDS52247">
     <ENUS>Passwords</ENUS>
   </msg>
+  <msg id="Rating" code="RATING45804">
+    <ENUS>Rating</ENUS>
+  </msg>
   <msg id="Hidden" code="HIDDEN49780">
     <ENUS>Hidden</ENUS>
   </msg>

@@ -1,5 +1,6 @@
 ﻿import CardsControl from './cardsControl.js'
 import CarouselControl from './carouselControl.js'
+import RatingControl from './ratingControl.js'
 
 /**
  * Gets the class that implements the custom control with the desired control type.
@@ -16,6 +17,8 @@ export default function getCustomControl(controlType, context, viewModeOrder)
 			return new CardsControl(context, viewModeOrder)
 		case 'carousel':
 			return new CarouselControl(context, viewModeOrder)
+		case 'rating':
+			return new RatingControl(context, viewModeOrder)
 	}
 
 	return null

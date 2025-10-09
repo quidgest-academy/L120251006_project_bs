@@ -579,6 +579,9 @@
 	<data name="PASSWORDS52247" xml:space="preserve">
 		<value>Passwords</value>
 	</data>
+	<data name="RATING45804" xml:space="preserve">
+		<value>Rating</value>
+	</data>
 	<data name="HIDDEN49780" xml:space="preserve">
 		<value>Hidden</value>
 	</data>
