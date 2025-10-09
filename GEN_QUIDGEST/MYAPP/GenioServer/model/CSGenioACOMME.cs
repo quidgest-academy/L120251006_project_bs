@@ -225,6 +225,10 @@ namespace CSGenio.business
 			// Ephs
 			//------------------------------
 			info.Ephs=new Hashtable();
+			EPHField[] camposEPH;
+						camposEPH = new EPHField[1];
+			camposEPH[0] = new EPHField("USER_ACESS2", "comme", "coduserp", "=", false);
+			info.Ephs.Add(new Par("MOV", "5"), camposEPH);
 
 			// Table minimum roles and access levels
 			//------------------------------

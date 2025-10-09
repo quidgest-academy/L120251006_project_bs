@@ -23,6 +23,7 @@ namespace CSGenio.framework
             };
 
             todosEphs = new() {
+			    {"MOV", new MOVEPH("MOV")},
             };
 		}
 

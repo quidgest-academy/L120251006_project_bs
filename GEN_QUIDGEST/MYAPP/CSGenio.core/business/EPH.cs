@@ -20,9 +20,12 @@ namespace CSGenio.framework
 		static EPH()
 		{
             allConditions = new(){
+                {"USER_ACESS", new EPHCondition("USER_ACESS", "MOV", "movuserprofile", "userp", "coduserp", "userp", "coduserp", FieldType.KEY_INT, "") },
+                {"USER_ACESS2", new EPHCondition("USER_ACESS2", "MOV", "movuserprofile", "userp", "coduserp", "userp", "coduserp", FieldType.KEY_INT, "") },
             };
 
             todosEphs = new() {
+			    {"MOV", new MOVEPH("MOV")},
             };
 		}
 
