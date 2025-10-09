@@ -61,6 +61,15 @@ namespace Administration.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to "Num Likes"
+        /// </summary>
+        public static string NUM_LIKES09507 {
+            get {
+                return ResourceManager.GetString("NUM_LIKES09507", resourceCulture);
+            }
+        }
+
+        /// <summary>
         ///   Looks up a localized string similar to "Process ID"
         /// </summary>
         public static string PROCESS_ID11161 {

@@ -59,7 +59,7 @@ namespace GenioMVC.ViewModels.Movie
 		/// </summary>
 		public DateTime? ValRealease_date { get; set; }
 		/// <summary>
-		/// Title: "Num of likes" | Type: "N"
+		/// Title: "Num Likes" | Type: "N"
 		/// </summary>
 		[ValidateSetAccess]
 		public decimal? ValNumberoflikes { get; set; }

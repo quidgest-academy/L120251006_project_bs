@@ -1,5 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Messages>
+  <msg id="Num Likes" code="NUM_LIKES09507">
+    <ENUS>Num Likes</ENUS>
+  </msg>
   <msg id="Process ID" code="PROCESS_ID11161">
     <ENUS>Process ID</ENUS>
   </msg>

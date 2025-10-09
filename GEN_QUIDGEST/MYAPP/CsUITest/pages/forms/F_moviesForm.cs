@@ -43,7 +43,7 @@ public class F_moviesForm : Form
 	public CollapsibleZoneControl PseudNewgrp03 => new CollapsibleZoneControl(driver, ContainerLocator, "#F_MOVIESPSEUDNEWGRP03-container");
 
 	/// <summary>
-	/// Num of likes
+	/// Num Likes
 	/// </summary>
 	public BaseInputControl MovieNumberof => new BaseInputControl(driver, ContainerLocator, "container-F_MOVIESMOVIENUMBEROF", "#F_MOVIESMOVIENUMBEROF");
 
