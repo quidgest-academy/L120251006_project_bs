@@ -44,6 +44,19 @@ export default function getMenusRoutes()
 			}
 		},
 		{
+			path: '/:culture/:system/MOV/menu/MOV_81',
+			name: 'menu-MOV_81',
+			component: () => import('@/views/menus/ModuleMOV/MenuMOV_81/QMenuMov81.vue'),
+			meta: {
+				routeType: 'menu',
+				module: 'MOV',
+				order: '81',
+				baseArea: 'MOVIE',
+				hasInitialPHE: false,
+				humanKeyFields: ['ValTitle'],
+			}
+		},
+		{
 			path: '/:culture/:system/MOV/menu/MOV_51',
 			name: 'menu-MOV_51',
 			component: () => import('@/views/menus/ModuleMOV/MenuMOV_51/QMenuMov51.vue'),

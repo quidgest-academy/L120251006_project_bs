@@ -41,5 +41,11 @@
         <MENU TYPE="ITEM" ID="711" PRTID="71" IMG="" ACT="GenGenio.MenuFormConsulta" LVL="-1" PREVIEW="false" SEPARATES="false" SUMMENU="false" HIDEMENUSUM="false" HASCONDITION="false" ISFORM="false" ORDER="711" />
       </MENU>
     </MENU>
+    <MENU TYPE="ITEM" DESC="LIST_MOVIES54898" SIGLA="" ID="8" HELPTITLE="" LVL="1" PREVIEW="false" SEPARATES="false" SUMMENU="false" HIDEMENUSUM="false" HASCONDITION="false" ISFORM="false" ORDER="8" DEFAULTACTION="">
+      <ACCESS>1</ACCESS>
+      <MENU TYPE="ITEM" DESC="MOVIES48538" ID="81" PRTID="8" IMG="" ACT="GenGenio.MenuDBEdit" ACTMVC="MOV_Menu_81" ACTVUE="menu-MOV_81" CONT="MOVIE" LVL="-1" PREVIEW="false" SEPARATES="false" SUMMENU="false" HIDEMENUSUM="false" HASCONDITION="false" ISFORM="false" ORDER="81">
+        <MENU TYPE="ITEM" ID="811" PRTID="81" IMG="" ACT="GenGenio.MenuFormConsulta" LVL="-1" PREVIEW="false" SEPARATES="false" SUMMENU="false" HIDEMENUSUM="false" HASCONDITION="false" ISFORM="false" ORDER="811" />
+      </MENU>
+    </MENU>
   </MenuEntry>
 </ArrayOfMenuEntry>

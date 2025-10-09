@@ -106,6 +106,15 @@ namespace Administration.Resources {
         }
 
         /// <summary>
+        ///   Looks up a localized string similar to "List Movies"
+        /// </summary>
+        public static string LIST_MOVIES54898 {
+            get {
+                return ResourceManager.GetString("LIST_MOVIES54898", resourceCulture);
+            }
+        }
+
+        /// <summary>
         ///   Looks up a localized string similar to "Actor name"
         /// </summary>
         public static string ACTOR_NAME48089 {

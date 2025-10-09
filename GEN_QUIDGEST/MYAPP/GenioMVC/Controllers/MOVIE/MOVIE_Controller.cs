@@ -52,6 +52,22 @@ namespace GenioMVC.Controllers
 
 
 
+
+
+		/// <summary>
+		/// Recalculate formulas of the "F_movadm" form. (++, CT, SR, CL and U1)
+		/// </summary>
+		/// <param name="formData">Current form data</param>
+		/// <returns></returns>
+		[HttpPost]
+		public JsonResult RecalculateFormulas_F_movadm([FromBody]F_movadm_ViewModel formData)
+		{
+			return GenericRecalculateFormulas(formData, "movie",
+				(primaryKey) => Models.Movie.Find(primaryKey, UserContext.Current, "FF_MOVADM"),
+				(model) => formData.MapToModel(model as Models.Movie)
+			);
+		}
+
 		// POST: /Movie/F_MOVIES_InsertCondition
 		[HttpPost]
 		public JsonResult F_MOVIES_InsertCondition()

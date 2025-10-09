@@ -37,6 +37,17 @@ export default function getFormsRoutes()
 			}
 		},
 		{
+			path: '/:culture/:system/:module/form/F_MOVADM/:mode/:id?',
+			name: 'form-F_MOVADM',
+			props: route => propsConverter(route),
+			component: () => import('@/views/forms/FormFMovadm/QFormFMovadm.vue'),
+			meta: {
+				routeType: 'form',
+				baseArea: 'MOVIE',
+				humanKeyFields: ['ValTitle']
+			}
+		},
+		{
 			path: '/:culture/:system/:module/form/F_MOVIES/:mode/:id?',
 			name: 'form-F_MOVIES',
 			props: route => propsConverter(route),

@@ -15,6 +15,9 @@
   <msg id="Motive" code="MOTIVE13407">
     <ENUS>Motive</ENUS>
   </msg>
+  <msg id="List Movies" code="LIST_MOVIES54898">
+    <ENUS>List Movies</ENUS>
+  </msg>
   <msg id="Actor name" code="ACTOR_NAME48089">
     <ENUS>Actor name</ENUS>
   </msg>
