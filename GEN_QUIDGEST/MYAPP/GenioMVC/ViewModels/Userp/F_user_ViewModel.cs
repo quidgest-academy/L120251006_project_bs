@@ -37,6 +37,11 @@ namespace GenioMVC.ViewModels.Userp
 
 		#endregion
 		/// <summary>
+		/// Title: "Photo" | Type: "IJ"
+		/// </summary>
+		[ImageThumbnailJsonConverter(30, 50)]
+		public GenioMVC.Models.ImageModel ValPhoto { get; set; }
+		/// <summary>
 		/// Title: "Name" | Type: "C"
 		/// </summary>
 		public string ValName { get; set; }
@@ -44,11 +49,6 @@ namespace GenioMVC.ViewModels.Userp
 		/// Title: "Email" | Type: "C"
 		/// </summary>
 		public string ValEmail { get; set; }
-		/// <summary>
-		/// Title: "Photo" | Type: "IJ"
-		/// </summary>
-		[ImageThumbnailJsonConverter(30, 50)]
-		public GenioMVC.Models.ImageModel ValPhoto { get; set; }
 		/// <summary>
 		/// Title: "Login" | Type: "C"
 		/// </summary>
@@ -188,9 +188,9 @@ namespace GenioMVC.ViewModels.Userp
 			try
 			{
 				ValCodpsw = ViewModelConversion.ToString(m.ValCodpsw);
+				ValPhoto = ViewModelConversion.ToImage(m.ValPhoto);
 				ValName = ViewModelConversion.ToString(m.ValName);
 				ValEmail = ViewModelConversion.ToString(m.ValEmail);
-				ValPhoto = ViewModelConversion.ToImage(m.ValPhoto);
 				ValCoduserp = ViewModelConversion.ToString(m.ValCoduserp);
 			}
 			catch (Exception)
@@ -218,10 +218,10 @@ namespace GenioMVC.ViewModels.Userp
 			try
 			{
 				m.ValCodpsw = ViewModelConversion.ToString(ValCodpsw);
-				m.ValName = ViewModelConversion.ToString(ValName);
-				m.ValEmail = ViewModelConversion.ToString(ValEmail);
 				if (ValPhoto == null || !ValPhoto.IsThumbnail)
 					m.ValPhoto = ViewModelConversion.ToImage(ValPhoto);
+				m.ValName = ViewModelConversion.ToString(ValName);
+				m.ValEmail = ViewModelConversion.ToString(ValEmail);
 				m.ValCoduserp = ViewModelConversion.ToString(ValCoduserp);
 			}
 			catch (Exception)
@@ -250,14 +250,14 @@ namespace GenioMVC.ViewModels.Userp
 					case "userp.codpsw":
 						this.ValCodpsw = ViewModelConversion.ToString(_value);
 						break;
+					case "userp.photo":
+						this.ValPhoto = ViewModelConversion.ToImage(_value);
+						break;
 					case "userp.name":
 						this.ValName = ViewModelConversion.ToString(_value);
 						break;
 					case "userp.email":
 						this.ValEmail = ViewModelConversion.ToString(_value);
-						break;
-					case "userp.photo":
-						this.ValPhoto = ViewModelConversion.ToImage(_value);
 						break;
 					case "userp.coduserp":
 						this.ValCoduserp = ViewModelConversion.ToString(_value);
@@ -619,9 +619,9 @@ namespace GenioMVC.ViewModels.Userp
 			return identifier switch
 			{
 				"userp.codpsw" => ViewModelConversion.ToString(modelValue),
+				"userp.photo" => ViewModelConversion.ToImage(modelValue),
 				"userp.name" => ViewModelConversion.ToString(modelValue),
 				"userp.email" => ViewModelConversion.ToString(modelValue),
-				"userp.photo" => ViewModelConversion.ToImage(modelValue),
 				"userp.coduserp" => ViewModelConversion.ToString(modelValue),
 				"psw.codpsw" => ViewModelConversion.ToString(modelValue),
 				"psw.nome" => ViewModelConversion.ToString(modelValue),

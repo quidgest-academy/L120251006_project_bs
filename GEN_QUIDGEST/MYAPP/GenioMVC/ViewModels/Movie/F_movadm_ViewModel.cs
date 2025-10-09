@@ -68,16 +68,6 @@ namespace GenioMVC.ViewModels.Movie
 		/// </summary>
 		public string ValDescription { get; set; }
 		/// <summary>
-		/// Title: "Numberoflikes" | Type: "N"
-		/// </summary>
-		[ValidateSetAccess]
-		public decimal? ValNumberoflikes { get; set; }
-		/// <summary>
-		/// Title: "Average Rate" | Type: "ND"
-		/// </summary>
-		[ValidateSetAccess]
-		public decimal? ValAveragerate { get; set; }
-		/// <summary>
 		/// Title: "Total rate" | Type: "N"
 		/// </summary>
 		[ValidateSetAccess]
@@ -88,10 +78,20 @@ namespace GenioMVC.ViewModels.Movie
 		[ValidateSetAccess]
 		public decimal? ValSumavg { get; set; }
 		/// <summary>
+		/// Title: "Numberoflikes" | Type: "N"
+		/// </summary>
+		[ValidateSetAccess]
+		public decimal? ValNumberoflikes { get; set; }
+		/// <summary>
 		/// Title: "LastRate" | Type: "N"
 		/// </summary>
 		[ValidateSetAccess]
 		public decimal? ValLastrate { get; set; }
+		/// <summary>
+		/// Title: "Average Rate" | Type: "ND"
+		/// </summary>
+		[ValidateSetAccess]
+		public decimal? ValAveragerate { get; set; }
 
 
 
@@ -232,11 +232,11 @@ namespace GenioMVC.ViewModels.Movie
 				ValCreateat = ViewModelConversion.ToDateTime(m.ValCreateat);
 				ValMoviesgenre = ViewModelConversion.ToString(m.ValMoviesgenre);
 				ValDescription = ViewModelConversion.ToString(m.ValDescription);
-				ValNumberoflikes = ViewModelConversion.ToNumeric(m.ValNumberoflikes);
-				ValAveragerate = ViewModelConversion.ToNumeric(m.ValAveragerate);
 				ValTotalrate = ViewModelConversion.ToNumeric(m.ValTotalrate);
 				ValSumavg = ViewModelConversion.ToNumeric(m.ValSumavg);
+				ValNumberoflikes = ViewModelConversion.ToNumeric(m.ValNumberoflikes);
 				ValLastrate = ViewModelConversion.ToNumeric(m.ValLastrate);
+				ValAveragerate = ViewModelConversion.ToNumeric(m.ValAveragerate);
 				ValCodmovie = ViewModelConversion.ToString(m.ValCodmovie);
 			}
 			catch (Exception)
@@ -281,11 +281,11 @@ namespace GenioMVC.ViewModels.Movie
 				if (!HasDisabledUserValuesSecurity)
 					return;
 
-				m.ValNumberoflikes = ViewModelConversion.ToNumeric(ValNumberoflikes);
-				m.ValAveragerate = ViewModelConversion.ToNumeric(ValAveragerate);
 				m.ValTotalrate = ViewModelConversion.ToNumeric(ValTotalrate);
 				m.ValSumavg = ViewModelConversion.ToNumeric(ValSumavg);
+				m.ValNumberoflikes = ViewModelConversion.ToNumeric(ValNumberoflikes);
 				m.ValLastrate = ViewModelConversion.ToNumeric(ValLastrate);
+				m.ValAveragerate = ViewModelConversion.ToNumeric(ValAveragerate);
 			}
 			catch (Exception)
 			{
@@ -504,11 +504,11 @@ namespace GenioMVC.ViewModels.Movie
 				"movie.createat" => ViewModelConversion.ToDateTime(modelValue),
 				"movie.moviesgenre" => ViewModelConversion.ToString(modelValue),
 				"movie.description" => ViewModelConversion.ToString(modelValue),
-				"movie.numberoflikes" => ViewModelConversion.ToNumeric(modelValue),
-				"movie.averagerate" => ViewModelConversion.ToNumeric(modelValue),
 				"movie.totalrate" => ViewModelConversion.ToNumeric(modelValue),
 				"movie.sumavg" => ViewModelConversion.ToNumeric(modelValue),
+				"movie.numberoflikes" => ViewModelConversion.ToNumeric(modelValue),
 				"movie.lastrate" => ViewModelConversion.ToNumeric(modelValue),
+				"movie.averagerate" => ViewModelConversion.ToNumeric(modelValue),
 				"movie.codmovie" => ViewModelConversion.ToString(modelValue),
 				_ => modelValue
 			};

@@ -132,42 +132,6 @@ export default class ViewModel extends FormViewModelBase
 		}).cloneFrom(values?.ValDescription))
 		this.stopWatchers.push(watch(() => this.ValDescription.value, (newValue, oldValue) => this.onUpdate('movie.description', this.ValDescription, newValue, oldValue)))
 
-		this.ValNumberoflikes = reactive(new modelFieldType.Number({
-			id: 'ValNumberoflikes',
-			originId: 'ValNumberoflikes',
-			area: 'MOVIE',
-			field: 'NUMBEROF',
-			maxDigits: 9,
-			decimalDigits: 0,
-			isFixed: true,
-			description: '',
-		}).cloneFrom(values?.ValNumberoflikes))
-		this.stopWatchers.push(watch(() => this.ValNumberoflikes.value, (newValue, oldValue) => this.onUpdate('movie.numberoflikes', this.ValNumberoflikes, newValue, oldValue)))
-
-		this.ValAveragerate = reactive(new modelFieldType.Number({
-			id: 'ValAveragerate',
-			originId: 'ValAveragerate',
-			area: 'MOVIE',
-			field: 'ARATE',
-			maxDigits: 9,
-			decimalDigits: 0,
-			isFixed: true,
-			valueFormula: {
-				stopRecalcCondition() { return false },
-				// eslint-disable-next-line @typescript-eslint/no-unused-vars
-				fnFormula(params)
-				{
-					// Formula: [MOVIE->SUMAVG]/[MOVIE->TOTALRAT]
-					return this.ValSumavg.value/this.ValTotalrate.value
-				},
-				dependencyEvents: ['fieldChange:movie.sumavg', 'fieldChange:movie.totalrate'],
-				isServerRecalc: false,
-				isEmpty: qApi.emptyN,
-			},
-			description: computed(() => this.Resources.AVERAGE_RATE24140),
-		}).cloneFrom(values?.ValAveragerate))
-		this.stopWatchers.push(watch(() => this.ValAveragerate.value, (newValue, oldValue) => this.onUpdate('movie.averagerate', this.ValAveragerate, newValue, oldValue)))
-
 		this.ValTotalrate = reactive(new modelFieldType.Number({
 			id: 'ValTotalrate',
 			originId: 'ValTotalrate',
@@ -192,6 +156,18 @@ export default class ViewModel extends FormViewModelBase
 		}).cloneFrom(values?.ValSumavg))
 		this.stopWatchers.push(watch(() => this.ValSumavg.value, (newValue, oldValue) => this.onUpdate('movie.sumavg', this.ValSumavg, newValue, oldValue)))
 
+		this.ValNumberoflikes = reactive(new modelFieldType.Number({
+			id: 'ValNumberoflikes',
+			originId: 'ValNumberoflikes',
+			area: 'MOVIE',
+			field: 'NUMBEROF',
+			maxDigits: 9,
+			decimalDigits: 0,
+			isFixed: true,
+			description: '',
+		}).cloneFrom(values?.ValNumberoflikes))
+		this.stopWatchers.push(watch(() => this.ValNumberoflikes.value, (newValue, oldValue) => this.onUpdate('movie.numberoflikes', this.ValNumberoflikes, newValue, oldValue)))
+
 		this.ValLastrate = reactive(new modelFieldType.Number({
 			id: 'ValLastrate',
 			originId: 'ValLastrate',
@@ -203,6 +179,30 @@ export default class ViewModel extends FormViewModelBase
 			description: computed(() => this.Resources.LASTRATE08537),
 		}).cloneFrom(values?.ValLastrate))
 		this.stopWatchers.push(watch(() => this.ValLastrate.value, (newValue, oldValue) => this.onUpdate('movie.lastrate', this.ValLastrate, newValue, oldValue)))
+
+		this.ValAveragerate = reactive(new modelFieldType.Number({
+			id: 'ValAveragerate',
+			originId: 'ValAveragerate',
+			area: 'MOVIE',
+			field: 'ARATE',
+			maxDigits: 9,
+			decimalDigits: 0,
+			isFixed: true,
+			valueFormula: {
+				stopRecalcCondition() { return false },
+				// eslint-disable-next-line @typescript-eslint/no-unused-vars
+				fnFormula(params)
+				{
+					// Formula: [MOVIE->SUMAVG]/[MOVIE->TOTALRAT]
+					return this.ValSumavg.value/this.ValTotalrate.value
+				},
+				dependencyEvents: ['fieldChange:movie.sumavg', 'fieldChange:movie.totalrate'],
+				isServerRecalc: false,
+				isEmpty: qApi.emptyN,
+			},
+			description: computed(() => this.Resources.AVERAGE_RATE24140),
+		}).cloneFrom(values?.ValAveragerate))
+		this.stopWatchers.push(watch(() => this.ValAveragerate.value, (newValue, oldValue) => this.onUpdate('movie.averagerate', this.ValAveragerate, newValue, oldValue)))
 	}
 
 	/**

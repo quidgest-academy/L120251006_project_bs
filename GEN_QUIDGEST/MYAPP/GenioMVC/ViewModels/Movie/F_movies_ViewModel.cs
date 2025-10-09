@@ -38,6 +38,14 @@ namespace GenioMVC.ViewModels.Movie
 		[ImageThumbnailJsonConverter(30, 50)]
 		public GenioMVC.Models.ImageModel ValPoster { get; set; }
 		/// <summary>
+		/// Title: "Title" | Type: "C"
+		/// </summary>
+		public string ValTitle { get; set; }
+		/// <summary>
+		/// Title: "Discription" | Type: "MO"
+		/// </summary>
+		public string ValDescription { get; set; }
+		/// <summary>
 		/// Title: "Movies Genre" | Type: "AC"
 		/// </summary>
 		public string ValMoviesgenre { get; set; }
@@ -47,21 +55,9 @@ namespace GenioMVC.ViewModels.Movie
 		[JsonIgnore]
 		public SelectList List_ValMoviesgenre { get; set; }
 		/// <summary>
-		/// Title: "Title" | Type: "C"
-		/// </summary>
-		public string ValTitle { get; set; }
-		/// <summary>
 		/// Title: "Realease date" | Type: "D"
 		/// </summary>
 		public DateTime? ValRealease_date { get; set; }
-		/// <summary>
-		/// Title: "Discription" | Type: "MO"
-		/// </summary>
-		public string ValDescription { get; set; }
-		/// <summary>
-		/// Title: "Create at" | Type: "D"
-		/// </summary>
-		public DateTime? ValCreateat { get; set; }
 		/// <summary>
 		/// Title: "Num of likes" | Type: "N"
 		/// </summary>
@@ -77,6 +73,10 @@ namespace GenioMVC.ViewModels.Movie
 		/// </summary>
 		[ValidateSetAccess]
 		public decimal? ValLastrate { get; set; }
+		/// <summary>
+		/// Title: "Create at" | Type: "D"
+		/// </summary>
+		public DateTime? ValCreateat { get; set; }
 		/// <summary>
 		/// Title: "Backdrop" | Type: "IJ"
 		/// </summary>
@@ -276,14 +276,14 @@ namespace GenioMVC.ViewModels.Movie
 			try
 			{
 				ValPoster = ViewModelConversion.ToImage(m.ValPoster);
-				ValMoviesgenre = ViewModelConversion.ToString(m.ValMoviesgenre);
 				ValTitle = ViewModelConversion.ToString(m.ValTitle);
-				ValRealease_date = ViewModelConversion.ToDateTime(m.ValRealease_date);
 				ValDescription = ViewModelConversion.ToString(m.ValDescription);
-				ValCreateat = ViewModelConversion.ToDateTime(m.ValCreateat);
+				ValMoviesgenre = ViewModelConversion.ToString(m.ValMoviesgenre);
+				ValRealease_date = ViewModelConversion.ToDateTime(m.ValRealease_date);
 				ValNumberoflikes = ViewModelConversion.ToNumeric(m.ValNumberoflikes);
 				ValAveragerate = ViewModelConversion.ToNumeric(m.ValAveragerate);
 				ValLastrate = ViewModelConversion.ToNumeric(m.ValLastrate);
+				ValCreateat = ViewModelConversion.ToDateTime(m.ValCreateat);
 				ValBackdrop = ViewModelConversion.ToImage(m.ValBackdrop);
 				ValTotalrate = ViewModelConversion.ToNumeric(m.ValTotalrate);
 				ValSumavg = ViewModelConversion.ToNumeric(m.ValSumavg);
@@ -315,10 +315,10 @@ namespace GenioMVC.ViewModels.Movie
 			{
 				if (ValPoster == null || !ValPoster.IsThumbnail)
 					m.ValPoster = ViewModelConversion.ToImage(ValPoster);
-				m.ValMoviesgenre = ViewModelConversion.ToString(ValMoviesgenre);
 				m.ValTitle = ViewModelConversion.ToString(ValTitle);
-				m.ValRealease_date = ViewModelConversion.ToDateTime(ValRealease_date);
 				m.ValDescription = ViewModelConversion.ToString(ValDescription);
+				m.ValMoviesgenre = ViewModelConversion.ToString(ValMoviesgenre);
+				m.ValRealease_date = ViewModelConversion.ToDateTime(ValRealease_date);
 				m.ValCreateat = ViewModelConversion.ToDateTime(ValCreateat);
 				if (ValBackdrop == null || !ValBackdrop.IsThumbnail)
 					m.ValBackdrop = ViewModelConversion.ToImage(ValBackdrop);
@@ -363,17 +363,17 @@ namespace GenioMVC.ViewModels.Movie
 					case "movie.poster":
 						this.ValPoster = ViewModelConversion.ToImage(_value);
 						break;
-					case "movie.moviesgenre":
-						this.ValMoviesgenre = ViewModelConversion.ToString(_value);
-						break;
 					case "movie.title":
 						this.ValTitle = ViewModelConversion.ToString(_value);
 						break;
-					case "movie.realease_date":
-						this.ValRealease_date = ViewModelConversion.ToDateTime(_value);
-						break;
 					case "movie.description":
 						this.ValDescription = ViewModelConversion.ToString(_value);
+						break;
+					case "movie.moviesgenre":
+						this.ValMoviesgenre = ViewModelConversion.ToString(_value);
+						break;
+					case "movie.realease_date":
+						this.ValRealease_date = ViewModelConversion.ToDateTime(_value);
 						break;
 					case "movie.createat":
 						this.ValCreateat = ViewModelConversion.ToDateTime(_value);
@@ -548,14 +548,14 @@ namespace GenioMVC.ViewModels.Movie
 			return identifier switch
 			{
 				"movie.poster" => ViewModelConversion.ToImage(modelValue),
-				"movie.moviesgenre" => ViewModelConversion.ToString(modelValue),
 				"movie.title" => ViewModelConversion.ToString(modelValue),
-				"movie.realease_date" => ViewModelConversion.ToDateTime(modelValue),
 				"movie.description" => ViewModelConversion.ToString(modelValue),
-				"movie.createat" => ViewModelConversion.ToDateTime(modelValue),
+				"movie.moviesgenre" => ViewModelConversion.ToString(modelValue),
+				"movie.realease_date" => ViewModelConversion.ToDateTime(modelValue),
 				"movie.numberoflikes" => ViewModelConversion.ToNumeric(modelValue),
 				"movie.averagerate" => ViewModelConversion.ToNumeric(modelValue),
 				"movie.lastrate" => ViewModelConversion.ToNumeric(modelValue),
+				"movie.createat" => ViewModelConversion.ToDateTime(modelValue),
 				"movie.backdrop" => ViewModelConversion.ToImage(modelValue),
 				"movie.totalrate" => ViewModelConversion.ToNumeric(modelValue),
 				"movie.sumavg" => ViewModelConversion.ToNumeric(modelValue),

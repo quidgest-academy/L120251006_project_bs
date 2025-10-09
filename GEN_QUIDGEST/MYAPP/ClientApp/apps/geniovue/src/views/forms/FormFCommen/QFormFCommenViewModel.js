@@ -97,15 +97,6 @@ export default class ViewModel extends FormViewModelBase
 		}).cloneFrom(values?.TableMovieTitle))
 		this.stopWatchers.push(watch(() => this.TableMovieTitle.value, (newValue, oldValue) => this.onUpdate('movie.title', this.TableMovieTitle, newValue, oldValue)))
 
-		this.ValPost = reactive(new modelFieldType.MultiLineString({
-			id: 'ValPost',
-			originId: 'ValPost',
-			area: 'COMME',
-			field: 'POST',
-			description: computed(() => this.Resources.POST24992),
-		}).cloneFrom(values?.ValPost))
-		this.stopWatchers.push(watch(() => this.ValPost.value, (newValue, oldValue) => this.onUpdate('comme.post', this.ValPost, newValue, oldValue)))
-
 		this.ValCreateat = reactive(new modelFieldType.Date({
 			id: 'ValCreateat',
 			originId: 'ValCreateat',
@@ -114,6 +105,15 @@ export default class ViewModel extends FormViewModelBase
 			description: computed(() => this.Resources.CREATE_AT36393),
 		}).cloneFrom(values?.ValCreateat))
 		this.stopWatchers.push(watch(() => this.ValCreateat.value, (newValue, oldValue) => this.onUpdate('comme.createat', this.ValCreateat, newValue, oldValue)))
+
+		this.ValPost = reactive(new modelFieldType.MultiLineString({
+			id: 'ValPost',
+			originId: 'ValPost',
+			area: 'COMME',
+			field: 'POST',
+			description: computed(() => this.Resources.POST24992),
+		}).cloneFrom(values?.ValPost))
+		this.stopWatchers.push(watch(() => this.ValPost.value, (newValue, oldValue) => this.onUpdate('comme.post', this.ValPost, newValue, oldValue)))
 	}
 
 	/**

@@ -65,6 +65,15 @@ export default class ViewModel extends FormViewModelBase
 		this.stopWatchers.push(watch(() => this.ValCodpsw.value, (newValue, oldValue) => this.onUpdate('userp.codpsw', this.ValCodpsw, newValue, oldValue)))
 
 		/** The remaining form fields. */
+		this.ValPhoto = reactive(new modelFieldType.Image({
+			id: 'ValPhoto',
+			originId: 'ValPhoto',
+			area: 'USERP',
+			field: 'PHOTO',
+			description: computed(() => this.Resources.PHOTO51874),
+		}).cloneFrom(values?.ValPhoto))
+		this.stopWatchers.push(watch(() => this.ValPhoto.value, (newValue, oldValue) => this.onUpdate('userp.photo', this.ValPhoto, newValue, oldValue)))
+
 		this.ValName = reactive(new modelFieldType.String({
 			id: 'ValName',
 			originId: 'ValName',
@@ -85,15 +94,6 @@ export default class ViewModel extends FormViewModelBase
 			description: computed(() => this.Resources.EMAIL25170),
 		}).cloneFrom(values?.ValEmail))
 		this.stopWatchers.push(watch(() => this.ValEmail.value, (newValue, oldValue) => this.onUpdate('userp.email', this.ValEmail, newValue, oldValue)))
-
-		this.ValPhoto = reactive(new modelFieldType.Image({
-			id: 'ValPhoto',
-			originId: 'ValPhoto',
-			area: 'USERP',
-			field: 'PHOTO',
-			description: computed(() => this.Resources.PHOTO51874),
-		}).cloneFrom(values?.ValPhoto))
-		this.stopWatchers.push(watch(() => this.ValPhoto.value, (newValue, oldValue) => this.onUpdate('userp.photo', this.ValPhoto, newValue, oldValue)))
 
 		this.TablePswNome = reactive(new modelFieldType.String({
 			type: 'Lookup',

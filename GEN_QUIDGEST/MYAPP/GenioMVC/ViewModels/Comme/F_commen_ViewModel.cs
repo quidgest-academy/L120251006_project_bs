@@ -51,13 +51,13 @@ namespace GenioMVC.ViewModels.Comme
 		[ValidateSetAccess]
 		public TableDBEdit<GenioMVC.Models.Movie> TableMovieTitle { get; set; }
 		/// <summary>
-		/// Title: "Post" | Type: "MO"
-		/// </summary>
-		public string ValPost { get; set; }
-		/// <summary>
 		/// Title: "Create at" | Type: "D"
 		/// </summary>
 		public DateTime? ValCreateat { get; set; }
+		/// <summary>
+		/// Title: "Post" | Type: "MO"
+		/// </summary>
+		public string ValPost { get; set; }
 
 
 
@@ -193,8 +193,8 @@ namespace GenioMVC.ViewModels.Comme
 			{
 				ValCodmovie = ViewModelConversion.ToString(m.ValCodmovie);
 				ValCoduserp = ViewModelConversion.ToString(m.ValCoduserp);
-				ValPost = ViewModelConversion.ToString(m.ValPost);
 				ValCreateat = ViewModelConversion.ToDateTime(m.ValCreateat);
+				ValPost = ViewModelConversion.ToString(m.ValPost);
 				ValCodcomme = ViewModelConversion.ToString(m.ValCodcomme);
 			}
 			catch (Exception)
@@ -223,8 +223,8 @@ namespace GenioMVC.ViewModels.Comme
 			{
 				m.ValCodmovie = ViewModelConversion.ToString(ValCodmovie);
 				m.ValCoduserp = ViewModelConversion.ToString(ValCoduserp);
-				m.ValPost = ViewModelConversion.ToString(ValPost);
 				m.ValCreateat = ViewModelConversion.ToDateTime(ValCreateat);
+				m.ValPost = ViewModelConversion.ToString(ValPost);
 				m.ValCodcomme = ViewModelConversion.ToString(ValCodcomme);
 			}
 			catch (Exception)
@@ -256,11 +256,11 @@ namespace GenioMVC.ViewModels.Comme
 					case "comme.coduserp":
 						this.ValCoduserp = ViewModelConversion.ToString(_value);
 						break;
-					case "comme.post":
-						this.ValPost = ViewModelConversion.ToString(_value);
-						break;
 					case "comme.createat":
 						this.ValCreateat = ViewModelConversion.ToDateTime(_value);
+						break;
+					case "comme.post":
+						this.ValPost = ViewModelConversion.ToString(_value);
 						break;
 					case "comme.codcomme":
 						this.ValCodcomme = ViewModelConversion.ToString(_value);
@@ -813,8 +813,8 @@ namespace GenioMVC.ViewModels.Comme
 			{
 				"comme.codmovie" => ViewModelConversion.ToString(modelValue),
 				"comme.coduserp" => ViewModelConversion.ToString(modelValue),
-				"comme.post" => ViewModelConversion.ToString(modelValue),
 				"comme.createat" => ViewModelConversion.ToDateTime(modelValue),
+				"comme.post" => ViewModelConversion.ToString(modelValue),
 				"comme.codcomme" => ViewModelConversion.ToString(modelValue),
 				"userp.coduserp" => ViewModelConversion.ToString(modelValue),
 				"userp.name" => ViewModelConversion.ToString(modelValue),

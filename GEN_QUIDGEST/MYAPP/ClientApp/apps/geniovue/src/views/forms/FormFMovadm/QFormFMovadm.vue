@@ -91,233 +91,231 @@
 			data-key="F_MOVADM"
 			:data-loading="!formInitialDataLoaded">
 			<template v-if="formControl.initialized && showFormBody">
-				<q-row-container v-if="controls.F_MOVADMMOVIEPOSTER__.isVisible || controls.F_MOVADMMOVIEBACKDROP.isVisible">
+				<q-row-container
+					v-if="controls.F_MOVADMPSEUDNEWGRP01.isVisible"
+					is-large>
 					<q-control-wrapper
-						v-if="controls.F_MOVADMMOVIEPOSTER__.isVisible"
-						class="control-join-group">
-						<base-input-structure
-							v-if="controls.F_MOVADMMOVIEPOSTER__.isVisible"
-							class="q-image"
-							v-bind="controls.F_MOVADMMOVIEPOSTER__"
-							v-on="controls.F_MOVADMMOVIEPOSTER__.handlers"
-							:loading="controls.F_MOVADMMOVIEPOSTER__.props.loading"
-							:reporting-mode-on="reportingModeCAV"
-							:suggestion-mode-on="suggestionModeOn">
-							<q-image
-								v-if="controls.F_MOVADMMOVIEPOSTER__.isVisible"
-								v-bind="controls.F_MOVADMMOVIEPOSTER__.props"
-								v-on="controls.F_MOVADMMOVIEPOSTER__.handlers" />
-						</base-input-structure>
-					</q-control-wrapper>
-					<q-control-wrapper
-						v-if="controls.F_MOVADMMOVIEBACKDROP.isVisible"
-						class="control-join-group">
-						<base-input-structure
-							v-if="controls.F_MOVADMMOVIEBACKDROP.isVisible"
-							class="q-image"
-							v-bind="controls.F_MOVADMMOVIEBACKDROP"
-							v-on="controls.F_MOVADMMOVIEBACKDROP.handlers"
-							:loading="controls.F_MOVADMMOVIEBACKDROP.props.loading"
-							:reporting-mode-on="reportingModeCAV"
-							:suggestion-mode-on="suggestionModeOn">
-							<q-image
-								v-if="controls.F_MOVADMMOVIEBACKDROP.isVisible"
-								v-bind="controls.F_MOVADMMOVIEBACKDROP.props"
-								v-on="controls.F_MOVADMMOVIEBACKDROP.handlers" />
-						</base-input-structure>
+						v-if="controls.F_MOVADMPSEUDNEWGRP01.isVisible"
+						class="row-line-group">
+						<q-group-box-container
+							v-if="controls.F_MOVADMPSEUDNEWGRP01.isVisible"
+							id="F_MOVADMPSEUDNEWGRP01"
+							v-bind="controls.F_MOVADMPSEUDNEWGRP01"
+							:is-visible="controls.F_MOVADMPSEUDNEWGRP01.isVisible">
+							<!-- Start F_MOVADMPSEUDNEWGRP01 -->
+							<q-row-container v-if="controls.F_MOVADMMOVIEPOSTER__.isVisible || controls.F_MOVADMMOVIEBACKDROP.isVisible">
+								<q-control-wrapper
+									v-if="controls.F_MOVADMMOVIEPOSTER__.isVisible"
+									class="control-join-group">
+									<base-input-structure
+										v-if="controls.F_MOVADMMOVIEPOSTER__.isVisible"
+										class="q-image"
+										v-bind="controls.F_MOVADMMOVIEPOSTER__"
+										v-on="controls.F_MOVADMMOVIEPOSTER__.handlers"
+										:loading="controls.F_MOVADMMOVIEPOSTER__.props.loading"
+										:reporting-mode-on="reportingModeCAV"
+										:suggestion-mode-on="suggestionModeOn">
+										<q-image
+											v-if="controls.F_MOVADMMOVIEPOSTER__.isVisible"
+											v-bind="controls.F_MOVADMMOVIEPOSTER__.props"
+											v-on="controls.F_MOVADMMOVIEPOSTER__.handlers" />
+									</base-input-structure>
+								</q-control-wrapper>
+								<q-control-wrapper
+									v-if="controls.F_MOVADMMOVIEBACKDROP.isVisible"
+									class="control-join-group">
+									<base-input-structure
+										v-if="controls.F_MOVADMMOVIEBACKDROP.isVisible"
+										class="q-image"
+										v-bind="controls.F_MOVADMMOVIEBACKDROP"
+										v-on="controls.F_MOVADMMOVIEBACKDROP.handlers"
+										:loading="controls.F_MOVADMMOVIEBACKDROP.props.loading"
+										:reporting-mode-on="reportingModeCAV"
+										:suggestion-mode-on="suggestionModeOn">
+										<q-image
+											v-if="controls.F_MOVADMMOVIEBACKDROP.isVisible"
+											v-bind="controls.F_MOVADMMOVIEBACKDROP.props"
+											v-on="controls.F_MOVADMMOVIEBACKDROP.handlers" />
+									</base-input-structure>
+								</q-control-wrapper>
+							</q-row-container>
+							<q-row-container v-if="controls.F_MOVADMMOVIETITLE___.isVisible">
+								<q-control-wrapper
+									v-if="controls.F_MOVADMMOVIETITLE___.isVisible"
+									class="control-join-group">
+									<base-input-structure
+										v-if="controls.F_MOVADMMOVIETITLE___.isVisible"
+										class="i-text"
+										v-bind="controls.F_MOVADMMOVIETITLE___"
+										v-on="controls.F_MOVADMMOVIETITLE___.handlers"
+										:loading="controls.F_MOVADMMOVIETITLE___.props.loading"
+										:reporting-mode-on="reportingModeCAV"
+										:suggestion-mode-on="suggestionModeOn">
+										<q-text-field
+											v-bind="controls.F_MOVADMMOVIETITLE___.props"
+											@blur="onBlur(controls.F_MOVADMMOVIETITLE___, model.ValTitle.value)"
+											@change="model.ValTitle.fnUpdateValueOnChange" />
+									</base-input-structure>
+								</q-control-wrapper>
+							</q-row-container>
+							<q-row-container v-if="controls.F_MOVADMMOVIERELDATE_.isVisible">
+								<q-control-wrapper
+									v-if="controls.F_MOVADMMOVIERELDATE_.isVisible"
+									class="control-join-group">
+									<base-input-structure
+										v-if="controls.F_MOVADMMOVIERELDATE_.isVisible"
+										class="i-text"
+										v-bind="controls.F_MOVADMMOVIERELDATE_"
+										v-on="controls.F_MOVADMMOVIERELDATE_.handlers"
+										:loading="controls.F_MOVADMMOVIERELDATE_.props.loading"
+										:reporting-mode-on="reportingModeCAV"
+										:suggestion-mode-on="suggestionModeOn">
+										<q-date-time-picker
+											v-if="controls.F_MOVADMMOVIERELDATE_.isVisible"
+											v-bind="controls.F_MOVADMMOVIERELDATE_.props"
+											:model-value="model.ValRealease_date.value"
+											@reset-icon-click="model.ValRealease_date.fnUpdateValue(model.ValRealease_date.originalValue ?? new Date())"
+											@update:model-value="model.ValRealease_date.fnUpdateValue($event ?? '')" />
+									</base-input-structure>
+								</q-control-wrapper>
+							</q-row-container>
+							<q-row-container v-if="controls.F_MOVADMMOVIECREATEAT.isVisible">
+								<q-control-wrapper
+									v-if="controls.F_MOVADMMOVIECREATEAT.isVisible"
+									class="control-join-group">
+									<base-input-structure
+										v-if="controls.F_MOVADMMOVIECREATEAT.isVisible"
+										class="i-text"
+										v-bind="controls.F_MOVADMMOVIECREATEAT"
+										v-on="controls.F_MOVADMMOVIECREATEAT.handlers"
+										:loading="controls.F_MOVADMMOVIECREATEAT.props.loading"
+										:reporting-mode-on="reportingModeCAV"
+										:suggestion-mode-on="suggestionModeOn">
+										<q-date-time-picker
+											v-if="controls.F_MOVADMMOVIECREATEAT.isVisible"
+											v-bind="controls.F_MOVADMMOVIECREATEAT.props"
+											:model-value="model.ValCreateat.value"
+											@reset-icon-click="model.ValCreateat.fnUpdateValue(model.ValCreateat.originalValue ?? new Date())"
+											@update:model-value="model.ValCreateat.fnUpdateValue($event ?? '')" />
+									</base-input-structure>
+								</q-control-wrapper>
+							</q-row-container>
+							<q-row-container v-if="controls.F_MOVADMMOVIEMOVIEGEN.isVisible">
+								<q-control-wrapper
+									v-if="controls.F_MOVADMMOVIEMOVIEGEN.isVisible"
+									class="control-join-group">
+									<base-input-structure
+										v-if="controls.F_MOVADMMOVIEMOVIEGEN.isVisible"
+										class="i-radio-container"
+										v-bind="controls.F_MOVADMMOVIEMOVIEGEN"
+										v-on="controls.F_MOVADMMOVIEMOVIEGEN.handlers"
+										:label-position="labelAlignment.topleft"
+										:loading="controls.F_MOVADMMOVIEMOVIEGEN.props.loading"
+										:reporting-mode-on="reportingModeCAV"
+										:suggestion-mode-on="suggestionModeOn">
+										<q-radio-group
+											v-if="controls.F_MOVADMMOVIEMOVIEGEN.isVisible"
+											v-bind="controls.F_MOVADMMOVIEMOVIEGEN.props"
+											v-on="controls.F_MOVADMMOVIEMOVIEGEN.handlers">
+											<q-radio-button
+												v-for="radio in controls.F_MOVADMMOVIEMOVIEGEN.items"
+												:key="radio.key"
+												:label="radio.value"
+												:value="radio.key" />
+										</q-radio-group>
+									</base-input-structure>
+								</q-control-wrapper>
+							</q-row-container>
+							<q-row-container v-if="controls.F_MOVADMMOVIEDISCRIPT.isVisible">
+								<q-control-wrapper
+									v-if="controls.F_MOVADMMOVIEDISCRIPT.isVisible"
+									class="control-join-group">
+									<base-input-structure
+										v-if="controls.F_MOVADMMOVIEDISCRIPT.isVisible"
+										class="i-textarea"
+										v-bind="controls.F_MOVADMMOVIEDISCRIPT"
+										v-on="controls.F_MOVADMMOVIEDISCRIPT.handlers"
+										:loading="controls.F_MOVADMMOVIEDISCRIPT.props.loading"
+										:reporting-mode-on="reportingModeCAV"
+										:suggestion-mode-on="suggestionModeOn">
+										<q-text-area
+											v-if="controls.F_MOVADMMOVIEDISCRIPT.isVisible"
+											v-bind="controls.F_MOVADMMOVIEDISCRIPT.props"
+											v-on="controls.F_MOVADMMOVIEDISCRIPT.handlers" />
+									</base-input-structure>
+								</q-control-wrapper>
+							</q-row-container>
+							<!-- End F_MOVADMPSEUDNEWGRP01 -->
+						</q-group-box-container>
 					</q-control-wrapper>
 				</q-row-container>
-				<q-row-container v-if="controls.F_MOVADMMOVIETITLE___.isVisible">
+				<q-row-container
+					v-if="controls.F_MOVADMPSEUDNEWGRP02.isVisible"
+					is-large>
 					<q-control-wrapper
-						v-if="controls.F_MOVADMMOVIETITLE___.isVisible"
-						class="control-join-group">
-						<base-input-structure
-							v-if="controls.F_MOVADMMOVIETITLE___.isVisible"
-							class="i-text"
-							v-bind="controls.F_MOVADMMOVIETITLE___"
-							v-on="controls.F_MOVADMMOVIETITLE___.handlers"
-							:loading="controls.F_MOVADMMOVIETITLE___.props.loading"
-							:reporting-mode-on="reportingModeCAV"
-							:suggestion-mode-on="suggestionModeOn">
-							<q-text-field
-								v-bind="controls.F_MOVADMMOVIETITLE___.props"
-								@blur="onBlur(controls.F_MOVADMMOVIETITLE___, model.ValTitle.value)"
-								@change="model.ValTitle.fnUpdateValueOnChange" />
-						</base-input-structure>
-					</q-control-wrapper>
-				</q-row-container>
-				<q-row-container v-if="controls.F_MOVADMMOVIERELDATE_.isVisible">
-					<q-control-wrapper
-						v-if="controls.F_MOVADMMOVIERELDATE_.isVisible"
-						class="control-join-group">
-						<base-input-structure
-							v-if="controls.F_MOVADMMOVIERELDATE_.isVisible"
-							class="i-text"
-							v-bind="controls.F_MOVADMMOVIERELDATE_"
-							v-on="controls.F_MOVADMMOVIERELDATE_.handlers"
-							:loading="controls.F_MOVADMMOVIERELDATE_.props.loading"
-							:reporting-mode-on="reportingModeCAV"
-							:suggestion-mode-on="suggestionModeOn">
-							<q-date-time-picker
-								v-if="controls.F_MOVADMMOVIERELDATE_.isVisible"
-								v-bind="controls.F_MOVADMMOVIERELDATE_.props"
-								:model-value="model.ValRealease_date.value"
-								@reset-icon-click="model.ValRealease_date.fnUpdateValue(model.ValRealease_date.originalValue ?? new Date())"
-								@update:model-value="model.ValRealease_date.fnUpdateValue($event ?? '')" />
-						</base-input-structure>
-					</q-control-wrapper>
-				</q-row-container>
-				<q-row-container v-if="controls.F_MOVADMMOVIECREATEAT.isVisible">
-					<q-control-wrapper
-						v-if="controls.F_MOVADMMOVIECREATEAT.isVisible"
-						class="control-join-group">
-						<base-input-structure
-							v-if="controls.F_MOVADMMOVIECREATEAT.isVisible"
-							class="i-text"
-							v-bind="controls.F_MOVADMMOVIECREATEAT"
-							v-on="controls.F_MOVADMMOVIECREATEAT.handlers"
-							:loading="controls.F_MOVADMMOVIECREATEAT.props.loading"
-							:reporting-mode-on="reportingModeCAV"
-							:suggestion-mode-on="suggestionModeOn">
-							<q-date-time-picker
-								v-if="controls.F_MOVADMMOVIECREATEAT.isVisible"
-								v-bind="controls.F_MOVADMMOVIECREATEAT.props"
-								:model-value="model.ValCreateat.value"
-								@reset-icon-click="model.ValCreateat.fnUpdateValue(model.ValCreateat.originalValue ?? new Date())"
-								@update:model-value="model.ValCreateat.fnUpdateValue($event ?? '')" />
-						</base-input-structure>
-					</q-control-wrapper>
-				</q-row-container>
-				<q-row-container v-if="controls.F_MOVADMMOVIEMOVIEGEN.isVisible">
-					<q-control-wrapper
-						v-if="controls.F_MOVADMMOVIEMOVIEGEN.isVisible"
-						class="control-join-group">
-						<base-input-structure
-							v-if="controls.F_MOVADMMOVIEMOVIEGEN.isVisible"
-							class="i-radio-container"
-							v-bind="controls.F_MOVADMMOVIEMOVIEGEN"
-							v-on="controls.F_MOVADMMOVIEMOVIEGEN.handlers"
-							:label-position="labelAlignment.topleft"
-							:loading="controls.F_MOVADMMOVIEMOVIEGEN.props.loading"
-							:reporting-mode-on="reportingModeCAV"
-							:suggestion-mode-on="suggestionModeOn">
-							<q-radio-group
-								v-if="controls.F_MOVADMMOVIEMOVIEGEN.isVisible"
-								v-bind="controls.F_MOVADMMOVIEMOVIEGEN.props"
-								v-on="controls.F_MOVADMMOVIEMOVIEGEN.handlers">
-								<q-radio-button
-									v-for="radio in controls.F_MOVADMMOVIEMOVIEGEN.items"
-									:key="radio.key"
-									:label="radio.value"
-									:value="radio.key" />
-							</q-radio-group>
-						</base-input-structure>
-					</q-control-wrapper>
-				</q-row-container>
-				<q-row-container v-if="controls.F_MOVADMMOVIEDISCRIPT.isVisible">
-					<q-control-wrapper
-						v-if="controls.F_MOVADMMOVIEDISCRIPT.isVisible"
-						class="control-join-group">
-						<base-input-structure
-							v-if="controls.F_MOVADMMOVIEDISCRIPT.isVisible"
-							class="i-textarea"
-							v-bind="controls.F_MOVADMMOVIEDISCRIPT"
-							v-on="controls.F_MOVADMMOVIEDISCRIPT.handlers"
-							:loading="controls.F_MOVADMMOVIEDISCRIPT.props.loading"
-							:reporting-mode-on="reportingModeCAV"
-							:suggestion-mode-on="suggestionModeOn">
-							<q-text-area
-								v-if="controls.F_MOVADMMOVIEDISCRIPT.isVisible"
-								v-bind="controls.F_MOVADMMOVIEDISCRIPT.props"
-								v-on="controls.F_MOVADMMOVIEDISCRIPT.handlers" />
-						</base-input-structure>
-					</q-control-wrapper>
-				</q-row-container>
-				<q-row-container v-if="controls.F_MOVADMMOVIENUMBEROF.isVisible || controls.F_MOVADMMOVIEARATE___.isVisible || controls.F_MOVADMMOVIETOTALRAT.isVisible || controls.F_MOVADMMOVIESUMAVG__.isVisible || controls.F_MOVADMMOVIELASTRATE.isVisible">
-					<q-control-wrapper
-						v-if="controls.F_MOVADMMOVIENUMBEROF.isVisible"
-						class="control-join-group">
-						<base-input-structure
-							v-if="controls.F_MOVADMMOVIENUMBEROF.isVisible"
-							class="i-text"
-							v-bind="controls.F_MOVADMMOVIENUMBEROF"
-							v-on="controls.F_MOVADMMOVIENUMBEROF.handlers"
-							:loading="controls.F_MOVADMMOVIENUMBEROF.props.loading"
-							:reporting-mode-on="reportingModeCAV"
-							:suggestion-mode-on="suggestionModeOn">
-							<q-numeric-input
-								v-if="controls.F_MOVADMMOVIENUMBEROF.isVisible"
-								v-bind="controls.F_MOVADMMOVIENUMBEROF.props"
-								@update:model-value="model.ValNumberoflikes.fnUpdateValue" />
-						</base-input-structure>
-					</q-control-wrapper>
-					<q-control-wrapper
-						v-if="controls.F_MOVADMMOVIEARATE___.isVisible"
-						class="control-join-group">
-						<base-input-structure
-							v-if="controls.F_MOVADMMOVIEARATE___.isVisible"
-							class="i-text"
-							v-bind="controls.F_MOVADMMOVIEARATE___"
-							v-on="controls.F_MOVADMMOVIEARATE___.handlers"
-							:loading="controls.F_MOVADMMOVIEARATE___.props.loading"
-							:reporting-mode-on="reportingModeCAV"
-							:suggestion-mode-on="suggestionModeOn">
-							<q-numeric-input
-								v-if="controls.F_MOVADMMOVIEARATE___.isVisible"
-								v-bind="controls.F_MOVADMMOVIEARATE___.props"
-								@update:model-value="model.ValAveragerate.fnUpdateValue" />
-						</base-input-structure>
-					</q-control-wrapper>
-					<q-control-wrapper
-						v-if="controls.F_MOVADMMOVIETOTALRAT.isVisible"
-						class="control-join-group">
-						<base-input-structure
-							v-if="controls.F_MOVADMMOVIETOTALRAT.isVisible"
-							class="i-text"
-							v-bind="controls.F_MOVADMMOVIETOTALRAT"
-							v-on="controls.F_MOVADMMOVIETOTALRAT.handlers"
-							:loading="controls.F_MOVADMMOVIETOTALRAT.props.loading"
-							:reporting-mode-on="reportingModeCAV"
-							:suggestion-mode-on="suggestionModeOn">
-							<q-numeric-input
-								v-if="controls.F_MOVADMMOVIETOTALRAT.isVisible"
-								v-bind="controls.F_MOVADMMOVIETOTALRAT.props"
-								@update:model-value="model.ValTotalrate.fnUpdateValue" />
-						</base-input-structure>
-					</q-control-wrapper>
-					<q-control-wrapper
-						v-if="controls.F_MOVADMMOVIESUMAVG__.isVisible"
-						class="control-join-group">
-						<base-input-structure
-							v-if="controls.F_MOVADMMOVIESUMAVG__.isVisible"
-							class="i-text"
-							v-bind="controls.F_MOVADMMOVIESUMAVG__"
-							v-on="controls.F_MOVADMMOVIESUMAVG__.handlers"
-							:loading="controls.F_MOVADMMOVIESUMAVG__.props.loading"
-							:reporting-mode-on="reportingModeCAV"
-							:suggestion-mode-on="suggestionModeOn">
-							<q-numeric-input
-								v-if="controls.F_MOVADMMOVIESUMAVG__.isVisible"
-								v-bind="controls.F_MOVADMMOVIESUMAVG__.props"
-								@update:model-value="model.ValSumavg.fnUpdateValue" />
-						</base-input-structure>
-					</q-control-wrapper>
-					<q-control-wrapper
-						v-if="controls.F_MOVADMMOVIELASTRATE.isVisible"
-						class="control-join-group">
-						<base-input-structure
-							v-if="controls.F_MOVADMMOVIELASTRATE.isVisible"
-							class="i-text"
-							v-bind="controls.F_MOVADMMOVIELASTRATE"
-							v-on="controls.F_MOVADMMOVIELASTRATE.handlers"
-							:loading="controls.F_MOVADMMOVIELASTRATE.props.loading"
-							:reporting-mode-on="reportingModeCAV"
-							:suggestion-mode-on="suggestionModeOn">
-							<q-numeric-input
-								v-if="controls.F_MOVADMMOVIELASTRATE.isVisible"
-								v-bind="controls.F_MOVADMMOVIELASTRATE.props"
-								@update:model-value="model.ValLastrate.fnUpdateValue" />
-						</base-input-structure>
+						v-if="controls.F_MOVADMPSEUDNEWGRP02.isVisible"
+						class="row-line-group">
+						<q-group-box-container
+							v-if="controls.F_MOVADMPSEUDNEWGRP02.isVisible"
+							id="F_MOVADMPSEUDNEWGRP02"
+							v-bind="controls.F_MOVADMPSEUDNEWGRP02"
+							:is-visible="controls.F_MOVADMPSEUDNEWGRP02.isVisible">
+							<!-- Start F_MOVADMPSEUDNEWGRP02 -->
+							<q-row-container v-if="controls.F_MOVADMMOVIENUMBEROF.isVisible || controls.F_MOVADMMOVIELASTRATE.isVisible || controls.F_MOVADMMOVIEARATE___.isVisible">
+								<q-control-wrapper
+									v-if="controls.F_MOVADMMOVIENUMBEROF.isVisible"
+									class="control-join-group">
+									<base-input-structure
+										v-if="controls.F_MOVADMMOVIENUMBEROF.isVisible"
+										class="i-text"
+										v-bind="controls.F_MOVADMMOVIENUMBEROF"
+										v-on="controls.F_MOVADMMOVIENUMBEROF.handlers"
+										:loading="controls.F_MOVADMMOVIENUMBEROF.props.loading"
+										:reporting-mode-on="reportingModeCAV"
+										:suggestion-mode-on="suggestionModeOn">
+										<q-numeric-input
+											v-if="controls.F_MOVADMMOVIENUMBEROF.isVisible"
+											v-bind="controls.F_MOVADMMOVIENUMBEROF.props"
+											@update:model-value="model.ValNumberoflikes.fnUpdateValue" />
+									</base-input-structure>
+								</q-control-wrapper>
+								<q-control-wrapper
+									v-if="controls.F_MOVADMMOVIELASTRATE.isVisible"
+									class="control-join-group">
+									<base-input-structure
+										v-if="controls.F_MOVADMMOVIELASTRATE.isVisible"
+										class="i-text"
+										v-bind="controls.F_MOVADMMOVIELASTRATE"
+										v-on="controls.F_MOVADMMOVIELASTRATE.handlers"
+										:loading="controls.F_MOVADMMOVIELASTRATE.props.loading"
+										:reporting-mode-on="reportingModeCAV"
+										:suggestion-mode-on="suggestionModeOn">
+										<q-numeric-input
+											v-if="controls.F_MOVADMMOVIELASTRATE.isVisible"
+											v-bind="controls.F_MOVADMMOVIELASTRATE.props"
+											@update:model-value="model.ValLastrate.fnUpdateValue" />
+									</base-input-structure>
+								</q-control-wrapper>
+								<q-control-wrapper
+									v-if="controls.F_MOVADMMOVIEARATE___.isVisible"
+									class="control-join-group">
+									<base-input-structure
+										v-if="controls.F_MOVADMMOVIEARATE___.isVisible"
+										class="i-text"
+										v-bind="controls.F_MOVADMMOVIEARATE___"
+										v-on="controls.F_MOVADMMOVIEARATE___.handlers"
+										:loading="controls.F_MOVADMMOVIEARATE___.props.loading"
+										:reporting-mode-on="reportingModeCAV"
+										:suggestion-mode-on="suggestionModeOn">
+										<q-numeric-input
+											v-if="controls.F_MOVADMMOVIEARATE___.isVisible"
+											v-bind="controls.F_MOVADMMOVIEARATE___.props"
+											@update:model-value="model.ValAveragerate.fnUpdateValue" />
+									</base-input-structure>
+								</q-control-wrapper>
+							</q-row-container>
+							<!-- End F_MOVADMPSEUDNEWGRP02 -->
+						</q-group-box-container>
 					</q-control-wrapper>
 				</q-row-container>
 			</template>
@@ -661,6 +659,19 @@
 				},
 
 				controls: {
+					F_MOVADMPSEUDNEWGRP01: new fieldControlClass.GroupControl({
+						id: 'F_MOVADMPSEUDNEWGRP01',
+						name: 'NEWGRP01',
+						size: 'block',
+						label: computed(() => this.Resources.CONTENT24069),
+						placeholder: '',
+						labelPosition: computed(() => this.labelAlignment.topleft),
+						isCollapsible: false,
+						anchored: false,
+						directChildren: ['F_MOVADMMOVIEPOSTER__', 'F_MOVADMMOVIEBACKDROP', 'F_MOVADMMOVIETITLE___', 'F_MOVADMMOVIERELDATE_', 'F_MOVADMMOVIECREATEAT', 'F_MOVADMMOVIEMOVIEGEN', 'F_MOVADMMOVIEDISCRIPT'],
+						controlLimits: [
+						],
+					}, this),
 					F_MOVADMMOVIEPOSTER__: new fieldControlClass.ImageControl({
 						modelField: 'ValPoster',
 						valueChangeEvent: 'fieldChange:movie.poster',
@@ -670,6 +681,7 @@
 						label: computed(() => this.Resources.POSTER52933),
 						placeholder: '',
 						labelPosition: computed(() => this.labelAlignment.topleft),
+						container: 'F_MOVADMPSEUDNEWGRP01',
 						height: 50,
 						width: 30,
 						dataTitle: computed(() => genericFunctions.formatString(vm.Resources.IMAGEM_UTILIZADA_PAR17299, vm.Resources.POSTER52933)),
@@ -687,6 +699,7 @@
 						label: computed(() => this.Resources.BACKDROP05167),
 						placeholder: '',
 						labelPosition: computed(() => this.labelAlignment.topleft),
+						container: 'F_MOVADMPSEUDNEWGRP01',
 						height: 50,
 						width: 30,
 						dataTitle: computed(() => genericFunctions.formatString(vm.Resources.IMAGEM_UTILIZADA_PAR17299, vm.Resources.BACKDROP05167)),
@@ -704,6 +717,7 @@
 						label: computed(() => this.Resources.TITLE21885),
 						placeholder: '',
 						labelPosition: computed(() => this.labelAlignment.topleft),
+						container: 'F_MOVADMPSEUDNEWGRP01',
 						maxLength: 80,
 						labelId: 'label_F_MOVADMMOVIETITLE___',
 						controlLimits: [
@@ -718,6 +732,7 @@
 						label: computed(() => this.Resources.REALEASE_DATE49316),
 						placeholder: '',
 						labelPosition: computed(() => this.labelAlignment.topleft),
+						container: 'F_MOVADMPSEUDNEWGRP01',
 						dateTimeType: 'date',
 						controlLimits: [
 						],
@@ -731,6 +746,7 @@
 						label: computed(() => this.Resources.CREATE_AT36393),
 						placeholder: '',
 						labelPosition: computed(() => this.labelAlignment.topleft),
+						container: 'F_MOVADMPSEUDNEWGRP01',
 						dateTimeType: 'date',
 						controlLimits: [
 						],
@@ -743,6 +759,7 @@
 						label: computed(() => this.Resources.MOVIES_GENRE22042),
 						placeholder: '',
 						labelPosition: computed(() => this.labelAlignment.topleft),
+						container: 'F_MOVADMPSEUDNEWGRP01',
 						maxLength: 15,
 						labelId: 'label_F_MOVADMMOVIEMOVIEGEN',
 						arrayName: 'MOVIEGENRE',
@@ -759,8 +776,22 @@
 						label: computed(() => this.Resources.DISCRIPTION02169),
 						placeholder: '',
 						labelPosition: computed(() => this.labelAlignment.topleft),
+						container: 'F_MOVADMPSEUDNEWGRP01',
 						rows: 3,
 						cols: 200,
+						controlLimits: [
+						],
+					}, this),
+					F_MOVADMPSEUDNEWGRP02: new fieldControlClass.GroupControl({
+						id: 'F_MOVADMPSEUDNEWGRP02',
+						name: 'NEWGRP02',
+						size: 'block',
+						label: computed(() => this.Resources.FEEDBACK_ZONE21601),
+						placeholder: '',
+						labelPosition: computed(() => this.labelAlignment.topleft),
+						isCollapsible: false,
+						anchored: false,
+						directChildren: ['F_MOVADMMOVIENUMBEROF', 'F_MOVADMMOVIELASTRATE', 'F_MOVADMMOVIEARATE___'],
 						controlLimits: [
 						],
 					}, this),
@@ -773,53 +804,9 @@
 						label: computed(() => this.Resources.NUMBEROFLIKES65014),
 						placeholder: '',
 						labelPosition: computed(() => this.labelAlignment.topleft),
+						container: 'F_MOVADMPSEUDNEWGRP02',
 						isFormulaBlocked: true,
 						maxIntegers: 9,
-						maxDecimals: 0,
-						controlLimits: [
-						],
-					}, this),
-					F_MOVADMMOVIEARATE___: new fieldControlClass.NumberControl({
-						modelField: 'ValAveragerate',
-						valueChangeEvent: 'fieldChange:movie.averagerate',
-						id: 'F_MOVADMMOVIEARATE___',
-						name: 'ARATE',
-						size: 'medium',
-						label: computed(() => this.Resources.AVERAGE_RATE24140),
-						placeholder: '',
-						labelPosition: computed(() => this.labelAlignment.topleft),
-						isFormulaBlocked: true,
-						maxIntegers: 9,
-						maxDecimals: 0,
-						controlLimits: [
-						],
-					}, this),
-					F_MOVADMMOVIETOTALRAT: new fieldControlClass.NumberControl({
-						modelField: 'ValTotalrate',
-						valueChangeEvent: 'fieldChange:movie.totalrate',
-						id: 'F_MOVADMMOVIETOTALRAT',
-						name: 'TOTALRAT',
-						size: 'small',
-						label: computed(() => this.Resources.TOTAL_RATE13592),
-						placeholder: '',
-						labelPosition: computed(() => this.labelAlignment.topleft),
-						isFormulaBlocked: true,
-						maxIntegers: 6,
-						maxDecimals: 0,
-						controlLimits: [
-						],
-					}, this),
-					F_MOVADMMOVIESUMAVG__: new fieldControlClass.NumberControl({
-						modelField: 'ValSumavg',
-						valueChangeEvent: 'fieldChange:movie.sumavg',
-						id: 'F_MOVADMMOVIESUMAVG__',
-						name: 'SUMAVG',
-						size: 'mini',
-						label: '',
-						placeholder: '',
-						labelPosition: computed(() => this.labelAlignment.topleft),
-						isFormulaBlocked: true,
-						maxIntegers: 6,
 						maxDecimals: 0,
 						controlLimits: [
 						],
@@ -833,8 +820,25 @@
 						label: computed(() => this.Resources.LASTRATE08537),
 						placeholder: '',
 						labelPosition: computed(() => this.labelAlignment.topleft),
+						container: 'F_MOVADMPSEUDNEWGRP02',
 						isFormulaBlocked: true,
 						maxIntegers: 1,
+						maxDecimals: 0,
+						controlLimits: [
+						],
+					}, this),
+					F_MOVADMMOVIEARATE___: new fieldControlClass.NumberControl({
+						modelField: 'ValAveragerate',
+						valueChangeEvent: 'fieldChange:movie.averagerate',
+						id: 'F_MOVADMMOVIEARATE___',
+						name: 'ARATE',
+						size: 'medium',
+						label: computed(() => this.Resources.AVERAGE_RATE24140),
+						placeholder: '',
+						labelPosition: computed(() => this.labelAlignment.topleft),
+						container: 'F_MOVADMPSEUDNEWGRP02',
+						isFormulaBlocked: true,
+						maxIntegers: 9,
 						maxDecimals: 0,
 						controlLimits: [
 						],
@@ -849,6 +853,8 @@
 				}),
 
 				groupFields: readonly([
+					'F_MOVADMPSEUDNEWGRP01',
+					'F_MOVADMPSEUDNEWGRP02',
 				]),
 
 				tableFields: readonly([

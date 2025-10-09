@@ -8,14 +8,14 @@ namespace quidgest.uitests.pages.forms;
 public class F_moviesForm : Form
 {
 	/// <summary>
+	/// Details
+	/// </summary>
+	public CollapsibleZoneControl PseudNewgrp02 => new CollapsibleZoneControl(driver, ContainerLocator, "#F_MOVIESPSEUDNEWGRP02-container");
+
+	/// <summary>
 	/// Poster
 	/// </summary>
 	public BaseInputControl MoviePoster => new BaseInputControl(driver, ContainerLocator, "container-F_MOVIESMOVIEPOSTER__", "#F_MOVIESMOVIEPOSTER__");
-
-	/// <summary>
-	/// Movies Genre
-	/// </summary>
-	public RadiobuttonControl MovieMoviegen => new RadiobuttonControl(driver, ContainerLocator, "container-F_MOVIESMOVIEMOVIEGEN");
 
 	/// <summary>
 	/// Title
@@ -23,24 +23,24 @@ public class F_moviesForm : Form
 	public BaseInputControl MovieTitle => new BaseInputControl(driver, ContainerLocator, "container-F_MOVIESMOVIETITLE___", "#F_MOVIESMOVIETITLE___");
 
 	/// <summary>
-	/// Realease date
-	/// </summary>
-	public DateInputControl MovieReldate => new DateInputControl(driver, ContainerLocator, "#F_MOVIESMOVIERELDATE_");
-
-	/// <summary>
 	/// Discription
 	/// </summary>
 	public BaseInputControl MovieDiscript => new BaseInputControl(driver, ContainerLocator, "container-F_MOVIESMOVIEDISCRIPT", "#F_MOVIESMOVIEDISCRIPT");
 
 	/// <summary>
-	/// Create at
+	/// Movies Genre
 	/// </summary>
-	public DateInputControl MovieCreateat => new DateInputControl(driver, ContainerLocator, "#F_MOVIESMOVIECREATEAT");
+	public RadiobuttonControl MovieMoviegen => new RadiobuttonControl(driver, ContainerLocator, "container-F_MOVIESMOVIEMOVIEGEN");
 
 	/// <summary>
-	/// Comments
+	/// Realease date
 	/// </summary>
-	public ListControl PseudDatacome => new ListControl(driver, ContainerLocator, "#F_MOVIESPSEUDDATACOME");
+	public DateInputControl MovieReldate => new DateInputControl(driver, ContainerLocator, "#F_MOVIESMOVIERELDATE_");
+
+	/// <summary>
+	/// FeedBack
+	/// </summary>
+	public CollapsibleZoneControl PseudNewgrp03 => new CollapsibleZoneControl(driver, ContainerLocator, "#F_MOVIESPSEUDNEWGRP03-container");
 
 	/// <summary>
 	/// Num of likes
@@ -51,11 +51,6 @@ public class F_moviesForm : Form
 	/// Like
 	/// </summary>
 	public ButtonControl PseudField001 => new ButtonControl(driver, ContainerLocator, "#F_MOVIESPSEUDFIELD001");
-
-	/// <summary>
-	/// Comment
-	/// </summary>
-	public ButtonControl PseudField002 => new ButtonControl(driver, ContainerLocator, "#F_MOVIESPSEUDFIELD002");
 
 	/// <summary>
 	/// Average Rate
@@ -73,14 +68,9 @@ public class F_moviesForm : Form
 	public BaseInputControl MovieLastrate => new BaseInputControl(driver, ContainerLocator, "container-F_MOVIESMOVIELASTRATE", "#F_MOVIESMOVIELASTRATE");
 
 	/// <summary>
-	/// Characters
+	/// Create at
 	/// </summary>
-	public CollapsibleZoneControl PseudNewgrp01 => new CollapsibleZoneControl(driver, ContainerLocator, "#F_MOVIESPSEUDNEWGRP01-container");
-
-	/// <summary>
-	/// Characters
-	/// </summary>
-	public ListControl PseudDatachar => new ListControl(driver, ContainerLocator, "#F_MOVIESPSEUDDATACHAR");
+	public DateInputControl MovieCreateat => new DateInputControl(driver, ContainerLocator, "#F_MOVIESMOVIECREATEAT");
 
 	/// <summary>
 	/// Backdrop
@@ -96,6 +86,31 @@ public class F_moviesForm : Form
 	/// 
 	/// </summary>
 	public BaseInputControl MovieSumavg => new BaseInputControl(driver, ContainerLocator, "container-F_MOVIESMOVIESUMAVG__", "#F_MOVIESMOVIESUMAVG__");
+
+	/// <summary>
+	/// Comments
+	/// </summary>
+	public CollapsibleZoneControl PseudNewgrp04 => new CollapsibleZoneControl(driver, ContainerLocator, "#F_MOVIESPSEUDNEWGRP04-container");
+
+	/// <summary>
+	/// Comments
+	/// </summary>
+	public ListControl PseudDatacome => new ListControl(driver, ContainerLocator, "#F_MOVIESPSEUDDATACOME");
+
+	/// <summary>
+	/// Comment
+	/// </summary>
+	public ButtonControl PseudField002 => new ButtonControl(driver, ContainerLocator, "#F_MOVIESPSEUDFIELD002");
+
+	/// <summary>
+	/// Characters
+	/// </summary>
+	public CollapsibleZoneControl PseudNewgrp01 => new CollapsibleZoneControl(driver, ContainerLocator, "#F_MOVIESPSEUDNEWGRP01-container");
+
+	/// <summary>
+	/// Characters
+	/// </summary>
+	public ListControl PseudDatachar => new ListControl(driver, ContainerLocator, "#F_MOVIESPSEUDDATACHAR");
 
 	public F_moviesForm(IWebDriver driver, FORM_MODE mode, By? containerLocator = null)
 		: base(driver, mode, "F_MOVIES", containerLocator: containerLocator) { }

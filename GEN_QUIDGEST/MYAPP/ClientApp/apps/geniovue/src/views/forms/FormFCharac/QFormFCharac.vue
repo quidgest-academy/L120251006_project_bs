@@ -91,127 +91,131 @@
 			data-key="F_CHARAC"
 			:data-loading="!formInitialDataLoaded">
 			<template v-if="formControl.initialized && showFormBody">
-				<q-row-container v-if="controls.F_CHARACCHARAPHOTO___.isVisible">
+				<q-row-container
+					v-if="controls.F_CHARACPSEUDNEWGRP01.isVisible"
+					is-large>
 					<q-control-wrapper
-						v-if="controls.F_CHARACCHARAPHOTO___.isVisible"
-						class="control-join-group">
-						<base-input-structure
-							v-if="controls.F_CHARACCHARAPHOTO___.isVisible"
-							class="q-image"
-							v-bind="controls.F_CHARACCHARAPHOTO___"
-							v-on="controls.F_CHARACCHARAPHOTO___.handlers"
-							:loading="controls.F_CHARACCHARAPHOTO___.props.loading"
-							:reporting-mode-on="reportingModeCAV"
-							:suggestion-mode-on="suggestionModeOn">
-							<q-image
-								v-if="controls.F_CHARACCHARAPHOTO___.isVisible"
-								v-bind="controls.F_CHARACCHARAPHOTO___.props"
-								v-on="controls.F_CHARACCHARAPHOTO___.handlers" />
-						</base-input-structure>
-					</q-control-wrapper>
-				</q-row-container>
-				<q-row-container v-if="controls.F_CHARACCHARANAME____.isVisible || controls.F_CHARACCHARAACTORNAM.isVisible || controls.F_CHARACCHARACREATEAT.isVisible">
-					<q-control-wrapper
-						v-if="controls.F_CHARACCHARANAME____.isVisible"
-						class="control-join-group">
-						<base-input-structure
-							v-if="controls.F_CHARACCHARANAME____.isVisible"
-							class="i-text"
-							v-bind="controls.F_CHARACCHARANAME____"
-							v-on="controls.F_CHARACCHARANAME____.handlers"
-							:loading="controls.F_CHARACCHARANAME____.props.loading"
-							:reporting-mode-on="reportingModeCAV"
-							:suggestion-mode-on="suggestionModeOn">
-							<q-text-field
-								v-bind="controls.F_CHARACCHARANAME____.props"
-								@blur="onBlur(controls.F_CHARACCHARANAME____, model.ValName.value)"
-								@change="model.ValName.fnUpdateValueOnChange" />
-						</base-input-structure>
-					</q-control-wrapper>
-					<q-control-wrapper
-						v-if="controls.F_CHARACCHARAACTORNAM.isVisible"
-						class="control-join-group">
-						<base-input-structure
-							v-if="controls.F_CHARACCHARAACTORNAM.isVisible"
-							class="i-text"
-							v-bind="controls.F_CHARACCHARAACTORNAM"
-							v-on="controls.F_CHARACCHARAACTORNAM.handlers"
-							:loading="controls.F_CHARACCHARAACTORNAM.props.loading"
-							:reporting-mode-on="reportingModeCAV"
-							:suggestion-mode-on="suggestionModeOn">
-							<q-text-field
-								v-bind="controls.F_CHARACCHARAACTORNAM.props"
-								@blur="onBlur(controls.F_CHARACCHARAACTORNAM, model.ValActorname.value)"
-								@change="model.ValActorname.fnUpdateValueOnChange" />
-						</base-input-structure>
-					</q-control-wrapper>
-					<q-control-wrapper
-						v-if="controls.F_CHARACCHARACREATEAT.isVisible"
-						class="control-join-group">
-						<base-input-structure
-							v-if="controls.F_CHARACCHARACREATEAT.isVisible"
-							class="i-text"
-							v-bind="controls.F_CHARACCHARACREATEAT"
-							v-on="controls.F_CHARACCHARACREATEAT.handlers"
-							:loading="controls.F_CHARACCHARACREATEAT.props.loading"
-							:reporting-mode-on="reportingModeCAV"
-							:suggestion-mode-on="suggestionModeOn">
-							<q-date-time-picker
-								v-if="controls.F_CHARACCHARACREATEAT.isVisible"
-								v-bind="controls.F_CHARACCHARACREATEAT.props"
-								:model-value="model.ValCreateat.value"
-								@reset-icon-click="model.ValCreateat.fnUpdateValue(model.ValCreateat.originalValue ?? new Date())"
-								@update:model-value="model.ValCreateat.fnUpdateValue($event ?? '')" />
-						</base-input-structure>
-					</q-control-wrapper>
-				</q-row-container>
-				<q-row-container v-if="controls.F_CHARACCHARAGENRE___.isVisible">
-					<q-control-wrapper
-						v-if="controls.F_CHARACCHARAGENRE___.isVisible"
-						class="control-join-group">
-						<base-input-structure
-							v-if="controls.F_CHARACCHARAGENRE___.isVisible"
-							class="i-radio-container"
-							v-bind="controls.F_CHARACCHARAGENRE___"
-							v-on="controls.F_CHARACCHARAGENRE___.handlers"
-							:label-position="labelAlignment.topleft"
-							:loading="controls.F_CHARACCHARAGENRE___.props.loading"
-							:reporting-mode-on="reportingModeCAV"
-							:suggestion-mode-on="suggestionModeOn">
-							<q-radio-group
-								v-if="controls.F_CHARACCHARAGENRE___.isVisible"
-								v-bind="controls.F_CHARACCHARAGENRE___.props"
-								v-on="controls.F_CHARACCHARAGENRE___.handlers">
-								<q-radio-button
-									v-for="radio in controls.F_CHARACCHARAGENRE___.items"
-									:key="radio.key"
-									:label="radio.value"
-									:value="radio.key" />
-							</q-radio-group>
-						</base-input-structure>
-					</q-control-wrapper>
-				</q-row-container>
-				<q-row-container v-if="controls.F_CHARACMOVIETITLE___.isVisible">
-					<q-control-wrapper
-						v-if="controls.F_CHARACMOVIETITLE___.isVisible"
-						class="control-join-group">
-						<base-input-structure
-							v-if="controls.F_CHARACMOVIETITLE___.isVisible"
-							class="i-text"
-							v-bind="controls.F_CHARACMOVIETITLE___"
-							v-on="controls.F_CHARACMOVIETITLE___.handlers"
-							:loading="controls.F_CHARACMOVIETITLE___.props.loading"
-							:reporting-mode-on="reportingModeCAV"
-							:suggestion-mode-on="suggestionModeOn">
-							<q-lookup
-								v-if="controls.F_CHARACMOVIETITLE___.isVisible"
-								v-bind="controls.F_CHARACMOVIETITLE___.props"
-								v-on="controls.F_CHARACMOVIETITLE___.handlers" />
-							<q-see-more-f-characmovietitle
-								v-if="controls.F_CHARACMOVIETITLE___.seeMoreIsVisible"
-								v-bind="controls.F_CHARACMOVIETITLE___.seeMoreParams"
-								v-on="controls.F_CHARACMOVIETITLE___.handlers" />
-						</base-input-structure>
+						v-if="controls.F_CHARACPSEUDNEWGRP01.isVisible"
+						class="row-line-group">
+						<q-group-box-container
+							v-if="controls.F_CHARACPSEUDNEWGRP01.isVisible"
+							id="F_CHARACPSEUDNEWGRP01"
+							v-bind="controls.F_CHARACPSEUDNEWGRP01"
+							:is-visible="controls.F_CHARACPSEUDNEWGRP01.isVisible">
+							<!-- Start F_CHARACPSEUDNEWGRP01 -->
+							<q-row-container v-if="controls.F_CHARACCHARAPHOTO___.isVisible || controls.F_CHARACCHARAGENRE___.isVisible">
+								<q-control-wrapper
+									v-if="controls.F_CHARACCHARAPHOTO___.isVisible || controls.F_CHARACCHARAGENRE___.isVisible"
+									class="control-join-group">
+									<base-input-structure
+										v-if="controls.F_CHARACCHARAPHOTO___.isVisible"
+										class="q-image"
+										v-bind="controls.F_CHARACCHARAPHOTO___"
+										v-on="controls.F_CHARACCHARAPHOTO___.handlers"
+										:loading="controls.F_CHARACCHARAPHOTO___.props.loading"
+										:reporting-mode-on="reportingModeCAV"
+										:suggestion-mode-on="suggestionModeOn">
+										<q-image
+											v-if="controls.F_CHARACCHARAPHOTO___.isVisible"
+											v-bind="controls.F_CHARACCHARAPHOTO___.props"
+											v-on="controls.F_CHARACCHARAPHOTO___.handlers" />
+									</base-input-structure>
+									<base-input-structure
+										v-if="controls.F_CHARACCHARAGENRE___.isVisible"
+										class="i-radio-container"
+										v-bind="controls.F_CHARACCHARAGENRE___"
+										v-on="controls.F_CHARACCHARAGENRE___.handlers"
+										:label-position="labelAlignment.topleft"
+										:loading="controls.F_CHARACCHARAGENRE___.props.loading"
+										:reporting-mode-on="reportingModeCAV"
+										:suggestion-mode-on="suggestionModeOn">
+										<q-radio-group
+											v-if="controls.F_CHARACCHARAGENRE___.isVisible"
+											v-bind="controls.F_CHARACCHARAGENRE___.props"
+											v-on="controls.F_CHARACCHARAGENRE___.handlers">
+											<q-radio-button
+												v-for="radio in controls.F_CHARACCHARAGENRE___.items"
+												:key="radio.key"
+												:label="radio.value"
+												:value="radio.key" />
+										</q-radio-group>
+									</base-input-structure>
+								</q-control-wrapper>
+							</q-row-container>
+							<q-row-container v-if="controls.F_CHARACCHARANAME____.isVisible || controls.F_CHARACCHARAACTORNAM.isVisible || controls.F_CHARACMOVIETITLE___.isVisible || controls.F_CHARACCHARACREATEAT.isVisible">
+								<q-control-wrapper
+									v-if="controls.F_CHARACCHARANAME____.isVisible || controls.F_CHARACCHARAACTORNAM.isVisible"
+									class="control-join-group">
+									<base-input-structure
+										v-if="controls.F_CHARACCHARANAME____.isVisible"
+										class="i-text"
+										v-bind="controls.F_CHARACCHARANAME____"
+										v-on="controls.F_CHARACCHARANAME____.handlers"
+										:loading="controls.F_CHARACCHARANAME____.props.loading"
+										:reporting-mode-on="reportingModeCAV"
+										:suggestion-mode-on="suggestionModeOn">
+										<q-text-field
+											v-bind="controls.F_CHARACCHARANAME____.props"
+											@blur="onBlur(controls.F_CHARACCHARANAME____, model.ValName.value)"
+											@change="model.ValName.fnUpdateValueOnChange" />
+									</base-input-structure>
+									<base-input-structure
+										v-if="controls.F_CHARACCHARAACTORNAM.isVisible"
+										class="i-text"
+										v-bind="controls.F_CHARACCHARAACTORNAM"
+										v-on="controls.F_CHARACCHARAACTORNAM.handlers"
+										:loading="controls.F_CHARACCHARAACTORNAM.props.loading"
+										:reporting-mode-on="reportingModeCAV"
+										:suggestion-mode-on="suggestionModeOn">
+										<q-text-field
+											v-bind="controls.F_CHARACCHARAACTORNAM.props"
+											@blur="onBlur(controls.F_CHARACCHARAACTORNAM, model.ValActorname.value)"
+											@change="model.ValActorname.fnUpdateValueOnChange" />
+									</base-input-structure>
+								</q-control-wrapper>
+								<q-control-wrapper
+									v-if="controls.F_CHARACMOVIETITLE___.isVisible"
+									class="control-join-group">
+									<base-input-structure
+										v-if="controls.F_CHARACMOVIETITLE___.isVisible"
+										class="i-text"
+										v-bind="controls.F_CHARACMOVIETITLE___"
+										v-on="controls.F_CHARACMOVIETITLE___.handlers"
+										:loading="controls.F_CHARACMOVIETITLE___.props.loading"
+										:reporting-mode-on="reportingModeCAV"
+										:suggestion-mode-on="suggestionModeOn">
+										<q-lookup
+											v-if="controls.F_CHARACMOVIETITLE___.isVisible"
+											v-bind="controls.F_CHARACMOVIETITLE___.props"
+											v-on="controls.F_CHARACMOVIETITLE___.handlers" />
+										<q-see-more-f-characmovietitle
+											v-if="controls.F_CHARACMOVIETITLE___.seeMoreIsVisible"
+											v-bind="controls.F_CHARACMOVIETITLE___.seeMoreParams"
+											v-on="controls.F_CHARACMOVIETITLE___.handlers" />
+									</base-input-structure>
+								</q-control-wrapper>
+								<q-control-wrapper
+									v-if="controls.F_CHARACCHARACREATEAT.isVisible"
+									class="control-join-group">
+									<base-input-structure
+										v-if="controls.F_CHARACCHARACREATEAT.isVisible"
+										class="i-text"
+										v-bind="controls.F_CHARACCHARACREATEAT"
+										v-on="controls.F_CHARACCHARACREATEAT.handlers"
+										:loading="controls.F_CHARACCHARACREATEAT.props.loading"
+										:reporting-mode-on="reportingModeCAV"
+										:suggestion-mode-on="suggestionModeOn">
+										<q-date-time-picker
+											v-if="controls.F_CHARACCHARACREATEAT.isVisible"
+											v-bind="controls.F_CHARACCHARACREATEAT.props"
+											:model-value="model.ValCreateat.value"
+											@reset-icon-click="model.ValCreateat.fnUpdateValue(model.ValCreateat.originalValue ?? new Date())"
+											@update:model-value="model.ValCreateat.fnUpdateValue($event ?? '')" />
+									</base-input-structure>
+								</q-control-wrapper>
+							</q-row-container>
+							<!-- End F_CHARACPSEUDNEWGRP01 -->
+						</q-group-box-container>
 					</q-control-wrapper>
 				</q-row-container>
 			</template>
@@ -556,6 +560,20 @@
 				},
 
 				controls: {
+					F_CHARACPSEUDNEWGRP01: new fieldControlClass.GroupControl({
+						id: 'F_CHARACPSEUDNEWGRP01',
+						name: 'NEWGRP01',
+						size: 'block',
+						label: computed(() => this.Resources.INFO27076),
+						placeholder: '',
+						labelPosition: computed(() => this.labelAlignment.topleft),
+						isCollapsible: false,
+						anchored: false,
+						directChildren: ['F_CHARACCHARAPHOTO___', 'F_CHARACCHARAGENRE___', 'F_CHARACCHARANAME____', 'F_CHARACCHARAACTORNAM', 'F_CHARACMOVIETITLE___', 'F_CHARACCHARACREATEAT'],
+						mustBeFilled: true,
+						controlLimits: [
+						],
+					}, this),
 					F_CHARACCHARAPHOTO___: new fieldControlClass.ImageControl({
 						modelField: 'ValPhoto',
 						valueChangeEvent: 'fieldChange:chara.photo',
@@ -565,11 +583,28 @@
 						label: computed(() => this.Resources.PHOTO51874),
 						placeholder: '',
 						labelPosition: computed(() => this.labelAlignment.topleft),
+						container: 'F_CHARACPSEUDNEWGRP01',
 						height: 50,
 						width: 30,
 						dataTitle: computed(() => genericFunctions.formatString(vm.Resources.IMAGEM_UTILIZADA_PAR17299, vm.Resources.PHOTO51874)),
 						maxFileSize: 10485760, // In bytes.
 						maxFileSizeLabel: '10 MB',
+						controlLimits: [
+						],
+					}, this),
+					F_CHARACCHARAGENRE___: new fieldControlClass.RadioGroupControl({
+						modelField: 'ValGenre',
+						valueChangeEvent: 'fieldChange:chara.genre',
+						id: 'F_CHARACCHARAGENRE___',
+						name: 'GENRE',
+						label: computed(() => this.Resources.GENRE63303),
+						placeholder: '',
+						labelPosition: computed(() => this.labelAlignment.topleft),
+						container: 'F_CHARACPSEUDNEWGRP01',
+						maxLength: 1,
+						labelId: 'label_F_CHARACCHARAGENRE___',
+						arrayName: 'GENRE',
+						columns: 0,
 						controlLimits: [
 						],
 					}, this),
@@ -582,6 +617,7 @@
 						label: computed(() => this.Resources.NAME31974),
 						placeholder: '',
 						labelPosition: computed(() => this.labelAlignment.topleft),
+						container: 'F_CHARACPSEUDNEWGRP01',
 						maxLength: 80,
 						labelId: 'label_F_CHARACCHARANAME____',
 						mustBeFilled: true,
@@ -597,6 +633,7 @@
 						label: computed(() => this.Resources.ACTOR_NAME48089),
 						placeholder: '',
 						labelPosition: computed(() => this.labelAlignment.topleft),
+						container: 'F_CHARACPSEUDNEWGRP01',
 						maxLength: 80,
 						labelId: 'label_F_CHARACCHARAACTORNAM',
 						mustBeFilled: true,
@@ -613,34 +650,6 @@
 							isServerRecalc: false,
 						},
 					}, this),
-					F_CHARACCHARACREATEAT: new fieldControlClass.DateControl({
-						modelField: 'ValCreateat',
-						valueChangeEvent: 'fieldChange:chara.createat',
-						id: 'F_CHARACCHARACREATEAT',
-						name: 'CREATEAT',
-						size: 'small',
-						label: computed(() => this.Resources.CREATE_AT36393),
-						placeholder: '',
-						labelPosition: computed(() => this.labelAlignment.topleft),
-						dateTimeType: 'date',
-						controlLimits: [
-						],
-					}, this),
-					F_CHARACCHARAGENRE___: new fieldControlClass.RadioGroupControl({
-						modelField: 'ValGenre',
-						valueChangeEvent: 'fieldChange:chara.genre',
-						id: 'F_CHARACCHARAGENRE___',
-						name: 'GENRE',
-						label: computed(() => this.Resources.GENRE63303),
-						placeholder: '',
-						labelPosition: computed(() => this.labelAlignment.topleft),
-						maxLength: 1,
-						labelId: 'label_F_CHARACCHARAGENRE___',
-						arrayName: 'GENRE',
-						columns: 0,
-						controlLimits: [
-						],
-					}, this),
 					F_CHARACMOVIETITLE___: new fieldControlClass.LookupControl({
 						modelField: 'TableMovieTitle',
 						valueChangeEvent: 'fieldChange:movie.title',
@@ -650,6 +659,7 @@
 						label: computed(() => this.Resources.TITLE21885),
 						placeholder: '',
 						labelPosition: computed(() => this.labelAlignment.topleft),
+						container: 'F_CHARACPSEUDNEWGRP01',
 						externalCallbacks: {
 							getModelField: vm.getModelField,
 							getModelFieldValue: vm.getModelFieldValue,
@@ -669,6 +679,20 @@
 						controlLimits: [
 						],
 					}, this),
+					F_CHARACCHARACREATEAT: new fieldControlClass.DateControl({
+						modelField: 'ValCreateat',
+						valueChangeEvent: 'fieldChange:chara.createat',
+						id: 'F_CHARACCHARACREATEAT',
+						name: 'CREATEAT',
+						size: 'small',
+						label: computed(() => this.Resources.CREATE_AT36393),
+						placeholder: '',
+						labelPosition: computed(() => this.labelAlignment.topleft),
+						container: 'F_CHARACPSEUDNEWGRP01',
+						dateTimeType: 'date',
+						controlLimits: [
+						],
+					}, this),
 				},
 
 				model: new FormViewModel(this, {
@@ -679,6 +703,7 @@
 				}),
 
 				groupFields: readonly([
+					'F_CHARACPSEUDNEWGRP01',
 				]),
 
 				tableFields: readonly([

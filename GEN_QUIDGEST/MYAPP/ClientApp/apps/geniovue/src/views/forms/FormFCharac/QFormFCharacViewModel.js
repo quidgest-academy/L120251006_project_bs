@@ -74,6 +74,17 @@ export default class ViewModel extends FormViewModelBase
 		}).cloneFrom(values?.ValPhoto))
 		this.stopWatchers.push(watch(() => this.ValPhoto.value, (newValue, oldValue) => this.onUpdate('chara.photo', this.ValPhoto, newValue, oldValue)))
 
+		this.ValGenre = reactive(new modelFieldType.String({
+			id: 'ValGenre',
+			originId: 'ValGenre',
+			area: 'CHARA',
+			field: 'GENRE',
+			maxLength: 1,
+			arrayOptions: computed(() => new qProjArrays.QArrayGenre(vm.$getResource).elements),
+			description: computed(() => this.Resources.GENRE63303),
+		}).cloneFrom(values?.ValGenre))
+		this.stopWatchers.push(watch(() => this.ValGenre.value, (newValue, oldValue) => this.onUpdate('chara.genre', this.ValGenre, newValue, oldValue)))
+
 		this.ValName = reactive(new modelFieldType.String({
 			id: 'ValName',
 			originId: 'ValName',
@@ -94,26 +105,6 @@ export default class ViewModel extends FormViewModelBase
 		}).cloneFrom(values?.ValActorname))
 		this.stopWatchers.push(watch(() => this.ValActorname.value, (newValue, oldValue) => this.onUpdate('chara.actorname', this.ValActorname, newValue, oldValue)))
 
-		this.ValCreateat = reactive(new modelFieldType.Date({
-			id: 'ValCreateat',
-			originId: 'ValCreateat',
-			area: 'CHARA',
-			field: 'CREATEAT',
-			description: computed(() => this.Resources.CREATE_AT36393),
-		}).cloneFrom(values?.ValCreateat))
-		this.stopWatchers.push(watch(() => this.ValCreateat.value, (newValue, oldValue) => this.onUpdate('chara.createat', this.ValCreateat, newValue, oldValue)))
-
-		this.ValGenre = reactive(new modelFieldType.String({
-			id: 'ValGenre',
-			originId: 'ValGenre',
-			area: 'CHARA',
-			field: 'GENRE',
-			maxLength: 1,
-			arrayOptions: computed(() => new qProjArrays.QArrayGenre(vm.$getResource).elements),
-			description: computed(() => this.Resources.GENRE63303),
-		}).cloneFrom(values?.ValGenre))
-		this.stopWatchers.push(watch(() => this.ValGenre.value, (newValue, oldValue) => this.onUpdate('chara.genre', this.ValGenre, newValue, oldValue)))
-
 		this.TableMovieTitle = reactive(new modelFieldType.String({
 			type: 'Lookup',
 			id: 'TableMovieTitle',
@@ -124,6 +115,15 @@ export default class ViewModel extends FormViewModelBase
 			description: computed(() => this.Resources.TITLE21885),
 		}).cloneFrom(values?.TableMovieTitle))
 		this.stopWatchers.push(watch(() => this.TableMovieTitle.value, (newValue, oldValue) => this.onUpdate('movie.title', this.TableMovieTitle, newValue, oldValue)))
+
+		this.ValCreateat = reactive(new modelFieldType.Date({
+			id: 'ValCreateat',
+			originId: 'ValCreateat',
+			area: 'CHARA',
+			field: 'CREATEAT',
+			description: computed(() => this.Resources.CREATE_AT36393),
+		}).cloneFrom(values?.ValCreateat))
+		this.stopWatchers.push(watch(() => this.ValCreateat.value, (newValue, oldValue) => this.onUpdate('chara.createat', this.ValCreateat, newValue, oldValue)))
 	}
 
 	/**

@@ -91,79 +91,97 @@
 			data-key="F_USER"
 			:data-loading="!formInitialDataLoaded">
 			<template v-if="formControl.initialized && showFormBody">
-				<q-row-container v-if="controls.F_USER__USERPNAME____.isVisible || controls.F_USER__USERPEMAIL___.isVisible || controls.F_USER__USERPPHOTO___.isVisible || controls.F_USER__PSW__NOME____.isVisible">
+				<q-row-container
+					v-if="controls.F_USER__PSEUDNEWGRP01.isVisible"
+					is-large>
 					<q-control-wrapper
-						v-if="controls.F_USER__USERPNAME____.isVisible"
-						class="control-join-group">
-						<base-input-structure
-							v-if="controls.F_USER__USERPNAME____.isVisible"
-							class="i-text"
-							v-bind="controls.F_USER__USERPNAME____"
-							v-on="controls.F_USER__USERPNAME____.handlers"
-							:loading="controls.F_USER__USERPNAME____.props.loading"
-							:reporting-mode-on="reportingModeCAV"
-							:suggestion-mode-on="suggestionModeOn">
-							<q-text-field
-								v-bind="controls.F_USER__USERPNAME____.props"
-								@blur="onBlur(controls.F_USER__USERPNAME____, model.ValName.value)"
-								@change="model.ValName.fnUpdateValueOnChange" />
-						</base-input-structure>
-					</q-control-wrapper>
-					<q-control-wrapper
-						v-if="controls.F_USER__USERPEMAIL___.isVisible"
-						class="control-join-group">
-						<base-input-structure
-							v-if="controls.F_USER__USERPEMAIL___.isVisible"
-							class="i-text"
-							v-bind="controls.F_USER__USERPEMAIL___"
-							v-on="controls.F_USER__USERPEMAIL___.handlers"
-							:loading="controls.F_USER__USERPEMAIL___.props.loading"
-							:reporting-mode-on="reportingModeCAV"
-							:suggestion-mode-on="suggestionModeOn">
-							<q-mask
-								v-if="controls.F_USER__USERPEMAIL___.isVisible"
-								v-bind="controls.F_USER__USERPEMAIL___"
-								:model-value="model.ValEmail.value"
-								@change="model.ValEmail.fnUpdateValueOnChange" />
-						</base-input-structure>
-					</q-control-wrapper>
-					<q-control-wrapper
-						v-if="controls.F_USER__USERPPHOTO___.isVisible"
-						class="control-join-group">
-						<base-input-structure
-							v-if="controls.F_USER__USERPPHOTO___.isVisible"
-							class="q-image"
-							v-bind="controls.F_USER__USERPPHOTO___"
-							v-on="controls.F_USER__USERPPHOTO___.handlers"
-							:loading="controls.F_USER__USERPPHOTO___.props.loading"
-							:reporting-mode-on="reportingModeCAV"
-							:suggestion-mode-on="suggestionModeOn">
-							<q-image
-								v-if="controls.F_USER__USERPPHOTO___.isVisible"
-								v-bind="controls.F_USER__USERPPHOTO___.props"
-								v-on="controls.F_USER__USERPPHOTO___.handlers" />
-						</base-input-structure>
-					</q-control-wrapper>
-					<q-control-wrapper
-						v-if="controls.F_USER__PSW__NOME____.isVisible"
-						class="control-join-group">
-						<base-input-structure
-							v-if="controls.F_USER__PSW__NOME____.isVisible"
-							class="i-text"
-							v-bind="controls.F_USER__PSW__NOME____"
-							v-on="controls.F_USER__PSW__NOME____.handlers"
-							:loading="controls.F_USER__PSW__NOME____.props.loading"
-							:reporting-mode-on="reportingModeCAV"
-							:suggestion-mode-on="suggestionModeOn">
-							<q-lookup
-								v-if="controls.F_USER__PSW__NOME____.isVisible"
-								v-bind="controls.F_USER__PSW__NOME____.props"
-								v-on="controls.F_USER__PSW__NOME____.handlers" />
-							<q-see-more-f-user-psw-nome
-								v-if="controls.F_USER__PSW__NOME____.seeMoreIsVisible"
-								v-bind="controls.F_USER__PSW__NOME____.seeMoreParams"
-								v-on="controls.F_USER__PSW__NOME____.handlers" />
-						</base-input-structure>
+						v-if="controls.F_USER__PSEUDNEWGRP01.isVisible"
+						class="row-line-group">
+						<q-group-box-container
+							v-if="controls.F_USER__PSEUDNEWGRP01.isVisible"
+							id="F_USER__PSEUDNEWGRP01"
+							v-bind="controls.F_USER__PSEUDNEWGRP01"
+							:is-visible="controls.F_USER__PSEUDNEWGRP01.isVisible">
+							<!-- Start F_USER__PSEUDNEWGRP01 -->
+							<q-row-container v-if="controls.F_USER__USERPPHOTO___.isVisible">
+								<q-control-wrapper
+									v-if="controls.F_USER__USERPPHOTO___.isVisible"
+									class="control-join-group">
+									<base-input-structure
+										v-if="controls.F_USER__USERPPHOTO___.isVisible"
+										class="q-image"
+										v-bind="controls.F_USER__USERPPHOTO___"
+										v-on="controls.F_USER__USERPPHOTO___.handlers"
+										:loading="controls.F_USER__USERPPHOTO___.props.loading"
+										:reporting-mode-on="reportingModeCAV"
+										:suggestion-mode-on="suggestionModeOn">
+										<q-image
+											v-if="controls.F_USER__USERPPHOTO___.isVisible"
+											v-bind="controls.F_USER__USERPPHOTO___.props"
+											v-on="controls.F_USER__USERPPHOTO___.handlers" />
+									</base-input-structure>
+								</q-control-wrapper>
+							</q-row-container>
+							<q-row-container v-if="controls.F_USER__USERPNAME____.isVisible || controls.F_USER__USERPEMAIL___.isVisible || controls.F_USER__PSW__NOME____.isVisible">
+								<q-control-wrapper
+									v-if="controls.F_USER__USERPNAME____.isVisible"
+									class="control-join-group">
+									<base-input-structure
+										v-if="controls.F_USER__USERPNAME____.isVisible"
+										class="i-text"
+										v-bind="controls.F_USER__USERPNAME____"
+										v-on="controls.F_USER__USERPNAME____.handlers"
+										:loading="controls.F_USER__USERPNAME____.props.loading"
+										:reporting-mode-on="reportingModeCAV"
+										:suggestion-mode-on="suggestionModeOn">
+										<q-text-field
+											v-bind="controls.F_USER__USERPNAME____.props"
+											@blur="onBlur(controls.F_USER__USERPNAME____, model.ValName.value)"
+											@change="model.ValName.fnUpdateValueOnChange" />
+									</base-input-structure>
+								</q-control-wrapper>
+								<q-control-wrapper
+									v-if="controls.F_USER__USERPEMAIL___.isVisible"
+									class="control-join-group">
+									<base-input-structure
+										v-if="controls.F_USER__USERPEMAIL___.isVisible"
+										class="i-text"
+										v-bind="controls.F_USER__USERPEMAIL___"
+										v-on="controls.F_USER__USERPEMAIL___.handlers"
+										:loading="controls.F_USER__USERPEMAIL___.props.loading"
+										:reporting-mode-on="reportingModeCAV"
+										:suggestion-mode-on="suggestionModeOn">
+										<q-mask
+											v-if="controls.F_USER__USERPEMAIL___.isVisible"
+											v-bind="controls.F_USER__USERPEMAIL___"
+											:model-value="model.ValEmail.value"
+											@change="model.ValEmail.fnUpdateValueOnChange" />
+									</base-input-structure>
+								</q-control-wrapper>
+								<q-control-wrapper
+									v-if="controls.F_USER__PSW__NOME____.isVisible"
+									class="control-join-group">
+									<base-input-structure
+										v-if="controls.F_USER__PSW__NOME____.isVisible"
+										class="i-text"
+										v-bind="controls.F_USER__PSW__NOME____"
+										v-on="controls.F_USER__PSW__NOME____.handlers"
+										:loading="controls.F_USER__PSW__NOME____.props.loading"
+										:reporting-mode-on="reportingModeCAV"
+										:suggestion-mode-on="suggestionModeOn">
+										<q-lookup
+											v-if="controls.F_USER__PSW__NOME____.isVisible"
+											v-bind="controls.F_USER__PSW__NOME____.props"
+											v-on="controls.F_USER__PSW__NOME____.handlers" />
+										<q-see-more-f-user-psw-nome
+											v-if="controls.F_USER__PSW__NOME____.seeMoreIsVisible"
+											v-bind="controls.F_USER__PSW__NOME____.seeMoreParams"
+											v-on="controls.F_USER__PSW__NOME____.handlers" />
+									</base-input-structure>
+								</q-control-wrapper>
+							</q-row-container>
+							<!-- End F_USER__PSEUDNEWGRP01 -->
+						</q-group-box-container>
 					</q-control-wrapper>
 				</q-row-container>
 			</template>
@@ -508,6 +526,38 @@
 				},
 
 				controls: {
+					F_USER__PSEUDNEWGRP01: new fieldControlClass.GroupControl({
+						id: 'F_USER__PSEUDNEWGRP01',
+						name: 'NEWGRP01',
+						size: 'block',
+						label: computed(() => this.Resources.USER_DETAILS04102),
+						placeholder: '',
+						labelPosition: computed(() => this.labelAlignment.topleft),
+						isCollapsible: false,
+						anchored: false,
+						directChildren: ['F_USER__USERPPHOTO___', 'F_USER__USERPNAME____', 'F_USER__USERPEMAIL___', 'F_USER__PSW__NOME____'],
+						mustBeFilled: true,
+						controlLimits: [
+						],
+					}, this),
+					F_USER__USERPPHOTO___: new fieldControlClass.ImageControl({
+						modelField: 'ValPhoto',
+						valueChangeEvent: 'fieldChange:userp.photo',
+						id: 'F_USER__USERPPHOTO___',
+						name: 'PHOTO',
+						size: 'mini',
+						label: computed(() => this.Resources.PHOTO51874),
+						placeholder: '',
+						labelPosition: computed(() => this.labelAlignment.topleft),
+						container: 'F_USER__PSEUDNEWGRP01',
+						height: 50,
+						width: 30,
+						dataTitle: computed(() => genericFunctions.formatString(vm.Resources.IMAGEM_UTILIZADA_PAR17299, vm.Resources.PHOTO51874)),
+						maxFileSize: 10485760, // In bytes.
+						maxFileSizeLabel: '10 MB',
+						controlLimits: [
+						],
+					}, this),
 					F_USER__USERPNAME____: new fieldControlClass.StringControl({
 						modelField: 'ValName',
 						valueChangeEvent: 'fieldChange:userp.name',
@@ -517,6 +567,7 @@
 						label: computed(() => this.Resources.NAME31974),
 						placeholder: '',
 						labelPosition: computed(() => this.labelAlignment.topleft),
+						container: 'F_USER__PSEUDNEWGRP01',
 						maxLength: 50,
 						labelId: 'label_F_USER__USERPNAME____',
 						mustBeFilled: true,
@@ -532,25 +583,9 @@
 						label: computed(() => this.Resources.EMAIL25170),
 						placeholder: '',
 						labelPosition: computed(() => this.labelAlignment.topleft),
+						container: 'F_USER__PSEUDNEWGRP01',
 						maxLength: 80,
 						labelId: 'label_F_USER__USERPEMAIL___',
-						controlLimits: [
-						],
-					}, this),
-					F_USER__USERPPHOTO___: new fieldControlClass.ImageControl({
-						modelField: 'ValPhoto',
-						valueChangeEvent: 'fieldChange:userp.photo',
-						id: 'F_USER__USERPPHOTO___',
-						name: 'PHOTO',
-						size: 'mini',
-						label: computed(() => this.Resources.PHOTO51874),
-						placeholder: '',
-						labelPosition: computed(() => this.labelAlignment.topleft),
-						height: 50,
-						width: 30,
-						dataTitle: computed(() => genericFunctions.formatString(vm.Resources.IMAGEM_UTILIZADA_PAR17299, vm.Resources.PHOTO51874)),
-						maxFileSize: 10485760, // In bytes.
-						maxFileSizeLabel: '10 MB',
 						controlLimits: [
 						],
 					}, this),
@@ -563,6 +598,7 @@
 						label: computed(() => this.Resources.LOGIN48703),
 						placeholder: '',
 						labelPosition: computed(() => this.labelAlignment.topleft),
+						container: 'F_USER__PSEUDNEWGRP01',
 						externalCallbacks: {
 							getModelField: vm.getModelField,
 							getModelFieldValue: vm.getModelFieldValue,
@@ -592,6 +628,7 @@
 				}),
 
 				groupFields: readonly([
+					'F_USER__PSEUDNEWGRP01',
 				]),
 
 				tableFields: readonly([

@@ -42,18 +42,6 @@ namespace GenioMVC.ViewModels.Chara
 		[ImageThumbnailJsonConverter(30, 50)]
 		public GenioMVC.Models.ImageModel ValPhoto { get; set; }
 		/// <summary>
-		/// Title: "Name" | Type: "C"
-		/// </summary>
-		public string ValName { get; set; }
-		/// <summary>
-		/// Title: "Actor name" | Type: "C"
-		/// </summary>
-		public string ValActorname { get; set; }
-		/// <summary>
-		/// Title: "Create at" | Type: "D"
-		/// </summary>
-		public DateTime? ValCreateat { get; set; }
-		/// <summary>
 		/// Title: "Genre" | Type: "AC"
 		/// </summary>
 		public string ValGenre { get; set; }
@@ -63,10 +51,22 @@ namespace GenioMVC.ViewModels.Chara
 		[JsonIgnore]
 		public SelectList List_ValGenre { get; set; }
 		/// <summary>
+		/// Title: "Name" | Type: "C"
+		/// </summary>
+		public string ValName { get; set; }
+		/// <summary>
+		/// Title: "Actor name" | Type: "C"
+		/// </summary>
+		public string ValActorname { get; set; }
+		/// <summary>
 		/// Title: "Title" | Type: "C"
 		/// </summary>
 		[ValidateSetAccess]
 		public TableDBEdit<GenioMVC.Models.Movie> TableMovieTitle { get; set; }
+		/// <summary>
+		/// Title: "Create at" | Type: "D"
+		/// </summary>
+		public DateTime? ValCreateat { get; set; }
 
 
 
@@ -202,10 +202,10 @@ namespace GenioMVC.ViewModels.Chara
 			{
 				ValMovieid = ViewModelConversion.ToString(m.ValMovieid);
 				ValPhoto = ViewModelConversion.ToImage(m.ValPhoto);
+				ValGenre = ViewModelConversion.ToString(m.ValGenre);
 				ValName = ViewModelConversion.ToString(m.ValName);
 				ValActorname = ViewModelConversion.ToString(m.ValActorname);
 				ValCreateat = ViewModelConversion.ToDateTime(m.ValCreateat);
-				ValGenre = ViewModelConversion.ToString(m.ValGenre);
 				ValCodchara = ViewModelConversion.ToString(m.ValCodchara);
 			}
 			catch (Exception)
@@ -235,10 +235,10 @@ namespace GenioMVC.ViewModels.Chara
 				m.ValMovieid = ViewModelConversion.ToString(ValMovieid);
 				if (ValPhoto == null || !ValPhoto.IsThumbnail)
 					m.ValPhoto = ViewModelConversion.ToImage(ValPhoto);
+				m.ValGenre = ViewModelConversion.ToString(ValGenre);
 				m.ValName = ViewModelConversion.ToString(ValName);
 				m.ValActorname = ViewModelConversion.ToString(ValActorname);
 				m.ValCreateat = ViewModelConversion.ToDateTime(ValCreateat);
-				m.ValGenre = ViewModelConversion.ToString(ValGenre);
 				m.ValCodchara = ViewModelConversion.ToString(ValCodchara);
 			}
 			catch (Exception)
@@ -270,6 +270,9 @@ namespace GenioMVC.ViewModels.Chara
 					case "chara.photo":
 						this.ValPhoto = ViewModelConversion.ToImage(_value);
 						break;
+					case "chara.genre":
+						this.ValGenre = ViewModelConversion.ToString(_value);
+						break;
 					case "chara.name":
 						this.ValName = ViewModelConversion.ToString(_value);
 						break;
@@ -278,9 +281,6 @@ namespace GenioMVC.ViewModels.Chara
 						break;
 					case "chara.createat":
 						this.ValCreateat = ViewModelConversion.ToDateTime(_value);
-						break;
-					case "chara.genre":
-						this.ValGenre = ViewModelConversion.ToString(_value);
 						break;
 					case "chara.codchara":
 						this.ValCodchara = ViewModelConversion.ToString(_value);
@@ -646,10 +646,10 @@ namespace GenioMVC.ViewModels.Chara
 			{
 				"chara.movieid" => ViewModelConversion.ToString(modelValue),
 				"chara.photo" => ViewModelConversion.ToImage(modelValue),
+				"chara.genre" => ViewModelConversion.ToString(modelValue),
 				"chara.name" => ViewModelConversion.ToString(modelValue),
 				"chara.actorname" => ViewModelConversion.ToString(modelValue),
 				"chara.createat" => ViewModelConversion.ToDateTime(modelValue),
-				"chara.genre" => ViewModelConversion.ToString(modelValue),
 				"chara.codchara" => ViewModelConversion.ToString(modelValue),
 				"movie.codmovie" => ViewModelConversion.ToString(modelValue),
 				"movie.title" => ViewModelConversion.ToString(modelValue),

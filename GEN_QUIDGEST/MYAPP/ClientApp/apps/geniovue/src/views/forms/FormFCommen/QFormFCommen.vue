@@ -91,86 +91,118 @@
 			data-key="F_COMMEN"
 			:data-loading="!formInitialDataLoaded">
 			<template v-if="formControl.initialized && showFormBody">
-				<q-row-container v-if="controls.F_COMMENUSERPNAME____.isVisible || controls.F_COMMENMOVIETITLE___.isVisible || controls.F_COMMENCOMMEPOST____.isVisible">
+				<q-row-container
+					v-if="controls.F_COMMENPSEUDNEWGRP01.isVisible"
+					is-large>
 					<q-control-wrapper
-						v-if="controls.F_COMMENUSERPNAME____.isVisible"
-						class="control-join-group">
-						<base-input-structure
-							v-if="controls.F_COMMENUSERPNAME____.isVisible"
-							class="i-text"
-							v-bind="controls.F_COMMENUSERPNAME____"
-							v-on="controls.F_COMMENUSERPNAME____.handlers"
-							:loading="controls.F_COMMENUSERPNAME____.props.loading"
-							:reporting-mode-on="reportingModeCAV"
-							:suggestion-mode-on="suggestionModeOn">
-							<q-lookup
-								v-if="controls.F_COMMENUSERPNAME____.isVisible"
-								v-bind="controls.F_COMMENUSERPNAME____.props"
-								v-on="controls.F_COMMENUSERPNAME____.handlers" />
-							<q-see-more-f-commenuserpname
-								v-if="controls.F_COMMENUSERPNAME____.seeMoreIsVisible"
-								v-bind="controls.F_COMMENUSERPNAME____.seeMoreParams"
-								v-on="controls.F_COMMENUSERPNAME____.handlers" />
-						</base-input-structure>
-					</q-control-wrapper>
-					<q-control-wrapper
-						v-if="controls.F_COMMENMOVIETITLE___.isVisible"
-						class="control-join-group">
-						<base-input-structure
-							v-if="controls.F_COMMENMOVIETITLE___.isVisible"
-							class="i-text"
-							v-bind="controls.F_COMMENMOVIETITLE___"
-							v-on="controls.F_COMMENMOVIETITLE___.handlers"
-							:loading="controls.F_COMMENMOVIETITLE___.props.loading"
-							:reporting-mode-on="reportingModeCAV"
-							:suggestion-mode-on="suggestionModeOn">
-							<q-lookup
-								v-if="controls.F_COMMENMOVIETITLE___.isVisible"
-								v-bind="controls.F_COMMENMOVIETITLE___.props"
-								v-on="controls.F_COMMENMOVIETITLE___.handlers" />
-							<q-see-more-f-commenmovietitle
-								v-if="controls.F_COMMENMOVIETITLE___.seeMoreIsVisible"
-								v-bind="controls.F_COMMENMOVIETITLE___.seeMoreParams"
-								v-on="controls.F_COMMENMOVIETITLE___.handlers" />
-						</base-input-structure>
-					</q-control-wrapper>
-					<q-control-wrapper
-						v-if="controls.F_COMMENCOMMEPOST____.isVisible"
-						class="control-join-group">
-						<base-input-structure
-							v-if="controls.F_COMMENCOMMEPOST____.isVisible"
-							class="i-textarea"
-							v-bind="controls.F_COMMENCOMMEPOST____"
-							v-on="controls.F_COMMENCOMMEPOST____.handlers"
-							:loading="controls.F_COMMENCOMMEPOST____.props.loading"
-							:reporting-mode-on="reportingModeCAV"
-							:suggestion-mode-on="suggestionModeOn">
-							<q-text-area
-								v-if="controls.F_COMMENCOMMEPOST____.isVisible"
-								v-bind="controls.F_COMMENCOMMEPOST____.props"
-								v-on="controls.F_COMMENCOMMEPOST____.handlers" />
-						</base-input-structure>
+						v-if="controls.F_COMMENPSEUDNEWGRP01.isVisible"
+						class="row-line-group">
+						<q-group-box-container
+							v-if="controls.F_COMMENPSEUDNEWGRP01.isVisible"
+							id="F_COMMENPSEUDNEWGRP01"
+							v-bind="controls.F_COMMENPSEUDNEWGRP01"
+							:is-visible="controls.F_COMMENPSEUDNEWGRP01.isVisible">
+							<!-- Start F_COMMENPSEUDNEWGRP01 -->
+							<q-row-container v-if="controls.F_COMMENUSERPNAME____.isVisible || controls.F_COMMENMOVIETITLE___.isVisible || controls.F_COMMENCOMMECREATEAT.isVisible">
+								<q-control-wrapper
+									v-if="controls.F_COMMENUSERPNAME____.isVisible"
+									class="control-join-group">
+									<base-input-structure
+										v-if="controls.F_COMMENUSERPNAME____.isVisible"
+										class="i-text"
+										v-bind="controls.F_COMMENUSERPNAME____"
+										v-on="controls.F_COMMENUSERPNAME____.handlers"
+										:loading="controls.F_COMMENUSERPNAME____.props.loading"
+										:reporting-mode-on="reportingModeCAV"
+										:suggestion-mode-on="suggestionModeOn">
+										<q-lookup
+											v-if="controls.F_COMMENUSERPNAME____.isVisible"
+											v-bind="controls.F_COMMENUSERPNAME____.props"
+											v-on="controls.F_COMMENUSERPNAME____.handlers" />
+										<q-see-more-f-commenuserpname
+											v-if="controls.F_COMMENUSERPNAME____.seeMoreIsVisible"
+											v-bind="controls.F_COMMENUSERPNAME____.seeMoreParams"
+											v-on="controls.F_COMMENUSERPNAME____.handlers" />
+									</base-input-structure>
+								</q-control-wrapper>
+								<q-control-wrapper
+									v-if="controls.F_COMMENMOVIETITLE___.isVisible"
+									class="control-join-group">
+									<base-input-structure
+										v-if="controls.F_COMMENMOVIETITLE___.isVisible"
+										class="i-text"
+										v-bind="controls.F_COMMENMOVIETITLE___"
+										v-on="controls.F_COMMENMOVIETITLE___.handlers"
+										:loading="controls.F_COMMENMOVIETITLE___.props.loading"
+										:reporting-mode-on="reportingModeCAV"
+										:suggestion-mode-on="suggestionModeOn">
+										<q-lookup
+											v-if="controls.F_COMMENMOVIETITLE___.isVisible"
+											v-bind="controls.F_COMMENMOVIETITLE___.props"
+											v-on="controls.F_COMMENMOVIETITLE___.handlers" />
+										<q-see-more-f-commenmovietitle
+											v-if="controls.F_COMMENMOVIETITLE___.seeMoreIsVisible"
+											v-bind="controls.F_COMMENMOVIETITLE___.seeMoreParams"
+											v-on="controls.F_COMMENMOVIETITLE___.handlers" />
+									</base-input-structure>
+								</q-control-wrapper>
+								<q-control-wrapper
+									v-if="controls.F_COMMENCOMMECREATEAT.isVisible"
+									class="control-join-group">
+									<base-input-structure
+										v-if="controls.F_COMMENCOMMECREATEAT.isVisible"
+										class="i-text"
+										v-bind="controls.F_COMMENCOMMECREATEAT"
+										v-on="controls.F_COMMENCOMMECREATEAT.handlers"
+										:loading="controls.F_COMMENCOMMECREATEAT.props.loading"
+										:reporting-mode-on="reportingModeCAV"
+										:suggestion-mode-on="suggestionModeOn">
+										<q-date-time-picker
+											v-if="controls.F_COMMENCOMMECREATEAT.isVisible"
+											v-bind="controls.F_COMMENCOMMECREATEAT.props"
+											:model-value="model.ValCreateat.value"
+											@reset-icon-click="model.ValCreateat.fnUpdateValue(model.ValCreateat.originalValue ?? new Date())"
+											@update:model-value="model.ValCreateat.fnUpdateValue($event ?? '')" />
+									</base-input-structure>
+								</q-control-wrapper>
+							</q-row-container>
+							<!-- End F_COMMENPSEUDNEWGRP01 -->
+						</q-group-box-container>
 					</q-control-wrapper>
 				</q-row-container>
-				<q-row-container v-if="controls.F_COMMENCOMMECREATEAT.isVisible">
+				<q-row-container
+					v-if="controls.F_COMMENPSEUDNEWGRP02.isVisible"
+					is-large>
 					<q-control-wrapper
-						v-if="controls.F_COMMENCOMMECREATEAT.isVisible"
-						class="control-join-group">
-						<base-input-structure
-							v-if="controls.F_COMMENCOMMECREATEAT.isVisible"
-							class="i-text"
-							v-bind="controls.F_COMMENCOMMECREATEAT"
-							v-on="controls.F_COMMENCOMMECREATEAT.handlers"
-							:loading="controls.F_COMMENCOMMECREATEAT.props.loading"
-							:reporting-mode-on="reportingModeCAV"
-							:suggestion-mode-on="suggestionModeOn">
-							<q-date-time-picker
-								v-if="controls.F_COMMENCOMMECREATEAT.isVisible"
-								v-bind="controls.F_COMMENCOMMECREATEAT.props"
-								:model-value="model.ValCreateat.value"
-								@reset-icon-click="model.ValCreateat.fnUpdateValue(model.ValCreateat.originalValue ?? new Date())"
-								@update:model-value="model.ValCreateat.fnUpdateValue($event ?? '')" />
-						</base-input-structure>
+						v-if="controls.F_COMMENPSEUDNEWGRP02.isVisible"
+						class="row-line-group">
+						<q-group-box-container
+							v-if="controls.F_COMMENPSEUDNEWGRP02.isVisible"
+							id="F_COMMENPSEUDNEWGRP02"
+							v-bind="controls.F_COMMENPSEUDNEWGRP02"
+							:is-visible="controls.F_COMMENPSEUDNEWGRP02.isVisible">
+							<!-- Start F_COMMENPSEUDNEWGRP02 -->
+							<q-row-container v-if="controls.F_COMMENCOMMEPOST____.isVisible">
+								<q-control-wrapper
+									v-if="controls.F_COMMENCOMMEPOST____.isVisible"
+									class="control-join-group">
+									<base-input-structure
+										v-if="controls.F_COMMENCOMMEPOST____.isVisible"
+										class="i-textarea"
+										v-bind="controls.F_COMMENCOMMEPOST____"
+										v-on="controls.F_COMMENCOMMEPOST____.handlers"
+										:loading="controls.F_COMMENCOMMEPOST____.props.loading"
+										:reporting-mode-on="reportingModeCAV"
+										:suggestion-mode-on="suggestionModeOn">
+										<q-text-area
+											v-if="controls.F_COMMENCOMMEPOST____.isVisible"
+											v-bind="controls.F_COMMENCOMMEPOST____.props"
+											v-on="controls.F_COMMENCOMMEPOST____.handlers" />
+									</base-input-structure>
+								</q-control-wrapper>
+							</q-row-container>
+							<!-- End F_COMMENPSEUDNEWGRP02 -->
+						</q-group-box-container>
 					</q-control-wrapper>
 				</q-row-container>
 			</template>
@@ -516,6 +548,19 @@
 				},
 
 				controls: {
+					F_COMMENPSEUDNEWGRP01: new fieldControlClass.GroupControl({
+						id: 'F_COMMENPSEUDNEWGRP01',
+						name: 'NEWGRP01',
+						size: 'block',
+						label: computed(() => this.Resources.DETAILS19591),
+						placeholder: '',
+						labelPosition: computed(() => this.labelAlignment.topleft),
+						isCollapsible: false,
+						anchored: false,
+						directChildren: ['F_COMMENUSERPNAME____', 'F_COMMENMOVIETITLE___', 'F_COMMENCOMMECREATEAT'],
+						controlLimits: [
+						],
+					}, this),
 					F_COMMENUSERPNAME____: new fieldControlClass.LookupControl({
 						modelField: 'TableUserpName',
 						valueChangeEvent: 'fieldChange:userp.name',
@@ -525,6 +570,7 @@
 						label: computed(() => this.Resources.NAME31974),
 						placeholder: '',
 						labelPosition: computed(() => this.labelAlignment.topleft),
+						container: 'F_COMMENPSEUDNEWGRP01',
 						externalCallbacks: {
 							getModelField: vm.getModelField,
 							getModelFieldValue: vm.getModelFieldValue,
@@ -553,6 +599,7 @@
 						label: computed(() => this.Resources.TITLE21885),
 						placeholder: '',
 						labelPosition: computed(() => this.labelAlignment.topleft),
+						container: 'F_COMMENPSEUDNEWGRP01',
 						externalCallbacks: {
 							getModelField: vm.getModelField,
 							getModelFieldValue: vm.getModelFieldValue,
@@ -572,21 +619,6 @@
 						controlLimits: [
 						],
 					}, this),
-					F_COMMENCOMMEPOST____: new fieldControlClass.MultilineStringControl({
-						modelField: 'ValPost',
-						valueChangeEvent: 'fieldChange:comme.post',
-						id: 'F_COMMENCOMMEPOST____',
-						name: 'POST',
-						size: 'xxlarge',
-						label: computed(() => this.Resources.POST24992),
-						placeholder: '',
-						labelPosition: computed(() => this.labelAlignment.topleft),
-						rows: 3,
-						cols: 200,
-						mustBeFilled: true,
-						controlLimits: [
-						],
-					}, this),
 					F_COMMENCOMMECREATEAT: new fieldControlClass.DateControl({
 						modelField: 'ValCreateat',
 						valueChangeEvent: 'fieldChange:comme.createat',
@@ -596,7 +628,38 @@
 						label: computed(() => this.Resources.CREATE_AT36393),
 						placeholder: '',
 						labelPosition: computed(() => this.labelAlignment.topleft),
+						container: 'F_COMMENPSEUDNEWGRP01',
 						dateTimeType: 'date',
+						controlLimits: [
+						],
+					}, this),
+					F_COMMENPSEUDNEWGRP02: new fieldControlClass.GroupControl({
+						id: 'F_COMMENPSEUDNEWGRP02',
+						name: 'NEWGRP02',
+						size: 'block',
+						label: computed(() => this.Resources.POST24992),
+						placeholder: '',
+						labelPosition: computed(() => this.labelAlignment.topleft),
+						isCollapsible: false,
+						anchored: false,
+						directChildren: ['F_COMMENCOMMEPOST____'],
+						mustBeFilled: true,
+						controlLimits: [
+						],
+					}, this),
+					F_COMMENCOMMEPOST____: new fieldControlClass.MultilineStringControl({
+						modelField: 'ValPost',
+						valueChangeEvent: 'fieldChange:comme.post',
+						id: 'F_COMMENCOMMEPOST____',
+						name: 'POST',
+						size: 'xxlarge',
+						label: computed(() => this.Resources.POST24992),
+						placeholder: '',
+						labelPosition: computed(() => this.labelAlignment.topleft),
+						container: 'F_COMMENPSEUDNEWGRP02',
+						rows: 3,
+						cols: 200,
+						mustBeFilled: true,
 						controlLimits: [
 						],
 					}, this),
@@ -610,6 +673,8 @@
 				}),
 
 				groupFields: readonly([
+					'F_COMMENPSEUDNEWGRP01',
+					'F_COMMENPSEUDNEWGRP02',
 				]),
 
 				tableFields: readonly([

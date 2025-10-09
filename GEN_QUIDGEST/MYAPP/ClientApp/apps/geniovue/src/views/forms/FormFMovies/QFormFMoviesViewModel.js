@@ -63,6 +63,25 @@ export default class ViewModel extends FormViewModelBase
 		}).cloneFrom(values?.ValPoster))
 		this.stopWatchers.push(watch(() => this.ValPoster.value, (newValue, oldValue) => this.onUpdate('movie.poster', this.ValPoster, newValue, oldValue)))
 
+		this.ValTitle = reactive(new modelFieldType.String({
+			id: 'ValTitle',
+			originId: 'ValTitle',
+			area: 'MOVIE',
+			field: 'TITLE',
+			maxLength: 80,
+			description: computed(() => this.Resources.TITLE21885),
+		}).cloneFrom(values?.ValTitle))
+		this.stopWatchers.push(watch(() => this.ValTitle.value, (newValue, oldValue) => this.onUpdate('movie.title', this.ValTitle, newValue, oldValue)))
+
+		this.ValDescription = reactive(new modelFieldType.MultiLineString({
+			id: 'ValDescription',
+			originId: 'ValDescription',
+			area: 'MOVIE',
+			field: 'DISCRIPT',
+			description: computed(() => this.Resources.DISCRIPTION02169),
+		}).cloneFrom(values?.ValDescription))
+		this.stopWatchers.push(watch(() => this.ValDescription.value, (newValue, oldValue) => this.onUpdate('movie.description', this.ValDescription, newValue, oldValue)))
+
 		this.ValMoviesgenre = reactive(new modelFieldType.String({
 			id: 'ValMoviesgenre',
 			originId: 'ValMoviesgenre',
@@ -74,16 +93,6 @@ export default class ViewModel extends FormViewModelBase
 		}).cloneFrom(values?.ValMoviesgenre))
 		this.stopWatchers.push(watch(() => this.ValMoviesgenre.value, (newValue, oldValue) => this.onUpdate('movie.moviesgenre', this.ValMoviesgenre, newValue, oldValue)))
 
-		this.ValTitle = reactive(new modelFieldType.String({
-			id: 'ValTitle',
-			originId: 'ValTitle',
-			area: 'MOVIE',
-			field: 'TITLE',
-			maxLength: 80,
-			description: computed(() => this.Resources.TITLE21885),
-		}).cloneFrom(values?.ValTitle))
-		this.stopWatchers.push(watch(() => this.ValTitle.value, (newValue, oldValue) => this.onUpdate('movie.title', this.ValTitle, newValue, oldValue)))
-
 		this.ValRealease_date = reactive(new modelFieldType.Date({
 			id: 'ValRealease_date',
 			originId: 'ValRealease_date',
@@ -92,36 +101,6 @@ export default class ViewModel extends FormViewModelBase
 			description: computed(() => this.Resources.REALEASE_DATE49316),
 		}).cloneFrom(values?.ValRealease_date))
 		this.stopWatchers.push(watch(() => this.ValRealease_date.value, (newValue, oldValue) => this.onUpdate('movie.realease_date', this.ValRealease_date, newValue, oldValue)))
-
-		this.ValDescription = reactive(new modelFieldType.MultiLineString({
-			id: 'ValDescription',
-			originId: 'ValDescription',
-			area: 'MOVIE',
-			field: 'DISCRIPT',
-			description: computed(() => this.Resources.DISCRIPTION02169),
-		}).cloneFrom(values?.ValDescription))
-		this.stopWatchers.push(watch(() => this.ValDescription.value, (newValue, oldValue) => this.onUpdate('movie.description', this.ValDescription, newValue, oldValue)))
-
-		this.ValCreateat = reactive(new modelFieldType.Date({
-			id: 'ValCreateat',
-			originId: 'ValCreateat',
-			area: 'MOVIE',
-			field: 'CREATEAT',
-			valueFormula: {
-				stopRecalcCondition() { return false },
-				// eslint-disable-next-line @typescript-eslint/no-unused-vars
-				fnFormula(params)
-				{
-					// Formula: [Today]
-					return qApi.Today()
-				},
-				dependencyEvents: [],
-				isServerRecalc: false,
-				isEmpty: qApi.emptyD,
-			},
-			description: computed(() => this.Resources.CREATE_AT36393),
-		}).cloneFrom(values?.ValCreateat))
-		this.stopWatchers.push(watch(() => this.ValCreateat.value, (newValue, oldValue) => this.onUpdate('movie.createat', this.ValCreateat, newValue, oldValue)))
 
 		this.ValNumberoflikes = reactive(new modelFieldType.Number({
 			id: 'ValNumberoflikes',
@@ -170,6 +149,27 @@ export default class ViewModel extends FormViewModelBase
 			description: computed(() => this.Resources.LASTRATE08537),
 		}).cloneFrom(values?.ValLastrate))
 		this.stopWatchers.push(watch(() => this.ValLastrate.value, (newValue, oldValue) => this.onUpdate('movie.lastrate', this.ValLastrate, newValue, oldValue)))
+
+		this.ValCreateat = reactive(new modelFieldType.Date({
+			id: 'ValCreateat',
+			originId: 'ValCreateat',
+			area: 'MOVIE',
+			field: 'CREATEAT',
+			valueFormula: {
+				stopRecalcCondition() { return false },
+				// eslint-disable-next-line @typescript-eslint/no-unused-vars
+				fnFormula(params)
+				{
+					// Formula: [Today]
+					return qApi.Today()
+				},
+				dependencyEvents: [],
+				isServerRecalc: false,
+				isEmpty: qApi.emptyD,
+			},
+			description: computed(() => this.Resources.CREATE_AT36393),
+		}).cloneFrom(values?.ValCreateat))
+		this.stopWatchers.push(watch(() => this.ValCreateat.value, (newValue, oldValue) => this.onUpdate('movie.createat', this.ValCreateat, newValue, oldValue)))
 
 		this.ValBackdrop = reactive(new modelFieldType.Image({
 			id: 'ValBackdrop',

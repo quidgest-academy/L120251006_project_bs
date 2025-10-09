@@ -240,6 +240,9 @@
 	<data name="RESULT40974" xml:space="preserve">
 		<value>Result</value>
 	</data>
+	<data name="USER_DETAILS04102" xml:space="preserve">
+		<value>User Details</value>
+	</data>
 	<data name="FEMALE46107" xml:space="preserve">
 		<value>Female</value>
 	</data>
@@ -314,6 +317,9 @@
 	</data>
 	<data name="REQUEST_DATE25771" xml:space="preserve">
 		<value>Request date</value>
+	</data>
+	<data name="CONTENT24069" xml:space="preserve">
+		<value>Content</value>
 	</data>
 	<data name="END_TIME53495" xml:space="preserve">
 		<value>End time</value>
@@ -393,6 +399,9 @@
 	<data name="CONSULTA40695" xml:space="preserve">
 		<value>Consulta</value>
 	</data>
+	<data name="FEEDBACK49013" xml:space="preserve">
+		<value>FeedBack</value>
+	</data>
 	<data name="__FAV_MOVIES17046" xml:space="preserve">
 		<value>❤️ Fav Movies</value>
 	</data>
@@ -446,6 +455,9 @@
 	</data>
 	<data name="FAVORITES12182" xml:space="preserve">
 		<value>Favorites</value>
+	</data>
+	<data name="INFO27076" xml:space="preserve">
+		<value>Info</value>
 	</data>
 	<data name="DESAUTORIZADO34584" xml:space="preserve">
 		<value>Desautorizado</value>
@@ -509,6 +521,9 @@
 	</data>
 	<data name="RATE50728" xml:space="preserve">
 		<value>Rate</value>
+	</data>
+	<data name="DETAILS19591" xml:space="preserve">
+		<value>Details</value>
 	</data>
 	<data name="POSTER52933" xml:space="preserve">
 		<value>Poster</value>
@@ -596,6 +611,9 @@
 	</data>
 	<data name="PASSWORDS52247" xml:space="preserve">
 		<value>Passwords</value>
+	</data>
+	<data name="FEEDBACK_ZONE21601" xml:space="preserve">
+		<value>feedback zone</value>
 	</data>
 	<data name="RATING45804" xml:space="preserve">
 		<value>Rating</value>
@@ -8777,9 +8795,6 @@
 	</data>
 	<data name="SCHEMA58822" xml:space="preserve">
 		<value>Schema</value>
-	</data>
-	<data name="INFO27076" xml:space="preserve">
-		<value>Info</value>
 	</data>
 	<data name="THE_REINDEX_TASK_IS_22139" xml:space="preserve">
 		<value>The reindex task is already stopped!</value>

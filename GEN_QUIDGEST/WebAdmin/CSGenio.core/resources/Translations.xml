@@ -123,6 +123,9 @@
   <msg id="Result" code="RESULT40974">
     <ENUS>Result</ENUS>
   </msg>
+  <msg id="User Details" code="USER_DETAILS04102">
+    <ENUS>User Details</ENUS>
+  </msg>
   <msg id="Female" code="FEMALE46107">
     <ENUS>Female</ENUS>
   </msg>
@@ -197,6 +200,9 @@
   </msg>
   <msg id="Request date" code="REQUEST_DATE25771">
     <ENUS>Request date</ENUS>
+  </msg>
+  <msg id="Content" code="CONTENT24069">
+    <ENUS>Content</ENUS>
   </msg>
   <msg id="End time" code="END_TIME53495">
     <ENUS>End time</ENUS>
@@ -276,6 +282,9 @@
   <msg id="Consulta" code="CONSULTA40695">
     <ENUS>Consulta</ENUS>
   </msg>
+  <msg id="FeedBack" code="FEEDBACK49013">
+    <ENUS>FeedBack</ENUS>
+  </msg>
   <msg id="❤️ Fav Movies" code="__FAV_MOVIES17046">
     <ENUS>❤️ Fav Movies</ENUS>
   </msg>
@@ -329,6 +338,9 @@
   </msg>
   <msg id="Favorites" code="FAVORITES12182">
     <ENUS>Favorites</ENUS>
+  </msg>
+  <msg id="Info" code="INFO27076">
+    <ENUS>Info</ENUS>
   </msg>
   <msg id="Desautorizado" code="DESAUTORIZADO34584">
     <ENUS>Desautorizado</ENUS>
@@ -392,6 +404,9 @@
   </msg>
   <msg id="Rate" code="RATE50728">
     <ENUS>Rate</ENUS>
+  </msg>
+  <msg id="Details" code="DETAILS19591">
+    <ENUS>Details</ENUS>
   </msg>
   <msg id="Poster" code="POSTER52933">
     <ENUS>Poster</ENUS>
@@ -479,6 +494,9 @@
   </msg>
   <msg id="Passwords" code="PASSWORDS52247">
     <ENUS>Passwords</ENUS>
+  </msg>
+  <msg id="feedback zone" code="FEEDBACK_ZONE21601">
+    <ENUS>feedback zone</ENUS>
   </msg>
   <msg id="Rating" code="RATING45804">
     <ENUS>Rating</ENUS>
@@ -8660,9 +8678,6 @@
   </msg>
   <msg id="Schema" code="SCHEMA58822">
     <ENUS>Schema</ENUS>
-  </msg>
-  <msg id="Info" code="INFO27076">
-    <ENUS>Info</ENUS>
   </msg>
   <msg id="The reindex task is already stopped!" code="THE_REINDEX_TASK_IS_22139">
     <ENUS>The reindex task is already stopped!</ENUS>
