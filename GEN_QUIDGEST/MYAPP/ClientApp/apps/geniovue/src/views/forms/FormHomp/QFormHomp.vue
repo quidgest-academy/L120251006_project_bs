@@ -482,6 +482,96 @@
 							filtersVisible: false,
 							allowColumnFilters: false,
 							allowColumnSort: true,
+							crudActions: [
+								{
+									id: 'show',
+									name: 'show',
+									title: computed(() => this.Resources.CONSULTAR57388),
+									icon: {
+										icon: 'view'
+									},
+									isInReadOnly: true,
+									params: {
+										canExecuteAction: vm.applyChanges,
+										action: vm.openFormAction,
+										type: 'form',
+										formName: 'F_MOVIES',
+										mode: 'SHOW',
+										isControlled: true
+									}
+								},
+								{
+									id: 'edit',
+									name: 'edit',
+									title: computed(() => this.Resources.EDITAR11616),
+									icon: {
+										icon: 'pencil'
+									},
+									isInReadOnly: false,
+									params: {
+										canExecuteAction: vm.applyChanges,
+										action: vm.openFormAction,
+										type: 'form',
+										formName: 'F_MOVIES',
+										mode: 'EDIT',
+										isControlled: true
+									}
+								},
+								{
+									id: 'duplicate',
+									name: 'duplicate',
+									title: computed(() => this.Resources.DUPLICAR09748),
+									icon: {
+										icon: 'duplicate'
+									},
+									isInReadOnly: false,
+									params: {
+										canExecuteAction: vm.applyChanges,
+										action: vm.openFormAction,
+										type: 'form',
+										formName: 'F_MOVIES',
+										mode: 'DUPLICATE',
+										isControlled: true
+									}
+								},
+								{
+									id: 'delete',
+									name: 'delete',
+									title: computed(() => this.Resources.ELIMINAR21155),
+									icon: {
+										icon: 'delete'
+									},
+									isInReadOnly: false,
+									params: {
+										canExecuteAction: vm.applyChanges,
+										action: vm.openFormAction,
+										type: 'form',
+										formName: 'F_MOVIES',
+										mode: 'DELETE',
+										isControlled: true
+									}
+								}
+							],
+							generalActions: [
+								{
+									id: 'insert',
+									name: 'insert',
+									title: computed(() => this.Resources.INSERIR43365),
+									icon: {
+										icon: 'add'
+									},
+									isInReadOnly: false,
+									params: {
+										canExecuteAction: vm.applyChanges,
+										action: vm.openFormAction,
+										type: 'form',
+										formName: 'F_MOVIES',
+										mode: 'NEW',
+										repeatInsertion: false,
+										isControlled: true
+									}
+								},
+							],
 							generalCustomActions: [
 							],
 							groupActions: [
@@ -491,8 +581,41 @@
 							MCActions: [
 							],
 							rowClickAction: {
+								id: 'RCA__F_MOVIES',
+								name: '_F_MOVIES',
+								title: '',
+								isInReadOnly: true,
+								params: {
+									isRoute: true,
+									canExecuteAction: vm.applyChanges,
+									action: vm.openFormAction,
+									type: 'form',
+									formName: 'F_MOVIES',
+									mode: 'SHOW',
+									isControlled: true
+								}
 							},
 							formsDefinition: {
+								'F_MOVIES': {
+									fnKeySelector: (row) => row.Fields.ValCodmovie,
+									isPopup: false
+								},
+							},
+							insertCondition: {
+								// eslint-disable-next-line @typescript-eslint/no-unused-vars
+								fnFormula(params)
+								{
+									return netAPI.postData(
+										'Movie',
+										'F_MOVIES_InsertCondition',
+										this.serverObjModel,
+										undefined,
+										undefined,
+										undefined,
+										this.navigationId)
+								},
+								dependencyEvents: [],
+								isServerRecalc: false,
 							},
 							defaultSearchColumnName: 'ValTitle',
 							defaultSearchColumnNameOriginal: 'ValTitle',
@@ -629,6 +752,96 @@
 							filtersVisible: false,
 							allowColumnFilters: false,
 							allowColumnSort: true,
+							crudActions: [
+								{
+									id: 'show',
+									name: 'show',
+									title: computed(() => this.Resources.CONSULTAR57388),
+									icon: {
+										icon: 'view'
+									},
+									isInReadOnly: true,
+									params: {
+										canExecuteAction: vm.applyChanges,
+										action: vm.openFormAction,
+										type: 'form',
+										formName: 'F_MOVIES',
+										mode: 'SHOW',
+										isControlled: true
+									}
+								},
+								{
+									id: 'edit',
+									name: 'edit',
+									title: computed(() => this.Resources.EDITAR11616),
+									icon: {
+										icon: 'pencil'
+									},
+									isInReadOnly: false,
+									params: {
+										canExecuteAction: vm.applyChanges,
+										action: vm.openFormAction,
+										type: 'form',
+										formName: 'F_MOVIES',
+										mode: 'EDIT',
+										isControlled: true
+									}
+								},
+								{
+									id: 'duplicate',
+									name: 'duplicate',
+									title: computed(() => this.Resources.DUPLICAR09748),
+									icon: {
+										icon: 'duplicate'
+									},
+									isInReadOnly: false,
+									params: {
+										canExecuteAction: vm.applyChanges,
+										action: vm.openFormAction,
+										type: 'form',
+										formName: 'F_MOVIES',
+										mode: 'DUPLICATE',
+										isControlled: true
+									}
+								},
+								{
+									id: 'delete',
+									name: 'delete',
+									title: computed(() => this.Resources.ELIMINAR21155),
+									icon: {
+										icon: 'delete'
+									},
+									isInReadOnly: false,
+									params: {
+										canExecuteAction: vm.applyChanges,
+										action: vm.openFormAction,
+										type: 'form',
+										formName: 'F_MOVIES',
+										mode: 'DELETE',
+										isControlled: true
+									}
+								}
+							],
+							generalActions: [
+								{
+									id: 'insert',
+									name: 'insert',
+									title: computed(() => this.Resources.INSERIR43365),
+									icon: {
+										icon: 'add'
+									},
+									isInReadOnly: false,
+									params: {
+										canExecuteAction: vm.applyChanges,
+										action: vm.openFormAction,
+										type: 'form',
+										formName: 'F_MOVIES',
+										mode: 'NEW',
+										repeatInsertion: false,
+										isControlled: true
+									}
+								},
+							],
 							generalCustomActions: [
 							],
 							groupActions: [
@@ -638,8 +851,41 @@
 							MCActions: [
 							],
 							rowClickAction: {
+								id: 'RCA__F_MOVIES',
+								name: '_F_MOVIES',
+								title: '',
+								isInReadOnly: true,
+								params: {
+									isRoute: true,
+									canExecuteAction: vm.applyChanges,
+									action: vm.openFormAction,
+									type: 'form',
+									formName: 'F_MOVIES',
+									mode: 'SHOW',
+									isControlled: true
+								}
 							},
 							formsDefinition: {
+								'F_MOVIES': {
+									fnKeySelector: (row) => row.Fields.ValCodmovie,
+									isPopup: false
+								},
+							},
+							insertCondition: {
+								// eslint-disable-next-line @typescript-eslint/no-unused-vars
+								fnFormula(params)
+								{
+									return netAPI.postData(
+										'Movie',
+										'F_MOVIES_InsertCondition',
+										this.serverObjModel,
+										undefined,
+										undefined,
+										undefined,
+										this.navigationId)
+								},
+								dependencyEvents: [],
+								isServerRecalc: false,
 							},
 							defaultSearchColumnName: 'ValTitle',
 							defaultSearchColumnNameOriginal: 'ValTitle',
