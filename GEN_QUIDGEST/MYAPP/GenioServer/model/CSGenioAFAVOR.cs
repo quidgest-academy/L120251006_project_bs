@@ -127,6 +127,9 @@ namespace CSGenio.business
 		{
 			// Formulas
 			//------------------------------
+			//Actualiza as seguintes somas relacionadas:
+			info.RelatedSumArgs = new List<RelatedSumArgument>();
+			info.RelatedSumArgs.Add( new RelatedSumArgument("favor", "movie", "numberoflikes", "codfavor", '+', true));
 
 
 

@@ -374,11 +374,11 @@ namespace CSGenio.business
 			set { insertNameValueField(FldDescription, value); }
 		}
 
-		/// <summary>Field : "" Tipo: "N" Formula: SR ""</summary>
+		/// <summary>Field : "" Tipo: "N" Formula: SR "[FAVOR->CODFAVOR]"</summary>
 		public static FieldRef FldNumberoflikes { get { return m_fldNumberoflikes; } }
 		private static FieldRef m_fldNumberoflikes = new FieldRef("movie", "numberoflikes");
 
-		/// <summary>Field : "" Tipo: "N" Formula: SR ""</summary>
+		/// <summary>Field : "" Tipo: "N" Formula: SR "[FAVOR->CODFAVOR]"</summary>
 		public decimal ValNumberoflikes
 		{
 			get { return (decimal)returnValueField(FldNumberoflikes); }
