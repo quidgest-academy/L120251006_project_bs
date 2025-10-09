@@ -62,6 +62,11 @@ namespace GenioMVC.ViewModels.Movie
 		/// Title: "Create at" | Type: "D"
 		/// </summary>
 		public DateTime? ValCreateat { get; set; }
+		/// <summary>
+		/// Title: "Num of likes" | Type: "N"
+		/// </summary>
+		[ValidateSetAccess]
+		public decimal? ValNumberoflikes { get; set; }
 
 
 
@@ -251,6 +256,7 @@ namespace GenioMVC.ViewModels.Movie
 				ValRealease_date = ViewModelConversion.ToDateTime(m.ValRealease_date);
 				ValDescription = ViewModelConversion.ToString(m.ValDescription);
 				ValCreateat = ViewModelConversion.ToDateTime(m.ValCreateat);
+				ValNumberoflikes = ViewModelConversion.ToNumeric(m.ValNumberoflikes);
 				ValCodmovie = ViewModelConversion.ToString(m.ValCodmovie);
 			}
 			catch (Exception)
@@ -285,6 +291,15 @@ namespace GenioMVC.ViewModels.Movie
 				m.ValDescription = ViewModelConversion.ToString(ValDescription);
 				m.ValCreateat = ViewModelConversion.ToDateTime(ValCreateat);
 				m.ValCodmovie = ViewModelConversion.ToString(ValCodmovie);
+
+				/*
+					At this moment, in the case of runtime calculation of server-side formulas, to improve performance and reduce database load,
+						the values coming from the client-side will be accepted as valid, since they will not be saved and are only being used for calculation.
+				*/
+				if (!HasDisabledUserValuesSecurity)
+					return;
+
+				m.ValNumberoflikes = ViewModelConversion.ToNumeric(ValNumberoflikes);
 			}
 			catch (Exception)
 			{
@@ -499,6 +514,7 @@ namespace GenioMVC.ViewModels.Movie
 				"movie.realease_date" => ViewModelConversion.ToDateTime(modelValue),
 				"movie.description" => ViewModelConversion.ToString(modelValue),
 				"movie.createat" => ViewModelConversion.ToDateTime(modelValue),
+				"movie.numberoflikes" => ViewModelConversion.ToNumeric(modelValue),
 				"movie.codmovie" => ViewModelConversion.ToString(modelValue),
 				_ => modelValue
 			};

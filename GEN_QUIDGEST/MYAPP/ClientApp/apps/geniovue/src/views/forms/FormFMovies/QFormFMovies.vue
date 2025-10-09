@@ -231,7 +231,24 @@
 							v-on="controls.F_MOVIESPSEUDDATACOME.handlers" />
 					</q-control-wrapper>
 				</q-row-container>
-				<q-row-container v-if="controls.F_MOVIESPSEUDFIELD001.isVisible || controls.F_MOVIESPSEUDFIELD002.isVisible">
+				<q-row-container v-if="controls.F_MOVIESMOVIENUMBEROF.isVisible || controls.F_MOVIESPSEUDFIELD001.isVisible || controls.F_MOVIESPSEUDFIELD002.isVisible">
+					<q-control-wrapper
+						v-if="controls.F_MOVIESMOVIENUMBEROF.isVisible"
+						class="control-join-group">
+						<base-input-structure
+							v-if="controls.F_MOVIESMOVIENUMBEROF.isVisible"
+							class="i-text"
+							v-bind="controls.F_MOVIESMOVIENUMBEROF"
+							v-on="controls.F_MOVIESMOVIENUMBEROF.handlers"
+							:loading="controls.F_MOVIESMOVIENUMBEROF.props.loading"
+							:reporting-mode-on="reportingModeCAV"
+							:suggestion-mode-on="suggestionModeOn">
+							<q-numeric-input
+								v-if="controls.F_MOVIESMOVIENUMBEROF.isVisible"
+								v-bind="controls.F_MOVIESMOVIENUMBEROF.props"
+								@update:model-value="model.ValNumberoflikes.fnUpdateValue" />
+						</base-input-structure>
+					</q-control-wrapper>
 					<q-control-wrapper
 						v-if="controls.F_MOVIESPSEUDFIELD001.isVisible || controls.F_MOVIESPSEUDFIELD002.isVisible"
 						class="control-join-group">
@@ -823,6 +840,21 @@
 							},
 						],
 					}, this),
+					F_MOVIESMOVIENUMBEROF: new fieldControlClass.NumberControl({
+						modelField: 'ValNumberoflikes',
+						valueChangeEvent: 'fieldChange:movie.numberoflikes',
+						id: 'F_MOVIESMOVIENUMBEROF',
+						name: 'NUMBEROF',
+						size: 'medium',
+						label: computed(() => this.Resources.NUM_OF_LIKES08347),
+						placeholder: '',
+						labelPosition: computed(() => this.labelAlignment.topleft),
+						isFormulaBlocked: true,
+						maxIntegers: 9,
+						maxDecimals: 0,
+						controlLimits: [
+						],
+					}, this),
 					F_MOVIESPSEUDFIELD001: new fieldControlClass.ButtonControl({
 						id: 'F_MOVIESPSEUDFIELD001',
 						name: 'FIELD001',
@@ -1136,6 +1168,8 @@
 						set ValDescription(value) { vm.model.ValDescription.updateValue(value) },
 						get ValMoviesgenre() { return vm.model.ValMoviesgenre.value },
 						set ValMoviesgenre(value) { vm.model.ValMoviesgenre.updateValue(value) },
+						get ValNumberoflikes() { return vm.model.ValNumberoflikes.value },
+						set ValNumberoflikes(value) { vm.model.ValNumberoflikes.updateValue(value) },
 						get ValPoster() { return vm.model.ValPoster.value },
 						set ValPoster(value) { vm.model.ValPoster.updateValue(value) },
 						get ValRealease_date() { return vm.model.ValRealease_date.value },

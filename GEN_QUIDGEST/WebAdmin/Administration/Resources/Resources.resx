@@ -279,6 +279,9 @@
   <data name="LIST_OF_FAVORITES05973" xml:space="preserve">
     <value>List of Favorites</value>
   </data>
+  <data name="NUM_OF_LIKES08347" xml:space="preserve">
+    <value>Num of likes</value>
+  </data>
   <data name="NAME31974" xml:space="preserve">
     <value>Name</value>
   </data>

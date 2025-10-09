@@ -547,6 +547,15 @@ namespace Administration.Resources {
         }
 
         /// <summary>
+        ///   Looks up a localized string similar to "Num of likes"
+        /// </summary>
+        public static string NUM_OF_LIKES08347 {
+            get {
+                return ResourceManager.GetString("NUM_OF_LIKES08347", resourceCulture);
+            }
+        }
+
+        /// <summary>
         ///   Looks up a localized string similar to "Name"
         /// </summary>
         public static string NAME31974 {

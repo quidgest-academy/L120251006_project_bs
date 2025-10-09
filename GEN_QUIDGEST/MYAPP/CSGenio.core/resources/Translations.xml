@@ -162,6 +162,9 @@
   <msg id="List of Favorites" code="LIST_OF_FAVORITES05973">
     <ENUS>List of Favorites</ENUS>
   </msg>
+  <msg id="Num of likes" code="NUM_OF_LIKES08347">
+    <ENUS>Num of likes</ENUS>
+  </msg>
   <msg id="Name" code="NAME31974">
     <ENUS>Name</ENUS>
   </msg>

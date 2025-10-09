@@ -110,6 +110,18 @@ export default class ViewModel extends FormViewModelBase
 			description: computed(() => this.Resources.CREATE_AT36393),
 		}).cloneFrom(values?.ValCreateat))
 		this.stopWatchers.push(watch(() => this.ValCreateat.value, (newValue, oldValue) => this.onUpdate('movie.createat', this.ValCreateat, newValue, oldValue)))
+
+		this.ValNumberoflikes = reactive(new modelFieldType.Number({
+			id: 'ValNumberoflikes',
+			originId: 'ValNumberoflikes',
+			area: 'MOVIE',
+			field: 'NUMBEROF',
+			maxDigits: 9,
+			decimalDigits: 0,
+			isFixed: true,
+			description: '',
+		}).cloneFrom(values?.ValNumberoflikes))
+		this.stopWatchers.push(watch(() => this.ValNumberoflikes.value, (newValue, oldValue) => this.onUpdate('movie.numberoflikes', this.ValNumberoflikes, newValue, oldValue)))
 	}
 
 	/**

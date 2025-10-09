@@ -43,6 +43,11 @@ public class F_moviesForm : Form
 	public ListControl PseudDatacome => new ListControl(driver, ContainerLocator, "#F_MOVIESPSEUDDATACOME");
 
 	/// <summary>
+	/// Num of likes
+	/// </summary>
+	public BaseInputControl MovieNumberof => new BaseInputControl(driver, ContainerLocator, "container-F_MOVIESMOVIENUMBEROF", "#F_MOVIESMOVIENUMBEROF");
+
+	/// <summary>
 	/// Like
 	/// </summary>
 	public ButtonControl PseudField001 => new ButtonControl(driver, ContainerLocator, "#F_MOVIESPSEUDFIELD001");
