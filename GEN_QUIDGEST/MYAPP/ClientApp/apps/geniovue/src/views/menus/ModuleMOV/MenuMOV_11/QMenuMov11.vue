@@ -371,6 +371,24 @@
 								label: computed(() => this.Resources.CARTOES27587),
 								order: 1,
 								mappingVariables: readonly({
+									title: {
+										allowsMultiple: false,
+										sources: [
+											'MOVIE.TITLE',
+										]
+									},
+									subtitle: {
+										allowsMultiple: false,
+										sources: [
+											'MOVIE.REALEASE_DATE',
+										]
+									},
+									image: {
+										allowsMultiple: false,
+										sources: [
+											'MOVIE.POSTER',
+										]
+									},
 								}),
 								styleVariables: {
 									actionsAlignment: {
