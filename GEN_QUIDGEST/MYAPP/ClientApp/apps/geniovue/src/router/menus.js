@@ -31,19 +31,6 @@ export default function getMenusRoutes()
 			}
 		},
 		{
-			path: '/:culture/:system/MOV/menu/MOV_11',
-			name: 'menu-MOV_11',
-			component: () => import('@/views/menus/ModuleMOV/MenuMOV_11/QMenuMov11.vue'),
-			meta: {
-				routeType: 'menu',
-				module: 'MOV',
-				order: '11',
-				baseArea: 'MOVIE',
-				hasInitialPHE: false,
-				humanKeyFields: ['ValTitle'],
-			}
-		},
-		{
 			path: '/:culture/:system/MOV/menu/MOV_21',
 			name: 'menu-MOV_21',
 			component: () => import('@/views/menus/ModuleMOV/MenuMOV_21/QMenuMov21.vue'),

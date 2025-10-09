@@ -120,8 +120,6 @@ namespace GenioMVC.ViewModels
 		{
 			return
 			[
-				new Exports.QColumn(CSGenioAmovie.FldTitle, FieldType.TEXT, Resources.Resources.TITLE21885, 30, 0, true),
-				new Exports.QColumn(CSGenioAmovie.FldRealease_date, FieldType.DATE, Resources.Resources.REALEASE_DATE49316, 8, 0, true),
 			];
 		}
 
@@ -176,11 +174,6 @@ namespace GenioMVC.ViewModels
 			crs.SubSets.Add(ProcessSearchFilters(Menu, GetSearchColumns(tableConfig.ColumnConfiguration), tableConfig));
 
 
-			//Subfilters
-			CriteriaSet subfilters = CriteriaSet.And();
-
-
-			crs.SubSets.Add(subfilters);
 
 			// Form field filters
 			if (tableConfig.FieldFilters != null)
@@ -292,8 +285,6 @@ namespace GenioMVC.ViewModels
 
 				//FOR: MENU LIST SORTING
 				Dictionary<string, OrderedDictionary> allSortOrders = new Dictionary<string, OrderedDictionary>();
-				allSortOrders.Add("MOVIE.REALEASE_DATE", new OrderedDictionary());
-				allSortOrders["MOVIE.REALEASE_DATE"].Add("MOVIE.REALEASE_DATE", "D");
 
 
 
@@ -306,14 +297,8 @@ namespace GenioMVC.ViewModels
 
 				List<ColumnSort> sorts = GetRequestSorts(this.Menu, tableConfig.ColumnOrderBy, "movie", allSortOrders);
 
-				if (sorts == null || sorts.Count == 0)
-				{
-					sorts = new List<ColumnSort>();
-				sorts.Add(new ColumnSort(new ColumnReference(CSGenioAmovie.FldRealease_date), SortOrder.Descending));
 
-				}
-
-				FieldRef[] fields = new FieldRef[] { CSGenioAmovie.FldCodmovie, CSGenioAmovie.FldZzstate, CSGenioAmovie.FldTitle, CSGenioAmovie.FldPoster, CSGenioAmovie.FldRealease_date };
+				FieldRef[] fields = new FieldRef[] { CSGenioAmovie.FldCodmovie, CSGenioAmovie.FldZzstate };
 
 
 				// Totalizers
@@ -321,12 +306,6 @@ namespace GenioMVC.ViewModels
 
 				FieldRef firstVisibleColumn = null;
 
-				if (sorts == null)
-				{
-					firstVisibleColumn = tableConfig?.getFirstVisibleColumn(TableAlias);
-
-					firstVisibleColumn ??= new FieldRef("movie", "title");
-				}
 
 
 				// Limitations
@@ -464,7 +443,6 @@ namespace GenioMVC.ViewModels
 
 			model.InitRowData();
 
-			SetTicketToImageFields(model);
 			return model;
 		}
 
@@ -509,20 +487,11 @@ namespace GenioMVC.ViewModels
 
 		private static readonly string[] _fieldsToSerialize =
 		[
-			"Movie", "Movie.ValCodmovie", "Movie.ValZzstate", "Movie.ValTitle", "Movie.ValPoster", "Movie.ValRealease_date"
+			"Movie", "Movie.ValCodmovie", "Movie.ValZzstate"
 		];
 
 		private static readonly List<TableSearchColumn> _searchableColumns =
 		[
-			new TableSearchColumn("ValTitle", CSGenioAmovie.FldTitle, typeof(string), defaultSearch : true),
-			new TableSearchColumn("ValRealease_date", CSGenioAmovie.FldRealease_date, typeof(DateTime?)),
 		];
-		protected void SetTicketToImageFields(Models.Movie row)
-		{
-			if (row == null)
-				return;
-
-			row.ValPosterQTicket = Helpers.Helpers.GetFileTicket(m_userContext.User, CSGenio.business.Area.AreaMOVIE, CSGenioAmovie.FldPoster.Field, null, row.ValCodmovie);
-		}
 	}
 }

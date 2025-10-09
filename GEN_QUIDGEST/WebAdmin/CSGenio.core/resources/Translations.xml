@@ -165,6 +165,9 @@
   <msg id="Changed by" code="CHANGED_BY08967">
     <ENUS>Changed by</ENUS>
   </msg>
+  <msg id="Best Rating" code="BEST_RATING13385">
+    <ENUS>Best Rating</ENUS>
+  </msg>
   <msg id="Text after signature" code="TEXT_AFTER_SIGNATURE11837">
     <ENUS>Text after signature</ENUS>
   </msg>
@@ -326,6 +329,9 @@
   </msg>
   <msg id="Image" code="IMAGE65174">
     <ENUS>Image</ENUS>
+  </msg>
+  <msg id="Home" code="HOME23643">
+    <ENUS>Home</ENUS>
   </msg>
   <msg id="Notification Messages" code="NOTIFICATION_MESSAGE60981">
     <ENUS>Notification Messages</ENUS>

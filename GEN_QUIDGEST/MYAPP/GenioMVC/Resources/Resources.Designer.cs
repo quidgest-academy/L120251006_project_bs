@@ -558,6 +558,15 @@ namespace GenioMVC.Resources
 		}
 
 		/// <summary>
+		///   Looks up a localized string similar to "Best Rating"
+		/// </summary>
+		public static string BEST_RATING13385 {
+			get {
+				return ResourceManager.GetString("BEST_RATING13385", resourceCulture);
+			}
+		}
+
+		/// <summary>
 		///   Looks up a localized string similar to "Text after signature"
 		/// </summary>
 		public static string TEXT_AFTER_SIGNATURE11837 {
@@ -1040,6 +1049,15 @@ namespace GenioMVC.Resources
 		public static string IMAGE65174 {
 			get {
 				return ResourceManager.GetString("IMAGE65174", resourceCulture);
+			}
+		}
+
+		/// <summary>
+		///   Looks up a localized string similar to "Home"
+		/// </summary>
+		public static string HOME23643 {
+			get {
+				return ResourceManager.GetString("HOME23643", resourceCulture);
 			}
 		}
 

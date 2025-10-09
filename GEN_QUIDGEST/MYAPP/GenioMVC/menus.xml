@@ -1,11 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-16"?>
 <ArrayOfMenuEntry xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <MenuEntry TYPE="ITEM" DESC="MY_APPLICATION56216" ID="MOV" IMG="" IMGVUE="" LVL="0" PREVIEW="false" SEPARATES="false" SUMMENU="false" HIDEMENUSUM="false" HASCONDITION="false" ISFORM="false">
-    <MENU TYPE="ITEM" DESC="MOVIES48538" SIGLA="🍿" ID="1" HELPTITLE="" LVL="1" PREVIEW="false" SEPARATES="false" SUMMENU="false" HIDEMENUSUM="false" HASCONDITION="false" ISFORM="false" ORDER="1" DEFAULTACTION="">
+    <MENU TYPE="ITEM" DESC="HOME23643" SIGLA="🍿" ID="1" HELPTITLE="" LVL="1" PREVIEW="false" SEPARATES="false" SUMMENU="false" HIDEMENUSUM="false" HASCONDITION="false" ISFORM="false" ORDER="1" DEFAULTACTION="">
       <ACCESS>1</ACCESS>
-      <MENU TYPE="ITEM" DESC="MOVIES48538" ID="11" PRTID="1" IMG="" ACT="GenGenio.MenuDBEdit" ACTMVC="MOV_Menu_11" ACTVUE="menu-MOV_11" CONT="MOVIE" LVL="-1" PREVIEW="false" SEPARATES="false" SUMMENU="false" HIDEMENUSUM="false" HASCONDITION="false" ISFORM="false" ORDER="11">
-        <MENU TYPE="ITEM" ID="111" PRTID="11" IMG="" ACT="GenGenio.MenuFormConsulta" LVL="-1" PREVIEW="false" SEPARATES="false" SUMMENU="false" HIDEMENUSUM="false" HASCONDITION="false" ISFORM="false" ORDER="111" />
-      </MENU>
+      <MENU TYPE="ITEM" ID="11" PRTID="1" IMG="" ACT="GenGenio.MenuFormConsulta" ACTMVC="Homp_Show" ACTVUE="form-HOMP" CONT="Home" LVL="-1" PREVIEW="false" SEPARATES="false" SUMMENU="false" HIDEMENUSUM="false" HASCONDITION="false" ISFORM="true" FORMMODE="SHOW" ORDER="11" />
     </MENU>
     <MENU TYPE="ITEM" DESC="FAV_MOVIES00898" SIGLA="❤️" ID="2" HELPTITLE="" LVL="1" PREVIEW="false" SEPARATES="false" SUMMENU="false" HIDEMENUSUM="false" HASCONDITION="false" ISFORM="false" ORDER="2" DEFAULTACTION="">
       <ACCESS>1</ACCESS>
@@ -42,10 +40,6 @@
       <MENU TYPE="ITEM" DESC="USER_PROFILE06358" ID="71" PRTID="7" IMG="" ACT="GenGenio.MenuDBEdit" ACTMVC="MOV_Menu_71" ACTVUE="menu-MOV_71" CONT="USERP" LVL="-1" PREVIEW="false" SEPARATES="false" SUMMENU="false" HIDEMENUSUM="false" HASCONDITION="false" ISFORM="false" ORDER="71">
         <MENU TYPE="ITEM" ID="711" PRTID="71" IMG="" ACT="GenGenio.MenuFormConsulta" LVL="-1" PREVIEW="false" SEPARATES="false" SUMMENU="false" HIDEMENUSUM="false" HASCONDITION="false" ISFORM="false" ORDER="711" />
       </MENU>
-    </MENU>
-    <MENU TYPE="ITEM" DESC="HOME04166" SIGLA="🍿" ID="8" HELPTITLE="" LVL="1" PREVIEW="false" SEPARATES="false" SUMMENU="false" HIDEMENUSUM="false" HASCONDITION="false" ISFORM="false" ORDER="8" DEFAULTACTION="">
-      <ACCESS>1</ACCESS>
-      <MENU TYPE="ITEM" ID="81" PRTID="8" IMG="" ACT="GenGenio.MenuFormConsulta" ACTMVC="Homp_Show" ACTVUE="form-HOMP" CONT="Home" LVL="-1" PREVIEW="false" SEPARATES="false" SUMMENU="false" HIDEMENUSUM="false" HASCONDITION="false" ISFORM="true" FORMMODE="SHOW" ORDER="81" />
     </MENU>
   </MenuEntry>
 </ArrayOfMenuEntry>

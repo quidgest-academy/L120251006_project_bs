@@ -282,6 +282,9 @@
   <data name="CHANGED_BY08967" xml:space="preserve">
     <value>Changed by</value>
   </data>
+  <data name="BEST_RATING13385" xml:space="preserve">
+    <value>Best Rating</value>
+  </data>
   <data name="TEXT_AFTER_SIGNATURE11837" xml:space="preserve">
     <value>Text after signature</value>
   </data>
@@ -443,6 +446,9 @@
   </data>
   <data name="IMAGE65174" xml:space="preserve">
     <value>Image</value>
+  </data>
+  <data name="HOME23643" xml:space="preserve">
+    <value>Home</value>
   </data>
   <data name="NOTIFICATION_MESSAGE60981" xml:space="preserve">
     <value>Notification Messages</value>

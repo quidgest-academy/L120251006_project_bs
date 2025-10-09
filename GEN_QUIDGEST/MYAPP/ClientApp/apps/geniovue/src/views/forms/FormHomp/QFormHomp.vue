@@ -432,35 +432,6 @@
 						hasDependencies: false,
 						isInCollapsible: false,
 						columnsOriginal: [
-							new listColumnTypes.TextColumn({
-								order: 1,
-								name: 'ValTitle',
-								area: 'MOVIE',
-								field: 'TITLE',
-								label: computed(() => this.Resources.TITLE21885),
-								dataLength: 80,
-								scrollData: 30,
-							}, computed(() => vm.model), computed(() => vm.internalEvents)),
-							new listColumnTypes.ImageColumn({
-								order: 2,
-								name: 'ValPoster',
-								area: 'MOVIE',
-								field: 'POSTER',
-								label: computed(() => this.Resources.POSTER52933),
-								dataTitle: computed(() => genericFunctions.formatString(vm.Resources.IMAGEM_UTILIZADA_PAR58591, vm.Resources.POSTER52933)),
-								scrollData: 3,
-								sortable: false,
-								searchable: false,
-							}, computed(() => vm.model), computed(() => vm.internalEvents)),
-							new listColumnTypes.DateColumn({
-								order: 3,
-								name: 'ValRealease_date',
-								area: 'MOVIE',
-								field: 'REALEASE_DATE',
-								label: computed(() => this.Resources.REALEASE_DATE49316),
-								scrollData: 8,
-								dateTimeType: 'date',
-							}, computed(() => vm.model), computed(() => vm.internalEvents)),
 						],
 						config: {
 							name: 'ValField001',
@@ -617,14 +588,13 @@
 								dependencyEvents: [],
 								isServerRecalc: false,
 							},
-							defaultSearchColumnName: 'ValTitle',
-							defaultSearchColumnNameOriginal: 'ValTitle',
+							defaultSearchColumnName: '',
+							defaultSearchColumnNameOriginal: '',
 							defaultColumnSorting: {
-								columnName: 'ValRealease_date',
-								sortOrder: 'desc'
+								columnName: '',
+								sortOrder: 'asc'
 							}
 						},
-						globalEvents: ['changed-MOVIE'],
 						uuid: 'Homp_ValField001',
 						allSelectedRows: 'false',
 						viewModes: [
@@ -1004,6 +974,7 @@
 				tableFields: readonly([
 					'HOMP____PSEUDFIELD001',
 					'HOMP____PSEUDFIELD002',
+					'HOMP____PSEUDFIELD001',
 				]),
 
 				timelineFields: readonly([

@@ -33,24 +33,6 @@ public class Homp_ValField001_RowViewModel : Models.Movie
 	private void SetColumns()
 	{
 		Columns ??= [
-			new ListColumn()
-			{
-				Order = 1,
-				Area = "MOVIE",
-				Field = "TITLE",
-			},
-			new ListColumn()
-			{
-				Order = 2,
-				Area = "MOVIE",
-				Field = "POSTER",
-			},
-			new ListColumn()
-			{
-				Order = 3,
-				Area = "MOVIE",
-				Field = "REALEASE_DATE",
-			},
 		];
 	}
 
