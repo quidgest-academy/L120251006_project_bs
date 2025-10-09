@@ -1060,6 +1060,15 @@ namespace Administration.Resources {
         }
 
         /// <summary>
+        ///   Looks up a localized string similar to "Movies/Characters"
+        /// </summary>
+        public static string MOVIES_CHARACTERS06904 {
+            get {
+                return ResourceManager.GetString("MOVIES_CHARACTERS06904", resourceCulture);
+            }
+        }
+
+        /// <summary>
         ///   Looks up a localized string similar to "User Profile"
         /// </summary>
         public static string USER_PROFILE06358 {

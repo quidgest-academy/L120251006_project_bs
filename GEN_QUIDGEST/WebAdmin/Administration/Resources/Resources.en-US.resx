@@ -450,6 +450,9 @@
   <data name="TEXT04938" xml:space="preserve">
     <value>Text</value>
   </data>
+  <data name="MOVIES_CHARACTERS06904" xml:space="preserve">
+    <value>Movies/Characters</value>
+  </data>
   <data name="USER_PROFILE06358" xml:space="preserve">
     <value>User Profile</value>
   </data>

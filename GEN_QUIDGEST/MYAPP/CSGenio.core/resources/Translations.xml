@@ -333,6 +333,9 @@
   <msg id="Text" code="TEXT04938">
     <ENUS>Text</ENUS>
   </msg>
+  <msg id="Movies/Characters" code="MOVIES_CHARACTERS06904">
+    <ENUS>Movies/Characters</ENUS>
+  </msg>
   <msg id="User Profile" code="USER_PROFILE06358">
     <ENUS>User Profile</ENUS>
   </msg>

@@ -49,6 +49,14 @@
           <MENU TYPE="ITEM" ID="4511" PRTID="451" IMG="" ACT="GenGenio.MenuFormConsulta" LVL="-1" PREVIEW="false" SEPARATES="false" SUMMENU="false" HIDEMENUSUM="false" HASCONDITION="false" ISFORM="false" ORDER="4511" />
         </MENU>
       </MENU>
+      <MENU TYPE="ITEM" DESC="MOVIES_CHARACTERS06904" SIGLA="" ID="46" PRTID="4" HELPTITLE="" LVL="2" PREVIEW="false" SEPARATES="false" SUMMENU="false" HIDEMENUSUM="false" HASCONDITION="false" ISFORM="false" ORDER="46" DEFAULTACTION="">
+        <ACCESS>1</ACCESS>
+        <MENU TYPE="ITEM" DESC="MOVIES48538" ID="461" PRTID="46" IMG="" ACT="GenGenio.MenuDBEdit" ACTMVC="MOV_Menu_461" ACTVUE="menu-MOV_461" CONT="MOVIE" LVL="-1" PREVIEW="false" SEPARATES="false" SUMMENU="false" HIDEMENUSUM="false" HASCONDITION="false" ISFORM="false" ORDER="461">
+          <MENU TYPE="ITEM" DESC="CHARACTERS03735" ID="4611" PRTID="461" IMG="" ACT="GenGenio.MenuDBEdit" ACTMVC="MOV_Menu_4611" ACTVUE="menu-MOV_4611" CONT="CHARA" LVL="-1" PREVIEW="false" SEPARATES="false" SUMMENU="false" HIDEMENUSUM="false" HASCONDITION="false" ISFORM="false" ORDER="4611">
+            <MENU TYPE="ITEM" ID="46111" PRTID="4611" IMG="" ACT="GenGenio.MenuFormConsulta" LVL="-1" PREVIEW="false" SEPARATES="false" SUMMENU="false" HIDEMENUSUM="false" HASCONDITION="false" ISFORM="false" ORDER="46111" />
+          </MENU>
+        </MENU>
+      </MENU>
     </MENU>
   </MenuEntry>
 </ArrayOfMenuEntry>
