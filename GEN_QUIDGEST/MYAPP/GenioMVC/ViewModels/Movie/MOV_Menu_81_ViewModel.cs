@@ -175,6 +175,24 @@ namespace GenioMVC.ViewModels.Movie
 			tableConfig.RowsPerPage = rowsPerPage;
 		}
 
+		/// <summary>
+		/// Loads the viewmodel to export a template.
+		/// </summary>
+		/// <param name="columns">The columns.</param>
+		public void LoadToExportTemplate(out List<Exports.QColumn> columns)
+		{
+			columns = new List<Exports.QColumn>()
+			{
+				new Exports.QColumn(CSGenioAmovie.FldTitle, FieldType.TEXT, Resources.Resources.TITLE21885, 80, 0, true),
+				new Exports.QColumn(CSGenioAmovie.FldRealease_date, FieldType.DATE, Resources.Resources.REALEASE_DATE49316, 8, 0, true),
+				new Exports.QColumn(CSGenioAmovie.FldCreateat, FieldType.DATE, Resources.Resources.CREATE_AT36393, 8, 0, true),
+				new Exports.QColumn(CSGenioAmovie.FldMoviesgenre, FieldType.ARRAY_TEXT, Resources.Resources.MOVIES_GENRE22042, 15, 0, true),
+				new Exports.QColumn(CSGenioAmovie.FldPoster, FieldType.IMAGE, Resources.Resources.POSTER52933, 3, 0, true),
+				new Exports.QColumn(CSGenioAmovie.FldDescription, FieldType.MEMO, Resources.Resources.DISCRIPTION02169, 200, 3, true),
+				new Exports.QColumn(CSGenioAmovie.FldNumberoflikes, FieldType.NUMERIC, String.Empty, 9, 0, true),
+			};
+		}
+
 		/// <inheritdoc/>
 		public override CriteriaSet BuildCriteriaSet(NameValueCollection requestValues, out bool tableReload, CriteriaSet crs = null, bool isToExport = false)
 		{

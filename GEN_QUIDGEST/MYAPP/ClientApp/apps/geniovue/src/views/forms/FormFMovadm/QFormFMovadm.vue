@@ -91,6 +91,131 @@
 			data-key="F_MOVADM"
 			:data-loading="!formInitialDataLoaded">
 			<template v-if="formControl.initialized && showFormBody">
+				<q-row-container v-if="controls.F_MOVADMMOVIETITLE___.isVisible || controls.F_MOVADMMOVIERELDATE_.isVisible || controls.F_MOVADMMOVIECREATEAT.isVisible || controls.F_MOVADMMOVIEMOVIEGEN.isVisible || controls.F_MOVADMMOVIEPOSTER__.isVisible || controls.F_MOVADMMOVIEDISCRIPT.isVisible || controls.F_MOVADMMOVIENUMBEROF.isVisible">
+					<q-control-wrapper
+						v-if="controls.F_MOVADMMOVIETITLE___.isVisible"
+						class="control-join-group">
+						<base-input-structure
+							v-if="controls.F_MOVADMMOVIETITLE___.isVisible"
+							class="i-text"
+							v-bind="controls.F_MOVADMMOVIETITLE___"
+							v-on="controls.F_MOVADMMOVIETITLE___.handlers"
+							:loading="controls.F_MOVADMMOVIETITLE___.props.loading"
+							:reporting-mode-on="reportingModeCAV"
+							:suggestion-mode-on="suggestionModeOn">
+							<q-text-field
+								v-bind="controls.F_MOVADMMOVIETITLE___.props"
+								@blur="onBlur(controls.F_MOVADMMOVIETITLE___, model.ValTitle.value)"
+								@change="model.ValTitle.fnUpdateValueOnChange" />
+						</base-input-structure>
+					</q-control-wrapper>
+					<q-control-wrapper
+						v-if="controls.F_MOVADMMOVIERELDATE_.isVisible"
+						class="control-join-group">
+						<base-input-structure
+							v-if="controls.F_MOVADMMOVIERELDATE_.isVisible"
+							class="i-text"
+							v-bind="controls.F_MOVADMMOVIERELDATE_"
+							v-on="controls.F_MOVADMMOVIERELDATE_.handlers"
+							:loading="controls.F_MOVADMMOVIERELDATE_.props.loading"
+							:reporting-mode-on="reportingModeCAV"
+							:suggestion-mode-on="suggestionModeOn">
+							<q-date-time-picker
+								v-if="controls.F_MOVADMMOVIERELDATE_.isVisible"
+								v-bind="controls.F_MOVADMMOVIERELDATE_.props"
+								:model-value="model.ValRealease_date.value"
+								@reset-icon-click="model.ValRealease_date.fnUpdateValue(model.ValRealease_date.originalValue ?? new Date())"
+								@update:model-value="model.ValRealease_date.fnUpdateValue($event ?? '')" />
+						</base-input-structure>
+					</q-control-wrapper>
+					<q-control-wrapper
+						v-if="controls.F_MOVADMMOVIECREATEAT.isVisible"
+						class="control-join-group">
+						<base-input-structure
+							v-if="controls.F_MOVADMMOVIECREATEAT.isVisible"
+							class="i-text"
+							v-bind="controls.F_MOVADMMOVIECREATEAT"
+							v-on="controls.F_MOVADMMOVIECREATEAT.handlers"
+							:loading="controls.F_MOVADMMOVIECREATEAT.props.loading"
+							:reporting-mode-on="reportingModeCAV"
+							:suggestion-mode-on="suggestionModeOn">
+							<q-date-time-picker
+								v-if="controls.F_MOVADMMOVIECREATEAT.isVisible"
+								v-bind="controls.F_MOVADMMOVIECREATEAT.props"
+								:model-value="model.ValCreateat.value"
+								@reset-icon-click="model.ValCreateat.fnUpdateValue(model.ValCreateat.originalValue ?? new Date())"
+								@update:model-value="model.ValCreateat.fnUpdateValue($event ?? '')" />
+						</base-input-structure>
+					</q-control-wrapper>
+					<q-control-wrapper
+						v-if="controls.F_MOVADMMOVIEMOVIEGEN.isVisible"
+						class="control-join-group">
+						<base-input-structure
+							v-if="controls.F_MOVADMMOVIEMOVIEGEN.isVisible"
+							class="i-text"
+							v-bind="controls.F_MOVADMMOVIEMOVIEGEN"
+							v-on="controls.F_MOVADMMOVIEMOVIEGEN.handlers"
+							:loading="controls.F_MOVADMMOVIEMOVIEGEN.props.loading"
+							:reporting-mode-on="reportingModeCAV"
+							:suggestion-mode-on="suggestionModeOn">
+							<q-select
+								v-if="controls.F_MOVADMMOVIEMOVIEGEN.isVisible"
+								v-bind="controls.F_MOVADMMOVIEMOVIEGEN.props"
+								@update:model-value="model.ValMoviesgenre.fnUpdateValue" />
+						</base-input-structure>
+					</q-control-wrapper>
+					<q-control-wrapper
+						v-if="controls.F_MOVADMMOVIEPOSTER__.isVisible"
+						class="control-join-group">
+						<base-input-structure
+							v-if="controls.F_MOVADMMOVIEPOSTER__.isVisible"
+							class="q-image"
+							v-bind="controls.F_MOVADMMOVIEPOSTER__"
+							v-on="controls.F_MOVADMMOVIEPOSTER__.handlers"
+							:loading="controls.F_MOVADMMOVIEPOSTER__.props.loading"
+							:reporting-mode-on="reportingModeCAV"
+							:suggestion-mode-on="suggestionModeOn">
+							<q-image
+								v-if="controls.F_MOVADMMOVIEPOSTER__.isVisible"
+								v-bind="controls.F_MOVADMMOVIEPOSTER__.props"
+								v-on="controls.F_MOVADMMOVIEPOSTER__.handlers" />
+						</base-input-structure>
+					</q-control-wrapper>
+					<q-control-wrapper
+						v-if="controls.F_MOVADMMOVIEDISCRIPT.isVisible"
+						class="control-join-group">
+						<base-input-structure
+							v-if="controls.F_MOVADMMOVIEDISCRIPT.isVisible"
+							class="i-textarea"
+							v-bind="controls.F_MOVADMMOVIEDISCRIPT"
+							v-on="controls.F_MOVADMMOVIEDISCRIPT.handlers"
+							:loading="controls.F_MOVADMMOVIEDISCRIPT.props.loading"
+							:reporting-mode-on="reportingModeCAV"
+							:suggestion-mode-on="suggestionModeOn">
+							<q-text-area
+								v-if="controls.F_MOVADMMOVIEDISCRIPT.isVisible"
+								v-bind="controls.F_MOVADMMOVIEDISCRIPT.props"
+								v-on="controls.F_MOVADMMOVIEDISCRIPT.handlers" />
+						</base-input-structure>
+					</q-control-wrapper>
+					<q-control-wrapper
+						v-if="controls.F_MOVADMMOVIENUMBEROF.isVisible"
+						class="control-join-group">
+						<base-input-structure
+							v-if="controls.F_MOVADMMOVIENUMBEROF.isVisible"
+							class="i-text"
+							v-bind="controls.F_MOVADMMOVIENUMBEROF"
+							v-on="controls.F_MOVADMMOVIENUMBEROF.handlers"
+							:loading="controls.F_MOVADMMOVIENUMBEROF.props.loading"
+							:reporting-mode-on="reportingModeCAV"
+							:suggestion-mode-on="suggestionModeOn">
+							<q-numeric-input
+								v-if="controls.F_MOVADMMOVIENUMBEROF.isVisible"
+								v-bind="controls.F_MOVADMMOVIENUMBEROF.props"
+								@update:model-value="model.ValNumberoflikes.fnUpdateValue" />
+						</base-input-structure>
+					</q-control-wrapper>
+				</q-row-container>
 			</template>
 		</div>
 	</teleport>
@@ -498,8 +623,8 @@
 						label: computed(() => this.Resources.POSTER52933),
 						placeholder: '',
 						labelPosition: computed(() => this.labelAlignment.topleft),
-						height: ${fieldCtrl.Height},
-						width: ${fieldCtrl.Width},
+						height: 50,
+						width: 100,
 						dataTitle: computed(() => genericFunctions.formatString(vm.Resources.IMAGEM_UTILIZADA_PAR17299, vm.Resources.POSTER52933)),
 						maxFileSize: 10485760, // In bytes.
 						maxFileSizeLabel: '10 MB',
