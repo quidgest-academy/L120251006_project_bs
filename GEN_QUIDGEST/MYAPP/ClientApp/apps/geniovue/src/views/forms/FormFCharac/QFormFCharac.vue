@@ -603,6 +603,7 @@
 						container: 'F_CHARACPSEUDNEWGRP01',
 						maxLength: 1,
 						labelId: 'label_F_CHARACCHARAGENRE___',
+						mustBeFilled: true,
 						arrayName: 'GENRE',
 						columns: 0,
 						controlLimits: [
