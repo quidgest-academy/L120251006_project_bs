@@ -583,6 +583,7 @@
 						labelPosition: computed(() => this.labelAlignment.topleft),
 						rows: 3,
 						cols: 200,
+						mustBeFilled: true,
 						controlLimits: [
 						],
 					}, this),

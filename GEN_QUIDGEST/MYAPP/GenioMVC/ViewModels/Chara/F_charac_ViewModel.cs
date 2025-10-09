@@ -408,7 +408,11 @@ namespace GenioMVC.ViewModels.Chara
 			CrudViewModelFieldValidator validator = new(m_userContext.User.Language);
 
 			validator.StringLength("ValName", Resources.Resources.NAME31974, ValName, 80);
+
+			validator.Required("ValName", Resources.Resources.NAME31974, ViewModelConversion.ToString(ValName), FieldType.TEXT.GetFormatting());
 			validator.StringLength("ValActorname", Resources.Resources.ACTOR_NAME48089, ValActorname, 80);
+
+			validator.Required("ValActorname", Resources.Resources.ACTOR_NAME48089, ViewModelConversion.ToString(ValActorname), FieldType.TEXT.GetFormatting());
 
 
 			return validator.GetResult();

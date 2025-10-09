@@ -497,6 +497,7 @@
 						labelPosition: computed(() => this.labelAlignment.topleft),
 						maxLength: 50,
 						labelId: 'label_F_USER__USERPNAME____',
+						mustBeFilled: true,
 						controlLimits: [
 						],
 					}, this),

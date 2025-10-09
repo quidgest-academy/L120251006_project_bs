@@ -81,6 +81,7 @@ namespace CSGenio.business
 			Qfield.Decimals = 3;
 			Qfield.CavDesignation = "TEXT04938";
 
+            Qfield.NotNull = true;
 			Qfield.Dupmsg = "";
 			info.RegisterFieldDB(Qfield);
 

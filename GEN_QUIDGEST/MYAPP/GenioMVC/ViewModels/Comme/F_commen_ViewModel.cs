@@ -389,6 +389,8 @@ namespace GenioMVC.ViewModels.Comme
 			CrudViewModelFieldValidator validator = new(m_userContext.User.Language);
 
 
+			validator.Required("ValPost", Resources.Resources.POST24992, ViewModelConversion.ToString(ValPost), FieldType.MEMO.GetFormatting());
+
 
 			return validator.GetResult();
 		}

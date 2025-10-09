@@ -370,6 +370,8 @@ namespace GenioMVC.ViewModels.Userp
 			CrudViewModelFieldValidator validator = new(m_userContext.User.Language);
 
 			validator.StringLength("ValName", Resources.Resources.NAME31974, ValName, 50);
+
+			validator.Required("ValName", Resources.Resources.NAME31974, ViewModelConversion.ToString(ValName), FieldType.TEXT.GetFormatting());
 			validator.StringLength("ValEmail", Resources.Resources.EMAIL25170, ValEmail, 80);
 
 

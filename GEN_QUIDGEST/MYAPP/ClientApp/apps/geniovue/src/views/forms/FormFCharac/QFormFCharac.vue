@@ -584,6 +584,7 @@
 						labelPosition: computed(() => this.labelAlignment.topleft),
 						maxLength: 80,
 						labelId: 'label_F_CHARACCHARANAME____',
+						mustBeFilled: true,
 						controlLimits: [
 						],
 					}, this),
@@ -598,6 +599,7 @@
 						labelPosition: computed(() => this.labelAlignment.topleft),
 						maxLength: 80,
 						labelId: 'label_F_CHARACCHARAACTORNAM',
+						mustBeFilled: true,
 						controlLimits: [
 						],
 					}, this),
