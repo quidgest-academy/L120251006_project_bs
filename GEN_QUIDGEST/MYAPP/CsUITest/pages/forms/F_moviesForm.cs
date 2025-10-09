@@ -58,6 +58,11 @@ public class F_moviesForm : Form
 	public ButtonControl PseudField002 => new ButtonControl(driver, ContainerLocator, "#F_MOVIESPSEUDFIELD002");
 
 	/// <summary>
+	/// Rate
+	/// </summary>
+	public ButtonControl PseudField003 => new ButtonControl(driver, ContainerLocator, "#F_MOVIESPSEUDFIELD003");
+
+	/// <summary>
 	/// Characters
 	/// </summary>
 	public CollapsibleZoneControl PseudNewgrp01 => new CollapsibleZoneControl(driver, ContainerLocator, "#F_MOVIESPSEUDNEWGRP01-container");

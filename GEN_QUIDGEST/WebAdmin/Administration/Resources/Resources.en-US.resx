@@ -354,6 +354,9 @@
   <data name="DURATION40426" xml:space="preserve">
     <value>Duration</value>
   </data>
+  <data name="RATTING61217" xml:space="preserve">
+    <value>Ratting</value>
+  </data>
   <data name="COMMENTS30895" xml:space="preserve">
     <value>Comments</value>
   </data>
@@ -450,6 +453,9 @@
   <data name="FINISHED26993" xml:space="preserve">
     <value>Finished</value>
   </data>
+  <data name="RATE_AT01141" xml:space="preserve">
+    <value>Rate_at</value>
+  </data>
   <data name="SAVES_ON_DB_61384" xml:space="preserve">
     <value>Saves on DB?</value>
   </data>
@@ -476,6 +482,9 @@
   </data>
   <data name="ADMINISTRADOR57294" xml:space="preserve">
     <value>Administrador</value>
+  </data>
+  <data name="RATE50728" xml:space="preserve">
+    <value>Rate</value>
   </data>
   <data name="POSTER52933" xml:space="preserve">
     <value>Poster</value>

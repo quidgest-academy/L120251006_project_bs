@@ -231,7 +231,7 @@
 							v-on="controls.F_MOVIESPSEUDDATACOME.handlers" />
 					</q-control-wrapper>
 				</q-row-container>
-				<q-row-container v-if="controls.F_MOVIESMOVIENUMBEROF.isVisible || controls.F_MOVIESPSEUDFIELD001.isVisible || controls.F_MOVIESPSEUDFIELD002.isVisible">
+				<q-row-container v-if="controls.F_MOVIESMOVIENUMBEROF.isVisible || controls.F_MOVIESPSEUDFIELD001.isVisible || controls.F_MOVIESPSEUDFIELD002.isVisible || controls.F_MOVIESPSEUDFIELD003.isVisible">
 					<q-control-wrapper
 						v-if="controls.F_MOVIESMOVIENUMBEROF.isVisible"
 						class="control-join-group">
@@ -278,6 +278,24 @@
 								v-if="controls.F_MOVIESPSEUDFIELD002.isVisible"
 								v-bind="controls.F_MOVIESPSEUDFIELD002.props"
 								@click="controls.F_MOVIESPSEUDFIELD002.action($event)">
+							</q-button>
+						</base-input-structure>
+					</q-control-wrapper>
+					<q-control-wrapper
+						v-if="controls.F_MOVIESPSEUDFIELD003.isVisible"
+						class="control-join-group">
+						<base-input-structure
+							v-if="controls.F_MOVIESPSEUDFIELD003.isVisible"
+							class="i-button"
+							v-bind="controls.F_MOVIESPSEUDFIELD003"
+							v-on="controls.F_MOVIESPSEUDFIELD003.handlers"
+							:loading="controls.F_MOVIESPSEUDFIELD003.props.loading"
+							:reporting-mode-on="reportingModeCAV"
+							:suggestion-mode-on="suggestionModeOn">
+							<q-button
+								v-if="controls.F_MOVIESPSEUDFIELD003.isVisible"
+								v-bind="controls.F_MOVIESPSEUDFIELD003.props"
+								@click="controls.F_MOVIESPSEUDFIELD003.action($event)">
 							</q-button>
 						</base-input-structure>
 					</q-control-wrapper>
@@ -909,6 +927,22 @@
 								callback: btnAction
 							}
 							vm.$eventHub.emit('form-apply', options)
+						},
+						controlLimits: [
+						],
+					}, this),
+					F_MOVIESPSEUDFIELD003: new fieldControlClass.ButtonControl({
+						id: 'F_MOVIESPSEUDFIELD003',
+						name: 'FIELD003',
+						hasLabel: false,
+						label: computed(() => this.Resources.RATE50728),
+						placeholder: '',
+						labelPosition: computed(() => this.labelAlignment.topleft),
+						// eslint-disable-next-line
+						action: (event) => {
+							const btnAction = () => {
+							}
+							btnAction()
 						},
 						controlLimits: [
 						],

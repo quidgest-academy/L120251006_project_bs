@@ -20,6 +20,8 @@ namespace CSGenio.business
     /// </summary>
     public abstract class Area : IArea
     {
+        public static AreaRef AreaRATTI { get { return m_AreaRATTI; } }
+        private static AreaRef m_AreaRATTI = new AreaRef("MOV", "movratting", "ratti");
         public static AreaRef AreaFAVOR { get { return m_AreaFAVOR; } }
         private static AreaRef m_AreaFAVOR = new AreaRef("MOV", "movfavorites", "favor");
         public static AreaRef AreaUSERP { get { return m_AreaUSERP; } }
@@ -77,6 +79,7 @@ namespace CSGenio.business
         /// </summary>
         public static readonly System.Collections.ObjectModel.ReadOnlyCollection<string> ListaAreas = new System.Collections.ObjectModel.ReadOnlyCollection<string>(
             new List<string>() {
+            "ratti",
             "favor",
             "userp",
             "movie",

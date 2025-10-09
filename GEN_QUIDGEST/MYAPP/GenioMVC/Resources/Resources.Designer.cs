@@ -774,6 +774,15 @@ namespace GenioMVC.Resources
 		}
 
 		/// <summary>
+		///   Looks up a localized string similar to "Ratting"
+		/// </summary>
+		public static string RATTING61217 {
+			get {
+				return ResourceManager.GetString("RATTING61217", resourceCulture);
+			}
+		}
+
+		/// <summary>
 		///   Looks up a localized string similar to "Comments"
 		/// </summary>
 		public static string COMMENTS30895 {
@@ -1062,6 +1071,15 @@ namespace GenioMVC.Resources
 		}
 
 		/// <summary>
+		///   Looks up a localized string similar to "Rate_at"
+		/// </summary>
+		public static string RATE_AT01141 {
+			get {
+				return ResourceManager.GetString("RATE_AT01141", resourceCulture);
+			}
+		}
+
+		/// <summary>
 		///   Looks up a localized string similar to "Saves on DB?"
 		/// </summary>
 		public static string SAVES_ON_DB_61384 {
@@ -1139,6 +1157,15 @@ namespace GenioMVC.Resources
 		public static string ADMINISTRADOR57294 {
 			get {
 				return ResourceManager.GetString("ADMINISTRADOR57294", resourceCulture);
+			}
+		}
+
+		/// <summary>
+		///   Looks up a localized string similar to "Rate"
+		/// </summary>
+		public static string RATE50728 {
+			get {
+				return ResourceManager.GetString("RATE50728", resourceCulture);
 			}
 		}
 

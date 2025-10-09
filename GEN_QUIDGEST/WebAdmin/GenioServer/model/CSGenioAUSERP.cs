@@ -102,9 +102,10 @@ namespace CSGenio.business
 		{
 			// Daughters Relations
 			//------------------------------
-			info.ChildTable = new ChildRelation[2];
-			info.ChildTable[0]= new ChildRelation("favor", new String[] {"coduserp"}, DeleteProc.NA);
-			info.ChildTable[1]= new ChildRelation("comme", new String[] {"coduserp"}, DeleteProc.NA);
+			info.ChildTable = new ChildRelation[3];
+			info.ChildTable[0]= new ChildRelation("ratti", new String[] {"coduserp"}, DeleteProc.NA);
+			info.ChildTable[1]= new ChildRelation("favor", new String[] {"coduserp"}, DeleteProc.NA);
+			info.ChildTable[2]= new ChildRelation("comme", new String[] {"coduserp"}, DeleteProc.NA);
 
 			// Mother Relations
 			//------------------------------

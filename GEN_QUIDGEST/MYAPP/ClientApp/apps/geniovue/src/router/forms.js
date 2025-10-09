@@ -59,6 +59,17 @@ export default function getFormsRoutes()
 			}
 		},
 		{
+			path: '/:culture/:system/:module/form/F_RATTIN/:mode/:id?',
+			name: 'form-F_RATTIN',
+			props: route => propsConverter(route),
+			component: () => import('@/views/forms/FormFRattin/QFormFRattin.vue'),
+			meta: {
+				routeType: 'form',
+				baseArea: 'RATTI',
+				humanKeyFields: []
+			}
+		},
+		{
 			path: '/:culture/:system/:module/form/F_USER/:mode/:id?',
 			name: 'form-F_USER',
 			props: route => propsConverter(route),
