@@ -871,6 +871,15 @@ namespace Administration.Resources {
         }
 
         /// <summary>
+        ///   Looks up a localized string similar to "❤️ Fav Movies"
+        /// </summary>
+        public static string __FAV_MOVIES17046 {
+            get {
+                return ResourceManager.GetString("__FAV_MOVIES17046", resourceCulture);
+            }
+        }
+
+        /// <summary>
         ///   Looks up a localized string similar to "Sender"
         /// </summary>
         public static string SENDER07671 {

@@ -270,6 +270,9 @@
   <msg id="Consulta" code="CONSULTA40695">
     <ENUS>Consulta</ENUS>
   </msg>
+  <msg id="❤️ Fav Movies" code="__FAV_MOVIES17046">
+    <ENUS>❤️ Fav Movies</ENUS>
+  </msg>
   <msg id="Sender" code="SENDER07671">
     <ENUS>Sender</ENUS>
   </msg>
