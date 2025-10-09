@@ -144,7 +144,7 @@
 							<q-row-container v-if="controls.F_MOVIESMOVIEDISCRIPT.isVisible">
 								<q-control-wrapper
 									v-if="controls.F_MOVIESMOVIEDISCRIPT.isVisible"
-									class="control-join-group">
+									class="control-join-group control-dynamic-group">
 									<base-input-structure
 										v-if="controls.F_MOVIESMOVIEDISCRIPT.isVisible"
 										class="i-textarea"
@@ -378,7 +378,7 @@
 							<q-row-container v-if="controls.F_MOVIESPSEUDDATACHAR.isVisible">
 								<q-control-wrapper
 									v-if="controls.F_MOVIESPSEUDDATACHAR.isVisible"
-									class="control-join-group">
+									class="control-join-group control-dynamic-group">
 									<q-table
 										v-if="controls.F_MOVIESPSEUDDATACHAR.isVisible"
 										v-bind="controls.F_MOVIESPSEUDDATACHAR"
@@ -786,7 +786,7 @@
 						valueChangeEvent: 'fieldChange:movie.description',
 						id: 'F_MOVIESMOVIEDISCRIPT',
 						name: 'DISCRIPT',
-						size: 'xxlarge',
+						size: 'block',
 						label: computed(() => this.Resources.DISCRIPTION02169),
 						placeholder: '',
 						labelPosition: computed(() => this.labelAlignment.topleft),
@@ -1107,7 +1107,7 @@
 					F_MOVIESPSEUDDATACHAR: new fieldControlClass.TableSpecialRenderingControl({
 						id: 'F_MOVIESPSEUDDATACHAR',
 						name: 'DATACHAR',
-						size: '',
+						size: 'block',
 						label: computed(() => this.Resources.CHARACTERS03735),
 						placeholder: '',
 						labelPosition: computed(() => this.labelAlignment.topleft),
