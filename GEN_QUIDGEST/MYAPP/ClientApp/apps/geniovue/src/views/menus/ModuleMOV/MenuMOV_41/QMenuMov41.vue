@@ -120,12 +120,12 @@
 				menuInfo: {
 					id: '41',
 					isMenuList: true,
-					designation: computed(() => this.Resources.COMMENTS30895),
+					designation: computed(() => this.Resources.CHARACTERS03735),
 					acronym: 'MOV_41',
-					name: 'COMME',
+					name: 'CHARA',
 					route: 'menu-MOV_41',
 					order: '41',
-					controller: 'COMME',
+					controller: 'CHARA',
 					action: 'MOV_Menu_41',
 					isPopup: false
 				},
@@ -136,7 +136,7 @@
 					menu: new controlClass.TableListControl({
 						fnHydrateViewModel: (data) => vm.model.hydrate(data),
 						id: 'MOV_Menu_41',
-						controller: 'COMME',
+						controller: 'CHARA',
 						action: 'MOV_Menu_41',
 						hasDependencies: false,
 						isInCollapsible: false,
@@ -145,35 +145,20 @@
 							'page-full-height'
 						],
 						columnsOriginal: [
-							new listColumnTypes.TextColumn({
+							new listColumnTypes.ArrayColumn({
 								order: 1,
-								name: 'ValPost',
-								area: 'COMME',
-								field: 'POST',
-								label: computed(() => this.Resources.POST24992),
-								scrollData: 30,
+								name: 'ValGenre',
+								area: 'CHARA',
+								field: 'GENRE',
+								label: computed(() => this.Resources.GENRE63303),
+								dataLength: 1,
+								scrollData: 1,
+								array: computed(() => new qProjArrays.QArrayGenre(vm.$getResource).elements),
+								arrayType: qProjArrays.QArrayGenre.type,
+								arrayDisplayMode: 'D',
 							}, computed(() => vm.model), computed(() => vm.internalEvents)),
 							new listColumnTypes.TextColumn({
 								order: 2,
-								name: 'Userp.ValName',
-								area: 'USERP',
-								field: 'NAME',
-								label: computed(() => this.Resources.NAME31974),
-								dataLength: 50,
-								scrollData: 30,
-								pkColumn: 'ValCoduserp',
-							}, computed(() => vm.model), computed(() => vm.internalEvents)),
-							new listColumnTypes.DateColumn({
-								order: 3,
-								name: 'ValCreateat',
-								area: 'COMME',
-								field: 'CREATEAT',
-								label: computed(() => this.Resources.CREATE_AT36393),
-								scrollData: 8,
-								dateTimeType: 'date',
-							}, computed(() => vm.model), computed(() => vm.internalEvents)),
-							new listColumnTypes.TextColumn({
-								order: 4,
 								name: 'Movie.ValTitle',
 								area: 'MOVIE',
 								field: 'TITLE',
@@ -182,16 +167,43 @@
 								scrollData: 30,
 								pkColumn: 'ValCodmovie',
 							}, computed(() => vm.model), computed(() => vm.internalEvents)),
+							new listColumnTypes.DateColumn({
+								order: 3,
+								name: 'ValCreateat',
+								area: 'CHARA',
+								field: 'CREATEAT',
+								label: computed(() => this.Resources.CREATE_AT36393),
+								scrollData: 8,
+								dateTimeType: 'date',
+							}, computed(() => vm.model), computed(() => vm.internalEvents)),
+							new listColumnTypes.TextColumn({
+								order: 4,
+								name: 'ValName',
+								area: 'CHARA',
+								field: 'NAME',
+								label: computed(() => this.Resources.NAME31974),
+								dataLength: 80,
+								scrollData: 30,
+							}, computed(() => vm.model), computed(() => vm.internalEvents)),
+							new listColumnTypes.TextColumn({
+								order: 5,
+								name: 'ValActorname',
+								area: 'CHARA',
+								field: 'ACTORNAME',
+								label: computed(() => this.Resources.ACTOR_NAME48089),
+								dataLength: 80,
+								scrollData: 30,
+							}, computed(() => vm.model), computed(() => vm.internalEvents)),
 						],
 						config: {
 							name: 'MOV_Menu_41',
 							serverMode: true,
-							pkColumn: 'ValCodcomme',
-							tableAlias: 'COMME',
-							tableNamePlural: computed(() => this.Resources.COMMENTS30895),
+							pkColumn: 'ValCodchara',
+							tableAlias: 'CHARA',
+							tableNamePlural: computed(() => this.Resources.CHARACTERS03735),
 							viewManagement: '',
 							showLimitsInfo: true,
-							tableTitle: computed(() => this.Resources.COMMENTS30895),
+							tableTitle: computed(() => this.Resources.CHARACTERS03735),
 							showAlternatePagination: true,
 							permissions: {
 							},
@@ -214,7 +226,7 @@
 									params: {
 										action: vm.openFormAction,
 										type: 'form',
-										formName: 'F_COMMEN',
+										formName: 'F_CHARAC',
 										mode: 'SHOW',
 										isControlled: true
 									}
@@ -230,7 +242,7 @@
 									params: {
 										action: vm.openFormAction,
 										type: 'form',
-										formName: 'F_COMMEN',
+										formName: 'F_CHARAC',
 										mode: 'EDIT',
 										isControlled: true
 									}
@@ -246,7 +258,7 @@
 									params: {
 										action: vm.openFormAction,
 										type: 'form',
-										formName: 'F_COMMEN',
+										formName: 'F_CHARAC',
 										mode: 'DUPLICATE',
 										isControlled: true
 									}
@@ -262,7 +274,7 @@
 									params: {
 										action: vm.openFormAction,
 										type: 'form',
-										formName: 'F_COMMEN',
+										formName: 'F_CHARAC',
 										mode: 'DELETE',
 										isControlled: true
 									}
@@ -280,7 +292,7 @@
 									params: {
 										action: vm.openFormAction,
 										type: 'form',
-										formName: 'F_COMMEN',
+										formName: 'F_CHARAC',
 										mode: 'NEW',
 										repeatInsertion: false,
 										isControlled: true
@@ -297,34 +309,34 @@
 							],
 							rowClickAction: {
 								id: 'RCA_MOV_411',
-								name: 'form-F_COMMEN',
+								name: 'form-F_CHARAC',
 								params: {
 									isRoute: true,
 									limits: [
 										{
 											identifier: 'id',
-											fnValueSelector: (row) => row.ValCodcomme
+											fnValueSelector: (row) => row.ValCodchara
 										},
 									],
 									isControlled: true,
-									action: vm.openFormAction, type: 'form', mode: 'SHOW', formName: 'F_COMMEN'
+									action: vm.openFormAction, type: 'form', mode: 'SHOW', formName: 'F_CHARAC'
 								}
 							},
 							formsDefinition: {
-								'F_COMMEN': {
-									fnKeySelector: (row) => row.Fields.ValCodcomme,
+								'F_CHARAC': {
+									fnKeySelector: (row) => row.Fields.ValCodchara,
 									isPopup: false
 								},
 							},
-							defaultSearchColumnName: '',
-							defaultSearchColumnNameOriginal: '',
+							defaultSearchColumnName: 'ValName',
+							defaultSearchColumnNameOriginal: 'ValName',
 							defaultColumnSorting: {
 								columnName: 'ValCreateat',
 								sortOrder: 'asc'
 							}
 						},
-						globalEvents: ['changed-COMME', 'changed-USERP', 'changed-MOVIE'],
-						uuid: '5d141bc5-0e43-4e72-a312-980929757c58',
+						globalEvents: ['changed-MOVIE', 'changed-CHARA'],
+						uuid: '1647ff0a-85ba-4bf0-84d7-1d1ad3b4b641',
 						allSelectedRows: 'false',
 						headerLevel: 1,
 					}, this),

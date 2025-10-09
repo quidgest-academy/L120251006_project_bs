@@ -120,12 +120,12 @@
 				menuInfo: {
 					id: '51',
 					isMenuList: true,
-					designation: computed(() => this.Resources.FAVORITES12182),
+					designation: computed(() => this.Resources.COMMENTS30895),
 					acronym: 'MOV_51',
-					name: 'FAVOR',
+					name: 'COMME',
 					route: 'menu-MOV_51',
 					order: '51',
-					controller: 'FAVOR',
+					controller: 'COMME',
 					action: 'MOV_Menu_51',
 					isPopup: false
 				},
@@ -136,7 +136,7 @@
 					menu: new controlClass.TableListControl({
 						fnHydrateViewModel: (data) => vm.model.hydrate(data),
 						id: 'MOV_Menu_51',
-						controller: 'FAVOR',
+						controller: 'COMME',
 						action: 'MOV_Menu_51',
 						hasDependencies: false,
 						isInCollapsible: false,
@@ -145,27 +145,16 @@
 							'page-full-height'
 						],
 						columnsOriginal: [
-							new listColumnTypes.DateColumn({
+							new listColumnTypes.TextColumn({
 								order: 1,
-								name: 'ValFavorite_at',
-								area: 'FAVOR',
-								field: 'FAVORITE_AT',
-								label: computed(() => this.Resources.FAVORITE_AT27922),
-								scrollData: 8,
-								dateTimeType: 'date',
+								name: 'ValPost',
+								area: 'COMME',
+								field: 'POST',
+								label: computed(() => this.Resources.POST24992),
+								scrollData: 30,
 							}, computed(() => vm.model), computed(() => vm.internalEvents)),
 							new listColumnTypes.TextColumn({
 								order: 2,
-								name: 'Movie.ValTitle',
-								area: 'MOVIE',
-								field: 'TITLE',
-								label: computed(() => this.Resources.TITLE21885),
-								dataLength: 80,
-								scrollData: 30,
-								pkColumn: 'ValCodmovie',
-							}, computed(() => vm.model), computed(() => vm.internalEvents)),
-							new listColumnTypes.TextColumn({
-								order: 3,
 								name: 'Userp.ValName',
 								area: 'USERP',
 								field: 'NAME',
@@ -174,16 +163,35 @@
 								scrollData: 30,
 								pkColumn: 'ValCoduserp',
 							}, computed(() => vm.model), computed(() => vm.internalEvents)),
+							new listColumnTypes.DateColumn({
+								order: 3,
+								name: 'ValCreateat',
+								area: 'COMME',
+								field: 'CREATEAT',
+								label: computed(() => this.Resources.CREATE_AT36393),
+								scrollData: 8,
+								dateTimeType: 'date',
+							}, computed(() => vm.model), computed(() => vm.internalEvents)),
+							new listColumnTypes.TextColumn({
+								order: 4,
+								name: 'Movie.ValTitle',
+								area: 'MOVIE',
+								field: 'TITLE',
+								label: computed(() => this.Resources.TITLE21885),
+								dataLength: 80,
+								scrollData: 30,
+								pkColumn: 'ValCodmovie',
+							}, computed(() => vm.model), computed(() => vm.internalEvents)),
 						],
 						config: {
 							name: 'MOV_Menu_51',
 							serverMode: true,
-							pkColumn: 'ValCodfavor',
-							tableAlias: 'FAVOR',
-							tableNamePlural: computed(() => this.Resources.FAVORITES12182),
+							pkColumn: 'ValCodcomme',
+							tableAlias: 'COMME',
+							tableNamePlural: computed(() => this.Resources.COMMENTS30895),
 							viewManagement: '',
 							showLimitsInfo: true,
-							tableTitle: computed(() => this.Resources.FAVORITES12182),
+							tableTitle: computed(() => this.Resources.COMMENTS30895),
 							showAlternatePagination: true,
 							permissions: {
 							},
@@ -206,7 +214,7 @@
 									params: {
 										action: vm.openFormAction,
 										type: 'form',
-										formName: 'F_FAVORI',
+										formName: 'F_COMMEN',
 										mode: 'SHOW',
 										isControlled: true
 									}
@@ -222,7 +230,7 @@
 									params: {
 										action: vm.openFormAction,
 										type: 'form',
-										formName: 'F_FAVORI',
+										formName: 'F_COMMEN',
 										mode: 'EDIT',
 										isControlled: true
 									}
@@ -238,7 +246,7 @@
 									params: {
 										action: vm.openFormAction,
 										type: 'form',
-										formName: 'F_FAVORI',
+										formName: 'F_COMMEN',
 										mode: 'DUPLICATE',
 										isControlled: true
 									}
@@ -254,7 +262,7 @@
 									params: {
 										action: vm.openFormAction,
 										type: 'form',
-										formName: 'F_FAVORI',
+										formName: 'F_COMMEN',
 										mode: 'DELETE',
 										isControlled: true
 									}
@@ -272,7 +280,7 @@
 									params: {
 										action: vm.openFormAction,
 										type: 'form',
-										formName: 'F_FAVORI',
+										formName: 'F_COMMEN',
 										mode: 'NEW',
 										repeatInsertion: false,
 										isControlled: true
@@ -289,34 +297,34 @@
 							],
 							rowClickAction: {
 								id: 'RCA_MOV_511',
-								name: 'form-F_FAVORI',
+								name: 'form-F_COMMEN',
 								params: {
 									isRoute: true,
 									limits: [
 										{
 											identifier: 'id',
-											fnValueSelector: (row) => row.ValCodfavor
+											fnValueSelector: (row) => row.ValCodcomme
 										},
 									],
 									isControlled: true,
-									action: vm.openFormAction, type: 'form', mode: 'SHOW', formName: 'F_FAVORI'
+									action: vm.openFormAction, type: 'form', mode: 'SHOW', formName: 'F_COMMEN'
 								}
 							},
 							formsDefinition: {
-								'F_FAVORI': {
-									fnKeySelector: (row) => row.Fields.ValCodfavor,
-									isPopup: true
+								'F_COMMEN': {
+									fnKeySelector: (row) => row.Fields.ValCodcomme,
+									isPopup: false
 								},
 							},
 							defaultSearchColumnName: '',
 							defaultSearchColumnNameOriginal: '',
 							defaultColumnSorting: {
-								columnName: 'ValFavorite_at',
+								columnName: 'ValCreateat',
 								sortOrder: 'asc'
 							}
 						},
-						globalEvents: ['changed-MOVIE', 'changed-USERP', 'changed-FAVOR'],
-						uuid: '18499c05-7ba4-438e-af8a-976e3d3593ba',
+						globalEvents: ['changed-COMME', 'changed-USERP', 'changed-MOVIE'],
+						uuid: '5d141bc5-0e43-4e72-a312-980929757c58',
 						allSelectedRows: 'false',
 						headerLevel: 1,
 					}, this),

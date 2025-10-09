@@ -133,7 +133,7 @@
 				model: new MenuViewModel(this),
 
 				controls: {
-					menu: new controlClass.TableListControl({
+					menu: new controlClass.TableSpecialRenderingControl({
 						fnHydrateViewModel: (data) => vm.model.hydrate(data),
 						id: 'MOV_Menu_31',
 						controller: 'CHARA',
@@ -167,8 +167,19 @@
 								scrollData: 30,
 								pkColumn: 'ValCodmovie',
 							}, computed(() => vm.model), computed(() => vm.internalEvents)),
-							new listColumnTypes.DateColumn({
+							new listColumnTypes.ImageColumn({
 								order: 3,
+								name: 'ValPhoto',
+								area: 'CHARA',
+								field: 'PHOTO',
+								label: computed(() => this.Resources.PHOTO51874),
+								dataTitle: computed(() => genericFunctions.formatString(vm.Resources.IMAGEM_UTILIZADA_PAR58591, vm.Resources.PHOTO51874)),
+								scrollData: 3,
+								sortable: false,
+								searchable: false,
+							}, computed(() => vm.model), computed(() => vm.internalEvents)),
+							new listColumnTypes.DateColumn({
+								order: 4,
 								name: 'ValCreateat',
 								area: 'CHARA',
 								field: 'CREATEAT',
@@ -177,7 +188,7 @@
 								dateTimeType: 'date',
 							}, computed(() => vm.model), computed(() => vm.internalEvents)),
 							new listColumnTypes.TextColumn({
-								order: 4,
+								order: 5,
 								name: 'ValName',
 								area: 'CHARA',
 								field: 'NAME',
@@ -186,7 +197,7 @@
 								scrollData: 30,
 							}, computed(() => vm.model), computed(() => vm.internalEvents)),
 							new listColumnTypes.TextColumn({
-								order: 5,
+								order: 6,
 								name: 'ValActorname',
 								area: 'CHARA',
 								field: 'ACTORNAME',
@@ -336,8 +347,101 @@
 							}
 						},
 						globalEvents: ['changed-MOVIE', 'changed-CHARA'],
-						uuid: '1647ff0a-85ba-4bf0-84d7-1d1ad3b4b641',
+						uuid: '6087e1a7-1c91-4f28-8033-8a60430d40a2',
 						allSelectedRows: 'false',
+						viewModes: [
+							{
+								id: 'CARDS',
+								type: 'cards',
+								subtype: 'card-img-top',
+								label: computed(() => this.Resources.CARTOES27587),
+								order: 1,
+								mappingVariables: readonly({
+									title: {
+										allowsMultiple: false,
+										sources: [
+											'CHARA.NAME',
+										]
+									},
+									subtitle: {
+										allowsMultiple: false,
+										sources: [
+											'CHARA.ACTORNAME',
+										]
+									},
+									image: {
+										allowsMultiple: false,
+										sources: [
+											'CHARA.PHOTO',
+										]
+									},
+								}),
+								styleVariables: {
+									actionsAlignment: {
+										rawValue: 'left',
+										isMapped: false
+									},
+									actionsStyle: {
+										rawValue: 'dropdown',
+										isMapped: false
+									},
+									backgroundColor: {
+										rawValue: 'auto',
+										isMapped: false
+									},
+									contentAlignment: {
+										rawValue: 'left',
+										isMapped: false
+									},
+									customFollowupDefaultTarget: {
+										rawValue: 'blank',
+										isMapped: false
+									},
+									customInsertCard: {
+										rawValue: false,
+										isMapped: false
+									},
+									customInsertCardStyle: {
+										rawValue: 'secondary',
+										isMapped: false
+									},
+									displayMode: {
+										rawValue: 'grid',
+										isMapped: false
+									},
+									gridMode: {
+										rawValue: 'fixed',
+										isMapped: false
+									},
+									containerAlignment: {
+										rawValue: 'left',
+										isMapped: false
+									},
+									hoverScaleAmount: {
+										rawValue: '1.00',
+										isMapped: false
+									},
+									imageShape: {
+										rawValue: 'rectangular',
+										isMapped: false
+									},
+									showColumnTitles: {
+										rawValue: false,
+										isMapped: false
+									},
+									showEmptyColumnTitles: {
+										rawValue: true,
+										isMapped: false
+									},
+									size: {
+										rawValue: 'regular',
+										isMapped: false
+									},
+								},
+								groups: {
+								}
+							},
+						],
 						headerLevel: 1,
 					}, this),
 				}

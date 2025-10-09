@@ -4,9 +4,9 @@ using CSGenio.business;
 using CSGenio.framework;
 using GenioMVC.Models.Navigation;
 
-namespace GenioMVC.ViewModels.Comme;
+namespace GenioMVC.ViewModels.Chara;
 
-public class MOV_Menu_41_RowViewModel : Models.Comme
+public class MOV_Menu_41_RowViewModel : Models.Chara
 {
 	#region Constructors
 
@@ -15,7 +15,7 @@ public class MOV_Menu_41_RowViewModel : Models.Comme
 		InitRowProperties();
 	}
 
-	public MOV_Menu_41_RowViewModel(UserContext userContext, CSGenioAcomme val, bool isEmpty = false, string[]? fieldsToSerialize = null) : base(userContext, val, isEmpty, fieldsToSerialize)
+	public MOV_Menu_41_RowViewModel(UserContext userContext, CSGenioAchara val, bool isEmpty = false, string[]? fieldsToSerialize = null) : base(userContext, val, isEmpty, fieldsToSerialize)
 	{
 		InitRowProperties();
 	}
@@ -36,26 +36,32 @@ public class MOV_Menu_41_RowViewModel : Models.Comme
 			new ListColumn()
 			{
 				Order = 1,
-				Area = "COMME",
-				Field = "POST",
+				Area = "CHARA",
+				Field = "GENRE",
 			},
 			new ListColumn()
 			{
 				Order = 2,
-				Area = "USERP",
-				Field = "NAME",
+				Area = "MOVIE",
+				Field = "TITLE",
 			},
 			new ListColumn()
 			{
 				Order = 3,
-				Area = "COMME",
+				Area = "CHARA",
 				Field = "CREATEAT",
 			},
 			new ListColumn()
 			{
 				Order = 4,
-				Area = "MOVIE",
-				Field = "TITLE",
+				Area = "CHARA",
+				Field = "NAME",
+			},
+			new ListColumn()
+			{
+				Order = 5,
+				Area = "CHARA",
+				Field = "ACTORNAME",
 			},
 		];
 	}
