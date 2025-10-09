@@ -39,6 +39,19 @@ namespace GenioMVC.ViewModels.Home
 
 		private static readonly List<HomePageDefinition> homePages =
 		[
+			new HomePageDefinition()
+			{
+				Identifier = "ss",
+				Public = false,
+				Module = "MOV",
+				Order = 1,
+				Menu = "",
+				Menu_Id = "",
+				MenuRoleId = "",
+				Controller = "Home",
+				Form = "HOMP",
+				Role = CSGenio.framework.Role.UNAUTHORIZED
+			},
 		];
 
 		[JsonIgnore]

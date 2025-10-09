@@ -1159,6 +1159,15 @@ namespace Administration.Resources {
         }
 
         /// <summary>
+        ///   Looks up a localized string similar to "home"
+        /// </summary>
+        public static string HOME04166 {
+            get {
+                return ResourceManager.GetString("HOME04166", resourceCulture);
+            }
+        }
+
+        /// <summary>
         ///   Looks up a localized string similar to "Horário"
         /// </summary>
         public static string HORARIO56549 {
@@ -1272,6 +1281,15 @@ namespace Administration.Resources {
         public static string NOTIFICATION_MESSAGE31108 {
             get {
                 return ResourceManager.GetString("NOTIFICATION_MESSAGE31108", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to "Recent movies"
+        /// </summary>
+        public static string RECENT_MOVIES43228 {
+            get {
+                return ResourceManager.GetString("RECENT_MOVIES43228", resourceCulture);
             }
         }
 

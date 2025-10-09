@@ -8,5 +8,6 @@ export default {
 		app.component('QFormFFavori', defineAsyncComponent(() => import('@/views/forms/FormFFavori/QFormFFavori.vue')))
 		app.component('QFormFMovies', defineAsyncComponent(() => import('@/views/forms/FormFMovies/QFormFMovies.vue')))
 		app.component('QFormFUser', defineAsyncComponent(() => import('@/views/forms/FormFUser/QFormFUser.vue')))
+		app.component('QFormHomp', defineAsyncComponent(() => import('@/views/forms/FormHomp/QFormHomp.vue')))
 	}
 }

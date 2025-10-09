@@ -58,5 +58,16 @@ export default function getFormsRoutes()
 				humanKeyFields: ['ValName']
 			}
 		},
+		{
+			path: '/:culture/:system/:module/form/HOMP/:mode/:id?',
+			name: 'form-HOMP',
+			props: route => propsConverter(route),
+			component: () => import('@/views/forms/FormHomp/QFormHomp.vue'),
+			meta: {
+				routeType: 'form',
+				baseArea: '',
+				humanKeyFields: []
+			}
+		},
 	]
 }

@@ -21,6 +21,8 @@ namespace GenioMVC.Controllers
 	public class HomeController(UserContextService userContext) : ControllerBase(userContext)
 	{
 		private static readonly NavigationLocation ACTION_LSTUSR_EDIT = new("LISTA_DE_UTILIZADORE37232", "ChangeListProperties", "Home");
+		private static readonly NavigationLocation ACTION_HOMP_SHOW = new("CONSULTA40695", "Homp_Show", "Home")  { vueRouteName = "form-HOMP", mode = "SHOW" };
+		private static readonly NavigationLocation ACTION_HOMP_EDIT = new("EDITAR11616", "Homp_Edit", "Home")  { vueRouteName = "form-HOMP", mode = "EDIT" };
 
 		public readonly string EPH_Action_Available_Key = "EPH_Action_Available";
 		public readonly string EPH_Action_Form_Key = "EPH_Action_Form";
@@ -183,6 +185,184 @@ namespace GenioMVC.Controllers
 				return Json(new { Success = false, Message = Resources.Resources.PEDIMOS_DESCULPA__OC63848 });
 			}
 		}
+
+		#region Form Methods -> Homp ()
+
+		// GET: /Home/Homp_Show
+		public ActionResult Homp_Show()
+		{
+			var model = new Homp_ViewModel(UserContext.Current);
+			CSGenio.framework.StatusMessage permission = model.CheckPermissions(FormMode.Show);
+			bool isHomePage = RouteData.Values.ContainsKey("isHomePage") && (bool)RouteData.Values["isHomePage"];
+			ViewBag.isHomePage = isHomePage;
+			if (isHomePage)
+				Navigation.SetValue("HomePage", "Homp");
+			if (permission.Status.Equals(CSGenio.framework.Status.E))
+				return PermissionError(permission.Message);
+
+			// Audit
+			CSGenio.framework.Audit.registAction(UserContext.Current.User, Resources.Resources.FORM54242 + " " + ACTION_HOMP_SHOW.ShortDescription());
+
+// USE /[MANUAL MOV BEFORE_LOAD_SHOW HOMP]/
+
+			model.Load(new NameValueCollection());
+
+// USE /[MANUAL MOV AFTER_LOAD_SHOW HOMP]/
+
+			return JsonOK(model);
+		}
+
+		[HttpPost]
+		public ActionResult Homp_Show_GET()
+		{
+			return Homp_Show();
+		}
+
+		// GET: /Home/Homp_Edit
+		public ActionResult Homp_Edit()
+		{
+			var model = new Homp_ViewModel(UserContext.Current);
+			CSGenio.framework.StatusMessage permission = model.CheckPermissions(FormMode.Edit);
+			bool isHomePage = RouteData.Values.ContainsKey("isHomePage") && (bool)RouteData.Values["isHomePage"];
+			ViewBag.isHomePage = isHomePage;
+			if (isHomePage)
+				Navigation.SetValue("HomePage", "Homp");
+			if (permission.Status.Equals(CSGenio.framework.Status.E))
+				return PermissionError(permission.Message);
+
+			// Audit
+			CSGenio.framework.Audit.registAction(UserContext.Current.User, Resources.Resources.FORM54242 + " " + ACTION_HOMP_EDIT.ShortDescription());
+
+// USE /[MANUAL MOV BEFORE_LOAD_EDIT HOMP]/
+
+			model.Load(new NameValueCollection());
+
+// USE /[MANUAL MOV AFTER_LOAD_EDIT HOMP]/
+
+			return JsonOK(model);
+		}
+
+		[HttpPost]
+		public ActionResult Homp_Edit_GET()
+		{
+			return Homp_Edit();
+		}
+
+		//
+		// GET: /Home/Homp_Cancel
+// USE /[MANUAL MOV CONTROLLER_CANCEL_GET HOMP]/
+		public ActionResult Homp_Cancel()
+		{
+			return JsonOK(new { Success = true });
+		}
+
+		//
+		// GET: /Home/Homp_ValField001
+		// POST: /Home/Homp_ValField001
+		[ActionName("Homp_ValField001")]
+		public ActionResult Homp_ValField001([FromBody]RequestLookupModel requestModel)
+		{
+			var queryParams = requestModel.QueryParams;
+
+			int perPage = 5;
+			string rowsPerPageOptionsString = "";
+
+			NameValueCollection requestValues = [];
+			// Add to request values
+			foreach (var kv in queryParams ?? [])
+				requestValues.Add(kv.Key, kv.Value);
+
+			Homp_ValField001_ViewModel model = new(UserContext.Current);
+
+			// Table configuration load options
+			CSGenio.framework.TableConfiguration.TableConfigurationLoadOptions tableConfigOptions = new CSGenio.framework.TableConfiguration.TableConfigurationLoadOptions();
+
+
+			// Determine which table configuration to use and load it
+			CSGenio.framework.TableConfiguration.TableConfiguration tableConfig = TableUiSettings.Load(
+				UserContext.Current.PersistentSupport,
+				model.Uuid,
+				UserContext.Current.User,
+				tableConfigOptions
+			).DetermineTableConfig(
+				requestModel?.TableConfiguration,
+				requestModel?.UserTableConfigName,
+				(bool)requestModel?.LoadDefaultView,
+				tableConfigOptions
+			);
+
+			// Determine rows per page
+			tableConfig.RowsPerPage = CSGenio.framework.TableConfiguration.TableConfigurationHelpers.DetermineRowsPerPage(tableConfig.RowsPerPage, perPage, rowsPerPageOptionsString);
+
+			// Determine what columns have totalizers
+			tableConfig.TotalizerColumns = requestModel.TotalizerColumns;
+
+			// For tables with multiple selection enabled, determine currently selected rows
+			tableConfig.SelectedRows = requestModel.SelectedRows;
+
+			// Add form field filters to the table configuration
+			tableConfig.FieldFilters = requestModel.RelatedFilterValues;
+
+
+			model.Load(tableConfig, requestValues, Request.IsAjaxRequest());
+
+			return JsonOK(model);
+		}
+
+		//
+		// GET: /Home/Homp_ValField002
+		// POST: /Home/Homp_ValField002
+		[ActionName("Homp_ValField002")]
+		public ActionResult Homp_ValField002([FromBody]RequestLookupModel requestModel)
+		{
+			var queryParams = requestModel.QueryParams;
+
+			int perPage = CSGenio.framework.Configuration.NrRegDBedit;
+			string rowsPerPageOptionsString = "";
+
+			NameValueCollection requestValues = [];
+			// Add to request values
+			foreach (var kv in queryParams ?? [])
+				requestValues.Add(kv.Key, kv.Value);
+
+			Homp_ValField002_ViewModel model = new(UserContext.Current);
+
+			// Table configuration load options
+			CSGenio.framework.TableConfiguration.TableConfigurationLoadOptions tableConfigOptions = new CSGenio.framework.TableConfiguration.TableConfigurationLoadOptions();
+
+
+			// Determine which table configuration to use and load it
+			CSGenio.framework.TableConfiguration.TableConfiguration tableConfig = TableUiSettings.Load(
+				UserContext.Current.PersistentSupport,
+				model.Uuid,
+				UserContext.Current.User,
+				tableConfigOptions
+			).DetermineTableConfig(
+				requestModel?.TableConfiguration,
+				requestModel?.UserTableConfigName,
+				(bool)requestModel?.LoadDefaultView,
+				tableConfigOptions
+			);
+
+			// Determine rows per page
+			tableConfig.RowsPerPage = CSGenio.framework.TableConfiguration.TableConfigurationHelpers.DetermineRowsPerPage(tableConfig.RowsPerPage, perPage, rowsPerPageOptionsString);
+
+			// Determine what columns have totalizers
+			tableConfig.TotalizerColumns = requestModel.TotalizerColumns;
+
+			// For tables with multiple selection enabled, determine currently selected rows
+			tableConfig.SelectedRows = requestModel.SelectedRows;
+
+			// Add form field filters to the table configuration
+			tableConfig.FieldFilters = requestModel.RelatedFilterValues;
+
+
+			model.Load(tableConfig, requestValues, Request.IsAjaxRequest());
+
+			return JsonOK(model);
+		}
+
+		#endregion
 
 		public JsonResult GetAvailableMenus()
 		{

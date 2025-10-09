@@ -483,6 +483,9 @@
   <data name="POST24992" xml:space="preserve">
     <value>Post</value>
   </data>
+  <data name="HOME04166" xml:space="preserve">
+    <value>home</value>
+  </data>
   <data name="HORARIO56549" xml:space="preserve">
     <value>Horário</value>
   </data>
@@ -521,6 +524,9 @@
   </data>
   <data name="NOTIFICATION_MESSAGE31108" xml:space="preserve">
     <value>Notification Message</value>
+  </data>
+  <data name="RECENT_MOVIES43228" xml:space="preserve">
+    <value>Recent movies</value>
   </data>
   <data name="OBS42026" xml:space="preserve">
     <value>Obs</value>

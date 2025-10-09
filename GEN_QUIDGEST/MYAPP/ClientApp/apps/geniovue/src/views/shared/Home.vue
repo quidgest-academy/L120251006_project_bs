@@ -88,6 +88,9 @@
 
 				switch (hPage.Identifier)
 				{
+					case 'ss':
+						this.currentComponent = defineAsyncComponent(() => import('@/views/forms/FormHomp/QFormHomp.vue'))
+						break
 					default:
 						this.currentComponent = null
 				}

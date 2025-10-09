@@ -366,6 +366,9 @@
   <msg id="Post" code="POST24992">
     <ENUS>Post</ENUS>
   </msg>
+  <msg id="home" code="HOME04166">
+    <ENUS>home</ENUS>
+  </msg>
   <msg id="Horário" code="HORARIO56549">
     <ENUS>Horário</ENUS>
   </msg>
@@ -404,6 +407,9 @@
   </msg>
   <msg id="Notification Message" code="NOTIFICATION_MESSAGE31108">
     <ENUS>Notification Message</ENUS>
+  </msg>
+  <msg id="Recent movies" code="RECENT_MOVIES43228">
+    <ENUS>Recent movies</ENUS>
   </msg>
   <msg id="Obs" code="OBS42026">
     <ENUS>Obs</ENUS>

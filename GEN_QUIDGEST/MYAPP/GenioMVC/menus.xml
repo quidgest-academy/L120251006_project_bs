@@ -43,5 +43,9 @@
         <MENU TYPE="ITEM" ID="711" PRTID="71" IMG="" ACT="GenGenio.MenuFormConsulta" LVL="-1" PREVIEW="false" SEPARATES="false" SUMMENU="false" HIDEMENUSUM="false" HASCONDITION="false" ISFORM="false" ORDER="711" />
       </MENU>
     </MENU>
+    <MENU TYPE="ITEM" DESC="HOME04166" SIGLA="🍿" ID="8" HELPTITLE="" LVL="1" PREVIEW="false" SEPARATES="false" SUMMENU="false" HIDEMENUSUM="false" HASCONDITION="false" ISFORM="false" ORDER="8" DEFAULTACTION="">
+      <ACCESS>1</ACCESS>
+      <MENU TYPE="ITEM" ID="81" PRTID="8" IMG="" ACT="GenGenio.MenuFormConsulta" ACTMVC="Homp_Show" ACTVUE="form-HOMP" CONT="Home" LVL="-1" PREVIEW="false" SEPARATES="false" SUMMENU="false" HIDEMENUSUM="false" HASCONDITION="false" ISFORM="true" FORMMODE="SHOW" ORDER="81" />
+    </MENU>
   </MenuEntry>
 </ArrayOfMenuEntry>
