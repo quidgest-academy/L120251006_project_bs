@@ -204,8 +204,8 @@ export default class ViewModel extends FormViewModelBase
 				// eslint-disable-next-line @typescript-eslint/no-unused-vars
 				fnFormula(params)
 				{
-					// Formula: [MOVIE->SUMAVG]/[MOVIE->TOTALRAT]
-					return this.ValSumavg.value/this.ValTotalrate.value
+					// Formula: [MOVIE->SUMAVG]/iif([MOVIE->TOTALRAT]==0,1,[MOVIE->TOTALRAT])
+					return this.ValSumavg.value/qApi.iif(this.ValTotalrate.value===0,1,this.ValTotalrate.value)
 				},
 				dependencyEvents: ['fieldChange:movie.sumavg', 'fieldChange:movie.totalrate'],
 				isServerRecalc: false,

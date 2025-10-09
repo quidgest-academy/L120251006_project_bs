@@ -179,9 +179,9 @@ namespace CSGenio.business
 
 			Qfield.Dupmsg = "";
 			argumentsListByArea = new List<ByAreaArguments>();
-			argumentsListByArea.Add(new ByAreaArguments(new string[] {"sumavg","totalrate"}, new int[] {0,1}, "movie", "codmovie"));
-			Qfield.Formula = new InternalOperationFormula(argumentsListByArea, 2, delegate(object[] args, User user, string module, PersistentSupport sp) {
-				return ((decimal)args[0])/((decimal)args[1]);
+			argumentsListByArea.Add(new ByAreaArguments(new string[] {"sumavg","totalrate","totalrate"}, new int[] {0,1,2}, "movie", "codmovie"));
+			Qfield.Formula = new InternalOperationFormula(argumentsListByArea, 3, delegate(object[] args, User user, string module, PersistentSupport sp) {
+				return ((decimal)args[0])/((((decimal)args[1])==0)?(1):(((decimal)args[2])));
 			});
 			info.RegisterFieldDB(Qfield);
 
@@ -484,11 +484,11 @@ namespace CSGenio.business
 			set { insertNameValueField(FldSumavg, value); }
 		}
 
-		/// <summary>Field : "Average Rate" Tipo: "ND" Formula: + "[MOVIE->SUMAVG]/[MOVIE->TOTALRAT]"</summary>
+		/// <summary>Field : "Average Rate" Tipo: "ND" Formula: + "[MOVIE->SUMAVG]/iif([MOVIE->TOTALRAT]==0,1,[MOVIE->TOTALRAT])"</summary>
 		public static FieldRef FldAveragerate { get { return m_fldAveragerate; } }
 		private static FieldRef m_fldAveragerate = new FieldRef("movie", "averagerate");
 
-		/// <summary>Field : "Average Rate" Tipo: "ND" Formula: + "[MOVIE->SUMAVG]/[MOVIE->TOTALRAT]"</summary>
+		/// <summary>Field : "Average Rate" Tipo: "ND" Formula: + "[MOVIE->SUMAVG]/iif([MOVIE->TOTALRAT]==0,1,[MOVIE->TOTALRAT])"</summary>
 		public decimal ValAveragerate
 		{
 			get { return (decimal)returnValueField(FldAveragerate); }

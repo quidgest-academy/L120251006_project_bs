@@ -95,7 +95,7 @@ namespace GenioMVC.Models
 		public decimal? ValSumavg { get { return Convert.ToDecimal(GenFunctions.RoundQG(klass.ValSumavg, 0)); } set { klass.ValSumavg = Convert.ToDecimal(value); } }
 
 		[DisplayName("Average Rate")]
-		/// <summary>Field : "Average Rate" Tipo: "ND" Formula: + "[MOVIE->SUMAVG]/[MOVIE->TOTALRAT]"</summary>
+		/// <summary>Field : "Average Rate" Tipo: "ND" Formula: + "[MOVIE->SUMAVG]/iif([MOVIE->TOTALRAT]==0,1,[MOVIE->TOTALRAT])"</summary>
 		[ShouldSerialize("Movie.ValAveragerate")]
 		[NumericAttribute(0)]
 		public decimal? ValAveragerate { get { return Convert.ToDecimal(GenFunctions.RoundQG(klass.ValAveragerate, 0)); } set { klass.ValAveragerate = Convert.ToDecimal(value); } }
