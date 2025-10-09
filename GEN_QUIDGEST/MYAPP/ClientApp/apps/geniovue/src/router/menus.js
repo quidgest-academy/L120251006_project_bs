@@ -5,6 +5,19 @@ export default function getMenusRoutes()
 {
 	return [
 		{
+			path: '/:culture/:system/MOV/menu/MOV_21',
+			name: 'menu-MOV_21',
+			component: () => import('@/views/menus/ModuleMOV/MenuMOV_21/QMenuMov21.vue'),
+			meta: {
+				routeType: 'menu',
+				module: 'MOV',
+				order: '21',
+				baseArea: 'FAVOR',
+				hasInitialPHE: false,
+				humanKeyFields: [],
+			}
+		},
+		{
 			path: '/:culture/:system/MOV/menu/MOV_431',
 			name: 'menu-MOV_431',
 			component: () => import('@/views/menus/ModuleMOV/MenuMOV_431/QMenuMov431.vue'),
@@ -28,19 +41,6 @@ export default function getMenusRoutes()
 				baseArea: 'USERP',
 				hasInitialPHE: false,
 				humanKeyFields: ['ValName'],
-			}
-		},
-		{
-			path: '/:culture/:system/MOV/menu/MOV_211',
-			name: 'menu-MOV_211',
-			component: () => import('@/views/menus/ModuleMOV/MenuMOV_211/QMenuMov211.vue'),
-			meta: {
-				routeType: 'menu',
-				module: 'MOV',
-				order: '211',
-				baseArea: 'MOVIE',
-				hasInitialPHE: false,
-				humanKeyFields: ['ValTitle'],
 			}
 		},
 		{

@@ -4,18 +4,18 @@ using CSGenio.business;
 using CSGenio.framework;
 using GenioMVC.Models.Navigation;
 
-namespace GenioMVC.ViewModels.Movie;
+namespace GenioMVC.ViewModels.Favor;
 
-public class MOV_Menu_211_RowViewModel : Models.Movie
+public class MOV_Menu_21_RowViewModel : Models.Favor
 {
 	#region Constructors
 
-	public MOV_Menu_211_RowViewModel(UserContext userContext, bool isEmpty = false, string[]? fieldsToSerialize = null) : base(userContext, isEmpty, fieldsToSerialize)
+	public MOV_Menu_21_RowViewModel(UserContext userContext, bool isEmpty = false, string[]? fieldsToSerialize = null) : base(userContext, isEmpty, fieldsToSerialize)
 	{
 		InitRowProperties();
 	}
 
-	public MOV_Menu_211_RowViewModel(UserContext userContext, CSGenioAmovie val, bool isEmpty = false, string[]? fieldsToSerialize = null) : base(userContext, val, isEmpty, fieldsToSerialize)
+	public MOV_Menu_21_RowViewModel(UserContext userContext, CSGenioAfavor val, bool isEmpty = false, string[]? fieldsToSerialize = null) : base(userContext, val, isEmpty, fieldsToSerialize)
 	{
 		InitRowProperties();
 	}
@@ -36,38 +36,20 @@ public class MOV_Menu_211_RowViewModel : Models.Movie
 			new ListColumn()
 			{
 				Order = 1,
-				Area = "MOVIE",
-				Field = "DESCRIPTION",
+				Area = "FAVOR",
+				Field = "FAVORITE_AT",
 			},
 			new ListColumn()
 			{
 				Order = 2,
 				Area = "MOVIE",
-				Field = "REALEASE_DATE",
-			},
-			new ListColumn()
-			{
-				Order = 3,
-				Area = "MOVIE",
-				Field = "MOVIESGENRE",
-			},
-			new ListColumn()
-			{
-				Order = 4,
-				Area = "MOVIE",
 				Field = "TITLE",
 			},
 			new ListColumn()
 			{
-				Order = 5,
-				Area = "MOVIE",
-				Field = "POSTER",
-			},
-			new ListColumn()
-			{
-				Order = 6,
-				Area = "MOVIE",
-				Field = "CREATEAT",
+				Order = 3,
+				Area = "USERP",
+				Field = "NAME",
 			},
 		];
 	}
@@ -85,18 +67,6 @@ public class MOV_Menu_211_RowViewModel : Models.Movie
 
 		using (new CSGenio.persistence.ScopedPersistentSupport(m_userContext.PersistentSupport))
 		{
-			// Support Form F_MOVIES CRUD conditions.
-			// HasRole("99")
-			canEdit &= (Logical)(CSGenio.business.GlobalFunctions.HasRole(m_userContext.User,"99"));
-			// HasRole("99")
-			canDelete &= (Logical)(CSGenio.business.GlobalFunctions.HasRole(m_userContext.User,"99"));
-			// HasRole("99")
-			{
-				bool formulaResult = (Logical)(CSGenio.business.GlobalFunctions.HasRole(m_userContext.User,"99"));
-				canInsert &= formulaResult;
-				// If Insert is blocked by CRUD condition, Duplicate should also be blocked.
-				canDuplicate &= formulaResult;
-			}
 		}
 
 		BtnPermission = new TableRowCrudButtonPermissions()
