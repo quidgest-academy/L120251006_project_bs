@@ -159,6 +159,18 @@ export default class ViewModel extends FormViewModelBase
 		}).cloneFrom(values?.ValAveragerate))
 		this.stopWatchers.push(watch(() => this.ValAveragerate.value, (newValue, oldValue) => this.onUpdate('movie.averagerate', this.ValAveragerate, newValue, oldValue)))
 
+		this.ValLastrate = reactive(new modelFieldType.Number({
+			id: 'ValLastrate',
+			originId: 'ValLastrate',
+			area: 'MOVIE',
+			field: 'LASTRATE',
+			maxDigits: 1,
+			decimalDigits: 0,
+			isFixed: true,
+			description: computed(() => this.Resources.LASTRATE08537),
+		}).cloneFrom(values?.ValLastrate))
+		this.stopWatchers.push(watch(() => this.ValLastrate.value, (newValue, oldValue) => this.onUpdate('movie.lastrate', this.ValLastrate, newValue, oldValue)))
+
 		this.ValBackdrop = reactive(new modelFieldType.Image({
 			id: 'ValBackdrop',
 			originId: 'ValBackdrop',

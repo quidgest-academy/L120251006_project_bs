@@ -1294,6 +1294,15 @@ namespace Administration.Resources {
         }
 
         /// <summary>
+        ///   Looks up a localized string similar to "LastRate"
+        /// </summary>
+        public static string LASTRATE08537 {
+            get {
+                return ResourceManager.GetString("LASTRATE08537", resourceCulture);
+            }
+        }
+
+        /// <summary>
         ///   Looks up a localized string similar to "Routine"
         /// </summary>
         public static string ROUTINE58306 {

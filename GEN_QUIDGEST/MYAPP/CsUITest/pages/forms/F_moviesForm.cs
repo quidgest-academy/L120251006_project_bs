@@ -68,6 +68,11 @@ public class F_moviesForm : Form
 	public ButtonControl PseudField003 => new ButtonControl(driver, ContainerLocator, "#F_MOVIESPSEUDFIELD003");
 
 	/// <summary>
+	/// LastRate
+	/// </summary>
+	public BaseInputControl MovieLastrate => new BaseInputControl(driver, ContainerLocator, "container-F_MOVIESMOVIELASTRATE", "#F_MOVIESMOVIELASTRATE");
+
+	/// <summary>
 	/// Characters
 	/// </summary>
 	public CollapsibleZoneControl PseudNewgrp01 => new CollapsibleZoneControl(driver, ContainerLocator, "#F_MOVIESPSEUDNEWGRP01-container");

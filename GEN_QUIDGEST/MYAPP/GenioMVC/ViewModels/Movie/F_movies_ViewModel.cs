@@ -73,6 +73,11 @@ namespace GenioMVC.ViewModels.Movie
 		[ValidateSetAccess]
 		public decimal? ValAveragerate { get; set; }
 		/// <summary>
+		/// Title: "LastRate" | Type: "N"
+		/// </summary>
+		[ValidateSetAccess]
+		public decimal? ValLastrate { get; set; }
+		/// <summary>
 		/// Title: "Backdrop" | Type: "IJ"
 		/// </summary>
 		[ImageThumbnailJsonConverter(30, 50)]
@@ -278,6 +283,7 @@ namespace GenioMVC.ViewModels.Movie
 				ValCreateat = ViewModelConversion.ToDateTime(m.ValCreateat);
 				ValNumberoflikes = ViewModelConversion.ToNumeric(m.ValNumberoflikes);
 				ValAveragerate = ViewModelConversion.ToNumeric(m.ValAveragerate);
+				ValLastrate = ViewModelConversion.ToNumeric(m.ValLastrate);
 				ValBackdrop = ViewModelConversion.ToImage(m.ValBackdrop);
 				ValTotalrate = ViewModelConversion.ToNumeric(m.ValTotalrate);
 				ValSumavg = ViewModelConversion.ToNumeric(m.ValSumavg);
@@ -327,6 +333,7 @@ namespace GenioMVC.ViewModels.Movie
 
 				m.ValNumberoflikes = ViewModelConversion.ToNumeric(ValNumberoflikes);
 				m.ValAveragerate = ViewModelConversion.ToNumeric(ValAveragerate);
+				m.ValLastrate = ViewModelConversion.ToNumeric(ValLastrate);
 				m.ValTotalrate = ViewModelConversion.ToNumeric(ValTotalrate);
 				m.ValSumavg = ViewModelConversion.ToNumeric(ValSumavg);
 			}
@@ -548,6 +555,7 @@ namespace GenioMVC.ViewModels.Movie
 				"movie.createat" => ViewModelConversion.ToDateTime(modelValue),
 				"movie.numberoflikes" => ViewModelConversion.ToNumeric(modelValue),
 				"movie.averagerate" => ViewModelConversion.ToNumeric(modelValue),
+				"movie.lastrate" => ViewModelConversion.ToNumeric(modelValue),
 				"movie.backdrop" => ViewModelConversion.ToImage(modelValue),
 				"movie.totalrate" => ViewModelConversion.ToNumeric(modelValue),
 				"movie.sumavg" => ViewModelConversion.ToNumeric(modelValue),

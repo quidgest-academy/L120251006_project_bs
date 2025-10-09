@@ -181,6 +181,17 @@ namespace CSGenio.business
 			info.RegisterFieldDB(Qfield);
 
 			//- - - - - - - - - - - - - - - - - - -
+			Qfield = new Field(info.Alias, "lastrate", FieldType.NUMERIC);
+			Qfield.FieldDescription = "LastRate";
+			Qfield.FieldSize =  1;
+			Qfield.MQueue = false;
+			Qfield.IntegerDigits = 1;
+			Qfield.CavDesignation = "LASTRATE08537";
+
+			Qfield.Dupmsg = "";
+			info.RegisterFieldDB(Qfield);
+
+			//- - - - - - - - - - - - - - - - - - -
 			Qfield = new Field(info.Alias, "zzstate", FieldType.INTEGER);
 			Qfield.FieldDescription = "Estado da ficha";
 			info.RegisterFieldDB(Qfield);
@@ -239,6 +250,9 @@ namespace CSGenio.business
 			};
 
 
+			info.LastValueFields = new string[] {
+			 "lastrate"
+			};
 
 
 
@@ -476,6 +490,17 @@ namespace CSGenio.business
 			set { insertNameValueField(FldSumavg, value); }
 		}
 
+		/// <summary>Field : "LastRate" Tipo: "N" Formula: U1 "RATTI[RATTI->CODRATTI][RATTI->RATE]"</summary>
+		public static FieldRef FldLastrate { get { return m_fldLastrate; } }
+		private static FieldRef m_fldLastrate = new FieldRef("movie", "lastrate");
+
+		/// <summary>Field : "LastRate" Tipo: "N" Formula: U1 "RATTI[RATTI->CODRATTI][RATTI->RATE]"</summary>
+		public decimal ValLastrate
+		{
+			get { return (decimal)returnValueField(FldLastrate); }
+			set { insertNameValueField(FldLastrate, value); }
+		}
+
 		/// <summary>Field : "ZZSTATE" Type: "INT" Formula:  ""</summary>
 		public static FieldRef FldZzstate { get { return m_fldZzstate; } }
 		private static FieldRef m_fldZzstate = new FieldRef("movie", "zzstate");
@@ -573,7 +598,7 @@ namespace CSGenio.business
 
  
 
-             
+              
 
 	}
 }

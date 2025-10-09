@@ -100,6 +100,12 @@ namespace GenioMVC.Models
 		[NumericAttribute(0)]
 		public decimal? ValSumavg { get { return Convert.ToDecimal(GenFunctions.RoundQG(klass.ValSumavg, 0)); } set { klass.ValSumavg = Convert.ToDecimal(value); } }
 
+		[DisplayName("LastRate")]
+		/// <summary>Field : "LastRate" Tipo: "N" Formula: U1 "RATTI[RATTI->CODRATTI][RATTI->RATE]"</summary>
+		[ShouldSerialize("Movie.ValLastrate")]
+		[NumericAttribute(0)]
+		public decimal? ValLastrate { get { return Convert.ToDecimal(GenFunctions.RoundQG(klass.ValLastrate, 0)); } set { klass.ValLastrate = Convert.ToDecimal(value); } }
+
 		[DisplayName("ZZSTATE")]
 		[ShouldSerialize("Movie.ValZzstate")]
 		/// <summary>Field: "ZZSTATE", Type: "INT", Formula: ""</summary>

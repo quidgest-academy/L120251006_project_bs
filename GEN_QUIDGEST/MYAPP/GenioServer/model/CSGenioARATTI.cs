@@ -151,6 +151,17 @@ namespace CSGenio.business
 
 
 
+			//Actualiza as seguintes rotinas de ultimo Qvalue:
+			info.LastValueArgs = new List<LastValueArgument>();
+			info.LastValueArgs.Add( new LastValueArgument("movie",
+				new string [] {"lastrate"},
+				new string [] {"rate"},
+				"codratti",
+				null,
+
+				null, false));
+
+
 			info.DefaultValues = new string[] {
 			 "ratedat"
 			};

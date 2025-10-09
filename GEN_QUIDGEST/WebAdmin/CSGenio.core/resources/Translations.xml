@@ -411,6 +411,9 @@
   <msg id="Has login?" code="HAS_LOGIN_58044">
     <ENUS>Has login?</ENUS>
   </msg>
+  <msg id="LastRate" code="LASTRATE08537">
+    <ENUS>LastRate</ENUS>
+  </msg>
   <msg id="Routine" code="ROUTINE58306">
     <ENUS>Routine</ENUS>
   </msg>

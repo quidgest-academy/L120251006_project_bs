@@ -528,6 +528,9 @@
   <data name="HAS_LOGIN_58044" xml:space="preserve">
     <value>Has login?</value>
   </data>
+  <data name="LASTRATE08537" xml:space="preserve">
+    <value>LastRate</value>
+  </data>
   <data name="ROUTINE58306" xml:space="preserve">
     <value>Routine</value>
   </data>
