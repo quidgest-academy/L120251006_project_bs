@@ -448,6 +448,15 @@ namespace Administration.Resources {
         }
 
         /// <summary>
+        ///   Looks up a localized string similar to "BiggerThan20"
+        /// </summary>
+        public static string BIGGERTHAN2058170 {
+            get {
+                return ResourceManager.GetString("BIGGERTHAN2058170", resourceCulture);
+            }
+        }
+
+        /// <summary>
         ///   Looks up a localized string similar to "Async process arguments"
         /// </summary>
         public static string ASYNC_PROCESS_ARGUME13794 {
