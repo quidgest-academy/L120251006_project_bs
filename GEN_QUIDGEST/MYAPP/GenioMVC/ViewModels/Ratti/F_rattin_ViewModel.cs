@@ -43,7 +43,7 @@ namespace GenioMVC.ViewModels.Ratti
 		/// <summary>
 		/// Title: "Poster" | Type: "IJ"
 		/// </summary>
-		[ImageThumbnailJsonConverter(100, 50)]
+		[ImageThumbnailJsonConverter(30, 50)]
 		[ValidateSetAccess]
 		public GenioMVC.Models.ImageModel MovieValPoster 
 		{

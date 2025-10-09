@@ -68,10 +68,25 @@ namespace GenioMVC.ViewModels.Movie
 		[ValidateSetAccess]
 		public decimal? ValNumberoflikes { get; set; }
 		/// <summary>
+		/// Title: "Average Rate" | Type: "N"
+		/// </summary>
+		[ValidateSetAccess]
+		public decimal? ValAveragerate { get; set; }
+		/// <summary>
 		/// Title: "Backdrop" | Type: "IJ"
 		/// </summary>
 		[ImageThumbnailJsonConverter(30, 50)]
 		public GenioMVC.Models.ImageModel ValBackdrop { get; set; }
+		/// <summary>
+		/// Title: "Total rate" | Type: "N"
+		/// </summary>
+		[ValidateSetAccess]
+		public decimal? ValTotalrate { get; set; }
+		/// <summary>
+		/// Title: "" | Type: "N"
+		/// </summary>
+		[ValidateSetAccess]
+		public decimal? ValSumavg { get; set; }
 
 
 
@@ -262,7 +277,10 @@ namespace GenioMVC.ViewModels.Movie
 				ValDescription = ViewModelConversion.ToString(m.ValDescription);
 				ValCreateat = ViewModelConversion.ToDateTime(m.ValCreateat);
 				ValNumberoflikes = ViewModelConversion.ToNumeric(m.ValNumberoflikes);
+				ValAveragerate = ViewModelConversion.ToNumeric(m.ValAveragerate);
 				ValBackdrop = ViewModelConversion.ToImage(m.ValBackdrop);
+				ValTotalrate = ViewModelConversion.ToNumeric(m.ValTotalrate);
+				ValSumavg = ViewModelConversion.ToNumeric(m.ValSumavg);
 				ValCodmovie = ViewModelConversion.ToString(m.ValCodmovie);
 			}
 			catch (Exception)
@@ -308,6 +326,9 @@ namespace GenioMVC.ViewModels.Movie
 					return;
 
 				m.ValNumberoflikes = ViewModelConversion.ToNumeric(ValNumberoflikes);
+				m.ValAveragerate = ViewModelConversion.ToNumeric(ValAveragerate);
+				m.ValTotalrate = ViewModelConversion.ToNumeric(ValTotalrate);
+				m.ValSumavg = ViewModelConversion.ToNumeric(ValSumavg);
 			}
 			catch (Exception)
 			{
@@ -526,7 +547,10 @@ namespace GenioMVC.ViewModels.Movie
 				"movie.description" => ViewModelConversion.ToString(modelValue),
 				"movie.createat" => ViewModelConversion.ToDateTime(modelValue),
 				"movie.numberoflikes" => ViewModelConversion.ToNumeric(modelValue),
+				"movie.averagerate" => ViewModelConversion.ToNumeric(modelValue),
 				"movie.backdrop" => ViewModelConversion.ToImage(modelValue),
+				"movie.totalrate" => ViewModelConversion.ToNumeric(modelValue),
+				"movie.sumavg" => ViewModelConversion.ToNumeric(modelValue),
 				"movie.codmovie" => ViewModelConversion.ToString(modelValue),
 				_ => modelValue
 			};

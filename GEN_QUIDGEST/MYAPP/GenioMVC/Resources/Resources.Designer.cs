@@ -549,6 +549,15 @@ namespace GenioMVC.Resources
 		}
 
 		/// <summary>
+		///   Looks up a localized string similar to "Total rate"
+		/// </summary>
+		public static string TOTAL_RATE13592 {
+			get {
+				return ResourceManager.GetString("TOTAL_RATE13592", resourceCulture);
+			}
+		}
+
+		/// <summary>
 		///   Looks up a localized string similar to "Password date"
 		/// </summary>
 		public static string PASSWORD_DATE16593 {
@@ -1184,6 +1193,15 @@ namespace GenioMVC.Resources
 		public static string NOTIFICATION_MESSAGE60981 {
 			get {
 				return ResourceManager.GetString("NOTIFICATION_MESSAGE60981", resourceCulture);
+			}
+		}
+
+		/// <summary>
+		///   Looks up a localized string similar to "Average Rate"
+		/// </summary>
+		public static string AVERAGE_RATE24140 {
+			get {
+				return ResourceManager.GetString("AVERAGE_RATE24140", resourceCulture);
 			}
 		}
 

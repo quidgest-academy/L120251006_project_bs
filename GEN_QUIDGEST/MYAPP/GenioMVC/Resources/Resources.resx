@@ -279,6 +279,9 @@
 	<data name="EM_EXECUCAO53706" xml:space="preserve">
 		<value>Em execução</value>
 	</data>
+	<data name="TOTAL_RATE13592" xml:space="preserve">
+		<value>Total rate</value>
+	</data>
 	<data name="PASSWORD_DATE16593" xml:space="preserve">
 		<value>Password date</value>
 	</data>
@@ -491,6 +494,9 @@
 	</data>
 	<data name="NOTIFICATION_MESSAGE60981" xml:space="preserve">
 		<value>Notification Messages</value>
+	</data>
+	<data name="AVERAGE_RATE24140" xml:space="preserve">
+		<value>Average Rate</value>
 	</data>
 	<data name="NOME53888" xml:space="preserve">
 		<value>NOME</value>

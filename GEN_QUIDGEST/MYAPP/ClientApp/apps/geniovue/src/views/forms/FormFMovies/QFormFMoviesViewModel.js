@@ -135,6 +135,30 @@ export default class ViewModel extends FormViewModelBase
 		}).cloneFrom(values?.ValNumberoflikes))
 		this.stopWatchers.push(watch(() => this.ValNumberoflikes.value, (newValue, oldValue) => this.onUpdate('movie.numberoflikes', this.ValNumberoflikes, newValue, oldValue)))
 
+		this.ValAveragerate = reactive(new modelFieldType.Number({
+			id: 'ValAveragerate',
+			originId: 'ValAveragerate',
+			area: 'MOVIE',
+			field: 'ARATE',
+			maxDigits: 2,
+			decimalDigits: 0,
+			isFixed: true,
+			valueFormula: {
+				stopRecalcCondition() { return false },
+				// eslint-disable-next-line @typescript-eslint/no-unused-vars
+				fnFormula(params)
+				{
+					// Formula: [MOVIE->SUMAVG]/[MOVIE->TOTALRAT]
+					return this.ValSumavg.value/this.ValTotalrate.value
+				},
+				dependencyEvents: ['fieldChange:movie.sumavg', 'fieldChange:movie.totalrate'],
+				isServerRecalc: false,
+				isEmpty: qApi.emptyN,
+			},
+			description: computed(() => this.Resources.AVERAGE_RATE24140),
+		}).cloneFrom(values?.ValAveragerate))
+		this.stopWatchers.push(watch(() => this.ValAveragerate.value, (newValue, oldValue) => this.onUpdate('movie.averagerate', this.ValAveragerate, newValue, oldValue)))
+
 		this.ValBackdrop = reactive(new modelFieldType.Image({
 			id: 'ValBackdrop',
 			originId: 'ValBackdrop',
@@ -143,6 +167,30 @@ export default class ViewModel extends FormViewModelBase
 			description: computed(() => this.Resources.BACKDROP05167),
 		}).cloneFrom(values?.ValBackdrop))
 		this.stopWatchers.push(watch(() => this.ValBackdrop.value, (newValue, oldValue) => this.onUpdate('movie.backdrop', this.ValBackdrop, newValue, oldValue)))
+
+		this.ValTotalrate = reactive(new modelFieldType.Number({
+			id: 'ValTotalrate',
+			originId: 'ValTotalrate',
+			area: 'MOVIE',
+			field: 'TOTALRAT',
+			maxDigits: 6,
+			decimalDigits: 0,
+			isFixed: true,
+			description: computed(() => this.Resources.TOTAL_RATE13592),
+		}).cloneFrom(values?.ValTotalrate))
+		this.stopWatchers.push(watch(() => this.ValTotalrate.value, (newValue, oldValue) => this.onUpdate('movie.totalrate', this.ValTotalrate, newValue, oldValue)))
+
+		this.ValSumavg = reactive(new modelFieldType.Number({
+			id: 'ValSumavg',
+			originId: 'ValSumavg',
+			area: 'MOVIE',
+			field: 'SUMAVG',
+			maxDigits: 6,
+			decimalDigits: 0,
+			isFixed: true,
+			description: '',
+		}).cloneFrom(values?.ValSumavg))
+		this.stopWatchers.push(watch(() => this.ValSumavg.value, (newValue, oldValue) => this.onUpdate('movie.sumavg', this.ValSumavg, newValue, oldValue)))
 	}
 
 	/**

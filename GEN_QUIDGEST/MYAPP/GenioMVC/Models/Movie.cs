@@ -82,6 +82,24 @@ namespace GenioMVC.Models
 		[JsonIgnore]
 		public string ValBackdropQTicket = null;
 
+		[DisplayName("Average Rate")]
+		/// <summary>Field : "Average Rate" Tipo: "N" Formula: + "[MOVIE->SUMAVG]/[MOVIE->TOTALRAT]"</summary>
+		[ShouldSerialize("Movie.ValAveragerate")]
+		[NumericAttribute(0)]
+		public decimal? ValAveragerate { get { return Convert.ToDecimal(GenFunctions.RoundQG(klass.ValAveragerate, 0)); } set { klass.ValAveragerate = Convert.ToDecimal(value); } }
+
+		[DisplayName("Total rate")]
+		/// <summary>Field : "Total rate" Tipo: "N" Formula: SR "[RATTI->1]"</summary>
+		[ShouldSerialize("Movie.ValTotalrate")]
+		[NumericAttribute(0)]
+		public decimal? ValTotalrate { get { return Convert.ToDecimal(GenFunctions.RoundQG(klass.ValTotalrate, 0)); } set { klass.ValTotalrate = Convert.ToDecimal(value); } }
+
+		[DisplayName("")]
+		/// <summary>Field : "" Tipo: "N" Formula: SR "[RATTI->RATE]"</summary>
+		[ShouldSerialize("Movie.ValSumavg")]
+		[NumericAttribute(0)]
+		public decimal? ValSumavg { get { return Convert.ToDecimal(GenFunctions.RoundQG(klass.ValSumavg, 0)); } set { klass.ValSumavg = Convert.ToDecimal(value); } }
+
 		[DisplayName("ZZSTATE")]
 		[ShouldSerialize("Movie.ValZzstate")]
 		/// <summary>Field: "ZZSTATE", Type: "INT", Formula: ""</summary>

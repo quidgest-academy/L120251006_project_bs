@@ -162,6 +162,9 @@
   <msg id="Em execução" code="EM_EXECUCAO53706">
     <ENUS>Em execução</ENUS>
   </msg>
+  <msg id="Total rate" code="TOTAL_RATE13592">
+    <ENUS>Total rate</ENUS>
+  </msg>
   <msg id="Password date" code="PASSWORD_DATE16593">
     <ENUS>Password date</ENUS>
   </msg>
@@ -374,6 +377,9 @@
   </msg>
   <msg id="Notification Messages" code="NOTIFICATION_MESSAGE60981">
     <ENUS>Notification Messages</ENUS>
+  </msg>
+  <msg id="Average Rate" code="AVERAGE_RATE24140">
+    <ENUS>Average Rate</ENUS>
   </msg>
   <msg id="NOME" code="NOME53888">
     <ENUS>NOME</ENUS>

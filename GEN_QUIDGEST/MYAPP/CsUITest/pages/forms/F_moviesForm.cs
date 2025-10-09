@@ -58,6 +58,11 @@ public class F_moviesForm : Form
 	public ButtonControl PseudField002 => new ButtonControl(driver, ContainerLocator, "#F_MOVIESPSEUDFIELD002");
 
 	/// <summary>
+	/// Average Rate
+	/// </summary>
+	public BaseInputControl MovieArate => new BaseInputControl(driver, ContainerLocator, "container-F_MOVIESMOVIEARATE___", "#F_MOVIESMOVIEARATE___");
+
+	/// <summary>
 	/// Rate
 	/// </summary>
 	public ButtonControl PseudField003 => new ButtonControl(driver, ContainerLocator, "#F_MOVIESPSEUDFIELD003");
@@ -76,6 +81,16 @@ public class F_moviesForm : Form
 	/// Backdrop
 	/// </summary>
 	public BaseInputControl MovieBackdrop => new BaseInputControl(driver, ContainerLocator, "container-F_MOVIESMOVIEBACKDROP", "#F_MOVIESMOVIEBACKDROP");
+
+	/// <summary>
+	/// Total rate
+	/// </summary>
+	public BaseInputControl MovieTotalrat => new BaseInputControl(driver, ContainerLocator, "container-F_MOVIESMOVIETOTALRAT", "#F_MOVIESMOVIETOTALRAT");
+
+	/// <summary>
+	/// 
+	/// </summary>
+	public BaseInputControl MovieSumavg => new BaseInputControl(driver, ContainerLocator, "container-F_MOVIESMOVIESUMAVG__", "#F_MOVIESMOVIESUMAVG__");
 
 	public F_moviesForm(IWebDriver driver, FORM_MODE mode, By? containerLocator = null)
 		: base(driver, mode, "F_MOVIES", containerLocator: containerLocator) { }
