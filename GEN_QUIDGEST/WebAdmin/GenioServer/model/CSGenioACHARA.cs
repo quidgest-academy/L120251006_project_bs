@@ -94,6 +94,7 @@ namespace CSGenio.business
 			Qfield.CavDesignation = "GENRE63303";
 
 			Qfield.Dupmsg = "";
+			Qfield.DefaultValue = new DefaultValue(DefaultValue.getLast, "genre");
             Qfield.ArrayName = "dbo.GetValArrayCgenre";
             Qfield.ArrayClassName = "Genre";
 			info.RegisterFieldDB(Qfield);
@@ -164,6 +165,9 @@ namespace CSGenio.business
 			 "createat"
 			};
 
+			info.SequentialDefaultValues = new string[] {
+			 "genre"
+			};
 
 
 
