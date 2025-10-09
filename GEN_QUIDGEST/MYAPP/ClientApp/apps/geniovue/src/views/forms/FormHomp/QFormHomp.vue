@@ -125,10 +125,12 @@
 							v-on="controls.HOMP____PSEUDFIELD002.handlers" />
 					</q-control-wrapper>
 				</q-row-container>
-				<q-row-container v-if="controls.HOMP____PSEUDFIELD003.isVisible">
+				<q-row-container
+					v-if="controls.HOMP____PSEUDFIELD003.isVisible"
+					is-large>
 					<q-control-wrapper
 						v-if="controls.HOMP____PSEUDFIELD003.isVisible"
-						class="control-join-group">
+						class="row-line-group">
 						<q-table
 							v-if="controls.HOMP____PSEUDFIELD003.isVisible"
 							v-bind="controls.HOMP____PSEUDFIELD003"
@@ -1007,7 +1009,7 @@
 					HOMP____PSEUDFIELD003: new fieldControlClass.TableSpecialRenderingControl({
 						id: 'HOMP____PSEUDFIELD003',
 						name: 'FIELD003',
-						size: '',
+						size: 'block',
 						label: computed(() => this.Resources.BEST_RATING13385),
 						placeholder: '',
 						labelPosition: computed(() => this.labelAlignment.topleft),
