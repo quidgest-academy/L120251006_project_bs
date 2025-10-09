@@ -602,6 +602,16 @@
 						mustBeFilled: true,
 						controlLimits: [
 						],
+						showWhen: {
+							// eslint-disable-next-line @typescript-eslint/no-unused-vars
+							fnFormula(params)
+							{
+								// Formula: !isEmptyC([CHARA->NAME])
+								return !(this.ValName.value === '')
+							},
+							dependencyEvents: ['fieldChange:chara.name'],
+							isServerRecalc: false,
+						},
 					}, this),
 					F_CHARACCHARACREATEAT: new fieldControlClass.DateControl({
 						modelField: 'ValCreateat',
