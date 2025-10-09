@@ -313,7 +313,7 @@ namespace GenioMVC.ViewModels
 
 				}
 
-				FieldRef[] fields = new FieldRef[] { CSGenioAmovie.FldCodmovie, CSGenioAmovie.FldZzstate, CSGenioAmovie.FldTitle, CSGenioAmovie.FldPoster, CSGenioAmovie.FldRealease_date };
+				FieldRef[] fields = new FieldRef[] { CSGenioAmovie.FldCodmovie, CSGenioAmovie.FldZzstate, CSGenioAmovie.FldTitle, CSGenioAmovie.FldBackdrop, CSGenioAmovie.FldRealease_date };
 
 
 				// Totalizers
@@ -509,7 +509,7 @@ namespace GenioMVC.ViewModels
 
 		private static readonly string[] _fieldsToSerialize =
 		[
-			"Movie", "Movie.ValCodmovie", "Movie.ValZzstate", "Movie.ValTitle", "Movie.ValPoster", "Movie.ValRealease_date"
+			"Movie", "Movie.ValCodmovie", "Movie.ValZzstate", "Movie.ValTitle", "Movie.ValBackdrop", "Movie.ValRealease_date"
 		];
 
 		private static readonly List<TableSearchColumn> _searchableColumns =
@@ -522,7 +522,7 @@ namespace GenioMVC.ViewModels
 			if (row == null)
 				return;
 
-			row.ValPosterQTicket = Helpers.Helpers.GetFileTicket(m_userContext.User, CSGenio.business.Area.AreaMOVIE, CSGenioAmovie.FldPoster.Field, null, row.ValCodmovie);
+			row.ValBackdropQTicket = Helpers.Helpers.GetFileTicket(m_userContext.User, CSGenio.business.Area.AreaMOVIE, CSGenioAmovie.FldBackdrop.Field, null, row.ValCodmovie);
 		}
 	}
 }

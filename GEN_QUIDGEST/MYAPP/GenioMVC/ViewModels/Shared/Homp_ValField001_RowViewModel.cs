@@ -43,7 +43,7 @@ public class Homp_ValField001_RowViewModel : Models.Movie
 			{
 				Order = 2,
 				Area = "MOVIE",
-				Field = "POSTER",
+				Field = "BACKDROP",
 			},
 			new ListColumn()
 			{
