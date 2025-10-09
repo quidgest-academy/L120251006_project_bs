@@ -651,6 +651,29 @@ namespace GenioMVC.ViewModels.Ratti
 
 			if (f_rattinuserpname____DoLoad)
 			{
+				{
+					// The foreign key field with the unique value: 'CODUSERP' | non-duplication prefix field: 'CODMOVIE'
+					// Apply the limit of the unique value field, to avoid choosing an option that is not valid.
+
+					// First, apply the condition to see the records already used, except the record itself.
+					var uniqueCondition = CriteriaSet.And()
+							.Equal(CSGenioAratti.FldCoduserp, CSGenioAuserp.FldCoduserp)
+							.NotEqual(CSGenioAratti.FldCodratti, Navigation.GetValue("ratti"))
+							.Equal(CSGenioAratti.FldZzstate, 0);
+
+					// Apply a non-duplication prefix to the condition.
+					var prefixFieldRef = CSGenioAratti.FldCodmovie;
+					// Get the value of the non-duplication prefix field from the view model (field present in the form)
+					uniqueCondition
+						.Equal(prefixFieldRef, CSGenio.persistence.QueryUtils.ToValidDbValue(ValCodmovie, CSGenioAratti.GetInformation().DBFields[prefixFieldRef.Field]));
+					// Apply the subquery that will filter the records to display only the available ones.
+					var uniqueConditionSql = new SelectQuery()
+						.Select(new SqlValue(1), "exists")
+						.From(CSGenio.business.Area.AreaRATTI)
+						.Where(uniqueCondition);
+					f_rattinuserpname____Conds.NotExists(uniqueConditionSql);
+				}
+
 				List<ColumnSort> sorts = new List<ColumnSort>();
 				ColumnSort requestedSort = GetRequestSort(TableUserpName, "sTableUserpName", "dTableUserpName", qs, "userp");
 				if (requestedSort != null)

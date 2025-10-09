@@ -574,6 +574,13 @@
 							set 'userp.name'(value) { vm.model.TableUserpName.updateValue(value) },
 						}),
 						controlLimits: [
+							// The non-duplication prefix field of the unique foreign key field.
+							{
+								identifier: 'ratti.codmovie',
+								dependencyEvents: ['fieldChange:ratti.codmovie'],
+								dependencyField: 'RATTI.CODMOVIE',
+								fnValueSelector: (model) => model.ValCodmovie.value,
+							},
 						],
 					}, this),
 					F_RATTINRATTIRATE____: new fieldControlClass.NumberControl({

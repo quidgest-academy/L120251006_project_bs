@@ -83,10 +83,11 @@ public class AppPage: PageObject
 		res.AddMenu(module, "2", null);
 		res.AddMenu(module, "3", null);
 		res.AddMenu(module, "4", null);
-		res.AddMenu(module, "5", null);
-		res.AddMenu(module, "6", null);
-		res.AddMenu(module, "7", null);
-		res.AddMenu(module, "8", null);
+		res.AddMenu(module, "41", "4");
+		res.AddMenu(module, "42", "4");
+		res.AddMenu(module, "43", "4");
+		res.AddMenu(module, "44", "4");
+		res.AddMenu(module, "45", "4");
         return res;
     }
 }

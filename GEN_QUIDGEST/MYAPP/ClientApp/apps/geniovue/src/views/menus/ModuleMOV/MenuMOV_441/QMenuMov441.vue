@@ -71,17 +71,17 @@
 	import qProjArrays from '@/api/genio/projectArrays.js'
 	/* eslint-enable @typescript-eslint/no-unused-vars */
 
-	import MenuViewModel from './QMenuMOV_41ViewModel.js'
+	import MenuViewModel from './QMenuMOV_441ViewModel.js'
 
-	const requiredTextResources = ['QMenuMOV_41', 'hardcoded', 'messages']
+	const requiredTextResources = ['QMenuMOV_441', 'hardcoded', 'messages']
 
 /* eslint-disable indent, vue/html-indent, vue/script-indent */
-// USE /[MANUAL MOV FORM_INCLUDEJS MOV_MENU_41]/
+// USE /[MANUAL MOV FORM_INCLUDEJS MOV_MENU_441]/
 // eslint-disable-next-line
 /* eslint-enable indent, vue/html-indent, vue/script-indent */
 
 	export default {
-		name: 'QMenuMov41',
+		name: 'QMenuMov441',
 
 		mixins: [
 			MenuHandlers
@@ -110,23 +110,23 @@
 			// eslint-disable-next-line
 			const vm = this
 			return {
-				componentOnLoadProc: asyncProcM.getProcListMonitor('QMenuMOV_41', false),
+				componentOnLoadProc: asyncProcM.getProcListMonitor('QMenuMOV_441', false),
 
 				interfaceMetadata: {
-					id: 'QMenuMOV_41', // Used for resources
+					id: 'QMenuMOV_441', // Used for resources
 					requiredTextResources
 				},
 
 				menuInfo: {
-					id: '41',
+					id: '441',
 					isMenuList: true,
-					designation: computed(() => this.Resources.CHARACTERS03735),
-					acronym: 'MOV_41',
-					name: 'CHARA',
-					route: 'menu-MOV_41',
-					order: '41',
-					controller: 'CHARA',
-					action: 'MOV_Menu_41',
+					designation: computed(() => this.Resources.COMMENTS30895),
+					acronym: 'MOV_441',
+					name: 'COMME',
+					route: 'menu-MOV_441',
+					order: '441',
+					controller: 'COMME',
+					action: 'MOV_Menu_441',
 					isPopup: false
 				},
 
@@ -135,9 +135,9 @@
 				controls: {
 					menu: new controlClass.TableListControl({
 						fnHydrateViewModel: (data) => vm.model.hydrate(data),
-						id: 'MOV_Menu_41',
-						controller: 'CHARA',
-						action: 'MOV_Menu_41',
+						id: 'MOV_Menu_441',
+						controller: 'COMME',
+						action: 'MOV_Menu_441',
 						hasDependencies: false,
 						isInCollapsible: false,
 						tableModeClasses: [
@@ -145,20 +145,35 @@
 							'page-full-height'
 						],
 						columnsOriginal: [
-							new listColumnTypes.ArrayColumn({
+							new listColumnTypes.TextColumn({
 								order: 1,
-								name: 'ValGenre',
-								area: 'CHARA',
-								field: 'GENRE',
-								label: computed(() => this.Resources.GENRE63303),
-								dataLength: 1,
-								scrollData: 1,
-								array: computed(() => new qProjArrays.QArrayGenre(vm.$getResource).elements),
-								arrayType: qProjArrays.QArrayGenre.type,
-								arrayDisplayMode: 'D',
+								name: 'ValPost',
+								area: 'COMME',
+								field: 'POST',
+								label: computed(() => this.Resources.POST24992),
+								scrollData: 30,
 							}, computed(() => vm.model), computed(() => vm.internalEvents)),
 							new listColumnTypes.TextColumn({
 								order: 2,
+								name: 'Userp.ValName',
+								area: 'USERP',
+								field: 'NAME',
+								label: computed(() => this.Resources.NAME31974),
+								dataLength: 50,
+								scrollData: 30,
+								pkColumn: 'ValCoduserp',
+							}, computed(() => vm.model), computed(() => vm.internalEvents)),
+							new listColumnTypes.DateColumn({
+								order: 3,
+								name: 'ValCreateat',
+								area: 'COMME',
+								field: 'CREATEAT',
+								label: computed(() => this.Resources.CREATE_AT36393),
+								scrollData: 8,
+								dateTimeType: 'date',
+							}, computed(() => vm.model), computed(() => vm.internalEvents)),
+							new listColumnTypes.TextColumn({
+								order: 4,
 								name: 'Movie.ValTitle',
 								area: 'MOVIE',
 								field: 'TITLE',
@@ -167,43 +182,16 @@
 								scrollData: 30,
 								pkColumn: 'ValCodmovie',
 							}, computed(() => vm.model), computed(() => vm.internalEvents)),
-							new listColumnTypes.DateColumn({
-								order: 3,
-								name: 'ValCreateat',
-								area: 'CHARA',
-								field: 'CREATEAT',
-								label: computed(() => this.Resources.CREATE_AT36393),
-								scrollData: 8,
-								dateTimeType: 'date',
-							}, computed(() => vm.model), computed(() => vm.internalEvents)),
-							new listColumnTypes.TextColumn({
-								order: 4,
-								name: 'ValName',
-								area: 'CHARA',
-								field: 'NAME',
-								label: computed(() => this.Resources.NAME31974),
-								dataLength: 80,
-								scrollData: 30,
-							}, computed(() => vm.model), computed(() => vm.internalEvents)),
-							new listColumnTypes.TextColumn({
-								order: 5,
-								name: 'ValActorname',
-								area: 'CHARA',
-								field: 'ACTORNAME',
-								label: computed(() => this.Resources.ACTOR_NAME48089),
-								dataLength: 80,
-								scrollData: 30,
-							}, computed(() => vm.model), computed(() => vm.internalEvents)),
 						],
 						config: {
-							name: 'MOV_Menu_41',
+							name: 'MOV_Menu_441',
 							serverMode: true,
-							pkColumn: 'ValCodchara',
-							tableAlias: 'CHARA',
-							tableNamePlural: computed(() => this.Resources.CHARACTERS03735),
+							pkColumn: 'ValCodcomme',
+							tableAlias: 'COMME',
+							tableNamePlural: computed(() => this.Resources.COMMENTS30895),
 							viewManagement: '',
 							showLimitsInfo: true,
-							tableTitle: computed(() => this.Resources.CHARACTERS03735),
+							tableTitle: computed(() => this.Resources.COMMENTS30895),
 							showAlternatePagination: true,
 							permissions: {
 							},
@@ -226,7 +214,7 @@
 									params: {
 										action: vm.openFormAction,
 										type: 'form',
-										formName: 'F_CHARAC',
+										formName: 'F_COMMEN',
 										mode: 'SHOW',
 										isControlled: true
 									}
@@ -242,7 +230,7 @@
 									params: {
 										action: vm.openFormAction,
 										type: 'form',
-										formName: 'F_CHARAC',
+										formName: 'F_COMMEN',
 										mode: 'EDIT',
 										isControlled: true
 									}
@@ -258,7 +246,7 @@
 									params: {
 										action: vm.openFormAction,
 										type: 'form',
-										formName: 'F_CHARAC',
+										formName: 'F_COMMEN',
 										mode: 'DUPLICATE',
 										isControlled: true
 									}
@@ -274,7 +262,7 @@
 									params: {
 										action: vm.openFormAction,
 										type: 'form',
-										formName: 'F_CHARAC',
+										formName: 'F_COMMEN',
 										mode: 'DELETE',
 										isControlled: true
 									}
@@ -292,7 +280,7 @@
 									params: {
 										action: vm.openFormAction,
 										type: 'form',
-										formName: 'F_CHARAC',
+										formName: 'F_COMMEN',
 										mode: 'NEW',
 										repeatInsertion: false,
 										isControlled: true
@@ -308,35 +296,35 @@
 							MCActions: [
 							],
 							rowClickAction: {
-								id: 'RCA_MOV_411',
-								name: 'form-F_CHARAC',
+								id: 'RCA_MOV_4411',
+								name: 'form-F_COMMEN',
 								params: {
 									isRoute: true,
 									limits: [
 										{
 											identifier: 'id',
-											fnValueSelector: (row) => row.ValCodchara
+											fnValueSelector: (row) => row.ValCodcomme
 										},
 									],
 									isControlled: true,
-									action: vm.openFormAction, type: 'form', mode: 'SHOW', formName: 'F_CHARAC'
+									action: vm.openFormAction, type: 'form', mode: 'SHOW', formName: 'F_COMMEN'
 								}
 							},
 							formsDefinition: {
-								'F_CHARAC': {
-									fnKeySelector: (row) => row.Fields.ValCodchara,
+								'F_COMMEN': {
+									fnKeySelector: (row) => row.Fields.ValCodcomme,
 									isPopup: false
 								},
 							},
-							defaultSearchColumnName: 'ValName',
-							defaultSearchColumnNameOriginal: 'ValName',
+							defaultSearchColumnName: '',
+							defaultSearchColumnNameOriginal: '',
 							defaultColumnSorting: {
 								columnName: 'ValCreateat',
 								sortOrder: 'asc'
 							}
 						},
-						globalEvents: ['changed-MOVIE', 'changed-CHARA'],
-						uuid: '1647ff0a-85ba-4bf0-84d7-1d1ad3b4b641',
+						globalEvents: ['changed-COMME', 'changed-USERP', 'changed-MOVIE'],
+						uuid: '5d141bc5-0e43-4e72-a312-980929757c58',
 						allSelectedRows: 'false',
 						headerLevel: 1,
 					}, this),
@@ -361,7 +349,7 @@
 		mounted()
 		{
 /* eslint-disable indent, vue/html-indent, vue/script-indent */
-// USE /[MANUAL MOV FORM_CODEJS MOV_MENU_41]/
+// USE /[MANUAL MOV FORM_CODEJS MOV_MENU_441]/
 // eslint-disable-next-line
 /* eslint-enable indent, vue/html-indent, vue/script-indent */
 		},
@@ -369,18 +357,18 @@
 		beforeUnmount()
 		{
 /* eslint-disable indent, vue/html-indent, vue/script-indent */
-// USE /[MANUAL MOV COMPONENT_BEFORE_UNMOUNT MOV_MENU_41]/
+// USE /[MANUAL MOV COMPONENT_BEFORE_UNMOUNT MOV_MENU_441]/
 // eslint-disable-next-line
 /* eslint-enable indent, vue/html-indent, vue/script-indent */
 		},
 
 		methods: {
 /* eslint-disable indent, vue/html-indent, vue/script-indent */
-// USE /[MANUAL MOV FUNCTIONS_JS MOV_41]/
+// USE /[MANUAL MOV FUNCTIONS_JS MOV_441]/
 // eslint-disable-next-line
 /* eslint-enable indent, vue/html-indent, vue/script-indent */
 /* eslint-disable indent, vue/html-indent, vue/script-indent */
-// USE /[MANUAL MOV LISTING_CODEJS MOV_MENU_41]/
+// USE /[MANUAL MOV LISTING_CODEJS MOV_MENU_441]/
 // eslint-disable-next-line
 /* eslint-enable indent, vue/html-indent, vue/script-indent */
 		}

@@ -4,18 +4,18 @@ using CSGenio.business;
 using CSGenio.framework;
 using GenioMVC.Models.Navigation;
 
-namespace GenioMVC.ViewModels.Userp;
+namespace GenioMVC.ViewModels.Favor;
 
-public class MOV_Menu_71_RowViewModel : Models.Userp
+public class MOV_Menu_431_RowViewModel : Models.Favor
 {
 	#region Constructors
 
-	public MOV_Menu_71_RowViewModel(UserContext userContext, bool isEmpty = false, string[]? fieldsToSerialize = null) : base(userContext, isEmpty, fieldsToSerialize)
+	public MOV_Menu_431_RowViewModel(UserContext userContext, bool isEmpty = false, string[]? fieldsToSerialize = null) : base(userContext, isEmpty, fieldsToSerialize)
 	{
 		InitRowProperties();
 	}
 
-	public MOV_Menu_71_RowViewModel(UserContext userContext, CSGenioAuserp val, bool isEmpty = false, string[]? fieldsToSerialize = null) : base(userContext, val, isEmpty, fieldsToSerialize)
+	public MOV_Menu_431_RowViewModel(UserContext userContext, CSGenioAfavor val, bool isEmpty = false, string[]? fieldsToSerialize = null) : base(userContext, val, isEmpty, fieldsToSerialize)
 	{
 		InitRowProperties();
 	}
@@ -36,14 +36,14 @@ public class MOV_Menu_71_RowViewModel : Models.Userp
 			new ListColumn()
 			{
 				Order = 1,
-				Area = "USERP",
-				Field = "EMAIL",
+				Area = "FAVOR",
+				Field = "FAVORITE_AT",
 			},
 			new ListColumn()
 			{
 				Order = 2,
-				Area = "USERP",
-				Field = "PHOTO",
+				Area = "MOVIE",
+				Field = "TITLE",
 			},
 			new ListColumn()
 			{

@@ -351,6 +351,9 @@
 	<data name="GRAVAR45301" xml:space="preserve">
 		<value>Gravar</value>
 	</data>
+	<data name="ALREADY_RATED_MOVIE63879" xml:space="preserve">
+		<value>Already Rated Movie</value>
+	</data>
 	<data name="DURATION40426" xml:space="preserve">
 		<value>Duration</value>
 	</data>
@@ -563,6 +566,9 @@
 	</data>
 	<data name="OBS42026" xml:space="preserve">
 		<value>Obs</value>
+	</data>
+	<data name="ADMIN32587" xml:space="preserve">
+		<value>Admin</value>
 	</data>
 	<data name="PASSWORDS52247" xml:space="preserve">
 		<value>Passwords</value>
@@ -9239,9 +9245,6 @@
 	</data>
 	<data name="REGULAR05607" xml:space="preserve">
 		<value>Regular</value>
-	</data>
-	<data name="ADMIN32587" xml:space="preserve">
-		<value>Admin</value>
 	</data>
 	<data name="ESTE_NOME_JA_EXISTE_51368" xml:space="preserve">
 		<value>This name already exists!</value>

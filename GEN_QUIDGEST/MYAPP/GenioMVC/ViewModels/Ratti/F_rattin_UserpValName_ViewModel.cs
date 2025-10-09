@@ -92,6 +92,11 @@ namespace GenioMVC.ViewModels.Ratti
 			return crs;
 		}
 
+		/// <summary>
+		/// The non-duplication prefix field for foreign key field with the unique value
+		/// </summary>
+		public string ValCodmovie { get; set; }
+
 		public override int GetCount(User user)
 		{
 			throw new NotImplementedException("This operation is not supported");
@@ -209,6 +214,31 @@ namespace GenioMVC.ViewModels.Ratti
 			// Limitation by Zzstate
 			crs.Criterias.Add(new Criteria(new ColumnReference(CSGenioAuserp.FldZzstate), CriteriaOperator.Equal, 0));
 
+			// If this filter is not in the table configuration, it is applied by default.
+			var applyUniqueValuesCondition = tableConfig.StaticFilters["applyUniqueValuesCondition"] == "true";
+			if (applyUniqueValuesCondition)
+			{
+					// The foreign key field with the unique value: 'CODUSERP' | non-duplication prefix field: 'CODMOVIE'
+					// Apply the limit of the unique value field, to avoid choosing an option that is not valid.
+
+					// First, apply the condition to see the records already used, except the record itself.
+					var uniqueCondition = CriteriaSet.And()
+							.Equal(CSGenioAratti.FldCoduserp, CSGenioAuserp.FldCoduserp)
+							.NotEqual(CSGenioAratti.FldCodratti, Navigation.GetValue("ratti"))
+							.Equal(CSGenioAratti.FldZzstate, 0);
+
+					// Apply a non-duplication prefix to the condition.
+					var prefixFieldRef = CSGenioAratti.FldCodmovie;
+					// Get the value of the non-duplication prefix field from the view model (field present in the form)
+					uniqueCondition
+						.Equal(prefixFieldRef, CSGenio.persistence.QueryUtils.ToValidDbValue(ValCodmovie, CSGenioAratti.GetInformation().DBFields[prefixFieldRef.Field]));
+					// Apply the subquery that will filter the records to display only the available ones.
+					var uniqueConditionSql = new SelectQuery()
+						.Select(new SqlValue(1), "exists")
+						.From(CSGenio.business.Area.AreaRATTI)
+						.Where(uniqueCondition);
+				crs.NotExists(uniqueConditionSql);
+			}
 
 			if (tableReload)
 			{

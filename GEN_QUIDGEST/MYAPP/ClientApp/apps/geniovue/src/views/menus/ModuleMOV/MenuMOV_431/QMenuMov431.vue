@@ -71,17 +71,17 @@
 	import qProjArrays from '@/api/genio/projectArrays.js'
 	/* eslint-enable @typescript-eslint/no-unused-vars */
 
-	import MenuViewModel from './QMenuMOV_81ViewModel.js'
+	import MenuViewModel from './QMenuMOV_431ViewModel.js'
 
-	const requiredTextResources = ['QMenuMOV_81', 'hardcoded', 'messages']
+	const requiredTextResources = ['QMenuMOV_431', 'hardcoded', 'messages']
 
 /* eslint-disable indent, vue/html-indent, vue/script-indent */
-// USE /[MANUAL MOV FORM_INCLUDEJS MOV_MENU_81]/
+// USE /[MANUAL MOV FORM_INCLUDEJS MOV_MENU_431]/
 // eslint-disable-next-line
 /* eslint-enable indent, vue/html-indent, vue/script-indent */
 
 	export default {
-		name: 'QMenuMov81',
+		name: 'QMenuMov431',
 
 		mixins: [
 			MenuHandlers
@@ -110,23 +110,23 @@
 			// eslint-disable-next-line
 			const vm = this
 			return {
-				componentOnLoadProc: asyncProcM.getProcListMonitor('QMenuMOV_81', false),
+				componentOnLoadProc: asyncProcM.getProcListMonitor('QMenuMOV_431', false),
 
 				interfaceMetadata: {
-					id: 'QMenuMOV_81', // Used for resources
+					id: 'QMenuMOV_431', // Used for resources
 					requiredTextResources
 				},
 
 				menuInfo: {
-					id: '81',
+					id: '431',
 					isMenuList: true,
-					designation: computed(() => this.Resources.MOVIES48538),
-					acronym: 'MOV_81',
-					name: 'MOVIE',
-					route: 'menu-MOV_81',
-					order: '81',
-					controller: 'MOVIE',
-					action: 'MOV_Menu_81',
+					designation: computed(() => this.Resources.FAVORITES12182),
+					acronym: 'MOV_431',
+					name: 'FAVOR',
+					route: 'menu-MOV_431',
+					order: '431',
+					controller: 'FAVOR',
+					action: 'MOV_Menu_431',
 					isPopup: false
 				},
 
@@ -135,9 +135,9 @@
 				controls: {
 					menu: new controlClass.TableListControl({
 						fnHydrateViewModel: (data) => vm.model.hydrate(data),
-						id: 'MOV_Menu_81',
-						controller: 'MOVIE',
-						action: 'MOV_Menu_81',
+						id: 'MOV_Menu_431',
+						controller: 'FAVOR',
+						action: 'MOV_Menu_431',
 						hasDependencies: false,
 						isInCollapsible: false,
 						tableModeClasses: [
@@ -145,83 +145,45 @@
 							'page-full-height'
 						],
 						columnsOriginal: [
-							new listColumnTypes.TextColumn({
-								order: 1,
-								name: 'ValDescription',
-								area: 'MOVIE',
-								field: 'DESCRIPTION',
-								label: computed(() => this.Resources.DISCRIPTION02169),
-								scrollData: 30,
-							}, computed(() => vm.model), computed(() => vm.internalEvents)),
 							new listColumnTypes.DateColumn({
-								order: 2,
-								name: 'ValRealease_date',
-								area: 'MOVIE',
-								field: 'REALEASE_DATE',
-								label: computed(() => this.Resources.REALEASE_DATE49316),
+								order: 1,
+								name: 'ValFavorite_at',
+								area: 'FAVOR',
+								field: 'FAVORITE_AT',
+								label: computed(() => this.Resources.FAVORITE_AT27922),
 								scrollData: 8,
 								dateTimeType: 'date',
 							}, computed(() => vm.model), computed(() => vm.internalEvents)),
-							new listColumnTypes.ArrayColumn({
-								order: 3,
-								name: 'ValMoviesgenre',
-								area: 'MOVIE',
-								field: 'MOVIESGENRE',
-								label: computed(() => this.Resources.MOVIES_GENRE22042),
-								dataLength: 15,
-								scrollData: 15,
-								array: computed(() => new qProjArrays.QArrayMoviegenre(vm.$getResource).elements),
-								arrayType: qProjArrays.QArrayMoviegenre.type,
-								arrayDisplayMode: 'D',
-							}, computed(() => vm.model), computed(() => vm.internalEvents)),
-							new listColumnTypes.NumericColumn({
-								order: 4,
-								name: 'ValNumberoflikes',
-								area: 'MOVIE',
-								field: 'NUMBEROFLIKES',
-								scrollData: 9,
-								maxDigits: 9,
-								decimalPlaces: 0,
-							}, computed(() => vm.model), computed(() => vm.internalEvents)),
 							new listColumnTypes.TextColumn({
-								order: 5,
-								name: 'ValTitle',
+								order: 2,
+								name: 'Movie.ValTitle',
 								area: 'MOVIE',
 								field: 'TITLE',
 								label: computed(() => this.Resources.TITLE21885),
 								dataLength: 80,
 								scrollData: 30,
+								pkColumn: 'ValCodmovie',
 							}, computed(() => vm.model), computed(() => vm.internalEvents)),
-							new listColumnTypes.ImageColumn({
-								order: 6,
-								name: 'ValPoster',
-								area: 'MOVIE',
-								field: 'POSTER',
-								label: computed(() => this.Resources.POSTER52933),
-								dataTitle: computed(() => genericFunctions.formatString(vm.Resources.IMAGEM_UTILIZADA_PAR58591, vm.Resources.POSTER52933)),
-								scrollData: 3,
-								sortable: false,
-								searchable: false,
-							}, computed(() => vm.model), computed(() => vm.internalEvents)),
-							new listColumnTypes.DateColumn({
-								order: 7,
-								name: 'ValCreateat',
-								area: 'MOVIE',
-								field: 'CREATEAT',
-								label: computed(() => this.Resources.CREATE_AT36393),
-								scrollData: 8,
-								dateTimeType: 'date',
+							new listColumnTypes.TextColumn({
+								order: 3,
+								name: 'Userp.ValName',
+								area: 'USERP',
+								field: 'NAME',
+								label: computed(() => this.Resources.NAME31974),
+								dataLength: 50,
+								scrollData: 30,
+								pkColumn: 'ValCoduserp',
 							}, computed(() => vm.model), computed(() => vm.internalEvents)),
 						],
 						config: {
-							name: 'MOV_Menu_81',
+							name: 'MOV_Menu_431',
 							serverMode: true,
-							pkColumn: 'ValCodmovie',
-							tableAlias: 'MOVIE',
-							tableNamePlural: computed(() => this.Resources.MOVIES48538),
+							pkColumn: 'ValCodfavor',
+							tableAlias: 'FAVOR',
+							tableNamePlural: computed(() => this.Resources.FAVORITES12182),
 							viewManagement: '',
 							showLimitsInfo: true,
-							tableTitle: computed(() => this.Resources.MOVIES48538),
+							tableTitle: computed(() => this.Resources.FAVORITES12182),
 							showAlternatePagination: true,
 							permissions: {
 							},
@@ -244,7 +206,7 @@
 									params: {
 										action: vm.openFormAction,
 										type: 'form',
-										formName: 'F_MOVADM',
+										formName: 'F_FAVORI',
 										mode: 'SHOW',
 										isControlled: true
 									}
@@ -260,7 +222,7 @@
 									params: {
 										action: vm.openFormAction,
 										type: 'form',
-										formName: 'F_MOVADM',
+										formName: 'F_FAVORI',
 										mode: 'EDIT',
 										isControlled: true
 									}
@@ -276,7 +238,7 @@
 									params: {
 										action: vm.openFormAction,
 										type: 'form',
-										formName: 'F_MOVADM',
+										formName: 'F_FAVORI',
 										mode: 'DUPLICATE',
 										isControlled: true
 									}
@@ -292,7 +254,7 @@
 									params: {
 										action: vm.openFormAction,
 										type: 'form',
-										formName: 'F_MOVADM',
+										formName: 'F_FAVORI',
 										mode: 'DELETE',
 										isControlled: true
 									}
@@ -310,7 +272,7 @@
 									params: {
 										action: vm.openFormAction,
 										type: 'form',
-										formName: 'F_MOVADM',
+										formName: 'F_FAVORI',
 										mode: 'NEW',
 										repeatInsertion: false,
 										isControlled: true
@@ -326,37 +288,35 @@
 							MCActions: [
 							],
 							rowClickAction: {
-								id: 'RCA_MOV_811',
-								name: 'form-F_MOVADM',
+								id: 'RCA_MOV_4311',
+								name: 'form-F_FAVORI',
 								params: {
 									isRoute: true,
 									limits: [
 										{
 											identifier: 'id',
-											fnValueSelector: (row) => row.ValCodmovie
+											fnValueSelector: (row) => row.ValCodfavor
 										},
 									],
 									isControlled: true,
-									action: vm.openFormAction, type: 'form', mode: 'SHOW', formName: 'F_MOVADM'
+									action: vm.openFormAction, type: 'form', mode: 'SHOW', formName: 'F_FAVORI'
 								}
 							},
 							formsDefinition: {
-								'F_MOVADM': {
-									fnKeySelector: (row) => row.Fields.ValCodmovie,
-									isPopup: false
+								'F_FAVORI': {
+									fnKeySelector: (row) => row.Fields.ValCodfavor,
+									isPopup: true
 								},
 							},
-							allowFileExport: true,
-							allowFileImport: true,
-							defaultSearchColumnName: 'ValTitle',
-							defaultSearchColumnNameOriginal: 'ValTitle',
+							defaultSearchColumnName: '',
+							defaultSearchColumnNameOriginal: '',
 							defaultColumnSorting: {
-								columnName: 'ValRealease_date',
+								columnName: 'ValFavorite_at',
 								sortOrder: 'asc'
 							}
 						},
-						globalEvents: ['changed-MOVIE'],
-						uuid: 'dd7d1102-8db7-48e2-aa9e-589fda0424f2',
+						globalEvents: ['changed-MOVIE', 'changed-USERP', 'changed-FAVOR'],
+						uuid: '18499c05-7ba4-438e-af8a-976e3d3593ba',
 						allSelectedRows: 'false',
 						headerLevel: 1,
 					}, this),
@@ -381,7 +341,7 @@
 		mounted()
 		{
 /* eslint-disable indent, vue/html-indent, vue/script-indent */
-// USE /[MANUAL MOV FORM_CODEJS MOV_MENU_81]/
+// USE /[MANUAL MOV FORM_CODEJS MOV_MENU_431]/
 // eslint-disable-next-line
 /* eslint-enable indent, vue/html-indent, vue/script-indent */
 		},
@@ -389,18 +349,18 @@
 		beforeUnmount()
 		{
 /* eslint-disable indent, vue/html-indent, vue/script-indent */
-// USE /[MANUAL MOV COMPONENT_BEFORE_UNMOUNT MOV_MENU_81]/
+// USE /[MANUAL MOV COMPONENT_BEFORE_UNMOUNT MOV_MENU_431]/
 // eslint-disable-next-line
 /* eslint-enable indent, vue/html-indent, vue/script-indent */
 		},
 
 		methods: {
 /* eslint-disable indent, vue/html-indent, vue/script-indent */
-// USE /[MANUAL MOV FUNCTIONS_JS MOV_81]/
+// USE /[MANUAL MOV FUNCTIONS_JS MOV_431]/
 // eslint-disable-next-line
 /* eslint-enable indent, vue/html-indent, vue/script-indent */
 /* eslint-disable indent, vue/html-indent, vue/script-indent */
-// USE /[MANUAL MOV LISTING_CODEJS MOV_MENU_81]/
+// USE /[MANUAL MOV LISTING_CODEJS MOV_MENU_431]/
 // eslint-disable-next-line
 /* eslint-enable indent, vue/html-indent, vue/script-indent */
 		}

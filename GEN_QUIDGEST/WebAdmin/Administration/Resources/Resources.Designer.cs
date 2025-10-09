@@ -763,6 +763,15 @@ namespace Administration.Resources {
         }
 
         /// <summary>
+        ///   Looks up a localized string similar to "Already Rated Movie"
+        /// </summary>
+        public static string ALREADY_RATED_MOVIE63879 {
+            get {
+                return ResourceManager.GetString("ALREADY_RATED_MOVIE63879", resourceCulture);
+            }
+        }
+
+        /// <summary>
         ///   Looks up a localized string similar to "Duration"
         /// </summary>
         public static string DURATION40426 {
@@ -1398,6 +1407,15 @@ namespace Administration.Resources {
         public static string OBS42026 {
             get {
                 return ResourceManager.GetString("OBS42026", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to "Admin"
+        /// </summary>
+        public static string ADMIN32587 {
+            get {
+                return ResourceManager.GetString("ADMIN32587", resourceCulture);
             }
         }
 
@@ -27426,15 +27444,6 @@ namespace Administration.Resources {
         public static string REGULAR05607 {
             get {
                 return ResourceManager.GetString("REGULAR05607", resourceCulture);
-            }
-        }
-
-        /// <summary>
-        ///   Looks up a localized string similar to "Admin"
-        /// </summary>
-        public static string ADMIN32587 {
-            get {
-                return ResourceManager.GetString("ADMIN32587", resourceCulture);
             }
         }
 

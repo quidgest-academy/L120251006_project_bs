@@ -535,6 +535,8 @@ namespace GenioMVC.Controllers
 			tableConfig.FieldFilters = requestModel.RelatedFilterValues;
 
 			model.setModes(Request.Query["m"].ToString());
+			// Map received value to field - The non-duplication prefix field for foreign key field with the unique value
+			model.ValCodmovie = Navigation.GetValue<string>("ratti.codmovie");
 			model.Load(tableConfig, requestValues, Request.IsAjaxRequest());
 
 			return JsonOK(model);

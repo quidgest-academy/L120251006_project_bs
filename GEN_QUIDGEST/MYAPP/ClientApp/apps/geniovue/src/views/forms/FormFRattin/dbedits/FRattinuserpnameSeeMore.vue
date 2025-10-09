@@ -249,6 +249,21 @@
 								sortOrder: 'asc'
 							}
 						},
+						groupFilters: [
+							{
+								id: 'applyUniqueValuesCondition',
+								isMultiple: true,
+								filters: [
+									{
+										id: 'applyUniqueValuesCondition_true',
+										key: true,
+										value: computed(() => this.Resources.DISPONIVEIS47523),
+										selected: true
+									}
+								],
+								value: true
+							},
+						],
 						globalEvents: ['changed-USERP'],
 						uuid: 'F_rattin_F_rattin_UserpValName',
 						allSelectedRows: 'false',

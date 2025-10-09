@@ -234,6 +234,9 @@
   <msg id="Gravar" code="GRAVAR45301">
     <ENUS>Gravar</ENUS>
   </msg>
+  <msg id="Already Rated Movie" code="ALREADY_RATED_MOVIE63879">
+    <ENUS>Already Rated Movie</ENUS>
+  </msg>
   <msg id="Duration" code="DURATION40426">
     <ENUS>Duration</ENUS>
   </msg>
@@ -446,6 +449,9 @@
   </msg>
   <msg id="Obs" code="OBS42026">
     <ENUS>Obs</ENUS>
+  </msg>
+  <msg id="Admin" code="ADMIN32587">
+    <ENUS>Admin</ENUS>
   </msg>
   <msg id="Passwords" code="PASSWORDS52247">
     <ENUS>Passwords</ENUS>
@@ -9122,9 +9128,6 @@
   </msg>
   <msg id="Regular" code="REGULAR05607">
     <ENUS>Regular</ENUS>
-  </msg>
-  <msg id="Admin" code="ADMIN32587">
-    <ENUS>Admin</ENUS>
   </msg>
   <msg id="Este nome já existe!" code="ESTE_NOME_JA_EXISTE_51368">
     <ENUS>This name already exists!</ENUS>

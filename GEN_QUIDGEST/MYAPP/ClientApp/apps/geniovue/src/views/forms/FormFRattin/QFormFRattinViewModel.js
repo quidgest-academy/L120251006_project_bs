@@ -70,6 +70,8 @@ export default class ViewModel extends FormViewModelBase
 			area: 'RATTI',
 			field: 'CODUSERP',
 			relatedArea: 'USERP',
+			isUnique: true,
+			uniquePrefixField: 'CODMOVIE',
 			description: computed(() => this.Resources.USER_ID19581),
 		}).cloneFrom(values?.ValCoduserp))
 		this.stopWatchers.push(watch(() => this.ValCoduserp.value, (newValue, oldValue) => this.onUpdate('ratti.coduserp', this.ValCoduserp, newValue, oldValue)))

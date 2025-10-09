@@ -61,6 +61,7 @@ namespace CSGenio.business
 			Qfield.CavDesignation = "MOVIE_ID24048";
 
 			Qfield.Dupmsg = "";
+            Qfield.SufNDup = "coduserp";
 			info.RegisterFieldDB(Qfield);
 
 			//- - - - - - - - - - - - - - - - - - -
@@ -70,7 +71,9 @@ namespace CSGenio.business
 			Qfield.MQueue = false;
 			Qfield.CavDesignation = "USER_ID19581";
 
-			Qfield.Dupmsg = "";
+			Qfield.Dupmsg = "Already Rated Movie";
+            Qfield.NotDup = true;
+            Qfield.PrefNDup = "codmovie";
 			info.RegisterFieldDB(Qfield);
 
 			//- - - - - - - - - - - - - - - - - - -

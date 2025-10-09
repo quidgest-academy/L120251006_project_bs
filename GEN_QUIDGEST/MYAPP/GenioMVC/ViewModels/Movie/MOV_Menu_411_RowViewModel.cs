@@ -4,18 +4,18 @@ using CSGenio.business;
 using CSGenio.framework;
 using GenioMVC.Models.Navigation;
 
-namespace GenioMVC.ViewModels.Comme;
+namespace GenioMVC.ViewModels.Movie;
 
-public class MOV_Menu_51_RowViewModel : Models.Comme
+public class MOV_Menu_411_RowViewModel : Models.Movie
 {
 	#region Constructors
 
-	public MOV_Menu_51_RowViewModel(UserContext userContext, bool isEmpty = false, string[]? fieldsToSerialize = null) : base(userContext, isEmpty, fieldsToSerialize)
+	public MOV_Menu_411_RowViewModel(UserContext userContext, bool isEmpty = false, string[]? fieldsToSerialize = null) : base(userContext, isEmpty, fieldsToSerialize)
 	{
 		InitRowProperties();
 	}
 
-	public MOV_Menu_51_RowViewModel(UserContext userContext, CSGenioAcomme val, bool isEmpty = false, string[]? fieldsToSerialize = null) : base(userContext, val, isEmpty, fieldsToSerialize)
+	public MOV_Menu_411_RowViewModel(UserContext userContext, CSGenioAmovie val, bool isEmpty = false, string[]? fieldsToSerialize = null) : base(userContext, val, isEmpty, fieldsToSerialize)
 	{
 		InitRowProperties();
 	}
@@ -36,26 +36,44 @@ public class MOV_Menu_51_RowViewModel : Models.Comme
 			new ListColumn()
 			{
 				Order = 1,
-				Area = "COMME",
-				Field = "POST",
+				Area = "MOVIE",
+				Field = "DESCRIPTION",
 			},
 			new ListColumn()
 			{
 				Order = 2,
-				Area = "USERP",
-				Field = "NAME",
+				Area = "MOVIE",
+				Field = "REALEASE_DATE",
 			},
 			new ListColumn()
 			{
 				Order = 3,
-				Area = "COMME",
-				Field = "CREATEAT",
+				Area = "MOVIE",
+				Field = "MOVIESGENRE",
 			},
 			new ListColumn()
 			{
 				Order = 4,
 				Area = "MOVIE",
+				Field = "NUMBEROFLIKES",
+			},
+			new ListColumn()
+			{
+				Order = 5,
+				Area = "MOVIE",
 				Field = "TITLE",
+			},
+			new ListColumn()
+			{
+				Order = 6,
+				Area = "MOVIE",
+				Field = "POSTER",
+			},
+			new ListColumn()
+			{
+				Order = 7,
+				Area = "MOVIE",
+				Field = "CREATEAT",
 			},
 		];
 	}
@@ -132,9 +150,10 @@ public class MOV_Menu_51_RowViewModel : Models.Comme
 
 	/// <summary>
 	/// The background color
+	/// Formula: iif([MOVIE->RELDATE]>[Today],HEXCOLOUR("f7c65c"),iif([MOVIE->RELDATE]<[Today],HEXCOLOUR("4deb94"),HEXCOLOUR("ffffff")))
 	/// </summary>
 	[JsonPropertyName("backgroundColor")]
-	public string BackgroundColor => "";
+	public string BackgroundColor => ((((DateTime)this.ValRealease_date)>DateTime.Today)?("#"+"f7c65c"):(((((DateTime)this.ValRealease_date)<DateTime.Today)?("#"+"4deb94"):("#"+"ffffff"))));
 
 	/// <summary>
 	/// Runs init logic that depends on row data.
