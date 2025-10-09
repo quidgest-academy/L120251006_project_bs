@@ -361,40 +361,69 @@
 							}
 						},
 						globalEvents: ['changed-MOVIE'],
-						uuid: 'b31902a6-3f2d-4f4d-b4c8-7feb527587c2',
+						uuid: 'fe04e135-1c37-44a2-a675-d67681e46f67',
 						allSelectedRows: 'false',
 						viewModes: [
 							{
-								id: 'CARDS',
-								type: 'cards',
-								subtype: 'card-horizontal',
-								label: computed(() => this.Resources.CARTOES27587),
+								id: 'CAROUSEL',
+								type: 'carousel',
+								subtype: '',
+								label: computed(() => this.Resources.CARROSSEL41899),
 								order: 1,
 								mappingVariables: readonly({
-									title: {
+									slideTitle: {
 										allowsMultiple: false,
 										sources: [
 											'MOVIE.TITLE',
 										]
 									},
-									subtitle: {
-										allowsMultiple: false,
-										sources: [
-											'MOVIE.REALEASE_DATE',
-										]
-									},
-									text: {
-										allowsMultiple: true,
-										sources: [
-											'MOVIE.DESCRIPTION',
-										]
-									},
-									image: {
+									slideImage: {
 										allowsMultiple: false,
 										sources: [
 											'MOVIE.POSTER',
 										]
 									},
+								}),
+								styleVariables: {
+									showIndicators: {
+										rawValue: true,
+										isMapped: false
+									},
+									showControls: {
+										rawValue: true,
+										isMapped: false
+									},
+									keyboardControllable: {
+										rawValue: true,
+										isMapped: false
+									},
+									autoCycleInterval: {
+										rawValue: 5000,
+										isMapped: false
+									},
+									autoCyclePause: {
+										rawValue: 'hover',
+										isMapped: false
+									},
+									ride: {
+										rawValue: 'carousel',
+										isMapped: false
+									},
+									wrap: {
+										rawValue: true,
+										isMapped: false
+									},
+								},
+								groups: {
+								}
+							},
+							{
+								id: 'CARDS',
+								type: 'cards',
+								subtype: 'card-horizontal',
+								label: computed(() => this.Resources.CARTOES27587),
+								order: 2,
+								mappingVariables: readonly({
 								}),
 								styleVariables: {
 									actionsAlignment: {

@@ -30,7 +30,7 @@ namespace GenioMVC.ViewModels.Movie
 		public override string TableAlias => "movie";
 
 		/// <inheritdoc/>
-		public override string Uuid => "0ab18b24-3098-4f93-bff5-84f64079d8a9";
+		public override string Uuid => "d0cbdf63-4141-4609-bf70-990d270c1701";
 
 		/// <inheritdoc/>
 		protected override string[] FieldsToSerialize => _fieldsToSerialize;

@@ -361,7 +361,7 @@
 							}
 						},
 						globalEvents: ['changed-MOVIE'],
-						uuid: '0ab18b24-3098-4f93-bff5-84f64079d8a9',
+						uuid: 'd0cbdf63-4141-4609-bf70-990d270c1701',
 						allSelectedRows: 'false',
 						viewModes: [
 							{
@@ -371,30 +371,6 @@
 								label: computed(() => this.Resources.CARTOES27587),
 								order: 1,
 								mappingVariables: readonly({
-									title: {
-										allowsMultiple: false,
-										sources: [
-											'MOVIE.TITLE',
-										]
-									},
-									subtitle: {
-										allowsMultiple: false,
-										sources: [
-											'MOVIE.REALEASE_DATE',
-										]
-									},
-									text: {
-										allowsMultiple: true,
-										sources: [
-											'MOVIE.DESCRIPTION',
-										]
-									},
-									image: {
-										allowsMultiple: false,
-										sources: [
-											'MOVIE.POSTER',
-										]
-									},
 								}),
 								styleVariables: {
 									actionsAlignment: {
