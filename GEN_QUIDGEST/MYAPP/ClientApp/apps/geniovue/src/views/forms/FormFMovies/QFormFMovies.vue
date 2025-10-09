@@ -960,8 +960,21 @@
 						// eslint-disable-next-line
 						action: (event) => {
 							const btnAction = () => {
+								// Button to open the form "F_RATTIN" in "INS" mode.
+								const params = {
+									mode: vm.formModes.new,
+									modes: 'vedai',
+									isControlled: true,
+									extraData: JSON.stringify(event)
+								}
+
+								vm.navigateToForm('F_RATTIN', vm.formModes.new, null, params)
 							}
-							btnAction()
+							const options = {
+								form: 'F_MOVIES',
+								callback: btnAction
+							}
+							vm.$eventHub.emit('form-apply', options)
 						},
 						controlLimits: [
 						],
@@ -1199,7 +1212,7 @@
 						placeholder: '',
 						labelPosition: computed(() => this.labelAlignment.topleft),
 						height: 50,
-						width: 100,
+						width: 30,
 						dataTitle: computed(() => genericFunctions.formatString(vm.Resources.IMAGEM_UTILIZADA_PAR17299, vm.Resources.BACKDROP05167)),
 						maxFileSize: 10485760, // In bytes.
 						maxFileSizeLabel: '10 MB',

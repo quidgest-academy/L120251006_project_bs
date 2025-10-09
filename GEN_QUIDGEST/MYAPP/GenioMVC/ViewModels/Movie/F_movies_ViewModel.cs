@@ -70,7 +70,7 @@ namespace GenioMVC.ViewModels.Movie
 		/// <summary>
 		/// Title: "Backdrop" | Type: "IJ"
 		/// </summary>
-		[ImageThumbnailJsonConverter(100, 50)]
+		[ImageThumbnailJsonConverter(30, 50)]
 		public GenioMVC.Models.ImageModel ValBackdrop { get; set; }
 
 
