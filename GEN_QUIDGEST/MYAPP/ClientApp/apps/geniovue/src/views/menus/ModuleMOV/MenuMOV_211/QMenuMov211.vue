@@ -71,17 +71,17 @@
 	import qProjArrays from '@/api/genio/projectArrays.js'
 	/* eslint-enable @typescript-eslint/no-unused-vars */
 
-	import MenuViewModel from './QMenuMOV_21ViewModel.js'
+	import MenuViewModel from './QMenuMOV_211ViewModel.js'
 
-	const requiredTextResources = ['QMenuMOV_21', 'hardcoded', 'messages']
+	const requiredTextResources = ['QMenuMOV_211', 'hardcoded', 'messages']
 
 /* eslint-disable indent, vue/html-indent, vue/script-indent */
-// USE /[MANUAL MOV FORM_INCLUDEJS MOV_MENU_21]/
+// USE /[MANUAL MOV FORM_INCLUDEJS MOV_MENU_211]/
 // eslint-disable-next-line
 /* eslint-enable indent, vue/html-indent, vue/script-indent */
 
 	export default {
-		name: 'QMenuMov21',
+		name: 'QMenuMov211',
 
 		mixins: [
 			MenuHandlers
@@ -110,23 +110,23 @@
 			// eslint-disable-next-line
 			const vm = this
 			return {
-				componentOnLoadProc: asyncProcM.getProcListMonitor('QMenuMOV_21', false),
+				componentOnLoadProc: asyncProcM.getProcListMonitor('QMenuMOV_211', false),
 
 				interfaceMetadata: {
-					id: 'QMenuMOV_21', // Used for resources
+					id: 'QMenuMOV_211', // Used for resources
 					requiredTextResources
 				},
 
 				menuInfo: {
-					id: '21',
+					id: '211',
 					isMenuList: true,
 					designation: computed(() => this.Resources.MOVIES48538),
-					acronym: 'MOV_21',
+					acronym: 'MOV_211',
 					name: 'MOVIE',
-					route: 'menu-MOV_21',
-					order: '21',
+					route: 'menu-MOV_211',
+					order: '211',
 					controller: 'MOVIE',
-					action: 'MOV_Menu_21',
+					action: 'MOV_Menu_211',
 					isPopup: false
 				},
 
@@ -135,9 +135,9 @@
 				controls: {
 					menu: new controlClass.TableSpecialRenderingControl({
 						fnHydrateViewModel: (data) => vm.model.hydrate(data),
-						id: 'MOV_Menu_21',
+						id: 'MOV_Menu_211',
 						controller: 'MOVIE',
-						action: 'MOV_Menu_21',
+						action: 'MOV_Menu_211',
 						hasDependencies: false,
 						isInCollapsible: false,
 						tableModeClasses: [
@@ -205,7 +205,7 @@
 							}, computed(() => vm.model), computed(() => vm.internalEvents)),
 						],
 						config: {
-							name: 'MOV_Menu_21',
+							name: 'MOV_Menu_211',
 							serverMode: true,
 							pkColumn: 'ValCodmovie',
 							tableAlias: 'MOVIE',
@@ -317,7 +317,7 @@
 							MCActions: [
 							],
 							rowClickAction: {
-								id: 'RCA_MOV_211',
+								id: 'RCA_MOV_2111',
 								name: 'form-F_MOVIES',
 								params: {
 									isRoute: true,
@@ -431,6 +431,10 @@
 							},
 						],
 						headerLevel: 1,
+						/** Menu limits */
+						controlLimits: [
+							/** SC */
+						]
 					}, this),
 				}
 			}
@@ -453,7 +457,7 @@
 		mounted()
 		{
 /* eslint-disable indent, vue/html-indent, vue/script-indent */
-// USE /[MANUAL MOV FORM_CODEJS MOV_MENU_21]/
+// USE /[MANUAL MOV FORM_CODEJS MOV_MENU_211]/
 // eslint-disable-next-line
 /* eslint-enable indent, vue/html-indent, vue/script-indent */
 		},
@@ -461,18 +465,18 @@
 		beforeUnmount()
 		{
 /* eslint-disable indent, vue/html-indent, vue/script-indent */
-// USE /[MANUAL MOV COMPONENT_BEFORE_UNMOUNT MOV_MENU_21]/
+// USE /[MANUAL MOV COMPONENT_BEFORE_UNMOUNT MOV_MENU_211]/
 // eslint-disable-next-line
 /* eslint-enable indent, vue/html-indent, vue/script-indent */
 		},
 
 		methods: {
 /* eslint-disable indent, vue/html-indent, vue/script-indent */
-// USE /[MANUAL MOV FUNCTIONS_JS MOV_21]/
+// USE /[MANUAL MOV FUNCTIONS_JS MOV_211]/
 // eslint-disable-next-line
 /* eslint-enable indent, vue/html-indent, vue/script-indent */
 /* eslint-disable indent, vue/html-indent, vue/script-indent */
-// USE /[MANUAL MOV LISTING_CODEJS MOV_MENU_21]/
+// USE /[MANUAL MOV LISTING_CODEJS MOV_MENU_211]/
 // eslint-disable-next-line
 /* eslint-enable indent, vue/html-indent, vue/script-indent */
 		}

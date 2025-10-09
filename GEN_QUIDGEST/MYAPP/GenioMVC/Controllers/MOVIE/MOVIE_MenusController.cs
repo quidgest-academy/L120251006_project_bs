@@ -28,21 +28,21 @@ namespace GenioMVC.Controllers
 {
 	public partial class MovieController : ControllerBase
 	{
-		private static readonly NavigationLocation ACTION_MOV_MENU_21 = new NavigationLocation("MOVIES48538", "MOV_Menu_21", "Movie") { vueRouteName = "menu-MOV_21" };
+		private static readonly NavigationLocation ACTION_MOV_MENU_211 = new NavigationLocation("MOVIES48538", "MOV_Menu_211", "Movie") { vueRouteName = "menu-MOV_211" };
 
 
 		//
-		// GET: /Movie/MOV_Menu_21
-		[ActionName("MOV_Menu_21")]
+		// GET: /Movie/MOV_Menu_211
+		[ActionName("MOV_Menu_211")]
 		[HttpPost]
-		public ActionResult MOV_Menu_21([FromBody]RequestMenuModel requestModel)
+		public ActionResult MOV_Menu_211([FromBody]RequestMenuModel requestModel)
 		{
 			var queryParams = requestModel.QueryParams;
 
 			int perPage = CSGenio.framework.Configuration.NrRegDBedit;
 			string rowsPerPageOptionsString = "";
 
-			MOV_Menu_21_ViewModel model = new MOV_Menu_21_ViewModel(UserContext.Current);
+			MOV_Menu_211_ViewModel model = new MOV_Menu_211_ViewModel(UserContext.Current);
 
 			// Table configuration load options
 			CSGenio.framework.TableConfiguration.TableConfigurationLoadOptions tableConfigOptions = new CSGenio.framework.TableConfiguration.TableConfigurationLoadOptions();
@@ -75,7 +75,7 @@ namespace GenioMVC.Controllers
 
 			bool isHomePage = RouteData.Values.ContainsKey("isHomePage") ? (bool)RouteData.Values["isHomePage"] : false;
 			if (isHomePage)
-				Navigation.SetValue("HomePage", "MOV_Menu_21");
+				Navigation.SetValue("HomePage", "MOV_Menu_211");
 
 			//If there was a recent operation on this table then force the primary persistence server to be called and ignore the read only feature
 			if (string.IsNullOrEmpty(Navigation.GetStrValue("ForcePrimaryRead_movie")))
@@ -94,18 +94,19 @@ namespace GenioMVC.Controllers
 				querystring.AddRange(queryParams);
 
 			if (!isHomePage &&
-				(Navigation.CurrentLevel == null || !ACTION_MOV_MENU_21.IsSameAction(Navigation.CurrentLevel.Location)) &&
-				Navigation.CurrentLevel.Location.Action != ACTION_MOV_MENU_21.Action)
+				(Navigation.CurrentLevel == null || !ACTION_MOV_MENU_211.IsSameAction(Navigation.CurrentLevel.Location)) &&
+				Navigation.CurrentLevel.Location.Action != ACTION_MOV_MENU_211.Action)
 				CSGenio.framework.Audit.registAction(UserContext.Current.User, Resources.Resources.MENU01948 + " " + Navigation.CurrentLevel.Location.ShortDescription());
 			else if (isHomePage)
 			{
-				CSGenio.framework.Audit.registAction(UserContext.Current.User, Resources.Resources.MENU01948 + " " + ACTION_MOV_MENU_21.ShortDescription());
+				CSGenio.framework.Audit.registAction(UserContext.Current.User, Resources.Resources.MENU01948 + " " + ACTION_MOV_MENU_211.ShortDescription());
 				Navigation.SetValue("HomePageContainsList", true);
 			}
 
 
+			Navigation.SetValue("movie.codmovie", "1");
 
-// USE /[MANUAL MOV MENU_GET 21]/
+// USE /[MANUAL MOV MENU_GET 211]/
 
 
             try

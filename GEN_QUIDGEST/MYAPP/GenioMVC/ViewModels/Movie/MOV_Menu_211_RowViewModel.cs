@@ -6,16 +6,16 @@ using GenioMVC.Models.Navigation;
 
 namespace GenioMVC.ViewModels.Movie;
 
-public class MOV_Menu_21_RowViewModel : Models.Movie
+public class MOV_Menu_211_RowViewModel : Models.Movie
 {
 	#region Constructors
 
-	public MOV_Menu_21_RowViewModel(UserContext userContext, bool isEmpty = false, string[]? fieldsToSerialize = null) : base(userContext, isEmpty, fieldsToSerialize)
+	public MOV_Menu_211_RowViewModel(UserContext userContext, bool isEmpty = false, string[]? fieldsToSerialize = null) : base(userContext, isEmpty, fieldsToSerialize)
 	{
 		InitRowProperties();
 	}
 
-	public MOV_Menu_21_RowViewModel(UserContext userContext, CSGenioAmovie val, bool isEmpty = false, string[]? fieldsToSerialize = null) : base(userContext, val, isEmpty, fieldsToSerialize)
+	public MOV_Menu_211_RowViewModel(UserContext userContext, CSGenioAmovie val, bool isEmpty = false, string[]? fieldsToSerialize = null) : base(userContext, val, isEmpty, fieldsToSerialize)
 	{
 		InitRowProperties();
 	}

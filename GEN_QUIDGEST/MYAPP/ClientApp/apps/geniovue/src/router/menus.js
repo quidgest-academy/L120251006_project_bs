@@ -31,13 +31,13 @@ export default function getMenusRoutes()
 			}
 		},
 		{
-			path: '/:culture/:system/MOV/menu/MOV_21',
-			name: 'menu-MOV_21',
-			component: () => import('@/views/menus/ModuleMOV/MenuMOV_21/QMenuMov21.vue'),
+			path: '/:culture/:system/MOV/menu/MOV_211',
+			name: 'menu-MOV_211',
+			component: () => import('@/views/menus/ModuleMOV/MenuMOV_211/QMenuMov211.vue'),
 			meta: {
 				routeType: 'menu',
 				module: 'MOV',
-				order: '21',
+				order: '211',
 				baseArea: 'MOVIE',
 				hasInitialPHE: false,
 				humanKeyFields: ['ValTitle'],
