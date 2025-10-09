@@ -333,6 +333,15 @@ namespace GenioMVC.Resources
 		}
 
 		/// <summary>
+		///   Looks up a localized string similar to "Numberoflikes"
+		/// </summary>
+		public static string NUMBEROFLIKES65014 {
+			get {
+				return ResourceManager.GetString("NUMBEROFLIKES65014", resourceCulture);
+			}
+		}
+
+		/// <summary>
 		///   Looks up a localized string similar to "Login attempts"
 		/// </summary>
 		public static string LOGIN_ATTEMPTS62337 {

@@ -90,6 +90,9 @@
   <msg id="Async process argument" code="ASYNC_PROCESS_ARGUME19111">
     <ENUS>Async process argument</ENUS>
   </msg>
+  <msg id="Numberoflikes" code="NUMBEROFLIKES65014">
+    <ENUS>Numberoflikes</ENUS>
+  </msg>
   <msg id="Login attempts" code="LOGIN_ATTEMPTS62337">
     <ENUS>Login attempts</ENUS>
   </msg>

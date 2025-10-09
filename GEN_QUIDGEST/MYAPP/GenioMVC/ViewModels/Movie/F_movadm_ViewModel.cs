@@ -40,7 +40,7 @@ namespace GenioMVC.ViewModels.Movie
 		/// <summary>
 		/// Title: "Backdrop" | Type: "IJ"
 		/// </summary>
-		[ImageThumbnailJsonConverter(30, 0)]
+		[ImageThumbnailJsonConverter(30, 50)]
 		public GenioMVC.Models.ImageModel ValBackdrop { get; set; }
 		/// <summary>
 		/// Title: "Title" | Type: "C"
@@ -68,7 +68,7 @@ namespace GenioMVC.ViewModels.Movie
 		/// </summary>
 		public string ValDescription { get; set; }
 		/// <summary>
-		/// Title: "" | Type: "N"
+		/// Title: "Numberoflikes" | Type: "N"
 		/// </summary>
 		[ValidateSetAccess]
 		public decimal? ValNumberoflikes { get; set; }
