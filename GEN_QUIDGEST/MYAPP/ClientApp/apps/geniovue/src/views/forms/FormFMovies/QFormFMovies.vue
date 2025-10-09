@@ -849,6 +849,7 @@
 						label: computed(() => this.Resources.NUM_OF_LIKES08347),
 						placeholder: '',
 						labelPosition: computed(() => this.labelAlignment.topleft),
+						isFormulaBlocked: true,
 						maxIntegers: 9,
 						maxDecimals: 0,
 						controlLimits: [

@@ -187,6 +187,10 @@ namespace CSGenio.business
 			};
 
 
+			info.RelatedSumFields = new string[] {
+			 "numberoflikes"
+			};
+
 
 
 
@@ -370,11 +374,11 @@ namespace CSGenio.business
 			set { insertNameValueField(FldDescription, value); }
 		}
 
-		/// <summary>Field : "" Tipo: "N" Formula:  ""</summary>
+		/// <summary>Field : "" Tipo: "N" Formula: SR "[FAVOR->1]"</summary>
 		public static FieldRef FldNumberoflikes { get { return m_fldNumberoflikes; } }
 		private static FieldRef m_fldNumberoflikes = new FieldRef("movie", "numberoflikes");
 
-		/// <summary>Field : "" Tipo: "N" Formula:  ""</summary>
+		/// <summary>Field : "" Tipo: "N" Formula: SR "[FAVOR->1]"</summary>
 		public decimal ValNumberoflikes
 		{
 			get { return (decimal)returnValueField(FldNumberoflikes); }
