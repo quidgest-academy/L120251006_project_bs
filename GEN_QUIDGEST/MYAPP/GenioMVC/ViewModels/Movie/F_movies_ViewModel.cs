@@ -35,7 +35,7 @@ namespace GenioMVC.ViewModels.Movie
 		/// <summary>
 		/// Title: "Poster" | Type: "IJ"
 		/// </summary>
-		[ImageThumbnailJsonConverter(30, 50)]
+		[ImageThumbnailJsonConverter(300, 500)]
 		public GenioMVC.Models.ImageModel ValPoster { get; set; }
 		/// <summary>
 		/// Title: "Title" | Type: "C"
