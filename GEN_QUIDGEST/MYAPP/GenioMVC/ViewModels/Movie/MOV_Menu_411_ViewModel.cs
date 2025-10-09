@@ -127,7 +127,7 @@ namespace GenioMVC.ViewModels.Movie
 		/// <param name="userContext">The current user request context</param>
 		public MOV_Menu_411_ViewModel(UserContext userContext) : base(userContext)
 		{
-			this.RoleToShow = CSGenio.framework.Role.ROLE_1;
+			this.RoleToShow = CSGenio.framework.Role.ADMINISTRATION;
 		}
 
 		/// <summary>

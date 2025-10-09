@@ -337,7 +337,7 @@
 										},
 									],
 									isControlled: true,
-									action: vm.openFormAction, type: 'form', mode: 'SHOW', formName: 'F_MOVADM'
+									action: vm.openFormAction, type: 'form', mode: 'NEW', formName: 'F_MOVADM'
 								}
 							},
 							formsDefinition: {
