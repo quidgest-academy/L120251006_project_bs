@@ -363,10 +363,10 @@ namespace GenioMVC.Controllers
 		}
 
 		//
-		// GET: /Home/Homp_ValField001
-		// POST: /Home/Homp_ValField001
-		[ActionName("Homp_ValField001")]
-		public ActionResult Homp_ValField001([FromBody]RequestLookupModel requestModel)
+		// GET: /Home/Homp_ValField003
+		// POST: /Home/Homp_ValField003
+		[ActionName("Homp_ValField003")]
+		public ActionResult Homp_ValField003([FromBody]RequestLookupModel requestModel)
 		{
 			var queryParams = requestModel.QueryParams;
 
@@ -378,7 +378,7 @@ namespace GenioMVC.Controllers
 			foreach (var kv in queryParams ?? [])
 				requestValues.Add(kv.Key, kv.Value);
 
-			Homp_ValField001_ViewModel model = new(UserContext.Current);
+			Homp_ValField003_ViewModel model = new(UserContext.Current);
 
 			// Table configuration load options
 			CSGenio.framework.TableConfiguration.TableConfigurationLoadOptions tableConfigOptions = new CSGenio.framework.TableConfiguration.TableConfigurationLoadOptions();

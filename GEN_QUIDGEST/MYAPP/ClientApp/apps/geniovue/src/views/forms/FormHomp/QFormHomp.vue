@@ -432,6 +432,35 @@
 						hasDependencies: false,
 						isInCollapsible: false,
 						columnsOriginal: [
+							new listColumnTypes.TextColumn({
+								order: 1,
+								name: 'ValTitle',
+								area: 'MOVIE',
+								field: 'TITLE',
+								label: computed(() => this.Resources.TITLE21885),
+								dataLength: 80,
+								scrollData: 30,
+							}, computed(() => vm.model), computed(() => vm.internalEvents)),
+							new listColumnTypes.ImageColumn({
+								order: 2,
+								name: 'ValPoster',
+								area: 'MOVIE',
+								field: 'POSTER',
+								label: computed(() => this.Resources.POSTER52933),
+								dataTitle: computed(() => genericFunctions.formatString(vm.Resources.IMAGEM_UTILIZADA_PAR58591, vm.Resources.POSTER52933)),
+								scrollData: 3,
+								sortable: false,
+								searchable: false,
+							}, computed(() => vm.model), computed(() => vm.internalEvents)),
+							new listColumnTypes.DateColumn({
+								order: 3,
+								name: 'ValRealease_date',
+								area: 'MOVIE',
+								field: 'REALEASE_DATE',
+								label: computed(() => this.Resources.REALEASE_DATE49316),
+								scrollData: 8,
+								dateTimeType: 'date',
+							}, computed(() => vm.model), computed(() => vm.internalEvents)),
 						],
 						config: {
 							name: 'ValField001',
@@ -588,13 +617,14 @@
 								dependencyEvents: [],
 								isServerRecalc: false,
 							},
-							defaultSearchColumnName: '',
-							defaultSearchColumnNameOriginal: '',
+							defaultSearchColumnName: 'ValTitle',
+							defaultSearchColumnNameOriginal: 'ValTitle',
 							defaultColumnSorting: {
-								columnName: '',
-								sortOrder: 'asc'
+								columnName: 'ValRealease_date',
+								sortOrder: 'desc'
 							}
 						},
+						globalEvents: ['changed-MOVIE'],
 						uuid: 'Homp_ValField001',
 						allSelectedRows: 'false',
 						viewModes: [
@@ -959,6 +989,277 @@
 						controlLimits: [
 						],
 					}, this),
+					HOMP____PSEUDFIELD003: new fieldControlClass.TableSpecialRenderingControl({
+						id: 'HOMP____PSEUDFIELD003',
+						name: 'FIELD003',
+						size: '',
+						label: computed(() => this.Resources.BEST_RATING13385),
+						placeholder: '',
+						labelPosition: computed(() => this.labelAlignment.topleft),
+						controller: 'Home',
+						action: 'Homp_ValField003',
+						hasDependencies: false,
+						isInCollapsible: false,
+						columnsOriginal: [
+							new listColumnTypes.TextColumn({
+								order: 1,
+								name: 'ValTitle',
+								area: 'MOVIE',
+								field: 'TITLE',
+								label: computed(() => this.Resources.TITLE21885),
+								dataLength: 80,
+								scrollData: 30,
+							}, computed(() => vm.model), computed(() => vm.internalEvents)),
+							new listColumnTypes.ImageColumn({
+								order: 2,
+								name: 'ValPoster',
+								area: 'MOVIE',
+								field: 'POSTER',
+								label: computed(() => this.Resources.POSTER52933),
+								dataTitle: computed(() => genericFunctions.formatString(vm.Resources.IMAGEM_UTILIZADA_PAR58591, vm.Resources.POSTER52933)),
+								scrollData: 3,
+								sortable: false,
+								searchable: false,
+							}, computed(() => vm.model), computed(() => vm.internalEvents)),
+							new listColumnTypes.DateColumn({
+								order: 3,
+								name: 'ValRealease_date',
+								area: 'MOVIE',
+								field: 'REALEASE_DATE',
+								label: computed(() => this.Resources.REALEASE_DATE49316),
+								scrollData: 8,
+								dateTimeType: 'date',
+							}, computed(() => vm.model), computed(() => vm.internalEvents)),
+						],
+						config: {
+							name: 'ValField003',
+							serverMode: true,
+							pkColumn: 'ValCodmovie',
+							tableAlias: 'MOVIE',
+							tableNamePlural: computed(() => this.Resources.MOVIES48538),
+							viewManagement: '',
+							showLimitsInfo: true,
+							tableTitle: computed(() => this.Resources.BEST_RATING13385),
+							perPage: 5,
+							showAlternatePagination: true,
+							permissions: {
+							},
+							searchBarConfig: {
+								visibility: false,
+								searchOnPressEnter: true
+							},
+							filtersVisible: false,
+							allowColumnFilters: false,
+							allowColumnSort: true,
+							crudActions: [
+								{
+									id: 'show',
+									name: 'show',
+									title: computed(() => this.Resources.CONSULTAR57388),
+									icon: {
+										icon: 'view'
+									},
+									isInReadOnly: true,
+									params: {
+										canExecuteAction: vm.applyChanges,
+										action: vm.openFormAction,
+										type: 'form',
+										formName: 'F_MOVIES',
+										mode: 'SHOW',
+										isControlled: true
+									}
+								},
+								{
+									id: 'edit',
+									name: 'edit',
+									title: computed(() => this.Resources.EDITAR11616),
+									icon: {
+										icon: 'pencil'
+									},
+									isInReadOnly: false,
+									params: {
+										canExecuteAction: vm.applyChanges,
+										action: vm.openFormAction,
+										type: 'form',
+										formName: 'F_MOVIES',
+										mode: 'EDIT',
+										isControlled: true
+									}
+								},
+								{
+									id: 'duplicate',
+									name: 'duplicate',
+									title: computed(() => this.Resources.DUPLICAR09748),
+									icon: {
+										icon: 'duplicate'
+									},
+									isInReadOnly: false,
+									params: {
+										canExecuteAction: vm.applyChanges,
+										action: vm.openFormAction,
+										type: 'form',
+										formName: 'F_MOVIES',
+										mode: 'DUPLICATE',
+										isControlled: true
+									}
+								},
+								{
+									id: 'delete',
+									name: 'delete',
+									title: computed(() => this.Resources.ELIMINAR21155),
+									icon: {
+										icon: 'delete'
+									},
+									isInReadOnly: false,
+									params: {
+										canExecuteAction: vm.applyChanges,
+										action: vm.openFormAction,
+										type: 'form',
+										formName: 'F_MOVIES',
+										mode: 'DELETE',
+										isControlled: true
+									}
+								}
+							],
+							generalActions: [
+								{
+									id: 'insert',
+									name: 'insert',
+									title: computed(() => this.Resources.INSERIR43365),
+									icon: {
+										icon: 'add'
+									},
+									isInReadOnly: false,
+									params: {
+										canExecuteAction: vm.applyChanges,
+										action: vm.openFormAction,
+										type: 'form',
+										formName: 'F_MOVIES',
+										mode: 'NEW',
+										repeatInsertion: false,
+										isControlled: true
+									}
+								},
+							],
+							generalCustomActions: [
+							],
+							groupActions: [
+							],
+							customActions: [
+							],
+							MCActions: [
+							],
+							rowClickAction: {
+								id: 'RCA__F_MOVIES',
+								name: '_F_MOVIES',
+								title: '',
+								isInReadOnly: true,
+								params: {
+									isRoute: true,
+									canExecuteAction: vm.applyChanges,
+									action: vm.openFormAction,
+									type: 'form',
+									formName: 'F_MOVIES',
+									mode: 'SHOW',
+									isControlled: true
+								}
+							},
+							formsDefinition: {
+								'F_MOVIES': {
+									fnKeySelector: (row) => row.Fields.ValCodmovie,
+									isPopup: false
+								},
+							},
+							insertCondition: {
+								// eslint-disable-next-line @typescript-eslint/no-unused-vars
+								fnFormula(params)
+								{
+									return netAPI.postData(
+										'Movie',
+										'F_MOVIES_InsertCondition',
+										this.serverObjModel,
+										undefined,
+										undefined,
+										undefined,
+										this.navigationId)
+								},
+								dependencyEvents: [],
+								isServerRecalc: false,
+							},
+							defaultSearchColumnName: 'ValTitle',
+							defaultSearchColumnNameOriginal: 'ValTitle',
+							defaultColumnSorting: {
+								columnName: '',
+								sortOrder: 'asc'
+							}
+						},
+						globalEvents: ['changed-MOVIE'],
+						uuid: 'Homp_ValField003',
+						allSelectedRows: 'false',
+						viewModes: [
+							{
+								id: 'CAROUSEL',
+								type: 'carousel',
+								subtype: '',
+								label: computed(() => this.Resources.CARROSSEL41899),
+								order: 1,
+								mappingVariables: readonly({
+									slideTitle: {
+										allowsMultiple: false,
+										sources: [
+											'MOVIE.TITLE',
+										]
+									},
+									slideSubtitle: {
+										allowsMultiple: false,
+										sources: [
+											'MOVIE.REALEASE_DATE',
+										]
+									},
+									slideImage: {
+										allowsMultiple: false,
+										sources: [
+											'MOVIE.POSTER',
+										]
+									},
+								}),
+								styleVariables: {
+									showIndicators: {
+										rawValue: true,
+										isMapped: false
+									},
+									showControls: {
+										rawValue: true,
+										isMapped: false
+									},
+									keyboardControllable: {
+										rawValue: true,
+										isMapped: false
+									},
+									autoCycleInterval: {
+										rawValue: 5000,
+										isMapped: false
+									},
+									autoCyclePause: {
+										rawValue: 'hover',
+										isMapped: false
+									},
+									ride: {
+										rawValue: 'carousel',
+										isMapped: false
+									},
+									wrap: {
+										rawValue: true,
+										isMapped: false
+									},
+								},
+								groups: {
+								}
+							},
+						],
+						controlLimits: [
+						],
+					}, this),
 				},
 
 				model: new FormViewModel(this, {
@@ -974,7 +1275,7 @@
 				tableFields: readonly([
 					'HOMP____PSEUDFIELD001',
 					'HOMP____PSEUDFIELD002',
-					'HOMP____PSEUDFIELD001',
+					'HOMP____PSEUDFIELD003',
 				]),
 
 				timelineFields: readonly([

@@ -17,20 +17,20 @@ using Quidgest.Persistence.GenericQuery;
 
 namespace GenioMVC.ViewModels
 {
-	public class Homp_ValField001_ViewModel : MenuListViewModel<Models.Movie>
+	public class Homp_ValField003_ViewModel : MenuListViewModel<Models.Movie>
 	{
 		/// <summary>
 		/// Gets or sets the object that represents the table and its elements.
 		/// </summary>
 		[JsonPropertyName("Table")]
-		public TablePartial<Homp_ValField001_RowViewModel> Menu { get; set; }
+		public TablePartial<Homp_ValField003_RowViewModel> Menu { get; set; }
 
 		/// <inheritdoc/>
 		[JsonIgnore]
 		public override string TableAlias => "movie";
 
 		/// <inheritdoc/>
-		public override string Uuid => "Homp_ValField001";
+		public override string Uuid => "Homp_ValField003";
 
 		/// <inheritdoc/>
 		protected override string[] FieldsToSerialize => _fieldsToSerialize;
@@ -81,7 +81,7 @@ namespace GenioMVC.ViewModels
 
 		public override CriteriaSet GetCustomizedStaticLimits(CriteriaSet crs)
 		{
-// USE /[MANUAL MOV LIST_LIMITS HOMP_PSEUDFIELD001]/
+// USE /[MANUAL MOV LIST_LIMITS HOMP_PSEUDFIELD003]/
 
 			return crs;
 		}
@@ -95,22 +95,22 @@ namespace GenioMVC.ViewModels
 		/// FOR DESERIALIZATION ONLY
 		/// </summary>
 		[Obsolete("For deserialization only")]
-		public Homp_ValField001_ViewModel() : base(null!) { }
+		public Homp_ValField003_ViewModel() : base(null!) { }
 
 		/// <summary>
-		/// Initializes a new instance of the <see cref="Homp_ValField001_ViewModel" /> class.
+		/// Initializes a new instance of the <see cref="Homp_ValField003_ViewModel" /> class.
 		/// </summary>
 		/// <param name="userContext">The current user request context</param>
-		public Homp_ValField001_ViewModel(UserContext userContext) : base(userContext)
+		public Homp_ValField003_ViewModel(UserContext userContext) : base(userContext)
 		{
 		}
 
 		/// <summary>
-		/// Initializes a new instance of the <see cref="Homp_ValField001_ViewModel" /> class.
+		/// Initializes a new instance of the <see cref="Homp_ValField003_ViewModel" /> class.
 		/// </summary>
 		/// <param name="userContext">The current user request context</param>
 		/// <param name="parentCtx">The context of the parent</param>
-		public Homp_ValField001_ViewModel(UserContext userContext, Models.ModelBase parentCtx) : this(userContext)
+		public Homp_ValField003_ViewModel(UserContext userContext, Models.ModelBase parentCtx) : this(userContext)
 		{
 			ParentCtx = parentCtx;
 		}
@@ -166,7 +166,7 @@ namespace GenioMVC.ViewModels
 
 
 			if (Menu == null)
-				Menu = new TablePartial<Homp_ValField001_RowViewModel>();
+				Menu = new TablePartial<Homp_ValField003_RowViewModel>();
 			// Set table name (used in getting searchable column names)
 			Menu.TableName = TableAlias;
 
@@ -192,7 +192,7 @@ namespace GenioMVC.ViewModels
 			if (isToExport)
 			{
 				// EPH
-				crs = Models.Movie.AddEPH<CSGenioAmovie>(ref u, crs, "IBL_HOMP____PSEUDFIELD001");
+				crs = Models.Movie.AddEPH<CSGenioAmovie>(ref u, crs, "IBL_HOMP____PSEUDFIELD003");
 
 				// Export only records with ZZState == 0
 				crs.Equal(CSGenioAmovie.FldZzstate, 0);
@@ -210,7 +210,7 @@ namespace GenioMVC.ViewModels
 				string QMVC_POS_RECORD = Navigation.GetStrValue("QMVC_POS_RECORD_movie");
 				Navigation.DestroyEntry("QMVC_POS_RECORD_movie");
 				if (!string.IsNullOrEmpty(QMVC_POS_RECORD))
-					crs.Equals(Models.Movie.AddEPH<CSGenioAmovie>(ref u, null, "IBL_HOMP____PSEUDFIELD001"));
+					crs.Equals(Models.Movie.AddEPH<CSGenioAmovie>(ref u, null, "IBL_HOMP____PSEUDFIELD003"));
 			}
 
 			return crs;
@@ -285,15 +285,13 @@ namespace GenioMVC.ViewModels
 		public void Load(CSGenio.framework.TableConfiguration.TableConfiguration tableConfig, NameValueCollection requestValues, bool ajaxRequest, bool isToExport, ref ListingMVC<CSGenioAmovie> Qlisting, ref CriteriaSet conditions)
 		{
 				User u = m_userContext.User;
-				Menu = new TablePartial<Homp_ValField001_RowViewModel>();
+				Menu = new TablePartial<Homp_ValField003_RowViewModel>();
 
-				CriteriaSet homp____pseudfield001Conds = CriteriaSet.And();
+				CriteriaSet homp____pseudfield003Conds = CriteriaSet.And();
 				bool tableReload = true;
 
 				//FOR: MENU LIST SORTING
 				Dictionary<string, OrderedDictionary> allSortOrders = new Dictionary<string, OrderedDictionary>();
-				allSortOrders.Add("MOVIE.REALEASE_DATE", new OrderedDictionary());
-				allSortOrders["MOVIE.REALEASE_DATE"].Add("MOVIE.REALEASE_DATE", "D");
 
 
 
@@ -306,12 +304,6 @@ namespace GenioMVC.ViewModels
 
 				List<ColumnSort> sorts = GetRequestSorts(this.Menu, tableConfig.ColumnOrderBy, "movie", allSortOrders);
 
-				if (sorts == null || sorts.Count == 0)
-				{
-					sorts = new List<ColumnSort>();
-				sorts.Add(new ColumnSort(new ColumnReference(CSGenioAmovie.FldRealease_date), SortOrder.Descending));
-
-				}
 
 				FieldRef[] fields = new FieldRef[] { CSGenioAmovie.FldCodmovie, CSGenioAmovie.FldZzstate, CSGenioAmovie.FldTitle, CSGenioAmovie.FldPoster, CSGenioAmovie.FldRealease_date };
 
@@ -339,7 +331,7 @@ namespace GenioMVC.ViewModels
 					Limit limit = new Limit();
 					limit.TipoLimite = LimitType.EPH;
 					CSGenioAmovie model_limit_area = new CSGenioAmovie(m_userContext.User);
-					List<Limit> area_EPH_limits = EPH_Limit_Filler(ref limit, model_limit_area, "IBL_HOMP____PSEUDFIELD001");
+					List<Limit> area_EPH_limits = EPH_Limit_Filler(ref limit, model_limit_area, "IBL_HOMP____PSEUDFIELD003");
 					if (area_EPH_limits.Count > 0)
 						this.tableLimits.AddRange(area_EPH_limits);
 				}
@@ -348,11 +340,11 @@ namespace GenioMVC.ViewModels
 				if (conditions == null)
 					conditions = CriteriaSet.And();
 
-				conditions.SubSets.Add(homp____pseudfield001Conds);
-				homp____pseudfield001Conds = BuildCriteriaSet(tableConfig, requestValues, out bool hasAllRequiredLimits, conditions, isToExport);
+				conditions.SubSets.Add(homp____pseudfield003Conds);
+				homp____pseudfield003Conds = BuildCriteriaSet(tableConfig, requestValues, out bool hasAllRequiredLimits, conditions, isToExport);
 				tableReload &= hasAllRequiredLimits;
 
-// USE /[MANUAL MOV OVERRQ HOMP_PSEUDFIELD001]/
+// USE /[MANUAL MOV OVERRQ HOMP_PSEUDFIELD003]/
 
 				bool distinct = false;
 
@@ -361,16 +353,16 @@ namespace GenioMVC.ViewModels
 					if (!tableReload)
 						return;
 
-					Qlisting = Models.ModelBase.Where<CSGenioAmovie>(m_userContext, false, homp____pseudfield001Conds, fields, (pageNumber - 1) * numberListItems, numberListItems, sorts, "IBL_HOMP____PSEUDFIELD001", true, firstVisibleColumn: firstVisibleColumn);
+					Qlisting = Models.ModelBase.Where<CSGenioAmovie>(m_userContext, false, homp____pseudfield003Conds, fields, (pageNumber - 1) * numberListItems, numberListItems, sorts, "IBL_HOMP____PSEUDFIELD003", true, firstVisibleColumn: firstVisibleColumn);
 
-// USE /[MANUAL MOV OVERRQLSTEXP HOMP_PSEUDFIELD001]/
+// USE /[MANUAL MOV OVERRQLSTEXP HOMP_PSEUDFIELD003]/
 
 					return;
 				}
 
 				if (tableReload)
 				{
-// USE /[MANUAL MOV OVERRQLIST HOMP_PSEUDFIELD001]/
+// USE /[MANUAL MOV OVERRQLIST HOMP_PSEUDFIELD003]/
 
 					string QMVC_POS_RECORD = Navigation.GetStrValue("QMVC_POS_RECORD_movie");
 					Navigation.DestroyEntry("QMVC_POS_RECORD_movie");
@@ -378,12 +370,12 @@ namespace GenioMVC.ViewModels
 
 					if (!string.IsNullOrEmpty(QMVC_POS_RECORD))
 					{
-						var m_iCurPag = m_userContext.PersistentSupport.getPagingPos(CSGenioAmovie.GetInformation(), QMVC_POS_RECORD, sorts, homp____pseudfield001Conds, m_PagingPosEPHs, firstVisibleColumn: firstVisibleColumn);
+						var m_iCurPag = m_userContext.PersistentSupport.getPagingPos(CSGenioAmovie.GetInformation(), QMVC_POS_RECORD, sorts, homp____pseudfield003Conds, m_PagingPosEPHs, firstVisibleColumn: firstVisibleColumn);
 						if (m_iCurPag != -1)
 							pageNumber = ((m_iCurPag - 1) / numberListItems) + 1;
 					}
 
-					ListingMVC<CSGenioAmovie> listing = Models.ModelBase.Where<CSGenioAmovie>(m_userContext, distinct, homp____pseudfield001Conds, fields, (pageNumber - 1) * numberListItems, numberListItems, sorts, "IBL_HOMP____PSEUDFIELD001", true, false, QMVC_POS_RECORD, m_PagingPosEPHs, firstVisibleColumn, fieldsWithTotalizers, tableConfig.SelectedRows);
+					ListingMVC<CSGenioAmovie> listing = Models.ModelBase.Where<CSGenioAmovie>(m_userContext, distinct, homp____pseudfield003Conds, fields, (pageNumber - 1) * numberListItems, numberListItems, sorts, "IBL_HOMP____PSEUDFIELD003", true, false, QMVC_POS_RECORD, m_PagingPosEPHs, firstVisibleColumn, fieldsWithTotalizers, tableConfig.SelectedRows);
 
 					if (listing.CurrentPage > 0)
 						pageNumber = listing.CurrentPage;
@@ -395,14 +387,14 @@ namespace GenioMVC.ViewModels
 					//Set document field values to objects
 					SetDocumentFields(listing);
 
-					Menu.Elements = MapHomp_ValField001(listing);
+					Menu.Elements = MapHomp_ValField003(listing);
 
-					Menu.Identifier = "IBL_HOMP____PSEUDFIELD001";
+					Menu.Identifier = "IBL_HOMP____PSEUDFIELD003";
 
 					// Last updated by [CJP] at [2015.02.03]
 					// Adds the identifier to each element
 					foreach (var element in Menu.Elements)
-						element.Identifier = "IBL_HOMP____PSEUDFIELD001";
+						element.Identifier = "IBL_HOMP____PSEUDFIELD003";
 
 					Menu.SetPagination(pageNumber, listing.NumRegs, listing.HasMore, listing.GetTotal, listing.TotalRecords);
 
@@ -421,9 +413,9 @@ namespace GenioMVC.ViewModels
 				LoadUserTableConfigNameProperties();
 		}
 
-		private List<Homp_ValField001_RowViewModel> MapHomp_ValField001(ListingMVC<CSGenioAmovie> Qlisting)
+		private List<Homp_ValField003_RowViewModel> MapHomp_ValField003(ListingMVC<CSGenioAmovie> Qlisting)
 		{
-			List<Homp_ValField001_RowViewModel> Elements = [];
+			List<Homp_ValField003_RowViewModel> Elements = [];
 			int i = 0;
 
 			if (Qlisting.Rows != null)
@@ -432,7 +424,7 @@ namespace GenioMVC.ViewModels
 				{
 					if (Qlisting.NumRegs > 0 && i >= Qlisting.NumRegs) // Copiado da versão antiga do RowsToViewModels
 						break;
-					Elements.Add(MapHomp_ValField001(row));
+					Elements.Add(MapHomp_ValField003(row));
 					i++;
 				}
 			}
@@ -442,12 +434,12 @@ namespace GenioMVC.ViewModels
 
 		/// <summary>
 		/// Maps a single CSGenioAmovie row
-		/// to a Homp_ValField001_RowViewModel object.
+		/// to a Homp_ValField003_RowViewModel object.
 		/// </summary>
 		/// <param name="row">The row.</param>
-		private Homp_ValField001_RowViewModel MapHomp_ValField001(CSGenioAmovie row)
+		private Homp_ValField003_RowViewModel MapHomp_ValField003(CSGenioAmovie row)
 		{
-			var model = new Homp_ValField001_RowViewModel(m_userContext, true, _fieldsToSerialize);
+			var model = new Homp_ValField003_RowViewModel(m_userContext, true, _fieldsToSerialize);
 			if (row == null)
 				return model;
 
@@ -503,7 +495,7 @@ namespace GenioMVC.ViewModels
 
 		#region Custom code
 
-// USE /[MANUAL MOV VIEWMODEL_CUSTOM HOMP_VALFIELD001]/
+// USE /[MANUAL MOV VIEWMODEL_CUSTOM HOMP_VALFIELD003]/
 
 		#endregion
 

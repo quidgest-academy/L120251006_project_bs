@@ -6,16 +6,16 @@ using GenioMVC.Models.Navigation;
 
 namespace GenioMVC.ViewModels;
 
-public class Homp_ValField001_RowViewModel : Models.Movie
+public class Homp_ValField003_RowViewModel : Models.Movie
 {
 	#region Constructors
 
-	public Homp_ValField001_RowViewModel(UserContext userContext, bool isEmpty = false, string[]? fieldsToSerialize = null) : base(userContext, isEmpty, fieldsToSerialize)
+	public Homp_ValField003_RowViewModel(UserContext userContext, bool isEmpty = false, string[]? fieldsToSerialize = null) : base(userContext, isEmpty, fieldsToSerialize)
 	{
 		InitRowProperties();
 	}
 
-	public Homp_ValField001_RowViewModel(UserContext userContext, CSGenioAmovie val, bool isEmpty = false, string[]? fieldsToSerialize = null) : base(userContext, val, isEmpty, fieldsToSerialize)
+	public Homp_ValField003_RowViewModel(UserContext userContext, CSGenioAmovie val, bool isEmpty = false, string[]? fieldsToSerialize = null) : base(userContext, val, isEmpty, fieldsToSerialize)
 	{
 		InitRowProperties();
 	}
