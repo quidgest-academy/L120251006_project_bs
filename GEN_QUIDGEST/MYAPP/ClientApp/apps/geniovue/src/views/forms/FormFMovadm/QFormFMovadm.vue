@@ -705,7 +705,6 @@
 						label: computed(() => this.Resources.NUMBEROFLIKES65014),
 						placeholder: '',
 						labelPosition: computed(() => this.labelAlignment.topleft),
-						isFormulaBlocked: true,
 						maxIntegers: 9,
 						maxDecimals: 0,
 						controlLimits: [

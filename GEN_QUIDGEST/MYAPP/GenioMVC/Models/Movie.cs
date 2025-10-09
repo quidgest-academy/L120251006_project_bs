@@ -69,7 +69,7 @@ namespace GenioMVC.Models
 		public string ValDescription { get { return klass.ValDescription; } set { klass.ValDescription = value; } }
 
 		[DisplayName("")]
-		/// <summary>Field : "" Tipo: "N" Formula: SR "[FAVOR->CODFAVOR]"</summary>
+		/// <summary>Field : "" Tipo: "N" Formula:  ""</summary>
 		[ShouldSerialize("Movie.ValNumberoflikes")]
 		[NumericAttribute(0)]
 		public decimal? ValNumberoflikes { get { return Convert.ToDecimal(GenFunctions.RoundQG(klass.ValNumberoflikes, 0)); } set { klass.ValNumberoflikes = Convert.ToDecimal(value); } }
