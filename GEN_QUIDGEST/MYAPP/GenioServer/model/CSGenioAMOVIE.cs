@@ -148,22 +148,6 @@ namespace CSGenio.business
 			info.RegisterFieldDB(Qfield);
 
 			//- - - - - - - - - - - - - - - - - - -
-			Qfield = new Field(info.Alias, "averagerate", FieldType.NUMERIC);
-			Qfield.FieldDescription = "Average Rate";
-			Qfield.FieldSize =  9;
-			Qfield.MQueue = false;
-			Qfield.IntegerDigits = 9;
-			Qfield.CavDesignation = "AVERAGE_RATE24140";
-
-			Qfield.Dupmsg = "";
-			argumentsListByArea = new List<ByAreaArguments>();
-			argumentsListByArea.Add(new ByAreaArguments(new string[] {"sumavg","totalrate"}, new int[] {0,1}, "movie", "codmovie"));
-			Qfield.Formula = new InternalOperationFormula(argumentsListByArea, 2, delegate(object[] args, User user, string module, PersistentSupport sp) {
-				return ((decimal)args[0])/((decimal)args[1]);
-			});
-			info.RegisterFieldDB(Qfield);
-
-			//- - - - - - - - - - - - - - - - - - -
 			Qfield = new Field(info.Alias, "totalrate", FieldType.NUMERIC);
 			Qfield.FieldDescription = "Total rate";
 			Qfield.FieldSize =  6;
@@ -183,6 +167,22 @@ namespace CSGenio.business
 			Qfield.CavDesignation = "";
 
 			Qfield.Dupmsg = "";
+			info.RegisterFieldDB(Qfield);
+
+			//- - - - - - - - - - - - - - - - - - -
+			Qfield = new Field(info.Alias, "averagerate", FieldType.NUMERIC);
+			Qfield.FieldDescription = "Average Rate";
+			Qfield.FieldSize =  9;
+			Qfield.MQueue = false;
+			Qfield.IntegerDigits = 9;
+			Qfield.CavDesignation = "AVERAGE_RATE24140";
+
+			Qfield.Dupmsg = "";
+			argumentsListByArea = new List<ByAreaArguments>();
+			argumentsListByArea.Add(new ByAreaArguments(new string[] {"sumavg","totalrate"}, new int[] {0,1}, "movie", "codmovie"));
+			Qfield.Formula = new InternalOperationFormula(argumentsListByArea, 2, delegate(object[] args, User user, string module, PersistentSupport sp) {
+				return ((decimal)args[0])/((decimal)args[1]);
+			});
 			info.RegisterFieldDB(Qfield);
 
 			//- - - - - - - - - - - - - - - - - - -
@@ -462,17 +462,6 @@ namespace CSGenio.business
 			set { insertNameValueField(FldBackdrop, value); }
 		}
 
-		/// <summary>Field : "Average Rate" Tipo: "ND" Formula: + "[MOVIE->SUMAVG]/[MOVIE->TOTALRAT]"</summary>
-		public static FieldRef FldAveragerate { get { return m_fldAveragerate; } }
-		private static FieldRef m_fldAveragerate = new FieldRef("movie", "averagerate");
-
-		/// <summary>Field : "Average Rate" Tipo: "ND" Formula: + "[MOVIE->SUMAVG]/[MOVIE->TOTALRAT]"</summary>
-		public decimal ValAveragerate
-		{
-			get { return (decimal)returnValueField(FldAveragerate); }
-			set { insertNameValueField(FldAveragerate, value); }
-		}
-
 		/// <summary>Field : "Total rate" Tipo: "N" Formula: SR "[RATTI->1]"</summary>
 		public static FieldRef FldTotalrate { get { return m_fldTotalrate; } }
 		private static FieldRef m_fldTotalrate = new FieldRef("movie", "totalrate");
@@ -493,6 +482,17 @@ namespace CSGenio.business
 		{
 			get { return (decimal)returnValueField(FldSumavg); }
 			set { insertNameValueField(FldSumavg, value); }
+		}
+
+		/// <summary>Field : "Average Rate" Tipo: "ND" Formula: + "[MOVIE->SUMAVG]/[MOVIE->TOTALRAT]"</summary>
+		public static FieldRef FldAveragerate { get { return m_fldAveragerate; } }
+		private static FieldRef m_fldAveragerate = new FieldRef("movie", "averagerate");
+
+		/// <summary>Field : "Average Rate" Tipo: "ND" Formula: + "[MOVIE->SUMAVG]/[MOVIE->TOTALRAT]"</summary>
+		public decimal ValAveragerate
+		{
+			get { return (decimal)returnValueField(FldAveragerate); }
+			set { insertNameValueField(FldAveragerate, value); }
 		}
 
 		/// <summary>Field : "LastRate" Tipo: "N" Formula: U1 "RATTI[RATTI->CODRATTI][RATTI->RATE]"</summary>

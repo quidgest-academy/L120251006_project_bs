@@ -82,12 +82,6 @@ namespace GenioMVC.Models
 		[JsonIgnore]
 		public string ValBackdropQTicket = null;
 
-		[DisplayName("Average Rate")]
-		/// <summary>Field : "Average Rate" Tipo: "ND" Formula: + "[MOVIE->SUMAVG]/[MOVIE->TOTALRAT]"</summary>
-		[ShouldSerialize("Movie.ValAveragerate")]
-		[NumericAttribute(0)]
-		public decimal? ValAveragerate { get { return Convert.ToDecimal(GenFunctions.RoundQG(klass.ValAveragerate, 0)); } set { klass.ValAveragerate = Convert.ToDecimal(value); } }
-
 		[DisplayName("Total rate")]
 		/// <summary>Field : "Total rate" Tipo: "N" Formula: SR "[RATTI->1]"</summary>
 		[ShouldSerialize("Movie.ValTotalrate")]
@@ -99,6 +93,12 @@ namespace GenioMVC.Models
 		[ShouldSerialize("Movie.ValSumavg")]
 		[NumericAttribute(0)]
 		public decimal? ValSumavg { get { return Convert.ToDecimal(GenFunctions.RoundQG(klass.ValSumavg, 0)); } set { klass.ValSumavg = Convert.ToDecimal(value); } }
+
+		[DisplayName("Average Rate")]
+		/// <summary>Field : "Average Rate" Tipo: "ND" Formula: + "[MOVIE->SUMAVG]/[MOVIE->TOTALRAT]"</summary>
+		[ShouldSerialize("Movie.ValAveragerate")]
+		[NumericAttribute(0)]
+		public decimal? ValAveragerate { get { return Convert.ToDecimal(GenFunctions.RoundQG(klass.ValAveragerate, 0)); } set { klass.ValAveragerate = Convert.ToDecimal(value); } }
 
 		[DisplayName("LastRate")]
 		/// <summary>Field : "LastRate" Tipo: "N" Formula: U1 "RATTI[RATTI->CODRATTI][RATTI->RATE]"</summary>

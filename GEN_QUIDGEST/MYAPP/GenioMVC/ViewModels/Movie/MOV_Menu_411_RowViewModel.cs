@@ -75,6 +75,36 @@ public class MOV_Menu_411_RowViewModel : Models.Movie
 				Area = "MOVIE",
 				Field = "CREATEAT",
 			},
+			new ListColumn()
+			{
+				Order = 8,
+				Area = "MOVIE",
+				Field = "TOTALRATE",
+			},
+			new ListColumn()
+			{
+				Order = 9,
+				Area = "MOVIE",
+				Field = "LASTRATE",
+			},
+			new ListColumn()
+			{
+				Order = 10,
+				Area = "MOVIE",
+				Field = "BACKDROP",
+			},
+			new ListColumn()
+			{
+				Order = 11,
+				Area = "MOVIE",
+				Field = "SUMAVG",
+			},
+			new ListColumn()
+			{
+				Order = 12,
+				Area = "MOVIE",
+				Field = "AVERAGERATE",
+			},
 		];
 	}
 

@@ -99,7 +99,7 @@ namespace GenioMVC.ViewModels.Movie
 			conditions.SubSets.Add(GetCustomizedStaticLimits(StaticLimits));
 
 			// Checks for foreign tables in fields and conditions
-			FieldRef[] fields = new FieldRef[] { CSGenioAmovie.FldCodmovie, CSGenioAmovie.FldZzstate, CSGenioAmovie.FldDescription, CSGenioAmovie.FldRealease_date, CSGenioAmovie.FldMoviesgenre, CSGenioAmovie.FldNumberoflikes, CSGenioAmovie.FldTitle, CSGenioAmovie.FldPoster, CSGenioAmovie.FldCreateat };
+			FieldRef[] fields = new FieldRef[] { CSGenioAmovie.FldCodmovie, CSGenioAmovie.FldZzstate, CSGenioAmovie.FldDescription, CSGenioAmovie.FldRealease_date, CSGenioAmovie.FldMoviesgenre, CSGenioAmovie.FldNumberoflikes, CSGenioAmovie.FldTitle, CSGenioAmovie.FldPoster, CSGenioAmovie.FldCreateat, CSGenioAmovie.FldTotalrate, CSGenioAmovie.FldLastrate, CSGenioAmovie.FldBackdrop, CSGenioAmovie.FldSumavg, CSGenioAmovie.FldAveragerate };
 
 			ListingMVC<CSGenioAmovie> listing = new(fields, null, 1, 1, false, user, true, string.Empty, false);
 			SelectQuery qs = sp.getSelectQueryFromListingMVC(conditions, listing);
@@ -151,6 +151,10 @@ namespace GenioMVC.ViewModels.Movie
 				new Exports.QColumn(CSGenioAmovie.FldNumberoflikes, FieldType.NUMERIC, string.Empty, 9, 0, true),
 				new Exports.QColumn(CSGenioAmovie.FldTitle, FieldType.TEXT, Resources.Resources.TITLE21885, 30, 0, true),
 				new Exports.QColumn(CSGenioAmovie.FldCreateat, FieldType.DATE, Resources.Resources.CREATE_AT36393, 8, 0, true),
+				new Exports.QColumn(CSGenioAmovie.FldTotalrate, FieldType.NUMERIC, Resources.Resources.TOTAL_RATE13592, 6, 0, true),
+				new Exports.QColumn(CSGenioAmovie.FldLastrate, FieldType.NUMERIC, Resources.Resources.LASTRATE08537, 1, 0, true),
+				new Exports.QColumn(CSGenioAmovie.FldSumavg, FieldType.NUMERIC, string.Empty, 6, 0, true),
+				new Exports.QColumn(CSGenioAmovie.FldAveragerate, FieldType.NUMERIC, Resources.Resources.AVERAGE_RATE24140, 9, 0, true),
 			];
 		}
 
@@ -354,7 +358,7 @@ namespace GenioMVC.ViewModels.Movie
 
 				}
 
-				FieldRef[] fields = new FieldRef[] { CSGenioAmovie.FldCodmovie, CSGenioAmovie.FldZzstate, CSGenioAmovie.FldDescription, CSGenioAmovie.FldRealease_date, CSGenioAmovie.FldMoviesgenre, CSGenioAmovie.FldNumberoflikes, CSGenioAmovie.FldTitle, CSGenioAmovie.FldPoster, CSGenioAmovie.FldCreateat };
+				FieldRef[] fields = new FieldRef[] { CSGenioAmovie.FldCodmovie, CSGenioAmovie.FldZzstate, CSGenioAmovie.FldDescription, CSGenioAmovie.FldRealease_date, CSGenioAmovie.FldMoviesgenre, CSGenioAmovie.FldNumberoflikes, CSGenioAmovie.FldTitle, CSGenioAmovie.FldPoster, CSGenioAmovie.FldCreateat, CSGenioAmovie.FldTotalrate, CSGenioAmovie.FldLastrate, CSGenioAmovie.FldBackdrop, CSGenioAmovie.FldSumavg, CSGenioAmovie.FldAveragerate };
 
 
 				// Totalizers
@@ -551,7 +555,7 @@ namespace GenioMVC.ViewModels.Movie
 
 		private static readonly string[] _fieldsToSerialize =
 		[
-			"Movie", "Movie.ValCodmovie", "Movie.ValZzstate", "Movie.ValDescription", "Movie.ValRealease_date", "Movie.ValMoviesgenre", "Movie.ValNumberoflikes", "Movie.ValTitle", "Movie.ValPoster", "Movie.ValCreateat"
+			"Movie", "Movie.ValCodmovie", "Movie.ValZzstate", "Movie.ValDescription", "Movie.ValRealease_date", "Movie.ValMoviesgenre", "Movie.ValNumberoflikes", "Movie.ValTitle", "Movie.ValPoster", "Movie.ValCreateat", "Movie.ValTotalrate", "Movie.ValLastrate", "Movie.ValBackdrop", "Movie.ValSumavg", "Movie.ValAveragerate"
 		];
 
 		private static readonly List<TableSearchColumn> _searchableColumns =
@@ -562,6 +566,10 @@ namespace GenioMVC.ViewModels.Movie
 			new TableSearchColumn("ValNumberoflikes", CSGenioAmovie.FldNumberoflikes, typeof(decimal?)),
 			new TableSearchColumn("ValTitle", CSGenioAmovie.FldTitle, typeof(string), defaultSearch : true),
 			new TableSearchColumn("ValCreateat", CSGenioAmovie.FldCreateat, typeof(DateTime?)),
+			new TableSearchColumn("ValTotalrate", CSGenioAmovie.FldTotalrate, typeof(decimal?)),
+			new TableSearchColumn("ValLastrate", CSGenioAmovie.FldLastrate, typeof(decimal?)),
+			new TableSearchColumn("ValSumavg", CSGenioAmovie.FldSumavg, typeof(decimal?)),
+			new TableSearchColumn("ValAveragerate", CSGenioAmovie.FldAveragerate, typeof(decimal?)),
 		];
 		protected void SetTicketToImageFields(Models.Movie row)
 		{
@@ -569,6 +577,7 @@ namespace GenioMVC.ViewModels.Movie
 				return;
 
 			row.ValPosterQTicket = Helpers.Helpers.GetFileTicket(m_userContext.User, CSGenio.business.Area.AreaMOVIE, CSGenioAmovie.FldPoster.Field, null, row.ValCodmovie);
+			row.ValBackdropQTicket = Helpers.Helpers.GetFileTicket(m_userContext.User, CSGenio.business.Area.AreaMOVIE, CSGenioAmovie.FldBackdrop.Field, null, row.ValCodmovie);
 		}
 	}
 }
