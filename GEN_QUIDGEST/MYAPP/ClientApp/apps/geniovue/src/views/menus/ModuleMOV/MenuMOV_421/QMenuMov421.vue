@@ -315,7 +315,7 @@
 								sortOrder: 'asc'
 							}
 						},
-						globalEvents: ['changed-USERP'],
+						globalEvents: ['changed-PSW', 'changed-USERP'],
 						uuid: '468d0795-c920-4076-8f0b-616e43cf51fe',
 						allSelectedRows: 'false',
 						headerLevel: 1,

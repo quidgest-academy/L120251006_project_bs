@@ -34,6 +34,12 @@ namespace Administration.Models
                 Module = "MOV"
             },
             new ModuleRoleModel() {
+                Role = "5",
+                Designation = "USER16010",
+                Description = "",              
+                Module = "MOV"
+            },
+            new ModuleRoleModel() {
                 Role = "99",
                 Designation = "ADMINISTRADOR57294",
                 Description = "",              

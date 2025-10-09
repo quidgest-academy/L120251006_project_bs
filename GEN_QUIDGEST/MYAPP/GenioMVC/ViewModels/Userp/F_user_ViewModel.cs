@@ -30,6 +30,10 @@ namespace GenioMVC.ViewModels.Userp
 		public bool MsqActive { get; set; } = false;
 
 		#region Foreign keys
+		/// <summary>
+		/// Title: "Login" | Type: "CE"
+		/// </summary>
+		public string ValCodpsw { get; set; }
 
 		#endregion
 		/// <summary>
@@ -43,8 +47,13 @@ namespace GenioMVC.ViewModels.Userp
 		/// <summary>
 		/// Title: "Photo" | Type: "IJ"
 		/// </summary>
-		[ImageThumbnailJsonConverter(100, 50)]
+		[ImageThumbnailJsonConverter(30, 50)]
 		public GenioMVC.Models.ImageModel ValPhoto { get; set; }
+		/// <summary>
+		/// Title: "Login" | Type: "C"
+		/// </summary>
+		[ValidateSetAccess]
+		public TableDBEdit<GenioMVC.Models.Psw> TablePswNome { get; set; }
 
 
 
@@ -178,6 +187,7 @@ namespace GenioMVC.ViewModels.Userp
 
 			try
 			{
+				ValCodpsw = ViewModelConversion.ToString(m.ValCodpsw);
 				ValName = ViewModelConversion.ToString(m.ValName);
 				ValEmail = ViewModelConversion.ToString(m.ValEmail);
 				ValPhoto = ViewModelConversion.ToImage(m.ValPhoto);
@@ -207,6 +217,7 @@ namespace GenioMVC.ViewModels.Userp
 
 			try
 			{
+				m.ValCodpsw = ViewModelConversion.ToString(ValCodpsw);
 				m.ValName = ViewModelConversion.ToString(ValName);
 				m.ValEmail = ViewModelConversion.ToString(ValEmail);
 				if (ValPhoto == null || !ValPhoto.IsThumbnail)
@@ -236,6 +247,9 @@ namespace GenioMVC.ViewModels.Userp
 
 				switch (fullFieldName)
 				{
+					case "userp.codpsw":
+						this.ValCodpsw = ViewModelConversion.ToString(_value);
+						break;
 					case "userp.name":
 						this.ValName = ViewModelConversion.ToString(_value);
 						break;
@@ -355,6 +369,7 @@ namespace GenioMVC.ViewModels.Userp
 			// Add characteristics
 			Characs = new List<string>();
 
+			Load_F_user__psw__nome____(qs, lazyLoad);
 // USE /[MANUAL MOV VIEWMODEL_LOADPARTIAL F_USER]/
 		}
 
@@ -410,14 +425,206 @@ namespace GenioMVC.ViewModels.Userp
 		{
 		}
 
+		/// <summary>
+		/// TablePswNome -> (DB)
+		/// </summary>
+		/// <param name="qs"></param>
+		/// <param name="lazyLoad">Lazy loading of dropdown items</param>
+		public void Load_F_user__psw__nome____(NameValueCollection qs, bool lazyLoad = false)
+		{
+			bool f_user__psw__nome____DoLoad = true;
+			CriteriaSet f_user__psw__nome____Conds = CriteriaSet.And();
+			{
+				object hValue = Navigation.GetValue("psw", true);
+				if (hValue != null && !(hValue is Array) && !string.IsNullOrEmpty(Convert.ToString(hValue)))
+				{
+					f_user__psw__nome____Conds.Equal(CSGenioApsw.FldCodpsw, hValue);
+					this.ValCodpsw = DBConversion.ToString(hValue);
+				}
+			}
+
+			TablePswNome = new TableDBEdit<Models.Psw>
+			{
+				IsLazyLoad = lazyLoad
+			};
+
+			if (lazyLoad)
+			{
+				if (Navigation.CurrentLevel.GetEntry("RETURN_psw") != null)
+				{
+					this.ValCodpsw = Navigation.GetStrValue("RETURN_psw");
+					Navigation.CurrentLevel.SetEntry("RETURN_psw", null);
+				}
+				FillDependant_F_userTablePswNome(lazyLoad);
+				return;
+			}
+
+			if (f_user__psw__nome____DoLoad)
+			{
+				List<ColumnSort> sorts = new List<ColumnSort>();
+				ColumnSort requestedSort = GetRequestSort(TablePswNome, "sTablePswNome", "dTablePswNome", qs, "psw");
+				if (requestedSort != null)
+					sorts.Add(requestedSort);
+
+				string query = "";
+				if (!string.IsNullOrEmpty(qs["TablePswNome_tableFilters"]))
+					TablePswNome.TableFilters = bool.Parse(qs["TablePswNome_tableFilters"]);
+				else
+					TablePswNome.TableFilters = false;
+
+				query = qs["qTablePswNome"];
+
+				//RS 26.07.2016 O preenchimento da lista de ajuda dos Dbedits passa a basear-se apenas no campo do próprio DbEdit
+				// O interface de pesquisa rápida não fica coerente quando se visualiza apenas uma coluna mas a pesquisa faz matching com 5 ou 6 colunas diferentes
+				//  tornando confuso to o user porque determinada row foi devolvida quando o Qresult não mostra como o matching foi feito
+				CriteriaSet search_filters = CriteriaSet.And();
+				if (!string.IsNullOrEmpty(query))
+				{
+					search_filters.Like(CSGenioApsw.FldNome, query + "%");
+				}
+				f_user__psw__nome____Conds.SubSet(search_filters);
+
+				string tryParsePage = qs["pTablePswNome"] != null ? qs["pTablePswNome"].ToString() : "1";
+				int page = !string.IsNullOrEmpty(tryParsePage) ? int.Parse(tryParsePage) : 1;
+				int numberItems = CSGenio.framework.Configuration.NrRegDBedit;
+				int offset = (page - 1) * numberItems;
+
+				FieldRef[] fields = new FieldRef[] { CSGenioApsw.FldCodpsw, CSGenioApsw.FldNome, CSGenioApsw.FldZzstate };
+
+// USE /[MANUAL MOV OVERRQ F_USER_PSWNOME]/
+
+				// Limitation by Zzstate
+				/*
+					Records that are currently being inserted or duplicated will also be included.
+					Client-side persistence will try to fill the "text" value of that option.
+				*/
+				if (Navigation.checkFormMode("psw", FormMode.New) || Navigation.checkFormMode("psw", FormMode.Duplicate))
+					f_user__psw__nome____Conds.SubSet(CriteriaSet.Or()
+						.Equal(CSGenioApsw.FldZzstate, 0)
+						.Equal(CSGenioApsw.FldCodpsw, Navigation.GetStrValue("psw")));
+				else
+					f_user__psw__nome____Conds.Criterias.Add(new Criteria(new ColumnReference(CSGenioApsw.FldZzstate), CriteriaOperator.Equal, 0));
+
+				FieldRef firstVisibleColumn = new FieldRef("psw", "nome");
+				ListingMVC<CSGenioApsw> listing = Models.ModelBase.Where<CSGenioApsw>(m_userContext, false, f_user__psw__nome____Conds, fields, offset, numberItems, sorts, "LED_F_USER__PSW__NOME____", true, false, firstVisibleColumn: firstVisibleColumn);
+
+				TablePswNome.SetPagination(page, numberItems, listing.HasMore, listing.GetTotal, listing.TotalRecords);
+				TablePswNome.Query = query;
+				TablePswNome.Elements = listing.RowsForViewModel<GenioMVC.Models.Psw>((r) => new GenioMVC.Models.Psw(m_userContext, r, true, _fieldsToSerialize_F_USER__PSW__NOME____));
+
+				//created by [ MH ] at [ 14.04.2016 ] - Foi alterada a forma de retornar a key do novo registo inserido / editado no form de apoio do DBEdit.
+				//last update by [ MH ] at [ 10.05.2016 ] - Validação se key encontra-se no level atual, as chaves dos niveis anteriores devem ser ignorados.
+				if (Navigation.CurrentLevel.GetEntry("RETURN_psw") != null)
+				{
+					this.ValCodpsw = Navigation.GetStrValue("RETURN_psw");
+					Navigation.CurrentLevel.SetEntry("RETURN_psw", null);
+				}
+
+				TablePswNome.List = new SelectList(TablePswNome.Elements.ToSelectList(x => x.ValNome, x => x.ValCodpsw,  x => x.ValCodpsw == this.ValCodpsw), "Value", "Text", this.ValCodpsw);
+				FillDependant_F_userTablePswNome();
+			}
+		}
+
+		/// <summary>
+		/// Get Dependant fields values -> TablePswNome (DB)
+		/// </summary>
+		/// <param name="PKey">Primary Key of Psw</param>
+		public ConcurrentDictionary<string, object> GetDependant_F_userTablePswNome(string PKey)
+		{
+			FieldRef[] refDependantFields = [CSGenioApsw.FldCodpsw, CSGenioApsw.FldNome];
+
+			var returnEmptyDependants = false;
+			CriteriaSet wherecodition = CriteriaSet.And();
+
+			// Return default values
+			if (GenFunctions.emptyG(PKey) == 1)
+				returnEmptyDependants = true;
+
+			// Check if the limit(s) is filled if exists
+			// - - - - - - - - - - - - - - - - - - - - -
+
+			if (returnEmptyDependants)
+				return GetViewModelFieldValues(refDependantFields);
+
+			PersistentSupport sp = m_userContext.PersistentSupport;
+			User u = m_userContext.User;
+
+			CSGenioApsw tempArea = new(u);
+
+			// Fields to select
+			SelectQuery querySelect = new();
+			querySelect.PageSize(1);
+			foreach (FieldRef field in refDependantFields)
+				querySelect.Select(field);
+
+			querySelect.From(tempArea.QSystem, tempArea.TableName, tempArea.Alias)
+				.Where(wherecodition.Equal(CSGenioApsw.FldCodpsw, PKey));
+
+			string[] dependantFields = refDependantFields.Select(f => f.FullName).ToArray();
+			QueryUtils.SetInnerJoins(dependantFields, null, tempArea, querySelect);
+
+			ArrayList values = sp.executeReaderOneRow(querySelect);
+			bool useDefaults = values.Count == 0;
+
+			if (useDefaults)
+				return GetViewModelFieldValues(refDependantFields);
+			return GetViewModelFieldValues(refDependantFields, values);
+		}
+
+		/// <summary>
+		/// Fill Dependant fields values -> TablePswNome (DB)
+		/// </summary>
+		/// <param name="lazyLoad">Lazy loading of dropdown items</param>
+		public void FillDependant_F_userTablePswNome(bool lazyLoad = false)
+		{
+			var row = GetDependant_F_userTablePswNome(this.ValCodpsw);
+			try
+			{
+
+				// Fill List fields
+				this.ValCodpsw = ViewModelConversion.ToString(row["psw.codpsw"]);
+				TablePswNome.Value = (string)row["psw.nome"];
+				if (GenFunctions.emptyG(this.ValCodpsw) == 1)
+				{
+					this.ValCodpsw = "";
+					TablePswNome.Value = "";
+					Navigation.ClearValue("psw");
+				}
+				else if (lazyLoad)
+				{
+					TablePswNome.SetPagination(1, 0, false, false, 1);
+					TablePswNome.List = new SelectList(new List<SelectListItem>()
+					{
+						new SelectListItem
+						{
+							Value = Convert.ToString(this.ValCodpsw),
+							Text = Convert.ToString(TablePswNome.Value),
+							Selected = true
+						}
+					}, "Value", "Text", this.ValCodpsw);
+				}
+
+				TablePswNome.Selected = this.ValCodpsw;
+			}
+			catch (Exception ex)
+			{
+				CSGenio.framework.Log.Error(string.Format("FillDependant_Error (TablePswNome): {0}; {1}", ex.Message, ex.InnerException != null ? ex.InnerException.Message : ""));
+			}
+		}
+
+		private readonly string[] _fieldsToSerialize_F_USER__PSW__NOME____ = ["Psw", "Psw.ValCodpsw", "Psw.ValZzstate", "Psw.ValNome"];
+
 		protected override object GetViewModelValue(string identifier, object modelValue)
 		{
 			return identifier switch
 			{
+				"userp.codpsw" => ViewModelConversion.ToString(modelValue),
 				"userp.name" => ViewModelConversion.ToString(modelValue),
 				"userp.email" => ViewModelConversion.ToString(modelValue),
 				"userp.photo" => ViewModelConversion.ToImage(modelValue),
 				"userp.coduserp" => ViewModelConversion.ToString(modelValue),
+				"psw.codpsw" => ViewModelConversion.ToString(modelValue),
+				"psw.nome" => ViewModelConversion.ToString(modelValue),
 				_ => modelValue
 			};
 		}

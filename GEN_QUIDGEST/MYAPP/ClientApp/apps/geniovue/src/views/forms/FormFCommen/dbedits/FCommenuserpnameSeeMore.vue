@@ -249,7 +249,7 @@
 								sortOrder: 'asc'
 							}
 						},
-						globalEvents: ['changed-USERP'],
+						globalEvents: ['changed-PSW', 'changed-USERP'],
 						uuid: 'F_commen_F_commen_UserpValName',
 						allSelectedRows: 'false',
 						handlers: {

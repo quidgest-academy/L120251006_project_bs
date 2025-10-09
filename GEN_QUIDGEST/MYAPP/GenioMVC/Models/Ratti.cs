@@ -74,7 +74,7 @@ namespace GenioMVC.Models
 		public decimal? ValRate { get { return Convert.ToDecimal(GenFunctions.RoundQG(klass.ValRate, 0)); } set { klass.ValRate = Convert.ToDecimal(value); } }
 
 		[DisplayName("Rate_at")]
-		/// <summary>Field : "Rate_at" Tipo: "DT" Formula:  ""</summary>
+		/// <summary>Field : "Rate_at" Tipo: "DT" Formula: DF "[Now]"</summary>
 		[ShouldSerialize("Ratti.ValRatedat")]
 		[DataType(DataType.Date)]
 		[DateAttribute("DT")]

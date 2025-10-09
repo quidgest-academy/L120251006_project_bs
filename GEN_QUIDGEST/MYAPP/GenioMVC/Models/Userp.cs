@@ -45,6 +45,26 @@ namespace GenioMVC.Models
 		[JsonIgnore]
 		public string ValPhotoQTicket = null;
 
+		[DisplayName("")]
+		/// <summary>Field : "" Tipo: "CE" Formula:  ""</summary>
+		[ShouldSerialize("Userp.ValCodpsw")]
+		public string ValCodpsw { get { return klass.ValCodpsw; } set { klass.ValCodpsw = value; } }
+
+		private Psw _psw;
+		[DisplayName("Psw")]
+		[ShouldSerialize("Psw")]
+		public virtual Psw Psw
+		{
+			get
+			{
+				if (!isEmptyModel && (_psw == null || (!string.IsNullOrEmpty(ValCodpsw) && (_psw.isEmptyModel || _psw.klass.QPrimaryKey != ValCodpsw))))
+					_psw = Models.Psw.Find(ValCodpsw, m_userContext, Identifier, _fieldsToSerialize);
+				_psw ??= new Models.Psw(m_userContext, true, _fieldsToSerialize);
+				return _psw;
+			}
+			set { _psw = value; }
+		}
+
 		[DisplayName("ZZSTATE")]
 		[ShouldSerialize("Userp.ValZzstate")]
 		/// <summary>Field: "ZZSTATE", Type: "INT", Formula: ""</summary>
@@ -76,6 +96,10 @@ namespace GenioMVC.Models
 			{
 				switch (Qfield.Area)
 				{
+					case "psw":
+						_psw ??= new Psw(m_userContext, true, _fieldsToSerialize);
+						_psw.klass.insertNameValueField(Qfield.FullName, Qfield.Value);
+						break;
 					default:
 						break;
 				}

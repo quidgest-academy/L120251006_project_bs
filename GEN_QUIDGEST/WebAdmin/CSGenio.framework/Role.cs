@@ -20,6 +20,7 @@ namespace CSGenio.framework
         public static readonly Role INVALID;
 
         public static readonly Role ROLE_1; //Consulta
+        public static readonly Role ROLE_5; //user
         //Roles
 
         public static readonly Tuple<string, Role>[] MODULE_ROLES;
@@ -66,6 +67,9 @@ namespace CSGenio.framework
             ROLE_1 = new Role(LevelAccess.NV1, "CONSULTA40695");
             ALL_ROLES.Add("1", ROLE_1);
 
+            ROLE_5 = new Role(LevelAccess.NV5, "USER16010");
+            ALL_ROLES.Add("5", ROLE_5);
+
             //These roles are hardcoded and have these values for backwards compatibility reasons
             ALL_ROLES.Add("0", UNAUTHORIZED);
             ALL_ROLES.Add("99", ADMINISTRATION);
@@ -74,8 +78,11 @@ namespace CSGenio.framework
             //Add subroles
 
 			UNAUTHORIZED.Add(ROLE_1);
+			UNAUTHORIZED.Add(ROLE_5);
 			UNAUTHORIZED.Add(ADMINISTRATION);
+			ROLE_1.Add(ROLE_5);
 			ROLE_1.Add(ADMINISTRATION);
+			ROLE_5.Add(ADMINISTRATION);
 
 			foreach(Role role in ALL_ROLES.Values)
 				role.FlattenRole();
@@ -84,6 +91,7 @@ namespace CSGenio.framework
 				new("MOV", Role.UNAUTHORIZED),
 
 				new("MOV", Role.ROLE_1),
+				new("MOV", Role.ROLE_5),
 				new("MOV", Role.ADMINISTRATION)			];
 
         }

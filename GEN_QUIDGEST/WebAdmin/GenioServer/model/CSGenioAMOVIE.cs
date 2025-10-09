@@ -81,7 +81,11 @@ namespace CSGenio.business
 			Qfield.CavDesignation = "CREATE_AT36393";
 
 			Qfield.Dupmsg = "";
-			Qfield.DefaultValue = new DefaultValue(DefaultValue.getToday);
+			argumentsListByArea= new List<ByAreaArguments>();
+			Qfield.DefaultValue = new DefaultValue(new InternalOperationFormula(argumentsListByArea, 0, delegate(object []args,User user,string module,PersistentSupport sp) {
+				return (object)(DateTime.Today);
+			}));
+
 			info.RegisterFieldDB(Qfield);
 
 			//- - - - - - - - - - - - - - - - - - -
@@ -331,11 +335,11 @@ namespace CSGenio.business
 			set { insertNameValueField(FldRealease_date, value); }
 		}
 
-		/// <summary>Field : "Create at" Tipo: "D" Formula:  ""</summary>
+		/// <summary>Field : "Create at" Tipo: "D" Formula: DF "[Today]"</summary>
 		public static FieldRef FldCreateat { get { return m_fldCreateat; } }
 		private static FieldRef m_fldCreateat = new FieldRef("movie", "createat");
 
-		/// <summary>Field : "Create at" Tipo: "D" Formula:  ""</summary>
+		/// <summary>Field : "Create at" Tipo: "D" Formula: DF "[Today]"</summary>
 		public DateTime ValCreateat
 		{
 			get { return (DateTime)returnValueField(FldCreateat); }

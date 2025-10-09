@@ -53,6 +53,17 @@ export default class ViewModel extends FormViewModelBase
 		}).cloneFrom(values?.ValCoduserp))
 		this.stopWatchers.push(watch(() => this.ValCoduserp.value, (newValue, oldValue) => this.onUpdate('userp.coduserp', this.ValCoduserp, newValue, oldValue)))
 
+		/** The used foreign keys. */
+		this.ValCodpsw = reactive(new modelFieldType.ForeignKey({
+			id: 'ValCodpsw',
+			originId: 'ValCodpsw',
+			area: 'USERP',
+			field: 'CODPSW',
+			relatedArea: 'PSW',
+			description: '',
+		}).cloneFrom(values?.ValCodpsw))
+		this.stopWatchers.push(watch(() => this.ValCodpsw.value, (newValue, oldValue) => this.onUpdate('userp.codpsw', this.ValCodpsw, newValue, oldValue)))
+
 		/** The remaining form fields. */
 		this.ValName = reactive(new modelFieldType.String({
 			id: 'ValName',
@@ -83,6 +94,17 @@ export default class ViewModel extends FormViewModelBase
 			description: computed(() => this.Resources.PHOTO51874),
 		}).cloneFrom(values?.ValPhoto))
 		this.stopWatchers.push(watch(() => this.ValPhoto.value, (newValue, oldValue) => this.onUpdate('userp.photo', this.ValPhoto, newValue, oldValue)))
+
+		this.TablePswNome = reactive(new modelFieldType.String({
+			type: 'Lookup',
+			id: 'TablePswNome',
+			originId: 'ValNome',
+			area: 'PSW',
+			field: 'NOME',
+			maxLength: 100,
+			description: computed(() => this.Resources.NAME31974),
+		}).cloneFrom(values?.TablePswNome))
+		this.stopWatchers.push(watch(() => this.TablePswNome.value, (newValue, oldValue) => this.onUpdate('psw.nome', this.TablePswNome, newValue, oldValue)))
 	}
 
 	/**

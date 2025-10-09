@@ -201,6 +201,9 @@
 	<data name="CHANGED_ON19727" xml:space="preserve">
 		<value>Changed on</value>
 	</data>
+	<data name="LOGIN48703" xml:space="preserve">
+		<value>Login</value>
+	</data>
 	<data name="EXECUTED_BY_EXTERNAL36156" xml:space="preserve">
 		<value>Executed by external app</value>
 	</data>
@@ -390,6 +393,9 @@
 	<data name="__FAV_MOVIES17046" xml:space="preserve">
 		<value>❤️ Fav Movies</value>
 	</data>
+	<data name="USER16010" xml:space="preserve">
+		<value>user</value>
+	</data>
 	<data name="SENDER07671" xml:space="preserve">
 		<value>Sender</value>
 	</data>
@@ -485,6 +491,9 @@
 	</data>
 	<data name="NOTIFICATION_MESSAGE60981" xml:space="preserve">
 		<value>Notification Messages</value>
+	</data>
+	<data name="NOME53888" xml:space="preserve">
+		<value>NOME</value>
 	</data>
 	<data name="PASSWORD_TYPE03035" xml:space="preserve">
 		<value>Password type</value>

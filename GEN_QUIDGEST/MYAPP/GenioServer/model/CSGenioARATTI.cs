@@ -95,6 +95,11 @@ namespace CSGenio.business
 			Qfield.CavDesignation = "RATE_AT01141";
 
 			Qfield.Dupmsg = "";
+			argumentsListByArea= new List<ByAreaArguments>();
+			Qfield.DefaultValue = new DefaultValue(new InternalOperationFormula(argumentsListByArea, 0, delegate(object []args,User user,string module,PersistentSupport sp) {
+				return (object)(DateTime.Now);
+			}));
+
 			info.RegisterFieldDB(Qfield);
 
 			//- - - - - - - - - - - - - - - - - - -
@@ -126,9 +131,10 @@ namespace CSGenio.business
 		{
 			// Pathways
 			//------------------------------
-			info.Pathways = new Dictionary<string, string>(2);
+			info.Pathways = new Dictionary<string, string>(3);
 			info.Pathways.Add("movie","movie");
 			info.Pathways.Add("userp","userp");
+			info.Pathways.Add("psw","userp");
 		}
 
 		/// <summary>
@@ -140,6 +146,10 @@ namespace CSGenio.business
 			//------------------------------
 
 
+
+			info.DefaultValues = new string[] {
+			 "ratedat"
+			};
 
 
 
@@ -292,11 +302,11 @@ namespace CSGenio.business
 			set { insertNameValueField(FldRate, value); }
 		}
 
-		/// <summary>Field : "Rate_at" Tipo: "DT" Formula:  ""</summary>
+		/// <summary>Field : "Rate_at" Tipo: "DT" Formula: DF "[Now]"</summary>
 		public static FieldRef FldRatedat { get { return m_fldRatedat; } }
 		private static FieldRef m_fldRatedat = new FieldRef("ratti", "ratedat");
 
-		/// <summary>Field : "Rate_at" Tipo: "DT" Formula:  ""</summary>
+		/// <summary>Field : "Rate_at" Tipo: "DT" Formula: DF "[Now]"</summary>
 		public DateTime ValRatedat
 		{
 			get { return (DateTime)returnValueField(FldRatedat); }

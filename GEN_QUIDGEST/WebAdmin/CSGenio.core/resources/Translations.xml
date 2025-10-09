@@ -84,6 +84,9 @@
   <msg id="Changed on" code="CHANGED_ON19727">
     <ENUS>Changed on</ENUS>
   </msg>
+  <msg id="Login" code="LOGIN48703">
+    <ENUS>Login</ENUS>
+  </msg>
   <msg id="Executed by external app" code="EXECUTED_BY_EXTERNAL36156">
     <ENUS>Executed by external app</ENUS>
   </msg>
@@ -273,6 +276,9 @@
   <msg id="❤️ Fav Movies" code="__FAV_MOVIES17046">
     <ENUS>❤️ Fav Movies</ENUS>
   </msg>
+  <msg id="user" code="USER16010">
+    <ENUS>user</ENUS>
+  </msg>
   <msg id="Sender" code="SENDER07671">
     <ENUS>Sender</ENUS>
   </msg>
@@ -368,6 +374,9 @@
   </msg>
   <msg id="Notification Messages" code="NOTIFICATION_MESSAGE60981">
     <ENUS>Notification Messages</ENUS>
+  </msg>
+  <msg id="NOME" code="NOME53888">
+    <ENUS>NOME</ENUS>
   </msg>
   <msg id="Password type" code="PASSWORD_TYPE03035">
     <ENUS>Password type</ENUS>

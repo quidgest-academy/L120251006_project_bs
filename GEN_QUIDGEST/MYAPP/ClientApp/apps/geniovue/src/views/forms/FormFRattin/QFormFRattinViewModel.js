@@ -115,6 +115,18 @@ export default class ViewModel extends FormViewModelBase
 			originId: 'ValRatedat',
 			area: 'RATTI',
 			field: 'RATEDAT',
+			valueFormula: {
+				stopRecalcCondition() { return false },
+				// eslint-disable-next-line @typescript-eslint/no-unused-vars
+				fnFormula(params)
+				{
+					// Formula: [Now]
+					return qApi.Now()
+				},
+				dependencyEvents: [],
+				isServerRecalc: false,
+				isEmpty: qApi.emptyD,
+			},
 			description: computed(() => this.Resources.RATE_AT01141),
 		}).cloneFrom(values?.ValRatedat))
 		this.stopWatchers.push(watch(() => this.ValRatedat.value, (newValue, oldValue) => this.onUpdate('ratti.ratedat', this.ValRatedat, newValue, oldValue)))

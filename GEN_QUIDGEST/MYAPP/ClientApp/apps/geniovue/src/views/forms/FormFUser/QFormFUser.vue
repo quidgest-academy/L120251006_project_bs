@@ -91,7 +91,7 @@
 			data-key="F_USER"
 			:data-loading="!formInitialDataLoaded">
 			<template v-if="formControl.initialized && showFormBody">
-				<q-row-container v-if="controls.F_USER__USERPNAME____.isVisible || controls.F_USER__USERPEMAIL___.isVisible || controls.F_USER__USERPPHOTO___.isVisible">
+				<q-row-container v-if="controls.F_USER__USERPNAME____.isVisible || controls.F_USER__USERPEMAIL___.isVisible || controls.F_USER__USERPPHOTO___.isVisible || controls.F_USER__PSW__NOME____.isVisible">
 					<q-control-wrapper
 						v-if="controls.F_USER__USERPNAME____.isVisible"
 						class="control-join-group">
@@ -142,6 +142,27 @@
 								v-if="controls.F_USER__USERPPHOTO___.isVisible"
 								v-bind="controls.F_USER__USERPPHOTO___.props"
 								v-on="controls.F_USER__USERPPHOTO___.handlers" />
+						</base-input-structure>
+					</q-control-wrapper>
+					<q-control-wrapper
+						v-if="controls.F_USER__PSW__NOME____.isVisible"
+						class="control-join-group">
+						<base-input-structure
+							v-if="controls.F_USER__PSW__NOME____.isVisible"
+							class="i-text"
+							v-bind="controls.F_USER__PSW__NOME____"
+							v-on="controls.F_USER__PSW__NOME____.handlers"
+							:loading="controls.F_USER__PSW__NOME____.props.loading"
+							:reporting-mode-on="reportingModeCAV"
+							:suggestion-mode-on="suggestionModeOn">
+							<q-lookup
+								v-if="controls.F_USER__PSW__NOME____.isVisible"
+								v-bind="controls.F_USER__PSW__NOME____.props"
+								v-on="controls.F_USER__PSW__NOME____.handlers" />
+							<q-see-more-f-user-psw-nome
+								v-if="controls.F_USER__PSW__NOME____.seeMoreIsVisible"
+								v-bind="controls.F_USER__PSW__NOME____.seeMoreParams"
+								v-on="controls.F_USER__PSW__NOME____.handlers" />
 						</base-input-structure>
 					</q-control-wrapper>
 				</q-row-container>
@@ -215,6 +236,7 @@
 		name: 'QFormFUser',
 
 		components: {
+			QSeeMoreFUserPswNome: defineAsyncComponent(() => import('@/views/forms/FormFUser/dbedits/FUserPswNomeSeeMore.vue')),
 		},
 
 		mixins: [
@@ -525,10 +547,38 @@
 						placeholder: '',
 						labelPosition: computed(() => this.labelAlignment.topleft),
 						height: 50,
-						width: 100,
+						width: 30,
 						dataTitle: computed(() => genericFunctions.formatString(vm.Resources.IMAGEM_UTILIZADA_PAR17299, vm.Resources.PHOTO51874)),
 						maxFileSize: 10485760, // In bytes.
 						maxFileSizeLabel: '10 MB',
+						controlLimits: [
+						],
+					}, this),
+					F_USER__PSW__NOME____: new fieldControlClass.LookupControl({
+						modelField: 'TablePswNome',
+						valueChangeEvent: 'fieldChange:psw.nome',
+						id: 'F_USER__PSW__NOME____',
+						name: 'NOME',
+						size: 'xxlarge',
+						label: computed(() => this.Resources.LOGIN48703),
+						placeholder: '',
+						labelPosition: computed(() => this.labelAlignment.topleft),
+						externalCallbacks: {
+							getModelField: vm.getModelField,
+							getModelFieldValue: vm.getModelFieldValue,
+							setModelFieldValue: vm.setModelFieldValue
+						},
+						externalProperties: {
+							modelKeys: computed(() => vm.modelKeys)
+						},
+						lookupKeyModelField: {
+							name: 'ValCodpsw',
+							dependencyEvent: 'fieldChange:userp.codpsw'
+						},
+						dependentFields: () => ({
+							set 'psw.codpsw'(value) { vm.model.ValCodpsw.updateValue(value) },
+							set 'psw.nome'(value) { vm.model.TablePswNome.updateValue(value) },
+						}),
 						controlLimits: [
 						],
 					}, this),
@@ -554,7 +604,13 @@
 				 * The Data API for easy access to model variables.
 				 */
 				dataApi: {
+					Psw: {
+						get ValNome() { return vm.model.TablePswNome.value },
+						set ValNome(value) { vm.model.TablePswNome.updateValue(value) },
+					},
 					Userp: {
+						get ValCodpsw() { return vm.model.ValCodpsw.value },
+						set ValCodpsw(value) { vm.model.ValCodpsw.updateValue(value) },
 						get ValEmail() { return vm.model.ValEmail.value },
 						set ValEmail(value) { vm.model.ValEmail.updateValue(value) },
 						get ValName() { return vm.model.ValName.value },
@@ -565,6 +621,8 @@
 					keys: {
 						/** The primary key of the USERP table */
 						get userp() { return vm.model.ValCoduserp },
+						/** The foreign key to the PSW table */
+						get psw() { return vm.model.ValCodpsw },
 					},
 					get extraProperties() { return vm.model.extraProperties },
 				},

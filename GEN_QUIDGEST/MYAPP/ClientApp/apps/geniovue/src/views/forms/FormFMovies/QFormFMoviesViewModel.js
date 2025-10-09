@@ -107,6 +107,18 @@ export default class ViewModel extends FormViewModelBase
 			originId: 'ValCreateat',
 			area: 'MOVIE',
 			field: 'CREATEAT',
+			valueFormula: {
+				stopRecalcCondition() { return false },
+				// eslint-disable-next-line @typescript-eslint/no-unused-vars
+				fnFormula(params)
+				{
+					// Formula: [Today]
+					return qApi.Today()
+				},
+				dependencyEvents: [],
+				isServerRecalc: false,
+				isEmpty: qApi.emptyD,
+			},
 			description: computed(() => this.Resources.CREATE_AT36393),
 		}).cloneFrom(values?.ValCreateat))
 		this.stopWatchers.push(watch(() => this.ValCreateat.value, (newValue, oldValue) => this.onUpdate('movie.createat', this.ValCreateat, newValue, oldValue)))

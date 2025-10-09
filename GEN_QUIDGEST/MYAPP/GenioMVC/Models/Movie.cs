@@ -40,7 +40,7 @@ namespace GenioMVC.Models
 		public DateTime? ValRealease_date { get { return klass.ValRealease_date; } set { klass.ValRealease_date = value ?? DateTime.MinValue; } }
 
 		[DisplayName("Create at")]
-		/// <summary>Field : "Create at" Tipo: "D" Formula:  ""</summary>
+		/// <summary>Field : "Create at" Tipo: "D" Formula: DF "[Today]"</summary>
 		[ShouldSerialize("Movie.ValCreateat")]
 		[DataType(DataType.Date)]
 		[DateAttribute("D")]

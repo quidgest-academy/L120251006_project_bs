@@ -264,7 +264,7 @@
 								value: true
 							},
 						],
-						globalEvents: ['changed-USERP'],
+						globalEvents: ['changed-PSW', 'changed-USERP'],
 						uuid: 'F_rattin_F_rattin_UserpValName',
 						allSelectedRows: 'false',
 						handlers: {

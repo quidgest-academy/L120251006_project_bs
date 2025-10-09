@@ -315,6 +315,15 @@ namespace GenioMVC.Resources
 		}
 
 		/// <summary>
+		///   Looks up a localized string similar to "Login"
+		/// </summary>
+		public static string LOGIN48703 {
+			get {
+				return ResourceManager.GetString("LOGIN48703", resourceCulture);
+			}
+		}
+
+		/// <summary>
 		///   Looks up a localized string similar to "Executed by external app"
 		/// </summary>
 		public static string EXECUTED_BY_EXTERNAL36156 {
@@ -882,6 +891,15 @@ namespace GenioMVC.Resources
 		}
 
 		/// <summary>
+		///   Looks up a localized string similar to "user"
+		/// </summary>
+		public static string USER16010 {
+			get {
+				return ResourceManager.GetString("USER16010", resourceCulture);
+			}
+		}
+
+		/// <summary>
 		///   Looks up a localized string similar to "Sender"
 		/// </summary>
 		public static string SENDER07671 {
@@ -1166,6 +1184,15 @@ namespace GenioMVC.Resources
 		public static string NOTIFICATION_MESSAGE60981 {
 			get {
 				return ResourceManager.GetString("NOTIFICATION_MESSAGE60981", resourceCulture);
+			}
+		}
+
+		/// <summary>
+		///   Looks up a localized string similar to "NOME"
+		/// </summary>
+		public static string NOME53888 {
+			get {
+				return ResourceManager.GetString("NOME53888", resourceCulture);
 			}
 		}
 

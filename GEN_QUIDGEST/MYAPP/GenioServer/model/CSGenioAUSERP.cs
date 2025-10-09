@@ -89,6 +89,16 @@ namespace CSGenio.business
 			info.RegisterFieldDB(Qfield);
 
 			//- - - - - - - - - - - - - - - - - - -
+			Qfield = new Field(info.Alias, "codpsw", FieldType.KEY_INT);
+			Qfield.FieldDescription = "";
+			Qfield.FieldSize =  8;
+			Qfield.MQueue = false;
+			Qfield.CavDesignation = "";
+
+			Qfield.Dupmsg = "";
+			info.RegisterFieldDB(Qfield);
+
+			//- - - - - - - - - - - - - - - - - - -
 			Qfield = new Field(info.Alias, "zzstate", FieldType.INTEGER);
 			Qfield.FieldDescription = "Estado da ficha";
 			info.RegisterFieldDB(Qfield);
@@ -110,6 +120,7 @@ namespace CSGenio.business
 			// Mother Relations
 			//------------------------------
 			info.ParentTables = new Dictionary<string, Relation>();
+			info.ParentTables.Add("psw", new Relation("MOV", "movuserprofile", "userp", "coduserp", "codpsw", "MOV", "userlogin", "psw", "codpsw", "codpsw"));
 		}
 
 		/// <summary>
@@ -119,7 +130,8 @@ namespace CSGenio.business
 		{
 			// Pathways
 			//------------------------------
-			info.Pathways = new Dictionary<string, string>(0);
+			info.Pathways = new Dictionary<string, string>(1);
+			info.Pathways.Add("psw","psw");
 		}
 
 		/// <summary>
@@ -283,6 +295,17 @@ namespace CSGenio.business
 			set { insertNameValueField(FldPhoto, value); }
 		}
 
+		/// <summary>Field : "" Tipo: "CE" Formula:  ""</summary>
+		public static FieldRef FldCodpsw { get { return m_fldCodpsw; } }
+		private static FieldRef m_fldCodpsw = new FieldRef("userp", "codpsw");
+
+		/// <summary>Field : "" Tipo: "CE" Formula:  ""</summary>
+		public string ValCodpsw
+		{
+			get { return (string)returnValueField(FldCodpsw); }
+			set { insertNameValueField(FldCodpsw, value); }
+		}
+
 		/// <summary>Field : "ZZSTATE" Type: "INT" Formula:  ""</summary>
 		public static FieldRef FldZzstate { get { return m_fldZzstate; } }
 		private static FieldRef m_fldZzstate = new FieldRef("userp", "zzstate");
@@ -380,7 +403,7 @@ namespace CSGenio.business
 
  
 
-     
+      
 
 	}
 }

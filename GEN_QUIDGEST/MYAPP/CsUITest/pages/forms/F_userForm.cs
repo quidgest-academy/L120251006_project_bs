@@ -22,6 +22,12 @@ public class F_userForm : Form
 	/// </summary>
 	public BaseInputControl UserpPhoto => new BaseInputControl(driver, ContainerLocator, "container-F_USER__USERPPHOTO___", "#F_USER__USERPPHOTO___");
 
+	/// <summary>
+	/// Login
+	/// </summary>
+	public LookupControl PswNome => new LookupControl(driver, ContainerLocator, "container-F_USER__PSW__NOME____");
+	public SeeMorePage PswNomeSeeMorePage => new SeeMorePage(driver, "F_USER", "F_USER__PSW__NOME____");
+
 	public F_userForm(IWebDriver driver, FORM_MODE mode, By? containerLocator = null)
 		: base(driver, mode, "F_USER", containerLocator: containerLocator) { }
 }

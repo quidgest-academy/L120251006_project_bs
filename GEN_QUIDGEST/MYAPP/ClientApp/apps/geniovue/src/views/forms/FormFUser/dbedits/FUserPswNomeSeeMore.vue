@@ -1,7 +1,7 @@
 ﻿<template>
 	<teleport
 		v-if="isReady"
-		to="#q-modal-see-more-f-favoriuserpname-body">
+		to="#q-modal-see-more-f-user-psw-nome-body">
 		<q-row-container>
 			<q-table
 				v-bind="listCtrl"
@@ -39,10 +39,10 @@
 
 	import ViewModelBase from '@/mixins/viewModelBase.js'
 
-	const requiredTextResources = ['F_FAVORIUSERPNAME_____SeeMore', 'hardcoded', 'messages']
+	const requiredTextResources = ['F_USER__PSW__NOME_____SeeMore', 'hardcoded', 'messages']
 
 	export default {
-		name: 'FFavoriuserpnameSeeMore',
+		name: 'FUserPswNomeSeeMore',
 
 		inheritAttrs: false,
 
@@ -87,18 +87,18 @@
 			return {
 				isReady: false,
 
-				componentOnLoadProc: asyncProcM.getProcListMonitor('F_FAVORIUSERPNAME_____SeeMore', false),
+				componentOnLoadProc: asyncProcM.getProcListMonitor('F_USER__PSW__NOME_____SeeMore', false),
 
 				interfaceMetadata: {
-					id: 'F_FAVORIUSERPNAME_____SeeMore', // Used for resources
+					id: 'F_USER__PSW__NOME_____SeeMore', // Used for resources
 					requiredTextResources
 				},
 
 				menuInfo: {
-					acronym: 'F_FAVORIUSERPNAME_____SeeMore',
-					name: 'F_FAVORIUSERPNAME_____SeeMore',
-					controller: 'FAVOR',
-					action: 'F_FAVORI_UserpValName'
+					acronym: 'F_USER__PSW__NOME_____SeeMore',
+					name: 'F_USER__PSW__NOME_____SeeMore',
+					controller: 'USERP',
+					action: 'F_USER_PswValNome'
 				},
 
 				listCtrl: new TableListControl(this.getListConfig(), this),
@@ -127,14 +127,14 @@
 			this.$eventHub.onMany(this.listCtrl.globalEvents, this.onTableDBDataChanged)
 
 			const modalProps = {
-				id: 'see-more-f-favoriuserpname',
-				headerTitle: computed(() => this.Resources.USER_PROFILE06358),
+				id: 'see-more-f-user-psw-nome',
+				headerTitle: computed(() => this.Resources.PASSWORDS52247),
 				closeButtonEnable: true,
 				hideFooter: true,
 				dismissWithEsc: true,
 				dismissAction: this.close,
 				isActive: true,
-				returnElement: 'F_FAVORIUSERPNAME_____see-more_button'
+				returnElement: 'F_USER__PSW__NOME_____see-more_button'
 			}
 			this.setModal(modalProps)
 		},
@@ -146,7 +146,7 @@
 			this.listCtrl.destroy()
 			this.componentOnLoadProc.destroy()
 
-			removeModal('see-more-f-favoriuserpname')
+			removeModal('see-more-f-user-psw-nome')
 		},
 
 		methods: {
@@ -194,27 +194,27 @@
 				const vm = this
 				const listProps = {
 					configuration: {
-						controller: 'FAVOR',
-						action: 'F_favori_UserpValName',
+						controller: 'USERP',
+						action: 'F_user_PswValNome',
 						hasDependencies: false,
 						isInCollapsible: false,
 						columnsOriginal: [
 							new listColumnTypes.TextColumn({
 								order: 1,
-								name: 'ValName',
-								area: 'USERP',
-								field: 'NAME',
-								label: computed(() => this.Resources.NAME31974),
-								dataLength: 50,
-								scrollData: 50,
+								name: 'ValNome',
+								area: 'PSW',
+								field: 'NOME',
+								label: computed(() => this.Resources.NOME53888),
+								dataLength: 100,
+								scrollData: 100,
 							}, computed(() => vm.model), computed(() => vm.internalEvents)),
 						],
 						config: {
-							name: 'F_favori_UserpValName',
+							name: 'F_user_PswValNome',
 							serverMode: true,
-							pkColumn: 'ValCoduserp',
-							tableAlias: 'USERP',
-							tableNamePlural: computed(() => this.Resources.USER_PROFILE06358),
+							pkColumn: 'ValCodpsw',
+							tableAlias: 'PSW',
+							tableNamePlural: computed(() => this.Resources.PASSWORDS52247),
 							viewManagement: '',
 							showLimitsInfo: true,
 							tableTitle: '',
@@ -242,15 +242,15 @@
 							},
 							formsDefinition: {
 							},
-							defaultSearchColumnName: 'ValName',
-							defaultSearchColumnNameOriginal: 'ValName',
+							defaultSearchColumnName: '',
+							defaultSearchColumnNameOriginal: '',
 							defaultColumnSorting: {
-								columnName: 'ValName',
+								columnName: '',
 								sortOrder: 'asc'
 							}
 						},
-						globalEvents: ['changed-PSW', 'changed-USERP'],
-						uuid: 'F_favori_F_favori_UserpValName',
+						globalEvents: ['changed-PSW'],
+						uuid: 'F_user_F_user_PswValNome',
 						allSelectedRows: 'false',
 						handlers: {
 							rowAction: vm.handleRowAction
