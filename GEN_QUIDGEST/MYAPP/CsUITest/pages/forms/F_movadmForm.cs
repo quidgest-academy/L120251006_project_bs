@@ -47,6 +47,26 @@ public class F_movadmForm : Form
 	/// </summary>
 	public BaseInputControl MovieNumberof => new BaseInputControl(driver, ContainerLocator, "container-F_MOVADMMOVIENUMBEROF", "#F_MOVADMMOVIENUMBEROF");
 
+	/// <summary>
+	/// Average Rate
+	/// </summary>
+	public BaseInputControl MovieArate => new BaseInputControl(driver, ContainerLocator, "container-F_MOVADMMOVIEARATE___", "#F_MOVADMMOVIEARATE___");
+
+	/// <summary>
+	/// Total rate
+	/// </summary>
+	public BaseInputControl MovieTotalrat => new BaseInputControl(driver, ContainerLocator, "container-F_MOVADMMOVIETOTALRAT", "#F_MOVADMMOVIETOTALRAT");
+
+	/// <summary>
+	/// 
+	/// </summary>
+	public BaseInputControl MovieSumavg => new BaseInputControl(driver, ContainerLocator, "container-F_MOVADMMOVIESUMAVG__", "#F_MOVADMMOVIESUMAVG__");
+
+	/// <summary>
+	/// LastRate
+	/// </summary>
+	public BaseInputControl MovieLastrate => new BaseInputControl(driver, ContainerLocator, "container-F_MOVADMMOVIELASTRATE", "#F_MOVADMMOVIELASTRATE");
+
 	public F_movadmForm(IWebDriver driver, FORM_MODE mode, By? containerLocator = null)
 		: base(driver, mode, "F_MOVADM", containerLocator: containerLocator) { }
 }

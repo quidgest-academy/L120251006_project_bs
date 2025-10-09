@@ -72,6 +72,26 @@ namespace GenioMVC.ViewModels.Movie
 		/// </summary>
 		[ValidateSetAccess]
 		public decimal? ValNumberoflikes { get; set; }
+		/// <summary>
+		/// Title: "Average Rate" | Type: "ND"
+		/// </summary>
+		[ValidateSetAccess]
+		public decimal? ValAveragerate { get; set; }
+		/// <summary>
+		/// Title: "Total rate" | Type: "N"
+		/// </summary>
+		[ValidateSetAccess]
+		public decimal? ValTotalrate { get; set; }
+		/// <summary>
+		/// Title: "" | Type: "N"
+		/// </summary>
+		[ValidateSetAccess]
+		public decimal? ValSumavg { get; set; }
+		/// <summary>
+		/// Title: "LastRate" | Type: "N"
+		/// </summary>
+		[ValidateSetAccess]
+		public decimal? ValLastrate { get; set; }
 
 
 
@@ -213,6 +233,10 @@ namespace GenioMVC.ViewModels.Movie
 				ValMoviesgenre = ViewModelConversion.ToString(m.ValMoviesgenre);
 				ValDescription = ViewModelConversion.ToString(m.ValDescription);
 				ValNumberoflikes = ViewModelConversion.ToNumeric(m.ValNumberoflikes);
+				ValAveragerate = ViewModelConversion.ToNumeric(m.ValAveragerate);
+				ValTotalrate = ViewModelConversion.ToNumeric(m.ValTotalrate);
+				ValSumavg = ViewModelConversion.ToNumeric(m.ValSumavg);
+				ValLastrate = ViewModelConversion.ToNumeric(m.ValLastrate);
 				ValCodmovie = ViewModelConversion.ToString(m.ValCodmovie);
 			}
 			catch (Exception)
@@ -258,6 +282,10 @@ namespace GenioMVC.ViewModels.Movie
 					return;
 
 				m.ValNumberoflikes = ViewModelConversion.ToNumeric(ValNumberoflikes);
+				m.ValAveragerate = ViewModelConversion.ToNumeric(ValAveragerate);
+				m.ValTotalrate = ViewModelConversion.ToNumeric(ValTotalrate);
+				m.ValSumavg = ViewModelConversion.ToNumeric(ValSumavg);
+				m.ValLastrate = ViewModelConversion.ToNumeric(ValLastrate);
 			}
 			catch (Exception)
 			{
@@ -477,6 +505,10 @@ namespace GenioMVC.ViewModels.Movie
 				"movie.moviesgenre" => ViewModelConversion.ToString(modelValue),
 				"movie.description" => ViewModelConversion.ToString(modelValue),
 				"movie.numberoflikes" => ViewModelConversion.ToNumeric(modelValue),
+				"movie.averagerate" => ViewModelConversion.ToNumeric(modelValue),
+				"movie.totalrate" => ViewModelConversion.ToNumeric(modelValue),
+				"movie.sumavg" => ViewModelConversion.ToNumeric(modelValue),
+				"movie.lastrate" => ViewModelConversion.ToNumeric(modelValue),
 				"movie.codmovie" => ViewModelConversion.ToString(modelValue),
 				_ => modelValue
 			};

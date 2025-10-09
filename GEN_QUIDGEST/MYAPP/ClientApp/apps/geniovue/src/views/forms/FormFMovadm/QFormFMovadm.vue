@@ -233,7 +233,7 @@
 						</base-input-structure>
 					</q-control-wrapper>
 				</q-row-container>
-				<q-row-container v-if="controls.F_MOVADMMOVIENUMBEROF.isVisible">
+				<q-row-container v-if="controls.F_MOVADMMOVIENUMBEROF.isVisible || controls.F_MOVADMMOVIEARATE___.isVisible || controls.F_MOVADMMOVIETOTALRAT.isVisible || controls.F_MOVADMMOVIESUMAVG__.isVisible || controls.F_MOVADMMOVIELASTRATE.isVisible">
 					<q-control-wrapper
 						v-if="controls.F_MOVADMMOVIENUMBEROF.isVisible"
 						class="control-join-group">
@@ -249,6 +249,74 @@
 								v-if="controls.F_MOVADMMOVIENUMBEROF.isVisible"
 								v-bind="controls.F_MOVADMMOVIENUMBEROF.props"
 								@update:model-value="model.ValNumberoflikes.fnUpdateValue" />
+						</base-input-structure>
+					</q-control-wrapper>
+					<q-control-wrapper
+						v-if="controls.F_MOVADMMOVIEARATE___.isVisible"
+						class="control-join-group">
+						<base-input-structure
+							v-if="controls.F_MOVADMMOVIEARATE___.isVisible"
+							class="i-text"
+							v-bind="controls.F_MOVADMMOVIEARATE___"
+							v-on="controls.F_MOVADMMOVIEARATE___.handlers"
+							:loading="controls.F_MOVADMMOVIEARATE___.props.loading"
+							:reporting-mode-on="reportingModeCAV"
+							:suggestion-mode-on="suggestionModeOn">
+							<q-numeric-input
+								v-if="controls.F_MOVADMMOVIEARATE___.isVisible"
+								v-bind="controls.F_MOVADMMOVIEARATE___.props"
+								@update:model-value="model.ValAveragerate.fnUpdateValue" />
+						</base-input-structure>
+					</q-control-wrapper>
+					<q-control-wrapper
+						v-if="controls.F_MOVADMMOVIETOTALRAT.isVisible"
+						class="control-join-group">
+						<base-input-structure
+							v-if="controls.F_MOVADMMOVIETOTALRAT.isVisible"
+							class="i-text"
+							v-bind="controls.F_MOVADMMOVIETOTALRAT"
+							v-on="controls.F_MOVADMMOVIETOTALRAT.handlers"
+							:loading="controls.F_MOVADMMOVIETOTALRAT.props.loading"
+							:reporting-mode-on="reportingModeCAV"
+							:suggestion-mode-on="suggestionModeOn">
+							<q-numeric-input
+								v-if="controls.F_MOVADMMOVIETOTALRAT.isVisible"
+								v-bind="controls.F_MOVADMMOVIETOTALRAT.props"
+								@update:model-value="model.ValTotalrate.fnUpdateValue" />
+						</base-input-structure>
+					</q-control-wrapper>
+					<q-control-wrapper
+						v-if="controls.F_MOVADMMOVIESUMAVG__.isVisible"
+						class="control-join-group">
+						<base-input-structure
+							v-if="controls.F_MOVADMMOVIESUMAVG__.isVisible"
+							class="i-text"
+							v-bind="controls.F_MOVADMMOVIESUMAVG__"
+							v-on="controls.F_MOVADMMOVIESUMAVG__.handlers"
+							:loading="controls.F_MOVADMMOVIESUMAVG__.props.loading"
+							:reporting-mode-on="reportingModeCAV"
+							:suggestion-mode-on="suggestionModeOn">
+							<q-numeric-input
+								v-if="controls.F_MOVADMMOVIESUMAVG__.isVisible"
+								v-bind="controls.F_MOVADMMOVIESUMAVG__.props"
+								@update:model-value="model.ValSumavg.fnUpdateValue" />
+						</base-input-structure>
+					</q-control-wrapper>
+					<q-control-wrapper
+						v-if="controls.F_MOVADMMOVIELASTRATE.isVisible"
+						class="control-join-group">
+						<base-input-structure
+							v-if="controls.F_MOVADMMOVIELASTRATE.isVisible"
+							class="i-text"
+							v-bind="controls.F_MOVADMMOVIELASTRATE"
+							v-on="controls.F_MOVADMMOVIELASTRATE.handlers"
+							:loading="controls.F_MOVADMMOVIELASTRATE.props.loading"
+							:reporting-mode-on="reportingModeCAV"
+							:suggestion-mode-on="suggestionModeOn">
+							<q-numeric-input
+								v-if="controls.F_MOVADMMOVIELASTRATE.isVisible"
+								v-bind="controls.F_MOVADMMOVIELASTRATE.props"
+								@update:model-value="model.ValLastrate.fnUpdateValue" />
 						</base-input-structure>
 					</q-control-wrapper>
 				</q-row-container>
@@ -711,6 +779,66 @@
 						controlLimits: [
 						],
 					}, this),
+					F_MOVADMMOVIEARATE___: new fieldControlClass.NumberControl({
+						modelField: 'ValAveragerate',
+						valueChangeEvent: 'fieldChange:movie.averagerate',
+						id: 'F_MOVADMMOVIEARATE___',
+						name: 'ARATE',
+						size: 'medium',
+						label: computed(() => this.Resources.AVERAGE_RATE24140),
+						placeholder: '',
+						labelPosition: computed(() => this.labelAlignment.topleft),
+						isFormulaBlocked: true,
+						maxIntegers: 9,
+						maxDecimals: 0,
+						controlLimits: [
+						],
+					}, this),
+					F_MOVADMMOVIETOTALRAT: new fieldControlClass.NumberControl({
+						modelField: 'ValTotalrate',
+						valueChangeEvent: 'fieldChange:movie.totalrate',
+						id: 'F_MOVADMMOVIETOTALRAT',
+						name: 'TOTALRAT',
+						size: 'small',
+						label: computed(() => this.Resources.TOTAL_RATE13592),
+						placeholder: '',
+						labelPosition: computed(() => this.labelAlignment.topleft),
+						isFormulaBlocked: true,
+						maxIntegers: 6,
+						maxDecimals: 0,
+						controlLimits: [
+						],
+					}, this),
+					F_MOVADMMOVIESUMAVG__: new fieldControlClass.NumberControl({
+						modelField: 'ValSumavg',
+						valueChangeEvent: 'fieldChange:movie.sumavg',
+						id: 'F_MOVADMMOVIESUMAVG__',
+						name: 'SUMAVG',
+						size: 'mini',
+						label: '',
+						placeholder: '',
+						labelPosition: computed(() => this.labelAlignment.topleft),
+						isFormulaBlocked: true,
+						maxIntegers: 6,
+						maxDecimals: 0,
+						controlLimits: [
+						],
+					}, this),
+					F_MOVADMMOVIELASTRATE: new fieldControlClass.NumberControl({
+						modelField: 'ValLastrate',
+						valueChangeEvent: 'fieldChange:movie.lastrate',
+						id: 'F_MOVADMMOVIELASTRATE',
+						name: 'LASTRATE',
+						size: 'small',
+						label: computed(() => this.Resources.LASTRATE08537),
+						placeholder: '',
+						labelPosition: computed(() => this.labelAlignment.topleft),
+						isFormulaBlocked: true,
+						maxIntegers: 1,
+						maxDecimals: 0,
+						controlLimits: [
+						],
+					}, this),
 				},
 
 				model: new FormViewModel(this, {
@@ -734,12 +862,16 @@
 				 */
 				dataApi: {
 					Movie: {
+						get ValAveragerate() { return vm.model.ValAveragerate.value },
+						set ValAveragerate(value) { vm.model.ValAveragerate.updateValue(value) },
 						get ValBackdrop() { return vm.model.ValBackdrop.value },
 						set ValBackdrop(value) { vm.model.ValBackdrop.updateValue(value) },
 						get ValCreateat() { return vm.model.ValCreateat.value },
 						set ValCreateat(value) { vm.model.ValCreateat.updateValue(value) },
 						get ValDescription() { return vm.model.ValDescription.value },
 						set ValDescription(value) { vm.model.ValDescription.updateValue(value) },
+						get ValLastrate() { return vm.model.ValLastrate.value },
+						set ValLastrate(value) { vm.model.ValLastrate.updateValue(value) },
 						get ValMoviesgenre() { return vm.model.ValMoviesgenre.value },
 						set ValMoviesgenre(value) { vm.model.ValMoviesgenre.updateValue(value) },
 						get ValNumberoflikes() { return vm.model.ValNumberoflikes.value },
@@ -748,8 +880,12 @@
 						set ValPoster(value) { vm.model.ValPoster.updateValue(value) },
 						get ValRealease_date() { return vm.model.ValRealease_date.value },
 						set ValRealease_date(value) { vm.model.ValRealease_date.updateValue(value) },
+						get ValSumavg() { return vm.model.ValSumavg.value },
+						set ValSumavg(value) { vm.model.ValSumavg.updateValue(value) },
 						get ValTitle() { return vm.model.ValTitle.value },
 						set ValTitle(value) { vm.model.ValTitle.updateValue(value) },
+						get ValTotalrate() { return vm.model.ValTotalrate.value },
+						set ValTotalrate(value) { vm.model.ValTotalrate.updateValue(value) },
 					},
 					keys: {
 						/** The primary key of the MOVIE table */
