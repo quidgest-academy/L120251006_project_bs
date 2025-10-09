@@ -420,7 +420,7 @@
 				},
 
 				controls: {
-					HOMP____PSEUDFIELD001: new fieldControlClass.TableListControl({
+					HOMP____PSEUDFIELD001: new fieldControlClass.TableSpecialRenderingControl({
 						id: 'HOMP____PSEUDFIELD001',
 						name: 'FIELD001',
 						size: 'block',
@@ -504,10 +504,71 @@
 						globalEvents: ['changed-MOVIE'],
 						uuid: 'Homp_ValField001',
 						allSelectedRows: 'false',
+						viewModes: [
+							{
+								id: 'CAROUSEL',
+								type: 'carousel',
+								subtype: '',
+								label: computed(() => this.Resources.CARROSSEL41899),
+								order: 1,
+								mappingVariables: readonly({
+									slideTitle: {
+										allowsMultiple: false,
+										sources: [
+											'MOVIE.TITLE',
+										]
+									},
+									slideSubtitle: {
+										allowsMultiple: false,
+										sources: [
+											'MOVIE.REALEASE_DATE',
+										]
+									},
+									slideImage: {
+										allowsMultiple: false,
+										sources: [
+											'MOVIE.POSTER',
+										]
+									},
+								}),
+								styleVariables: {
+									showIndicators: {
+										rawValue: true,
+										isMapped: false
+									},
+									showControls: {
+										rawValue: true,
+										isMapped: false
+									},
+									keyboardControllable: {
+										rawValue: true,
+										isMapped: false
+									},
+									autoCycleInterval: {
+										rawValue: 5000,
+										isMapped: false
+									},
+									autoCyclePause: {
+										rawValue: 'hover',
+										isMapped: false
+									},
+									ride: {
+										rawValue: 'carousel',
+										isMapped: false
+									},
+									wrap: {
+										rawValue: true,
+										isMapped: false
+									},
+								},
+								groups: {
+								}
+							},
+						],
 						controlLimits: [
 						],
 					}, this),
-					HOMP____PSEUDFIELD002: new fieldControlClass.TableListControl({
+					HOMP____PSEUDFIELD002: new fieldControlClass.TableSpecialRenderingControl({
 						id: 'HOMP____PSEUDFIELD002',
 						name: 'FIELD002',
 						size: 'block',
@@ -590,6 +651,95 @@
 						globalEvents: ['changed-MOVIE'],
 						uuid: 'Homp_ValField002',
 						allSelectedRows: 'false',
+						viewModes: [
+							{
+								id: 'CARDS',
+								type: 'cards',
+								subtype: 'card-img-background',
+								label: computed(() => this.Resources.CARTOES27587),
+								order: 1,
+								mappingVariables: readonly({
+									title: {
+										allowsMultiple: false,
+										sources: [
+											'MOVIE.TITLE',
+										]
+									},
+									text: {
+										allowsMultiple: true,
+										sources: [
+											'MOVIE.REALEASE_DATE',
+										]
+									},
+									image: {
+										allowsMultiple: false,
+										sources: [
+											'MOVIE.POSTER',
+										]
+									},
+								}),
+								styleVariables: {
+									actionsAlignment: {
+										rawValue: 'left',
+										isMapped: false
+									},
+									actionsPlacement: {
+										rawValue: 'footer',
+										isMapped: false
+									},
+									actionsStyle: {
+										rawValue: 'dropdown',
+										isMapped: false
+									},
+									contentAlignment: {
+										rawValue: 'left',
+										isMapped: false
+									},
+									customFollowupDefaultTarget: {
+										rawValue: 'blank',
+										isMapped: false
+									},
+									customInsertCard: {
+										rawValue: false,
+										isMapped: false
+									},
+									customInsertCardStyle: {
+										rawValue: 'secondary',
+										isMapped: false
+									},
+									displayMode: {
+										rawValue: 'grid',
+										isMapped: false
+									},
+									gridMode: {
+										rawValue: 'fixed',
+										isMapped: false
+									},
+									containerAlignment: {
+										rawValue: 'left',
+										isMapped: false
+									},
+									hoverScaleAmount: {
+										rawValue: '1.00',
+										isMapped: false
+									},
+									showColumnTitles: {
+										rawValue: false,
+										isMapped: false
+									},
+									showEmptyColumnTitles: {
+										rawValue: true,
+										isMapped: false
+									},
+									size: {
+										rawValue: 'regular',
+										isMapped: false
+									},
+								},
+								groups: {
+								}
+							},
+						],
 						controlLimits: [
 						],
 					}, this),
