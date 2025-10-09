@@ -5,6 +5,19 @@ export default function getMenusRoutes()
 {
 	return [
 		{
+			path: '/:culture/:system/MOV/menu/MOV_471',
+			name: 'menu-MOV_471',
+			component: () => import('@/views/menus/ModuleMOV/MenuMOV_471/QMenuMov471.vue'),
+			meta: {
+				routeType: 'menu',
+				module: 'MOV',
+				order: '471',
+				baseArea: 'RATTI',
+				hasInitialPHE: false,
+				humanKeyFields: [],
+			}
+		},
+		{
 			path: '/:culture/:system/MOV/menu/MOV_21',
 			name: 'menu-MOV_21',
 			component: () => import('@/views/menus/ModuleMOV/MenuMOV_21/QMenuMov21.vue'),

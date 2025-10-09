@@ -57,6 +57,12 @@
           </MENU>
         </MENU>
       </MENU>
+      <MENU TYPE="ITEM" DESC="RATTING61217" SIGLA="" ID="47" PRTID="4" HELPTITLE="" LVL="2" PREVIEW="false" SEPARATES="false" SUMMENU="false" HIDEMENUSUM="false" HASCONDITION="false" ISFORM="false" ORDER="47" DEFAULTACTION="">
+        <ACCESS>1</ACCESS>
+        <MENU TYPE="ITEM" DESC="RATTING61217" ID="471" PRTID="47" IMG="" ACT="GenGenio.MenuDBEdit" ACTMVC="MOV_Menu_471" ACTVUE="menu-MOV_471" CONT="RATTI" LVL="-1" PREVIEW="false" SEPARATES="false" SUMMENU="false" HIDEMENUSUM="false" HASCONDITION="false" ISFORM="false" ORDER="471">
+          <MENU TYPE="ITEM" ID="4711" PRTID="471" IMG="" ACT="GenGenio.MenuFormConsulta" LVL="-1" PREVIEW="false" SEPARATES="false" SUMMENU="false" HIDEMENUSUM="false" HASCONDITION="false" ISFORM="false" ORDER="4711" />
+        </MENU>
+      </MENU>
     </MENU>
   </MenuEntry>
 </ArrayOfMenuEntry>

@@ -89,6 +89,7 @@ public class AppPage: PageObject
 		res.AddMenu(module, "44", "4");
 		res.AddMenu(module, "45", "4");
 		res.AddMenu(module, "46", "4");
+		res.AddMenu(module, "47", "4");
         return res;
     }
 }
