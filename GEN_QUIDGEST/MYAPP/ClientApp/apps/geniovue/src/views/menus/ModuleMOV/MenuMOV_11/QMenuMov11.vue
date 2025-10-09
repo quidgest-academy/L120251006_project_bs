@@ -365,64 +365,11 @@
 						allSelectedRows: 'false',
 						viewModes: [
 							{
-								id: 'CAROUSEL',
-								type: 'carousel',
-								subtype: '',
-								label: computed(() => this.Resources.CARROSSEL41899),
-								order: 1,
-								mappingVariables: readonly({
-									slideTitle: {
-										allowsMultiple: false,
-										sources: [
-											'MOVIE.TITLE',
-										]
-									},
-									slideImage: {
-										allowsMultiple: false,
-										sources: [
-											'MOVIE.POSTER',
-										]
-									},
-								}),
-								styleVariables: {
-									showIndicators: {
-										rawValue: true,
-										isMapped: false
-									},
-									showControls: {
-										rawValue: true,
-										isMapped: false
-									},
-									keyboardControllable: {
-										rawValue: true,
-										isMapped: false
-									},
-									autoCycleInterval: {
-										rawValue: 5000,
-										isMapped: false
-									},
-									autoCyclePause: {
-										rawValue: 'hover',
-										isMapped: false
-									},
-									ride: {
-										rawValue: 'carousel',
-										isMapped: false
-									},
-									wrap: {
-										rawValue: true,
-										isMapped: false
-									},
-								},
-								groups: {
-								}
-							},
-							{
 								id: 'CARDS',
 								type: 'cards',
 								subtype: 'card-horizontal',
 								label: computed(() => this.Resources.CARTOES27587),
-								order: 2,
+								order: 1,
 								mappingVariables: readonly({
 								}),
 								styleVariables: {
