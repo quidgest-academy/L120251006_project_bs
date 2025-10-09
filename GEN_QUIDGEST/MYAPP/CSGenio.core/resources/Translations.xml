@@ -45,6 +45,9 @@
   <msg id="Backdrop" code="BACKDROP05167">
     <ENUS>Backdrop</ENUS>
   </msg>
+  <msg id="Characters in movies" code="CHARACTERS_IN_MOVIES46696">
+    <ENUS>Characters in movies</ENUS>
+  </msg>
   <msg id="Create a website alert" code="CREATE_A_WEBSITE_ALE02013">
     <ENUS>Create a website alert</ENUS>
   </msg>
@@ -368,6 +371,9 @@
   </msg>
   <msg id="Rate_at" code="RATE_AT01141">
     <ENUS>Rate_at</ENUS>
+  </msg>
+  <msg id="🍿 Home" code="___HOME43998">
+    <ENUS>🍿 Home</ENUS>
   </msg>
   <msg id="Saves on DB?" code="SAVES_ON_DB_61384">
     <ENUS>Saves on DB?</ENUS>

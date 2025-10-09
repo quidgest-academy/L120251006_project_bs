@@ -17,13 +17,13 @@ using Quidgest.Persistence.GenericQuery;
 
 namespace GenioMVC.ViewModels.Chara
 {
-	public class MOV_Menu_451_ViewModel : MenuListViewModel<Models.Chara>
+	public class MOV_Menu_431_ViewModel : MenuListViewModel<Models.Chara>
 	{
 		/// <summary>
 		/// Gets or sets the object that represents the table and its elements.
 		/// </summary>
 		[JsonPropertyName("Table")]
-		public TablePartial<MOV_Menu_451_RowViewModel> Menu { get; set; }
+		public TablePartial<MOV_Menu_431_RowViewModel> Menu { get; set; }
 
 		/// <inheritdoc/>
 		[JsonIgnore]
@@ -81,7 +81,7 @@ namespace GenioMVC.ViewModels.Chara
 
 		public override CriteriaSet GetCustomizedStaticLimits(CriteriaSet crs)
 		{
-// USE /[MANUAL MOV LIST_LIMITS 451]/
+// USE /[MANUAL MOV LIST_LIMITS 431]/
 
 			return crs;
 		}
@@ -92,7 +92,7 @@ namespace GenioMVC.ViewModels.Chara
 			var areaBase = CSGenio.business.Area.createArea("chara", user, "MOV");
 
 			//gets eph conditions to be applied in listing
-			CriteriaSet conditions = CSGenio.business.Listing.CalculateConditionsEphGeneric(areaBase, "ML451");
+			CriteriaSet conditions = CSGenio.business.Listing.CalculateConditionsEphGeneric(areaBase, "ML431");
 			conditions.Equal(CSGenioAchara.FldZzstate, 0); //valid zzstate only
 
 			// Fixed limits and relations:
@@ -119,23 +119,23 @@ namespace GenioMVC.ViewModels.Chara
 		/// FOR DESERIALIZATION ONLY
 		/// </summary>
 		[Obsolete("For deserialization only")]
-		public MOV_Menu_451_ViewModel() : base(null!) { }
+		public MOV_Menu_431_ViewModel() : base(null!) { }
 
 		/// <summary>
-		/// Initializes a new instance of the <see cref="MOV_Menu_451_ViewModel" /> class.
+		/// Initializes a new instance of the <see cref="MOV_Menu_431_ViewModel" /> class.
 		/// </summary>
 		/// <param name="userContext">The current user request context</param>
-		public MOV_Menu_451_ViewModel(UserContext userContext) : base(userContext)
+		public MOV_Menu_431_ViewModel(UserContext userContext) : base(userContext)
 		{
 			this.RoleToShow = CSGenio.framework.Role.ADMINISTRATION;
 		}
 
 		/// <summary>
-		/// Initializes a new instance of the <see cref="MOV_Menu_451_ViewModel" /> class.
+		/// Initializes a new instance of the <see cref="MOV_Menu_431_ViewModel" /> class.
 		/// </summary>
 		/// <param name="userContext">The current user request context</param>
 		/// <param name="parentCtx">The context of the parent</param>
-		public MOV_Menu_451_ViewModel(UserContext userContext, Models.ModelBase parentCtx) : this(userContext)
+		public MOV_Menu_431_ViewModel(UserContext userContext, Models.ModelBase parentCtx) : this(userContext)
 		{
 			ParentCtx = parentCtx;
 		}
@@ -193,7 +193,7 @@ namespace GenioMVC.ViewModels.Chara
 
 
 			if (Menu == null)
-				Menu = new TablePartial<MOV_Menu_451_RowViewModel>();
+				Menu = new TablePartial<MOV_Menu_431_RowViewModel>();
 			// Set table name (used in getting searchable column names)
 			Menu.TableName = TableAlias;
 
@@ -215,7 +215,7 @@ namespace GenioMVC.ViewModels.Chara
 			if (isToExport)
 			{
 				// EPH
-				crs = Models.Chara.AddEPH<CSGenioAchara>(ref u, crs, "ML451");
+				crs = Models.Chara.AddEPH<CSGenioAchara>(ref u, crs, "ML431");
 
 				// Export only records with ZZState == 0
 				crs.Equal(CSGenioAchara.FldZzstate, 0);
@@ -233,7 +233,7 @@ namespace GenioMVC.ViewModels.Chara
 				string QMVC_POS_RECORD = Navigation.GetStrValue("QMVC_POS_RECORD_chara");
 				Navigation.DestroyEntry("QMVC_POS_RECORD_chara");
 				if (!string.IsNullOrEmpty(QMVC_POS_RECORD))
-					crs.Equals(Models.Chara.AddEPH<CSGenioAchara>(ref u, null, "ML451"));
+					crs.Equals(Models.Chara.AddEPH<CSGenioAchara>(ref u, null, "ML431"));
 			}
 
 			return crs;
@@ -308,9 +308,9 @@ namespace GenioMVC.ViewModels.Chara
 		public void Load(CSGenio.framework.TableConfiguration.TableConfiguration tableConfig, NameValueCollection requestValues, bool ajaxRequest, bool isToExport, ref ListingMVC<CSGenioAchara> Qlisting, ref CriteriaSet conditions)
 		{
 				User u = m_userContext.User;
-				Menu = new TablePartial<MOV_Menu_451_RowViewModel>();
+				Menu = new TablePartial<MOV_Menu_431_RowViewModel>();
 
-				CriteriaSet mov_menu_451Conds = CriteriaSet.And();
+				CriteriaSet mov_menu_431Conds = CriteriaSet.And();
 				bool tableReload = true;
 
 				//FOR: MENU LIST SORTING
@@ -362,7 +362,7 @@ namespace GenioMVC.ViewModels.Chara
 					Limit limit = new Limit();
 					limit.TipoLimite = LimitType.EPH;
 					CSGenioAchara model_limit_area = new CSGenioAchara(m_userContext.User);
-					List<Limit> area_EPH_limits = EPH_Limit_Filler(ref limit, model_limit_area, "ML451");
+					List<Limit> area_EPH_limits = EPH_Limit_Filler(ref limit, model_limit_area, "ML431");
 					if (area_EPH_limits.Count > 0)
 						this.tableLimits.AddRange(area_EPH_limits);
 				}
@@ -371,11 +371,11 @@ namespace GenioMVC.ViewModels.Chara
 				if (conditions == null)
 					conditions = CriteriaSet.And();
 
-				conditions.SubSets.Add(mov_menu_451Conds);
-				mov_menu_451Conds = BuildCriteriaSet(tableConfig, requestValues, out bool hasAllRequiredLimits, conditions, isToExport);
+				conditions.SubSets.Add(mov_menu_431Conds);
+				mov_menu_431Conds = BuildCriteriaSet(tableConfig, requestValues, out bool hasAllRequiredLimits, conditions, isToExport);
 				tableReload &= hasAllRequiredLimits;
 
-// USE /[MANUAL MOV OVERRQ 451]/
+// USE /[MANUAL MOV OVERRQ 431]/
 
 				bool distinct = false;
 
@@ -384,16 +384,16 @@ namespace GenioMVC.ViewModels.Chara
 					if (!tableReload)
 						return;
 
-					Qlisting = Models.ModelBase.Where<CSGenioAchara>(m_userContext, false, mov_menu_451Conds, fields, (pageNumber - 1) * numberListItems, numberListItems, sorts, "ML451", true, firstVisibleColumn: firstVisibleColumn);
+					Qlisting = Models.ModelBase.Where<CSGenioAchara>(m_userContext, false, mov_menu_431Conds, fields, (pageNumber - 1) * numberListItems, numberListItems, sorts, "ML431", true, firstVisibleColumn: firstVisibleColumn);
 
-// USE /[MANUAL MOV OVERRQLSTEXP 451]/
+// USE /[MANUAL MOV OVERRQLSTEXP 431]/
 
 					return;
 				}
 
 				if (tableReload)
 				{
-// USE /[MANUAL MOV OVERRQLIST 451]/
+// USE /[MANUAL MOV OVERRQLIST 431]/
 
 					string QMVC_POS_RECORD = Navigation.GetStrValue("QMVC_POS_RECORD_chara");
 					Navigation.DestroyEntry("QMVC_POS_RECORD_chara");
@@ -401,12 +401,12 @@ namespace GenioMVC.ViewModels.Chara
 
 					if (!string.IsNullOrEmpty(QMVC_POS_RECORD))
 					{
-						var m_iCurPag = m_userContext.PersistentSupport.getPagingPos(CSGenioAchara.GetInformation(), QMVC_POS_RECORD, sorts, mov_menu_451Conds, m_PagingPosEPHs, firstVisibleColumn: firstVisibleColumn);
+						var m_iCurPag = m_userContext.PersistentSupport.getPagingPos(CSGenioAchara.GetInformation(), QMVC_POS_RECORD, sorts, mov_menu_431Conds, m_PagingPosEPHs, firstVisibleColumn: firstVisibleColumn);
 						if (m_iCurPag != -1)
 							pageNumber = ((m_iCurPag - 1) / numberListItems) + 1;
 					}
 
-					ListingMVC<CSGenioAchara> listing = Models.ModelBase.Where<CSGenioAchara>(m_userContext, distinct, mov_menu_451Conds, fields, (pageNumber - 1) * numberListItems, numberListItems, sorts, "ML451", true, false, QMVC_POS_RECORD, m_PagingPosEPHs, firstVisibleColumn, fieldsWithTotalizers, tableConfig.SelectedRows);
+					ListingMVC<CSGenioAchara> listing = Models.ModelBase.Where<CSGenioAchara>(m_userContext, distinct, mov_menu_431Conds, fields, (pageNumber - 1) * numberListItems, numberListItems, sorts, "ML431", true, false, QMVC_POS_RECORD, m_PagingPosEPHs, firstVisibleColumn, fieldsWithTotalizers, tableConfig.SelectedRows);
 
 					if (listing.CurrentPage > 0)
 						pageNumber = listing.CurrentPage;
@@ -418,15 +418,15 @@ namespace GenioMVC.ViewModels.Chara
 					//Set document field values to objects
 					SetDocumentFields(listing);
 
-					Menu.Elements = MapMOV_Menu_451(listing);
+					Menu.Elements = MapMOV_Menu_431(listing);
 
-					Menu.Identifier = "ML451";
+					Menu.Identifier = "ML431";
 					Menu.Slots = new Dictionary<string, List<object>>();
 
 					// Last updated by [CJP] at [2015.02.03]
 					// Adds the identifier to each element
 					foreach (var element in Menu.Elements)
-						element.Identifier = "ML451";
+						element.Identifier = "ML431";
 
 					Menu.SetPagination(pageNumber, listing.NumRegs, listing.HasMore, listing.GetTotal, listing.TotalRecords);
 
@@ -445,9 +445,9 @@ namespace GenioMVC.ViewModels.Chara
 				LoadUserTableConfigNameProperties();
 		}
 
-		private List<MOV_Menu_451_RowViewModel> MapMOV_Menu_451(ListingMVC<CSGenioAchara> Qlisting)
+		private List<MOV_Menu_431_RowViewModel> MapMOV_Menu_431(ListingMVC<CSGenioAchara> Qlisting)
 		{
-			List<MOV_Menu_451_RowViewModel> Elements = [];
+			List<MOV_Menu_431_RowViewModel> Elements = [];
 			int i = 0;
 
 			if (Qlisting.Rows != null)
@@ -456,7 +456,7 @@ namespace GenioMVC.ViewModels.Chara
 				{
 					if (Qlisting.NumRegs > 0 && i >= Qlisting.NumRegs) // Copiado da versão antiga do RowsToViewModels
 						break;
-					Elements.Add(MapMOV_Menu_451(row));
+					Elements.Add(MapMOV_Menu_431(row));
 					i++;
 				}
 			}
@@ -466,12 +466,12 @@ namespace GenioMVC.ViewModels.Chara
 
 		/// <summary>
 		/// Maps a single CSGenioAchara row
-		/// to a MOV_Menu_451_RowViewModel object.
+		/// to a MOV_Menu_431_RowViewModel object.
 		/// </summary>
 		/// <param name="row">The row.</param>
-		private MOV_Menu_451_RowViewModel MapMOV_Menu_451(CSGenioAchara row)
+		private MOV_Menu_431_RowViewModel MapMOV_Menu_431(CSGenioAchara row)
 		{
-			var model = new MOV_Menu_451_RowViewModel(m_userContext, true, _fieldsToSerialize);
+			var model = new MOV_Menu_431_RowViewModel(m_userContext, true, _fieldsToSerialize);
 			if (row == null)
 				return model;
 
@@ -528,7 +528,7 @@ namespace GenioMVC.ViewModels.Chara
 
 		#region Custom code
 
-// USE /[MANUAL MOV VIEWMODEL_CUSTOM MOV_MENU_451]/
+// USE /[MANUAL MOV VIEWMODEL_CUSTOM MOV_MENU_431]/
 
 		#endregion
 

@@ -29,8 +29,8 @@ namespace GenioMVC.Controllers
 	public partial class CharaController : ControllerBase
 	{
 		private static readonly NavigationLocation ACTION_MOV_MENU_31 = new NavigationLocation("CHARACTERS03735", "MOV_Menu_31", "Chara") { vueRouteName = "menu-MOV_31" };
-		private static readonly NavigationLocation ACTION_MOV_MENU_451 = new NavigationLocation("CHARACTERS03735", "MOV_Menu_451", "Chara") { vueRouteName = "menu-MOV_451" };
-		private static readonly NavigationLocation ACTION_MOV_MENU_4611 = new NavigationLocation("CHARACTERS03735", "MOV_Menu_4611", "Chara") { vueRouteName = "menu-MOV_4611" };
+		private static readonly NavigationLocation ACTION_MOV_MENU_4211 = new NavigationLocation("CHARACTERS03735", "MOV_Menu_4211", "Chara") { vueRouteName = "menu-MOV_4211" };
+		private static readonly NavigationLocation ACTION_MOV_MENU_431 = new NavigationLocation("CHARACTERS03735", "MOV_Menu_431", "Chara") { vueRouteName = "menu-MOV_431" };
 
 
 		//
@@ -129,17 +129,17 @@ namespace GenioMVC.Controllers
 		}
 
 		//
-		// GET: /Chara/MOV_Menu_451
-		[ActionName("MOV_Menu_451")]
+		// GET: /Chara/MOV_Menu_4211
+		[ActionName("MOV_Menu_4211")]
 		[HttpPost]
-		public ActionResult MOV_Menu_451([FromBody]RequestMenuModel requestModel)
+		public ActionResult MOV_Menu_4211([FromBody]RequestMenuModel requestModel)
 		{
 			var queryParams = requestModel.QueryParams;
 
 			int perPage = CSGenio.framework.Configuration.NrRegDBedit;
 			string rowsPerPageOptionsString = "";
 
-			MOV_Menu_451_ViewModel model = new MOV_Menu_451_ViewModel(UserContext.Current);
+			MOV_Menu_4211_ViewModel model = new MOV_Menu_4211_ViewModel(UserContext.Current);
 
 			// Table configuration load options
 			CSGenio.framework.TableConfiguration.TableConfigurationLoadOptions tableConfigOptions = new CSGenio.framework.TableConfiguration.TableConfigurationLoadOptions();
@@ -172,7 +172,7 @@ namespace GenioMVC.Controllers
 
 			bool isHomePage = RouteData.Values.ContainsKey("isHomePage") ? (bool)RouteData.Values["isHomePage"] : false;
 			if (isHomePage)
-				Navigation.SetValue("HomePage", "MOV_Menu_451");
+				Navigation.SetValue("HomePage", "MOV_Menu_4211");
 
 			//If there was a recent operation on this table then force the primary persistence server to be called and ignore the read only feature
 			if (string.IsNullOrEmpty(Navigation.GetStrValue("ForcePrimaryRead_chara")))
@@ -191,18 +191,21 @@ namespace GenioMVC.Controllers
 				querystring.AddRange(queryParams);
 
 			if (!isHomePage &&
-				(Navigation.CurrentLevel == null || !ACTION_MOV_MENU_451.IsSameAction(Navigation.CurrentLevel.Location)) &&
-				Navigation.CurrentLevel.Location.Action != ACTION_MOV_MENU_451.Action)
+				(Navigation.CurrentLevel == null || !ACTION_MOV_MENU_4211.IsSameAction(Navigation.CurrentLevel.Location)) &&
+				Navigation.CurrentLevel.Location.Action != ACTION_MOV_MENU_4211.Action)
 				CSGenio.framework.Audit.registAction(UserContext.Current.User, Resources.Resources.MENU01948 + " " + Navigation.CurrentLevel.Location.ShortDescription());
 			else if (isHomePage)
 			{
-				CSGenio.framework.Audit.registAction(UserContext.Current.User, Resources.Resources.MENU01948 + " " + ACTION_MOV_MENU_451.ShortDescription());
+				CSGenio.framework.Audit.registAction(UserContext.Current.User, Resources.Resources.MENU01948 + " " + ACTION_MOV_MENU_4211.ShortDescription());
 				Navigation.SetValue("HomePageContainsList", true);
 			}
 
 
+			if (!String.IsNullOrEmpty(querystring["movie"]))
+				Navigation.SetValue("movie", querystring["movie"]);
 
-// USE /[MANUAL MOV MENU_GET 451]/
+
+// USE /[MANUAL MOV MENU_GET 4211]/
 
 
             try
@@ -219,17 +222,17 @@ namespace GenioMVC.Controllers
 		}
 
 		//
-		// GET: /Chara/MOV_Menu_4611
-		[ActionName("MOV_Menu_4611")]
+		// GET: /Chara/MOV_Menu_431
+		[ActionName("MOV_Menu_431")]
 		[HttpPost]
-		public ActionResult MOV_Menu_4611([FromBody]RequestMenuModel requestModel)
+		public ActionResult MOV_Menu_431([FromBody]RequestMenuModel requestModel)
 		{
 			var queryParams = requestModel.QueryParams;
 
 			int perPage = CSGenio.framework.Configuration.NrRegDBedit;
 			string rowsPerPageOptionsString = "";
 
-			MOV_Menu_4611_ViewModel model = new MOV_Menu_4611_ViewModel(UserContext.Current);
+			MOV_Menu_431_ViewModel model = new MOV_Menu_431_ViewModel(UserContext.Current);
 
 			// Table configuration load options
 			CSGenio.framework.TableConfiguration.TableConfigurationLoadOptions tableConfigOptions = new CSGenio.framework.TableConfiguration.TableConfigurationLoadOptions();
@@ -262,7 +265,7 @@ namespace GenioMVC.Controllers
 
 			bool isHomePage = RouteData.Values.ContainsKey("isHomePage") ? (bool)RouteData.Values["isHomePage"] : false;
 			if (isHomePage)
-				Navigation.SetValue("HomePage", "MOV_Menu_4611");
+				Navigation.SetValue("HomePage", "MOV_Menu_431");
 
 			//If there was a recent operation on this table then force the primary persistence server to be called and ignore the read only feature
 			if (string.IsNullOrEmpty(Navigation.GetStrValue("ForcePrimaryRead_chara")))
@@ -281,21 +284,18 @@ namespace GenioMVC.Controllers
 				querystring.AddRange(queryParams);
 
 			if (!isHomePage &&
-				(Navigation.CurrentLevel == null || !ACTION_MOV_MENU_4611.IsSameAction(Navigation.CurrentLevel.Location)) &&
-				Navigation.CurrentLevel.Location.Action != ACTION_MOV_MENU_4611.Action)
+				(Navigation.CurrentLevel == null || !ACTION_MOV_MENU_431.IsSameAction(Navigation.CurrentLevel.Location)) &&
+				Navigation.CurrentLevel.Location.Action != ACTION_MOV_MENU_431.Action)
 				CSGenio.framework.Audit.registAction(UserContext.Current.User, Resources.Resources.MENU01948 + " " + Navigation.CurrentLevel.Location.ShortDescription());
 			else if (isHomePage)
 			{
-				CSGenio.framework.Audit.registAction(UserContext.Current.User, Resources.Resources.MENU01948 + " " + ACTION_MOV_MENU_4611.ShortDescription());
+				CSGenio.framework.Audit.registAction(UserContext.Current.User, Resources.Resources.MENU01948 + " " + ACTION_MOV_MENU_431.ShortDescription());
 				Navigation.SetValue("HomePageContainsList", true);
 			}
 
 
-			if (!String.IsNullOrEmpty(querystring["movie"]))
-				Navigation.SetValue("movie", querystring["movie"]);
 
-
-// USE /[MANUAL MOV MENU_GET 4611]/
+// USE /[MANUAL MOV MENU_GET 431]/
 
 
             try

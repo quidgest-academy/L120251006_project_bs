@@ -196,6 +196,15 @@ namespace Administration.Resources {
         }
 
         /// <summary>
+        ///   Looks up a localized string similar to "Characters in movies"
+        /// </summary>
+        public static string CHARACTERS_IN_MOVIES46696 {
+            get {
+                return ResourceManager.GetString("CHARACTERS_IN_MOVIES46696", resourceCulture);
+            }
+        }
+
+        /// <summary>
         ///   Looks up a localized string similar to "Create a website alert"
         /// </summary>
         public static string CREATE_A_WEBSITE_ALE02013 {
@@ -1164,6 +1173,15 @@ namespace Administration.Resources {
         public static string RATE_AT01141 {
             get {
                 return ResourceManager.GetString("RATE_AT01141", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to "🍿 Home"
+        /// </summary>
+        public static string ___HOME43998 {
+            get {
+                return ResourceManager.GetString("___HOME43998", resourceCulture);
             }
         }
 

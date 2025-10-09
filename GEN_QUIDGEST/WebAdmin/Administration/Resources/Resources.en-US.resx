@@ -162,6 +162,9 @@
   <data name="BACKDROP05167" xml:space="preserve">
     <value>Backdrop</value>
   </data>
+  <data name="CHARACTERS_IN_MOVIES46696" xml:space="preserve">
+    <value>Characters in movies</value>
+  </data>
   <data name="CREATE_A_WEBSITE_ALE02013" xml:space="preserve">
     <value>Create a website alert</value>
   </data>
@@ -485,6 +488,9 @@
   </data>
   <data name="RATE_AT01141" xml:space="preserve">
     <value>Rate_at</value>
+  </data>
+  <data name="___HOME43998" xml:space="preserve">
+    <value>🍿 Home</value>
   </data>
   <data name="SAVES_ON_DB_61384" xml:space="preserve">
     <value>Saves on DB?</value>

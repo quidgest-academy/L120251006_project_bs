@@ -120,12 +120,12 @@
 				menuInfo: {
 					id: '451',
 					isMenuList: true,
-					designation: computed(() => this.Resources.CHARACTERS03735),
+					designation: computed(() => this.Resources.FAVORITES12182),
 					acronym: 'MOV_451',
-					name: 'CHARA',
+					name: 'FAVOR',
 					route: 'menu-MOV_451',
 					order: '451',
-					controller: 'CHARA',
+					controller: 'FAVOR',
 					action: 'MOV_Menu_451',
 					isPopup: false
 				},
@@ -136,7 +136,7 @@
 					menu: new controlClass.TableListControl({
 						fnHydrateViewModel: (data) => vm.model.hydrate(data),
 						id: 'MOV_Menu_451',
-						controller: 'CHARA',
+						controller: 'FAVOR',
 						action: 'MOV_Menu_451',
 						hasDependencies: false,
 						isInCollapsible: false,
@@ -145,17 +145,14 @@
 							'page-full-height'
 						],
 						columnsOriginal: [
-							new listColumnTypes.ArrayColumn({
+							new listColumnTypes.DateColumn({
 								order: 1,
-								name: 'ValGenre',
-								area: 'CHARA',
-								field: 'GENRE',
-								label: computed(() => this.Resources.GENRE63303),
-								dataLength: 1,
-								scrollData: 1,
-								array: computed(() => new qProjArrays.QArrayGenre(vm.$getResource).elements),
-								arrayType: qProjArrays.QArrayGenre.type,
-								arrayDisplayMode: 'D',
+								name: 'ValFavorite_at',
+								area: 'FAVOR',
+								field: 'FAVORITE_AT',
+								label: computed(() => this.Resources.FAVORITE_AT27922),
+								scrollData: 8,
+								dateTimeType: 'date',
 							}, computed(() => vm.model), computed(() => vm.internalEvents)),
 							new listColumnTypes.TextColumn({
 								order: 2,
@@ -167,43 +164,26 @@
 								scrollData: 30,
 								pkColumn: 'ValCodmovie',
 							}, computed(() => vm.model), computed(() => vm.internalEvents)),
-							new listColumnTypes.DateColumn({
-								order: 3,
-								name: 'ValCreateat',
-								area: 'CHARA',
-								field: 'CREATEAT',
-								label: computed(() => this.Resources.CREATE_AT36393),
-								scrollData: 8,
-								dateTimeType: 'date',
-							}, computed(() => vm.model), computed(() => vm.internalEvents)),
 							new listColumnTypes.TextColumn({
-								order: 4,
-								name: 'ValName',
-								area: 'CHARA',
+								order: 3,
+								name: 'Userp.ValName',
+								area: 'USERP',
 								field: 'NAME',
 								label: computed(() => this.Resources.NAME31974),
-								dataLength: 80,
+								dataLength: 50,
 								scrollData: 30,
-							}, computed(() => vm.model), computed(() => vm.internalEvents)),
-							new listColumnTypes.TextColumn({
-								order: 5,
-								name: 'ValActorname',
-								area: 'CHARA',
-								field: 'ACTORNAME',
-								label: computed(() => this.Resources.ACTOR_NAME48089),
-								dataLength: 80,
-								scrollData: 30,
+								pkColumn: 'ValCoduserp',
 							}, computed(() => vm.model), computed(() => vm.internalEvents)),
 						],
 						config: {
 							name: 'MOV_Menu_451',
 							serverMode: true,
-							pkColumn: 'ValCodchara',
-							tableAlias: 'CHARA',
-							tableNamePlural: computed(() => this.Resources.CHARACTERS03735),
+							pkColumn: 'ValCodfavor',
+							tableAlias: 'FAVOR',
+							tableNamePlural: computed(() => this.Resources.FAVORITES12182),
 							viewManagement: '',
 							showLimitsInfo: true,
-							tableTitle: computed(() => this.Resources.CHARACTERS03735),
+							tableTitle: computed(() => this.Resources.FAVORITES12182),
 							showAlternatePagination: true,
 							permissions: {
 							},
@@ -226,7 +206,7 @@
 									params: {
 										action: vm.openFormAction,
 										type: 'form',
-										formName: 'F_CHARAC',
+										formName: 'F_FAVORI',
 										mode: 'SHOW',
 										isControlled: true
 									}
@@ -242,7 +222,7 @@
 									params: {
 										action: vm.openFormAction,
 										type: 'form',
-										formName: 'F_CHARAC',
+										formName: 'F_FAVORI',
 										mode: 'EDIT',
 										isControlled: true
 									}
@@ -258,7 +238,7 @@
 									params: {
 										action: vm.openFormAction,
 										type: 'form',
-										formName: 'F_CHARAC',
+										formName: 'F_FAVORI',
 										mode: 'DUPLICATE',
 										isControlled: true
 									}
@@ -274,7 +254,7 @@
 									params: {
 										action: vm.openFormAction,
 										type: 'form',
-										formName: 'F_CHARAC',
+										formName: 'F_FAVORI',
 										mode: 'DELETE',
 										isControlled: true
 									}
@@ -292,7 +272,7 @@
 									params: {
 										action: vm.openFormAction,
 										type: 'form',
-										formName: 'F_CHARAC',
+										formName: 'F_FAVORI',
 										mode: 'NEW',
 										repeatInsertion: false,
 										isControlled: true
@@ -309,34 +289,34 @@
 							],
 							rowClickAction: {
 								id: 'RCA_MOV_4511',
-								name: 'form-F_CHARAC',
+								name: 'form-F_FAVORI',
 								params: {
 									isRoute: true,
 									limits: [
 										{
 											identifier: 'id',
-											fnValueSelector: (row) => row.ValCodchara
+											fnValueSelector: (row) => row.ValCodfavor
 										},
 									],
 									isControlled: true,
-									action: vm.openFormAction, type: 'form', mode: 'SHOW', formName: 'F_CHARAC'
+									action: vm.openFormAction, type: 'form', mode: 'SHOW', formName: 'F_FAVORI'
 								}
 							},
 							formsDefinition: {
-								'F_CHARAC': {
-									fnKeySelector: (row) => row.Fields.ValCodchara,
-									isPopup: false
+								'F_FAVORI': {
+									fnKeySelector: (row) => row.Fields.ValCodfavor,
+									isPopup: true
 								},
 							},
-							defaultSearchColumnName: 'ValName',
-							defaultSearchColumnNameOriginal: 'ValName',
+							defaultSearchColumnName: '',
+							defaultSearchColumnNameOriginal: '',
 							defaultColumnSorting: {
-								columnName: 'ValCreateat',
+								columnName: 'ValFavorite_at',
 								sortOrder: 'asc'
 							}
 						},
-						globalEvents: ['changed-MOVIE', 'changed-CHARA'],
-						uuid: '1647ff0a-85ba-4bf0-84d7-1d1ad3b4b641',
+						globalEvents: ['changed-MOVIE', 'changed-USERP', 'changed-FAVOR'],
+						uuid: '18499c05-7ba4-438e-af8a-976e3d3593ba',
 						allSelectedRows: 'false',
 						headerLevel: 1,
 					}, this),

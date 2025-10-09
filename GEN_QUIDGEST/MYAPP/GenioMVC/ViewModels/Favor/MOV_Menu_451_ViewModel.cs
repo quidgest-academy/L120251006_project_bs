@@ -15,22 +15,22 @@ using GenioMVC.Models.Navigation;
 using Quidgest.Persistence;
 using Quidgest.Persistence.GenericQuery;
 
-namespace GenioMVC.ViewModels.Chara
+namespace GenioMVC.ViewModels.Favor
 {
-	public class MOV_Menu_4611_ViewModel : MenuListViewModel<Models.Chara>
+	public class MOV_Menu_451_ViewModel : MenuListViewModel<Models.Favor>
 	{
 		/// <summary>
 		/// Gets or sets the object that represents the table and its elements.
 		/// </summary>
 		[JsonPropertyName("Table")]
-		public TablePartial<MOV_Menu_4611_RowViewModel> Menu { get; set; }
+		public TablePartial<MOV_Menu_451_RowViewModel> Menu { get; set; }
 
 		/// <inheritdoc/>
 		[JsonIgnore]
-		public override string TableAlias => "chara";
+		public override string TableAlias => "favor";
 
 		/// <inheritdoc/>
-		public override string Uuid => "5e128f1d-4d48-4b51-a762-8f5abf161572";
+		public override string Uuid => "18499c05-7ba4-438e-af8a-976e3d3593ba";
 
 		/// <inheritdoc/>
 		protected override string[] FieldsToSerialize => _fieldsToSerialize;
@@ -51,7 +51,6 @@ namespace GenioMVC.ViewModels.Chara
 			get
 			{
 				CriteriaSet conditions = CriteriaSet.And();
-				// Limitations
 
 				return conditions;
 			}
@@ -64,7 +63,6 @@ namespace GenioMVC.ViewModels.Chara
 			get
 			{
 				CriteriaSet conds = CriteriaSet.And();
-				conds.Equal(CSGenioAchara.FldMovieid, Navigation.GetValue("movie"));
 
 				return conds;
 			}
@@ -83,7 +81,7 @@ namespace GenioMVC.ViewModels.Chara
 
 		public override CriteriaSet GetCustomizedStaticLimits(CriteriaSet crs)
 		{
-// USE /[MANUAL MOV LIST_LIMITS 4611]/
+// USE /[MANUAL MOV LIST_LIMITS 451]/
 
 			return crs;
 		}
@@ -91,27 +89,24 @@ namespace GenioMVC.ViewModels.Chara
 		public override int GetCount(User user)
 		{
 			CSGenio.persistence.PersistentSupport sp = m_userContext.PersistentSupport;
-			var areaBase = CSGenio.business.Area.createArea("chara", user, "MOV");
+			var areaBase = CSGenio.business.Area.createArea("favor", user, "MOV");
 
 			//gets eph conditions to be applied in listing
-			CriteriaSet conditions = CSGenio.business.Listing.CalculateConditionsEphGeneric(areaBase, "ML4611");
-			conditions.Equal(CSGenioAchara.FldZzstate, 0); //valid zzstate only
+			CriteriaSet conditions = CSGenio.business.Listing.CalculateConditionsEphGeneric(areaBase, "ML451");
+			conditions.Equal(CSGenioAfavor.FldZzstate, 0); //valid zzstate only
 
 			// Fixed limits and relations:
 			conditions.SubSets.Add(GetCustomizedStaticLimits(StaticLimits));
 
 			// Checks for foreign tables in fields and conditions
-			FieldRef[] fields = new FieldRef[] { CSGenioAchara.FldCodchara, CSGenioAchara.FldZzstate, CSGenioAchara.FldGenre, CSGenioAchara.FldMovieid, CSGenioAmovie.FldCodmovie, CSGenioAmovie.FldTitle, CSGenioAchara.FldCreateat, CSGenioAchara.FldName, CSGenioAchara.FldActorname };
+			FieldRef[] fields = new FieldRef[] { CSGenioAfavor.FldCodfavor, CSGenioAfavor.FldZzstate, CSGenioAfavor.FldFavorite_at, CSGenioAfavor.FldMovieid, CSGenioAmovie.FldCodmovie, CSGenioAmovie.FldTitle, CSGenioAfavor.FldCoduserp, CSGenioAuserp.FldCoduserp, CSGenioAuserp.FldName };
 
-			ListingMVC<CSGenioAchara> listing = new(fields, null, 1, 1, false, user, true, string.Empty, false);
+			ListingMVC<CSGenioAfavor> listing = new(fields, null, 1, 1, false, user, true, string.Empty, false);
 			SelectQuery qs = sp.getSelectQueryFromListingMVC(conditions, listing);
 
 			// Menu relations:
 			if (qs.FromTable == null)
 				qs.From(areaBase.QSystem, areaBase.TableName, areaBase.Alias);
-
-			if (!qs.Joins.Select(x => x.Table).Select(y => y.TableAlias).Contains(CSGenio.business.Area.AreaMOVIE.Alias))
-				qs.Join(CSGenio.business.Area.AreaMOVIE, TableJoinType.Inner).On(CriteriaSet.And().Equal(CSGenioAmovie.FldCodmovie, CSGenioAchara.FldMovieid));
 
 
 
@@ -124,23 +119,23 @@ namespace GenioMVC.ViewModels.Chara
 		/// FOR DESERIALIZATION ONLY
 		/// </summary>
 		[Obsolete("For deserialization only")]
-		public MOV_Menu_4611_ViewModel() : base(null!) { }
+		public MOV_Menu_451_ViewModel() : base(null!) { }
 
 		/// <summary>
-		/// Initializes a new instance of the <see cref="MOV_Menu_4611_ViewModel" /> class.
+		/// Initializes a new instance of the <see cref="MOV_Menu_451_ViewModel" /> class.
 		/// </summary>
 		/// <param name="userContext">The current user request context</param>
-		public MOV_Menu_4611_ViewModel(UserContext userContext) : base(userContext)
+		public MOV_Menu_451_ViewModel(UserContext userContext) : base(userContext)
 		{
-			this.RoleToShow = CSGenio.framework.Role.ROLE_1;
+			this.RoleToShow = CSGenio.framework.Role.ADMINISTRATION;
 		}
 
 		/// <summary>
-		/// Initializes a new instance of the <see cref="MOV_Menu_4611_ViewModel" /> class.
+		/// Initializes a new instance of the <see cref="MOV_Menu_451_ViewModel" /> class.
 		/// </summary>
 		/// <param name="userContext">The current user request context</param>
 		/// <param name="parentCtx">The context of the parent</param>
-		public MOV_Menu_4611_ViewModel(UserContext userContext, Models.ModelBase parentCtx) : this(userContext)
+		public MOV_Menu_451_ViewModel(UserContext userContext, Models.ModelBase parentCtx) : this(userContext)
 		{
 			ParentCtx = parentCtx;
 		}
@@ -150,21 +145,19 @@ namespace GenioMVC.ViewModels.Chara
 		{
 			return
 			[
-				new Exports.QColumn(CSGenioAchara.FldGenre, FieldType.ARRAY_TEXT, Resources.Resources.GENRE63303, 1, 0, true, "GENRE"),
+				new Exports.QColumn(CSGenioAfavor.FldFavorite_at, FieldType.DATE, Resources.Resources.FAVORITE_AT27922, 8, 0, true),
 				new Exports.QColumn(CSGenioAmovie.FldTitle, FieldType.TEXT, Resources.Resources.TITLE21885, 30, 0, true),
-				new Exports.QColumn(CSGenioAchara.FldCreateat, FieldType.DATE, Resources.Resources.CREATE_AT36393, 8, 0, true),
-				new Exports.QColumn(CSGenioAchara.FldName, FieldType.TEXT, Resources.Resources.NAME31974, 30, 0, true),
-				new Exports.QColumn(CSGenioAchara.FldActorname, FieldType.TEXT, Resources.Resources.ACTOR_NAME48089, 30, 0, true),
+				new Exports.QColumn(CSGenioAuserp.FldName, FieldType.TEXT, Resources.Resources.NAME31974, 30, 0, true),
 			];
 		}
 
-		public void LoadToExport(out ListingMVC<CSGenioAchara> listing, out CriteriaSet conditions, out List<Exports.QColumn> columns, NameValueCollection requestValues, bool ajaxRequest = false)
+		public void LoadToExport(out ListingMVC<CSGenioAfavor> listing, out CriteriaSet conditions, out List<Exports.QColumn> columns, NameValueCollection requestValues, bool ajaxRequest = false)
 		{
 			CSGenio.framework.TableConfiguration.TableConfiguration tableConfig = new();
 			LoadToExport(out listing, out conditions, out columns, tableConfig, requestValues, ajaxRequest);
 		}
 
-		public void LoadToExport(out ListingMVC<CSGenioAchara> listing, out CriteriaSet conditions, out List<Exports.QColumn> columns, CSGenio.framework.TableConfiguration.TableConfiguration tableConfig, NameValueCollection requestValues, bool ajaxRequest = false)
+		public void LoadToExport(out ListingMVC<CSGenioAfavor> listing, out CriteriaSet conditions, out List<Exports.QColumn> columns, CSGenio.framework.TableConfiguration.TableConfiguration tableConfig, NameValueCollection requestValues, bool ajaxRequest = false)
 		{
 			listing = null;
 			conditions = null;
@@ -198,7 +191,7 @@ namespace GenioMVC.ViewModels.Chara
 
 
 			if (Menu == null)
-				Menu = new TablePartial<MOV_Menu_4611_RowViewModel>();
+				Menu = new TablePartial<MOV_Menu_451_RowViewModel>();
 			// Set table name (used in getting searchable column names)
 			Menu.TableName = TableAlias;
 
@@ -217,31 +210,28 @@ namespace GenioMVC.ViewModels.Chara
 
 			crs.SubSets.Add(GetCustomizedStaticLimits(StaticLimits));
 
-			// Limitations
-			// Limit "DB"
-			crs.Equal(CSGenioAchara.FldMovieid, Navigation.GetValue("movie"));
 			if (isToExport)
 			{
 				// EPH
-				crs = Models.Chara.AddEPH<CSGenioAchara>(ref u, crs, "ML4611");
+				crs = Models.Favor.AddEPH<CSGenioAfavor>(ref u, crs, "ML451");
 
 				// Export only records with ZZState == 0
-				crs.Equal(CSGenioAchara.FldZzstate, 0);
+				crs.Equal(CSGenioAfavor.FldZzstate, 0);
 
 				return crs;
 			}
 
 			// Limitation by Zzstate
-			if (!Navigation.checkFormMode("CHARA", FormMode.New)) // TODO: Check in Duplicate mode
-				crs = extendWithZzstateCondition(crs, CSGenioAchara.FldZzstate, null);
+			if (!Navigation.checkFormMode("FAVOR", FormMode.New)) // TODO: Check in Duplicate mode
+				crs = extendWithZzstateCondition(crs, CSGenioAfavor.FldZzstate, null);
 
 
 			if (tableReload)
 			{
-				string QMVC_POS_RECORD = Navigation.GetStrValue("QMVC_POS_RECORD_chara");
-				Navigation.DestroyEntry("QMVC_POS_RECORD_chara");
+				string QMVC_POS_RECORD = Navigation.GetStrValue("QMVC_POS_RECORD_favor");
+				Navigation.DestroyEntry("QMVC_POS_RECORD_favor");
 				if (!string.IsNullOrEmpty(QMVC_POS_RECORD))
-					crs.Equals(Models.Chara.AddEPH<CSGenioAchara>(ref u, null, "ML4611"));
+					crs.Equals(Models.Favor.AddEPH<CSGenioAfavor>(ref u, null, "ML451"));
 			}
 
 			return crs;
@@ -266,7 +256,7 @@ namespace GenioMVC.ViewModels.Chara
 		/// <param name="conditions">The conditions.</param>
 		public void Load(int numberListItems, NameValueCollection requestValues, bool ajaxRequest = false, CriteriaSet conditions = null)
 		{
-			ListingMVC<CSGenioAchara> listing = null;
+			ListingMVC<CSGenioAfavor> listing = null;
 
 			Load(numberListItems, requestValues, ajaxRequest, false, ref listing, ref conditions);
 		}
@@ -280,7 +270,7 @@ namespace GenioMVC.ViewModels.Chara
 		/// <param name="isToExport">Whether the list is being loaded to be exported</param>
 		/// <param name="Qlisting">The rows.</param>
 		/// <param name="conditions">The conditions.</param>
-		public void Load(int numberListItems, NameValueCollection requestValues, bool ajaxRequest, bool isToExport, ref ListingMVC<CSGenioAchara> Qlisting, ref CriteriaSet conditions)
+		public void Load(int numberListItems, NameValueCollection requestValues, bool ajaxRequest, bool isToExport, ref ListingMVC<CSGenioAfavor> Qlisting, ref CriteriaSet conditions)
 		{
 			CSGenio.framework.TableConfiguration.TableConfiguration tableConfig = new CSGenio.framework.TableConfiguration.TableConfiguration();
 
@@ -299,7 +289,7 @@ namespace GenioMVC.ViewModels.Chara
 		/// <param name="conditions">The conditions.</param>
 		public void Load(CSGenio.framework.TableConfiguration.TableConfiguration tableConfig, NameValueCollection requestValues, bool ajaxRequest, bool isToExport = false, CriteriaSet conditions = null)
 		{
-			ListingMVC<CSGenioAchara> listing = null;
+			ListingMVC<CSGenioAfavor> listing = null;
 
 			Load(tableConfig, requestValues, ajaxRequest, isToExport, ref listing, ref conditions);
 		}
@@ -313,18 +303,18 @@ namespace GenioMVC.ViewModels.Chara
 		/// <param name="isToExport">Whether the list is being loaded to be exported</param>
 		/// <param name="Qlisting">The rows.</param>
 		/// <param name="conditions">The conditions.</param>
-		public void Load(CSGenio.framework.TableConfiguration.TableConfiguration tableConfig, NameValueCollection requestValues, bool ajaxRequest, bool isToExport, ref ListingMVC<CSGenioAchara> Qlisting, ref CriteriaSet conditions)
+		public void Load(CSGenio.framework.TableConfiguration.TableConfiguration tableConfig, NameValueCollection requestValues, bool ajaxRequest, bool isToExport, ref ListingMVC<CSGenioAfavor> Qlisting, ref CriteriaSet conditions)
 		{
 				User u = m_userContext.User;
-				Menu = new TablePartial<MOV_Menu_4611_RowViewModel>();
+				Menu = new TablePartial<MOV_Menu_451_RowViewModel>();
 
-				CriteriaSet mov_menu_4611Conds = CriteriaSet.And();
+				CriteriaSet mov_menu_451Conds = CriteriaSet.And();
 				bool tableReload = true;
 
 				//FOR: MENU LIST SORTING
 				Dictionary<string, OrderedDictionary> allSortOrders = new Dictionary<string, OrderedDictionary>();
-				allSortOrders.Add("CHARA.CREATEAT", new OrderedDictionary());
-				allSortOrders["CHARA.CREATEAT"].Add("CHARA.CREATEAT", "A");
+				allSortOrders.Add("FAVOR.FAVORITE_AT", new OrderedDictionary());
+				allSortOrders["FAVOR.FAVORITE_AT"].Add("FAVOR.FAVORITE_AT", "A");
 
 
 
@@ -335,16 +325,16 @@ namespace GenioMVC.ViewModels.Chara
 				if (pageNumber < 1)
 					pageNumber = 1;
 
-				List<ColumnSort> sorts = GetRequestSorts(this.Menu, tableConfig.ColumnOrderBy, "chara", allSortOrders);
+				List<ColumnSort> sorts = GetRequestSorts(this.Menu, tableConfig.ColumnOrderBy, "favor", allSortOrders);
 
 				if (sorts == null || sorts.Count == 0)
 				{
 					sorts = new List<ColumnSort>();
-				sorts.Add(new ColumnSort(new ColumnReference(CSGenioAchara.FldCreateat), SortOrder.Ascending));
+				sorts.Add(new ColumnSort(new ColumnReference(CSGenioAfavor.FldFavorite_at), SortOrder.Ascending));
 
 				}
 
-				FieldRef[] fields = new FieldRef[] { CSGenioAchara.FldCodchara, CSGenioAchara.FldZzstate, CSGenioAchara.FldGenre, CSGenioAchara.FldMovieid, CSGenioAmovie.FldCodmovie, CSGenioAmovie.FldTitle, CSGenioAchara.FldCreateat, CSGenioAchara.FldName, CSGenioAchara.FldActorname };
+				FieldRef[] fields = new FieldRef[] { CSGenioAfavor.FldCodfavor, CSGenioAfavor.FldZzstate, CSGenioAfavor.FldFavorite_at, CSGenioAfavor.FldMovieid, CSGenioAmovie.FldCodmovie, CSGenioAmovie.FldTitle, CSGenioAfavor.FldCoduserp, CSGenioAuserp.FldCoduserp, CSGenioAuserp.FldName };
 
 
 				// Totalizers
@@ -356,7 +346,7 @@ namespace GenioMVC.ViewModels.Chara
 				{
 					firstVisibleColumn = tableConfig?.getFirstVisibleColumn(TableAlias);
 
-					firstVisibleColumn ??= new FieldRef("chara", "genre");
+					firstVisibleColumn ??= new FieldRef("favor", "favorite_at");
 				}
 
 
@@ -369,40 +359,21 @@ namespace GenioMVC.ViewModels.Chara
 				{
 					Limit limit = new Limit();
 					limit.TipoLimite = LimitType.EPH;
-					CSGenioAchara model_limit_area = new CSGenioAchara(m_userContext.User);
-					List<Limit> area_EPH_limits = EPH_Limit_Filler(ref limit, model_limit_area, "ML4611");
+					CSGenioAfavor model_limit_area = new CSGenioAfavor(m_userContext.User);
+					List<Limit> area_EPH_limits = EPH_Limit_Filler(ref limit, model_limit_area, "ML451");
 					if (area_EPH_limits.Count > 0)
 						this.tableLimits.AddRange(area_EPH_limits);
 				}
 
-				// Tooltips: Making a tooltip for each valid limitation: 1 Limit(s) detected.
-				// Limit origin: menu 
-
-				//Limit type: "DB"
-				//Current Area = "CHARA"
-				//1st Area Limit: "MOVIE"
-				//1st Area Field: "CODMOVIE"
-				//1st Area Value: ""
-				{
-					Limit limit = new Limit();
-					limit.TipoLimite = LimitType.DB;
-					limit.NaoAplicaSeNulo = false;
-					CSGenioAmovie model_limit_area = new CSGenioAmovie(m_userContext.User);
-					string limit_field = "codmovie", limit_field_value = "";
-					object this_limit_field = Navigation.GetStrValue(limit_field_value);
-					Limit_Filler(ref limit, model_limit_area, limit_field, limit_field_value, this_limit_field, LimitAreaType.AreaLimita);
-					if (!this.tableLimits.Contains(limit, limitComparer)) //to avoid repetitions (i.e: DB and EPH applying same limit)
-						this.tableLimits.Add(limit);
-				}
 
 				if (conditions == null)
 					conditions = CriteriaSet.And();
 
-				conditions.SubSets.Add(mov_menu_4611Conds);
-				mov_menu_4611Conds = BuildCriteriaSet(tableConfig, requestValues, out bool hasAllRequiredLimits, conditions, isToExport);
+				conditions.SubSets.Add(mov_menu_451Conds);
+				mov_menu_451Conds = BuildCriteriaSet(tableConfig, requestValues, out bool hasAllRequiredLimits, conditions, isToExport);
 				tableReload &= hasAllRequiredLimits;
 
-// USE /[MANUAL MOV OVERRQ 4611]/
+// USE /[MANUAL MOV OVERRQ 451]/
 
 				bool distinct = false;
 
@@ -411,29 +382,29 @@ namespace GenioMVC.ViewModels.Chara
 					if (!tableReload)
 						return;
 
-					Qlisting = Models.ModelBase.Where<CSGenioAchara>(m_userContext, false, mov_menu_4611Conds, fields, (pageNumber - 1) * numberListItems, numberListItems, sorts, "ML4611", true, firstVisibleColumn: firstVisibleColumn);
+					Qlisting = Models.ModelBase.Where<CSGenioAfavor>(m_userContext, false, mov_menu_451Conds, fields, (pageNumber - 1) * numberListItems, numberListItems, sorts, "ML451", true, firstVisibleColumn: firstVisibleColumn);
 
-// USE /[MANUAL MOV OVERRQLSTEXP 4611]/
+// USE /[MANUAL MOV OVERRQLSTEXP 451]/
 
 					return;
 				}
 
 				if (tableReload)
 				{
-// USE /[MANUAL MOV OVERRQLIST 4611]/
+// USE /[MANUAL MOV OVERRQLIST 451]/
 
-					string QMVC_POS_RECORD = Navigation.GetStrValue("QMVC_POS_RECORD_chara");
-					Navigation.DestroyEntry("QMVC_POS_RECORD_chara");
+					string QMVC_POS_RECORD = Navigation.GetStrValue("QMVC_POS_RECORD_favor");
+					Navigation.DestroyEntry("QMVC_POS_RECORD_favor");
 					CriteriaSet m_PagingPosEPHs = null;
 
 					if (!string.IsNullOrEmpty(QMVC_POS_RECORD))
 					{
-						var m_iCurPag = m_userContext.PersistentSupport.getPagingPos(CSGenioAchara.GetInformation(), QMVC_POS_RECORD, sorts, mov_menu_4611Conds, m_PagingPosEPHs, firstVisibleColumn: firstVisibleColumn);
+						var m_iCurPag = m_userContext.PersistentSupport.getPagingPos(CSGenioAfavor.GetInformation(), QMVC_POS_RECORD, sorts, mov_menu_451Conds, m_PagingPosEPHs, firstVisibleColumn: firstVisibleColumn);
 						if (m_iCurPag != -1)
 							pageNumber = ((m_iCurPag - 1) / numberListItems) + 1;
 					}
 
-					ListingMVC<CSGenioAchara> listing = Models.ModelBase.Where<CSGenioAchara>(m_userContext, distinct, mov_menu_4611Conds, fields, (pageNumber - 1) * numberListItems, numberListItems, sorts, "ML4611", true, false, QMVC_POS_RECORD, m_PagingPosEPHs, firstVisibleColumn, fieldsWithTotalizers, tableConfig.SelectedRows);
+					ListingMVC<CSGenioAfavor> listing = Models.ModelBase.Where<CSGenioAfavor>(m_userContext, distinct, mov_menu_451Conds, fields, (pageNumber - 1) * numberListItems, numberListItems, sorts, "ML451", true, false, QMVC_POS_RECORD, m_PagingPosEPHs, firstVisibleColumn, fieldsWithTotalizers, tableConfig.SelectedRows);
 
 					if (listing.CurrentPage > 0)
 						pageNumber = listing.CurrentPage;
@@ -445,15 +416,15 @@ namespace GenioMVC.ViewModels.Chara
 					//Set document field values to objects
 					SetDocumentFields(listing);
 
-					Menu.Elements = MapMOV_Menu_4611(listing);
+					Menu.Elements = MapMOV_Menu_451(listing);
 
-					Menu.Identifier = "ML4611";
+					Menu.Identifier = "ML451";
 					Menu.Slots = new Dictionary<string, List<object>>();
 
 					// Last updated by [CJP] at [2015.02.03]
 					// Adds the identifier to each element
 					foreach (var element in Menu.Elements)
-						element.Identifier = "ML4611";
+						element.Identifier = "ML451";
 
 					Menu.SetPagination(pageNumber, listing.NumRegs, listing.HasMore, listing.GetTotal, listing.TotalRecords);
 
@@ -472,9 +443,9 @@ namespace GenioMVC.ViewModels.Chara
 				LoadUserTableConfigNameProperties();
 		}
 
-		private List<MOV_Menu_4611_RowViewModel> MapMOV_Menu_4611(ListingMVC<CSGenioAchara> Qlisting)
+		private List<MOV_Menu_451_RowViewModel> MapMOV_Menu_451(ListingMVC<CSGenioAfavor> Qlisting)
 		{
-			List<MOV_Menu_4611_RowViewModel> Elements = [];
+			List<MOV_Menu_451_RowViewModel> Elements = [];
 			int i = 0;
 
 			if (Qlisting.Rows != null)
@@ -483,7 +454,7 @@ namespace GenioMVC.ViewModels.Chara
 				{
 					if (Qlisting.NumRegs > 0 && i >= Qlisting.NumRegs) // Copiado da versão antiga do RowsToViewModels
 						break;
-					Elements.Add(MapMOV_Menu_4611(row));
+					Elements.Add(MapMOV_Menu_451(row));
 					i++;
 				}
 			}
@@ -492,13 +463,13 @@ namespace GenioMVC.ViewModels.Chara
 		}
 
 		/// <summary>
-		/// Maps a single CSGenioAchara row
-		/// to a MOV_Menu_4611_RowViewModel object.
+		/// Maps a single CSGenioAfavor row
+		/// to a MOV_Menu_451_RowViewModel object.
 		/// </summary>
 		/// <param name="row">The row.</param>
-		private MOV_Menu_4611_RowViewModel MapMOV_Menu_4611(CSGenioAchara row)
+		private MOV_Menu_451_RowViewModel MapMOV_Menu_451(CSGenioAfavor row)
 		{
-			var model = new MOV_Menu_4611_RowViewModel(m_userContext, true, _fieldsToSerialize);
+			var model = new MOV_Menu_451_RowViewModel(m_userContext, true, _fieldsToSerialize);
 			if (row == null)
 				return model;
 
@@ -506,10 +477,12 @@ namespace GenioMVC.ViewModels.Chara
 			{
 				switch (Qfield.Area)
 				{
-					case "chara":
+					case "favor":
 						model.klass.insertNameValueField(Qfield.FullName, Qfield.Value); break;
 					case "movie":
 						model.Movie.klass.insertNameValueField(Qfield.FullName, Qfield.Value); break;
+					case "userp":
+						model.Userp.klass.insertNameValueField(Qfield.FullName, Qfield.Value); break;
 					default:
 						break;
 				}
@@ -535,19 +508,19 @@ namespace GenioMVC.ViewModels.Chara
 		/// Sets the document field values to objects.
 		/// </summary>
 		/// <param name="listing">The rows</param>
-		private void SetDocumentFields(ListingMVC<CSGenioAchara> listing)
+		private void SetDocumentFields(ListingMVC<CSGenioAfavor> listing)
 		{
 		}
 
 		#region Mapper
 
 		/// <inheritdoc />
-		public override void MapFromModel(Models.Chara m)
+		public override void MapFromModel(Models.Favor m)
 		{
 		}
 
 		/// <inheritdoc />
-		public override void MapToModel(Models.Chara m)
+		public override void MapToModel(Models.Favor m)
 		{
 		}
 
@@ -555,22 +528,20 @@ namespace GenioMVC.ViewModels.Chara
 
 		#region Custom code
 
-// USE /[MANUAL MOV VIEWMODEL_CUSTOM MOV_MENU_4611]/
+// USE /[MANUAL MOV VIEWMODEL_CUSTOM MOV_MENU_451]/
 
 		#endregion
 
 		private static readonly string[] _fieldsToSerialize =
 		[
-			"Chara", "Chara.ValCodchara", "Chara.ValZzstate", "Chara.ValGenre", "Movie", "Movie.ValTitle", "Chara.ValCreateat", "Chara.ValName", "Chara.ValActorname", "Chara.ValMovieid"
+			"Favor", "Favor.ValCodfavor", "Favor.ValZzstate", "Favor.ValFavorite_at", "Movie", "Movie.ValTitle", "Userp", "Userp.ValName", "Favor.ValMovieid", "Favor.ValCoduserp"
 		];
 
 		private static readonly List<TableSearchColumn> _searchableColumns =
 		[
-			new TableSearchColumn("ValGenre", CSGenioAchara.FldGenre, typeof(string), array : "GENRE"),
+			new TableSearchColumn("ValFavorite_at", CSGenioAfavor.FldFavorite_at, typeof(DateTime?)),
 			new TableSearchColumn("Movie_ValTitle", CSGenioAmovie.FldTitle, typeof(string)),
-			new TableSearchColumn("ValCreateat", CSGenioAchara.FldCreateat, typeof(DateTime?)),
-			new TableSearchColumn("ValName", CSGenioAchara.FldName, typeof(string), defaultSearch : true),
-			new TableSearchColumn("ValActorname", CSGenioAchara.FldActorname, typeof(string)),
+			new TableSearchColumn("Userp_ValName", CSGenioAuserp.FldName, typeof(string)),
 		];
 	}
 }

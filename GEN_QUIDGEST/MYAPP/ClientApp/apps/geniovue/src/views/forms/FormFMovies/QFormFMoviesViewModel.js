@@ -78,6 +78,17 @@ export default class ViewModel extends FormViewModelBase
 			originId: 'ValDescription',
 			area: 'MOVIE',
 			field: 'DISCRIPT',
+			fillWhen: {
+				// eslint-disable-next-line @typescript-eslint/no-unused-vars
+				fnFormula(params)
+				{
+					// Formula: !isEmptyC([MOVIE->TITLE])
+					return !(this.ValTitle.value === '')
+				},
+				dependencyEvents: ['fieldChange:movie.title'],
+				isServerRecalc: false,
+				isEmpty: qApi.emptyC,
+			},
 			description: computed(() => this.Resources.DISCRIPTION02169),
 		}).cloneFrom(values?.ValDescription))
 		this.stopWatchers.push(watch(() => this.ValDescription.value, (newValue, oldValue) => this.onUpdate('movie.description', this.ValDescription, newValue, oldValue)))

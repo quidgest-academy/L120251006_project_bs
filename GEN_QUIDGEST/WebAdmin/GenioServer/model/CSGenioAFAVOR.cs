@@ -72,6 +72,7 @@ namespace CSGenio.business
 			Qfield.CavDesignation = "FAVORITE_AT27922";
 
 			Qfield.Dupmsg = "";
+			Qfield.DefaultValue = new DefaultValue(DefaultValue.getToday);
 			info.RegisterFieldDB(Qfield);
 
 			//- - - - - - - - - - - - - - - - - - -
@@ -133,6 +134,10 @@ namespace CSGenio.business
 			info.RelatedSumArgs.Add( new RelatedSumArgument("favor", "movie", "numberoflikes", "1", '+', false));
 
 
+
+			info.DefaultValues = new string[] {
+			 "favorite_at"
+			};
 
 
 
