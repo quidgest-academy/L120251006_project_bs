@@ -91,7 +91,7 @@
 			data-key="F_FAVORI"
 			:data-loading="!formInitialDataLoaded">
 			<template v-if="formControl.initialized && showFormBody">
-				<q-row-container v-if="controls.F_FAVORIUSERPNAME____.isVisible || controls.F_FAVORIFAVORFAVDATE_.isVisible || controls.F_FAVORIMOVIETITLE___.isVisible">
+				<q-row-container v-if="controls.F_FAVORIUSERPNAME____.isVisible">
 					<q-control-wrapper
 						v-if="controls.F_FAVORIUSERPNAME____.isVisible"
 						class="control-join-group">
@@ -113,25 +113,8 @@
 								v-on="controls.F_FAVORIUSERPNAME____.handlers" />
 						</base-input-structure>
 					</q-control-wrapper>
-					<q-control-wrapper
-						v-if="controls.F_FAVORIFAVORFAVDATE_.isVisible"
-						class="control-join-group">
-						<base-input-structure
-							v-if="controls.F_FAVORIFAVORFAVDATE_.isVisible"
-							class="i-text"
-							v-bind="controls.F_FAVORIFAVORFAVDATE_"
-							v-on="controls.F_FAVORIFAVORFAVDATE_.handlers"
-							:loading="controls.F_FAVORIFAVORFAVDATE_.props.loading"
-							:reporting-mode-on="reportingModeCAV"
-							:suggestion-mode-on="suggestionModeOn">
-							<q-date-time-picker
-								v-if="controls.F_FAVORIFAVORFAVDATE_.isVisible"
-								v-bind="controls.F_FAVORIFAVORFAVDATE_.props"
-								:model-value="model.ValFavorite_at.value"
-								@reset-icon-click="model.ValFavorite_at.fnUpdateValue(model.ValFavorite_at.originalValue ?? new Date())"
-								@update:model-value="model.ValFavorite_at.fnUpdateValue($event ?? '')" />
-						</base-input-structure>
-					</q-control-wrapper>
+				</q-row-container>
+				<q-row-container v-if="controls.F_FAVORIMOVIETITLE___.isVisible">
 					<q-control-wrapper
 						v-if="controls.F_FAVORIMOVIETITLE___.isVisible"
 						class="control-join-group">
@@ -151,6 +134,27 @@
 								v-if="controls.F_FAVORIMOVIETITLE___.seeMoreIsVisible"
 								v-bind="controls.F_FAVORIMOVIETITLE___.seeMoreParams"
 								v-on="controls.F_FAVORIMOVIETITLE___.handlers" />
+						</base-input-structure>
+					</q-control-wrapper>
+				</q-row-container>
+				<q-row-container v-if="controls.F_FAVORIFAVORFAVDATE_.isVisible">
+					<q-control-wrapper
+						v-if="controls.F_FAVORIFAVORFAVDATE_.isVisible"
+						class="control-join-group">
+						<base-input-structure
+							v-if="controls.F_FAVORIFAVORFAVDATE_.isVisible"
+							class="i-text"
+							v-bind="controls.F_FAVORIFAVORFAVDATE_"
+							v-on="controls.F_FAVORIFAVORFAVDATE_.handlers"
+							:loading="controls.F_FAVORIFAVORFAVDATE_.props.loading"
+							:reporting-mode-on="reportingModeCAV"
+							:suggestion-mode-on="suggestionModeOn">
+							<q-date-time-picker
+								v-if="controls.F_FAVORIFAVORFAVDATE_.isVisible"
+								v-bind="controls.F_FAVORIFAVORFAVDATE_.props"
+								:model-value="model.ValFavorite_at.value"
+								@reset-icon-click="model.ValFavorite_at.fnUpdateValue(model.ValFavorite_at.originalValue ?? new Date())"
+								@update:model-value="model.ValFavorite_at.fnUpdateValue($event ?? '')" />
 						</base-input-structure>
 					</q-control-wrapper>
 				</q-row-container>
@@ -525,19 +529,6 @@
 						controlLimits: [
 						],
 					}, this),
-					F_FAVORIFAVORFAVDATE_: new fieldControlClass.DateControl({
-						modelField: 'ValFavorite_at',
-						valueChangeEvent: 'fieldChange:favor.favorite_at',
-						id: 'F_FAVORIFAVORFAVDATE_',
-						name: 'FAVDATE',
-						size: 'small',
-						label: computed(() => this.Resources.FAVORITE_AT27922),
-						placeholder: '',
-						labelPosition: computed(() => this.labelAlignment.topleft),
-						dateTimeType: 'date',
-						controlLimits: [
-						],
-					}, this),
 					F_FAVORIMOVIETITLE___: new fieldControlClass.LookupControl({
 						modelField: 'TableMovieTitle',
 						valueChangeEvent: 'fieldChange:movie.title',
@@ -571,6 +562,19 @@
 								dependencyField: 'FAVOR.CODUSERP',
 								fnValueSelector: (model) => model.ValCoduserp.value,
 							},
+						],
+					}, this),
+					F_FAVORIFAVORFAVDATE_: new fieldControlClass.DateControl({
+						modelField: 'ValFavorite_at',
+						valueChangeEvent: 'fieldChange:favor.favorite_at',
+						id: 'F_FAVORIFAVORFAVDATE_',
+						name: 'FAVDATE',
+						size: 'small',
+						label: computed(() => this.Resources.FAVORITE_AT27922),
+						placeholder: '',
+						labelPosition: computed(() => this.labelAlignment.topleft),
+						dateTimeType: 'date',
+						controlLimits: [
 						],
 					}, this),
 				},

@@ -159,6 +159,9 @@
 	<data name="CC35482" xml:space="preserve">
 		<value>Cc</value>
 	</data>
+	<data name="BACKDROP05167" xml:space="preserve">
+		<value>Backdrop</value>
+	</data>
 	<data name="CREATE_A_WEBSITE_ALE02013" xml:space="preserve">
 		<value>Create a website alert</value>
 	</data>

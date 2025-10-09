@@ -189,6 +189,15 @@ namespace GenioMVC.Resources
 		}
 
 		/// <summary>
+		///   Looks up a localized string similar to "Backdrop"
+		/// </summary>
+		public static string BACKDROP05167 {
+			get {
+				return ResourceManager.GetString("BACKDROP05167", resourceCulture);
+			}
+		}
+
+		/// <summary>
 		///   Looks up a localized string similar to "Create a website alert"
 		/// </summary>
 		public static string CREATE_A_WEBSITE_ALE02013 {

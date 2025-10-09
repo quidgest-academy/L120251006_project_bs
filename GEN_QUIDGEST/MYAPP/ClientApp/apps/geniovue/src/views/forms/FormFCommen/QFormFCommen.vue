@@ -91,7 +91,7 @@
 			data-key="F_COMMEN"
 			:data-loading="!formInitialDataLoaded">
 			<template v-if="formControl.initialized && showFormBody">
-				<q-row-container v-if="controls.F_COMMENUSERPNAME____.isVisible || controls.F_COMMENMOVIETITLE___.isVisible || controls.F_COMMENCOMMEPOST____.isVisible || controls.F_COMMENCOMMECREATEAT.isVisible">
+				<q-row-container v-if="controls.F_COMMENUSERPNAME____.isVisible || controls.F_COMMENMOVIETITLE___.isVisible || controls.F_COMMENCOMMEPOST____.isVisible">
 					<q-control-wrapper
 						v-if="controls.F_COMMENUSERPNAME____.isVisible"
 						class="control-join-group">
@@ -151,6 +151,8 @@
 								v-on="controls.F_COMMENCOMMEPOST____.handlers" />
 						</base-input-structure>
 					</q-control-wrapper>
+				</q-row-container>
+				<q-row-container v-if="controls.F_COMMENCOMMECREATEAT.isVisible">
 					<q-control-wrapper
 						v-if="controls.F_COMMENCOMMECREATEAT.isVisible"
 						class="control-join-group">

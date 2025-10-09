@@ -74,6 +74,14 @@ namespace GenioMVC.Models
 		[NumericAttribute(0)]
 		public decimal? ValNumberoflikes { get { return Convert.ToDecimal(GenFunctions.RoundQG(klass.ValNumberoflikes, 0)); } set { klass.ValNumberoflikes = Convert.ToDecimal(value); } }
 
+		[DisplayName("Backdrop")]
+		/// <summary>Field : "Backdrop" Tipo: "IJ" Formula:  ""</summary>
+		[ShouldSerialize("Movie.ValBackdrop")]
+		[ImageThumbnailJsonConverter(75, 75)]
+		public ImageModel ValBackdrop { get { return new ImageModel(klass.ValBackdrop) { Ticket = ValBackdropQTicket }; } set { klass.ValBackdrop = value; } }
+		[JsonIgnore]
+		public string ValBackdropQTicket = null;
+
 		[DisplayName("ZZSTATE")]
 		[ShouldSerialize("Movie.ValZzstate")]
 		/// <summary>Field: "ZZSTATE", Type: "INT", Formula: ""</summary>

@@ -190,6 +190,7 @@ namespace GenioMVC.ViewModels.Movie
 				new Exports.QColumn(CSGenioAmovie.FldPoster, FieldType.IMAGE, Resources.Resources.POSTER52933, 3, 0, true),
 				new Exports.QColumn(CSGenioAmovie.FldDescription, FieldType.MEMO, Resources.Resources.DISCRIPTION02169, 200, 3, true),
 				new Exports.QColumn(CSGenioAmovie.FldNumberoflikes, FieldType.NUMERIC, String.Empty, 9, 0, true),
+				new Exports.QColumn(CSGenioAmovie.FldBackdrop, FieldType.IMAGE, Resources.Resources.BACKDROP05167, 3, 0, true),
 			};
 		}
 

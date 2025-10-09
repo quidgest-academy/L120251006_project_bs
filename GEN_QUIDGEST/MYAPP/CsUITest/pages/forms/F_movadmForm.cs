@@ -8,6 +8,16 @@ namespace quidgest.uitests.pages.forms;
 public class F_movadmForm : Form
 {
 	/// <summary>
+	/// Poster
+	/// </summary>
+	public BaseInputControl MoviePoster => new BaseInputControl(driver, ContainerLocator, "container-F_MOVADMMOVIEPOSTER__", "#F_MOVADMMOVIEPOSTER__");
+
+	/// <summary>
+	/// Backdrop
+	/// </summary>
+	public BaseInputControl MovieBackdrop => new BaseInputControl(driver, ContainerLocator, "container-F_MOVADMMOVIEBACKDROP", "#F_MOVADMMOVIEBACKDROP");
+
+	/// <summary>
 	/// Title
 	/// </summary>
 	public BaseInputControl MovieTitle => new BaseInputControl(driver, ContainerLocator, "container-F_MOVADMMOVIETITLE___", "#F_MOVADMMOVIETITLE___");
@@ -25,12 +35,7 @@ public class F_movadmForm : Form
 	/// <summary>
 	/// Movies Genre
 	/// </summary>
-	public EnumControl MovieMoviegen => new EnumControl(driver, ContainerLocator, "container-F_MOVADMMOVIEMOVIEGEN");
-
-	/// <summary>
-	/// Poster
-	/// </summary>
-	public BaseInputControl MoviePoster => new BaseInputControl(driver, ContainerLocator, "container-F_MOVADMMOVIEPOSTER__", "#F_MOVADMMOVIEPOSTER__");
+	public RadiobuttonControl MovieMoviegen => new RadiobuttonControl(driver, ContainerLocator, "container-F_MOVADMMOVIEMOVIEGEN");
 
 	/// <summary>
 	/// Discription

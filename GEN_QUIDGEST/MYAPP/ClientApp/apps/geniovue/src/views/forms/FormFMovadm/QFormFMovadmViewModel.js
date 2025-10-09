@@ -54,6 +54,24 @@ export default class ViewModel extends FormViewModelBase
 		this.stopWatchers.push(watch(() => this.ValCodmovie.value, (newValue, oldValue) => this.onUpdate('movie.codmovie', this.ValCodmovie, newValue, oldValue)))
 
 		/** The remaining form fields. */
+		this.ValPoster = reactive(new modelFieldType.Image({
+			id: 'ValPoster',
+			originId: 'ValPoster',
+			area: 'MOVIE',
+			field: 'POSTER',
+			description: computed(() => this.Resources.POSTER52933),
+		}).cloneFrom(values?.ValPoster))
+		this.stopWatchers.push(watch(() => this.ValPoster.value, (newValue, oldValue) => this.onUpdate('movie.poster', this.ValPoster, newValue, oldValue)))
+
+		this.ValBackdrop = reactive(new modelFieldType.Image({
+			id: 'ValBackdrop',
+			originId: 'ValBackdrop',
+			area: 'MOVIE',
+			field: 'BACKDROP',
+			description: computed(() => this.Resources.BACKDROP05167),
+		}).cloneFrom(values?.ValBackdrop))
+		this.stopWatchers.push(watch(() => this.ValBackdrop.value, (newValue, oldValue) => this.onUpdate('movie.backdrop', this.ValBackdrop, newValue, oldValue)))
+
 		this.ValTitle = reactive(new modelFieldType.String({
 			id: 'ValTitle',
 			originId: 'ValTitle',
@@ -92,15 +110,6 @@ export default class ViewModel extends FormViewModelBase
 			description: computed(() => this.Resources.MOVIES_GENRE22042),
 		}).cloneFrom(values?.ValMoviesgenre))
 		this.stopWatchers.push(watch(() => this.ValMoviesgenre.value, (newValue, oldValue) => this.onUpdate('movie.moviesgenre', this.ValMoviesgenre, newValue, oldValue)))
-
-		this.ValPoster = reactive(new modelFieldType.Image({
-			id: 'ValPoster',
-			originId: 'ValPoster',
-			area: 'MOVIE',
-			field: 'POSTER',
-			description: computed(() => this.Resources.POSTER52933),
-		}).cloneFrom(values?.ValPoster))
-		this.stopWatchers.push(watch(() => this.ValPoster.value, (newValue, oldValue) => this.onUpdate('movie.poster', this.ValPoster, newValue, oldValue)))
 
 		this.ValDescription = reactive(new modelFieldType.MultiLineString({
 			id: 'ValDescription',

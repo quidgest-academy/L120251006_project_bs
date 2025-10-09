@@ -565,7 +565,7 @@
 						label: computed(() => this.Resources.PHOTO51874),
 						placeholder: '',
 						labelPosition: computed(() => this.labelAlignment.topleft),
-						height: 0,
+						height: 50,
 						width: 30,
 						dataTitle: computed(() => genericFunctions.formatString(vm.Resources.IMAGEM_UTILIZADA_PAR17299, vm.Resources.PHOTO51874)),
 						maxFileSize: 10485760, // In bytes.

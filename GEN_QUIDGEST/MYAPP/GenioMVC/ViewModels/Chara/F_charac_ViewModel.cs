@@ -39,7 +39,7 @@ namespace GenioMVC.ViewModels.Chara
 		/// <summary>
 		/// Title: "Photo" | Type: "IJ"
 		/// </summary>
-		[ImageThumbnailJsonConverter(30, 0)]
+		[ImageThumbnailJsonConverter(30, 50)]
 		public GenioMVC.Models.ImageModel ValPhoto { get; set; }
 		/// <summary>
 		/// Title: "Name" | Type: "C"

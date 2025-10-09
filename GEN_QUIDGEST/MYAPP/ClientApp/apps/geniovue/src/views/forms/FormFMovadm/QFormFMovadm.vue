@@ -91,7 +91,43 @@
 			data-key="F_MOVADM"
 			:data-loading="!formInitialDataLoaded">
 			<template v-if="formControl.initialized && showFormBody">
-				<q-row-container v-if="controls.F_MOVADMMOVIETITLE___.isVisible || controls.F_MOVADMMOVIERELDATE_.isVisible || controls.F_MOVADMMOVIECREATEAT.isVisible || controls.F_MOVADMMOVIEMOVIEGEN.isVisible || controls.F_MOVADMMOVIEPOSTER__.isVisible || controls.F_MOVADMMOVIEDISCRIPT.isVisible || controls.F_MOVADMMOVIENUMBEROF.isVisible">
+				<q-row-container v-if="controls.F_MOVADMMOVIEPOSTER__.isVisible || controls.F_MOVADMMOVIEBACKDROP.isVisible">
+					<q-control-wrapper
+						v-if="controls.F_MOVADMMOVIEPOSTER__.isVisible"
+						class="control-join-group">
+						<base-input-structure
+							v-if="controls.F_MOVADMMOVIEPOSTER__.isVisible"
+							class="q-image"
+							v-bind="controls.F_MOVADMMOVIEPOSTER__"
+							v-on="controls.F_MOVADMMOVIEPOSTER__.handlers"
+							:loading="controls.F_MOVADMMOVIEPOSTER__.props.loading"
+							:reporting-mode-on="reportingModeCAV"
+							:suggestion-mode-on="suggestionModeOn">
+							<q-image
+								v-if="controls.F_MOVADMMOVIEPOSTER__.isVisible"
+								v-bind="controls.F_MOVADMMOVIEPOSTER__.props"
+								v-on="controls.F_MOVADMMOVIEPOSTER__.handlers" />
+						</base-input-structure>
+					</q-control-wrapper>
+					<q-control-wrapper
+						v-if="controls.F_MOVADMMOVIEBACKDROP.isVisible"
+						class="control-join-group">
+						<base-input-structure
+							v-if="controls.F_MOVADMMOVIEBACKDROP.isVisible"
+							class="q-image"
+							v-bind="controls.F_MOVADMMOVIEBACKDROP"
+							v-on="controls.F_MOVADMMOVIEBACKDROP.handlers"
+							:loading="controls.F_MOVADMMOVIEBACKDROP.props.loading"
+							:reporting-mode-on="reportingModeCAV"
+							:suggestion-mode-on="suggestionModeOn">
+							<q-image
+								v-if="controls.F_MOVADMMOVIEBACKDROP.isVisible"
+								v-bind="controls.F_MOVADMMOVIEBACKDROP.props"
+								v-on="controls.F_MOVADMMOVIEBACKDROP.handlers" />
+						</base-input-structure>
+					</q-control-wrapper>
+				</q-row-container>
+				<q-row-container v-if="controls.F_MOVADMMOVIETITLE___.isVisible">
 					<q-control-wrapper
 						v-if="controls.F_MOVADMMOVIETITLE___.isVisible"
 						class="control-join-group">
@@ -109,6 +145,8 @@
 								@change="model.ValTitle.fnUpdateValueOnChange" />
 						</base-input-structure>
 					</q-control-wrapper>
+				</q-row-container>
+				<q-row-container v-if="controls.F_MOVADMMOVIERELDATE_.isVisible">
 					<q-control-wrapper
 						v-if="controls.F_MOVADMMOVIERELDATE_.isVisible"
 						class="control-join-group">
@@ -128,6 +166,8 @@
 								@update:model-value="model.ValRealease_date.fnUpdateValue($event ?? '')" />
 						</base-input-structure>
 					</q-control-wrapper>
+				</q-row-container>
+				<q-row-container v-if="controls.F_MOVADMMOVIECREATEAT.isVisible">
 					<q-control-wrapper
 						v-if="controls.F_MOVADMMOVIECREATEAT.isVisible"
 						class="control-join-group">
@@ -147,40 +187,34 @@
 								@update:model-value="model.ValCreateat.fnUpdateValue($event ?? '')" />
 						</base-input-structure>
 					</q-control-wrapper>
+				</q-row-container>
+				<q-row-container v-if="controls.F_MOVADMMOVIEMOVIEGEN.isVisible">
 					<q-control-wrapper
 						v-if="controls.F_MOVADMMOVIEMOVIEGEN.isVisible"
 						class="control-join-group">
 						<base-input-structure
 							v-if="controls.F_MOVADMMOVIEMOVIEGEN.isVisible"
-							class="i-text"
+							class="i-radio-container"
 							v-bind="controls.F_MOVADMMOVIEMOVIEGEN"
 							v-on="controls.F_MOVADMMOVIEMOVIEGEN.handlers"
+							:label-position="labelAlignment.topleft"
 							:loading="controls.F_MOVADMMOVIEMOVIEGEN.props.loading"
 							:reporting-mode-on="reportingModeCAV"
 							:suggestion-mode-on="suggestionModeOn">
-							<q-select
+							<q-radio-group
 								v-if="controls.F_MOVADMMOVIEMOVIEGEN.isVisible"
 								v-bind="controls.F_MOVADMMOVIEMOVIEGEN.props"
-								@update:model-value="model.ValMoviesgenre.fnUpdateValue" />
+								v-on="controls.F_MOVADMMOVIEMOVIEGEN.handlers">
+								<q-radio-button
+									v-for="radio in controls.F_MOVADMMOVIEMOVIEGEN.items"
+									:key="radio.key"
+									:label="radio.value"
+									:value="radio.key" />
+							</q-radio-group>
 						</base-input-structure>
 					</q-control-wrapper>
-					<q-control-wrapper
-						v-if="controls.F_MOVADMMOVIEPOSTER__.isVisible"
-						class="control-join-group">
-						<base-input-structure
-							v-if="controls.F_MOVADMMOVIEPOSTER__.isVisible"
-							class="q-image"
-							v-bind="controls.F_MOVADMMOVIEPOSTER__"
-							v-on="controls.F_MOVADMMOVIEPOSTER__.handlers"
-							:loading="controls.F_MOVADMMOVIEPOSTER__.props.loading"
-							:reporting-mode-on="reportingModeCAV"
-							:suggestion-mode-on="suggestionModeOn">
-							<q-image
-								v-if="controls.F_MOVADMMOVIEPOSTER__.isVisible"
-								v-bind="controls.F_MOVADMMOVIEPOSTER__.props"
-								v-on="controls.F_MOVADMMOVIEPOSTER__.handlers" />
-						</base-input-structure>
-					</q-control-wrapper>
+				</q-row-container>
+				<q-row-container v-if="controls.F_MOVADMMOVIEDISCRIPT.isVisible">
 					<q-control-wrapper
 						v-if="controls.F_MOVADMMOVIEDISCRIPT.isVisible"
 						class="control-join-group">
@@ -198,6 +232,8 @@
 								v-on="controls.F_MOVADMMOVIEDISCRIPT.handlers" />
 						</base-input-structure>
 					</q-control-wrapper>
+				</q-row-container>
+				<q-row-container v-if="controls.F_MOVADMMOVIENUMBEROF.isVisible">
 					<q-control-wrapper
 						v-if="controls.F_MOVADMMOVIENUMBEROF.isVisible"
 						class="control-join-group">
@@ -557,6 +593,40 @@
 				},
 
 				controls: {
+					F_MOVADMMOVIEPOSTER__: new fieldControlClass.ImageControl({
+						modelField: 'ValPoster',
+						valueChangeEvent: 'fieldChange:movie.poster',
+						id: 'F_MOVADMMOVIEPOSTER__',
+						name: 'POSTER',
+						size: 'mini',
+						label: computed(() => this.Resources.POSTER52933),
+						placeholder: '',
+						labelPosition: computed(() => this.labelAlignment.topleft),
+						height: 50,
+						width: 30,
+						dataTitle: computed(() => genericFunctions.formatString(vm.Resources.IMAGEM_UTILIZADA_PAR17299, vm.Resources.POSTER52933)),
+						maxFileSize: 10485760, // In bytes.
+						maxFileSizeLabel: '10 MB',
+						controlLimits: [
+						],
+					}, this),
+					F_MOVADMMOVIEBACKDROP: new fieldControlClass.ImageControl({
+						modelField: 'ValBackdrop',
+						valueChangeEvent: 'fieldChange:movie.backdrop',
+						id: 'F_MOVADMMOVIEBACKDROP',
+						name: 'BACKDROP',
+						size: 'mini',
+						label: computed(() => this.Resources.BACKDROP05167),
+						placeholder: '',
+						labelPosition: computed(() => this.labelAlignment.topleft),
+						height: 0,
+						width: 30,
+						dataTitle: computed(() => genericFunctions.formatString(vm.Resources.IMAGEM_UTILIZADA_PAR17299, vm.Resources.BACKDROP05167)),
+						maxFileSize: 10485760, // In bytes.
+						maxFileSizeLabel: '10 MB',
+						controlLimits: [
+						],
+					}, this),
 					F_MOVADMMOVIETITLE___: new fieldControlClass.StringControl({
 						modelField: 'ValTitle',
 						valueChangeEvent: 'fieldChange:movie.title',
@@ -597,37 +667,18 @@
 						controlLimits: [
 						],
 					}, this),
-					F_MOVADMMOVIEMOVIEGEN: new fieldControlClass.ArrayStringControl({
+					F_MOVADMMOVIEMOVIEGEN: new fieldControlClass.RadioGroupControl({
 						modelField: 'ValMoviesgenre',
 						valueChangeEvent: 'fieldChange:movie.moviesgenre',
 						id: 'F_MOVADMMOVIEMOVIEGEN',
 						name: 'MOVIEGEN',
-						size: 'large',
 						label: computed(() => this.Resources.MOVIES_GENRE22042),
 						placeholder: '',
 						labelPosition: computed(() => this.labelAlignment.topleft),
 						maxLength: 15,
 						labelId: 'label_F_MOVADMMOVIEMOVIEGEN',
 						arrayName: 'MOVIEGENRE',
-						helpShortItem: 'None',
-						helpDetailedItem: 'None',
-						controlLimits: [
-						],
-					}, this),
-					F_MOVADMMOVIEPOSTER__: new fieldControlClass.ImageControl({
-						modelField: 'ValPoster',
-						valueChangeEvent: 'fieldChange:movie.poster',
-						id: 'F_MOVADMMOVIEPOSTER__',
-						name: 'POSTER',
-						size: 'mini',
-						label: computed(() => this.Resources.POSTER52933),
-						placeholder: '',
-						labelPosition: computed(() => this.labelAlignment.topleft),
-						height: 50,
-						width: 100,
-						dataTitle: computed(() => genericFunctions.formatString(vm.Resources.IMAGEM_UTILIZADA_PAR17299, vm.Resources.POSTER52933)),
-						maxFileSize: 10485760, // In bytes.
-						maxFileSizeLabel: '10 MB',
+						columns: 0,
 						controlLimits: [
 						],
 					}, this),
@@ -683,6 +734,8 @@
 				 */
 				dataApi: {
 					Movie: {
+						get ValBackdrop() { return vm.model.ValBackdrop.value },
+						set ValBackdrop(value) { vm.model.ValBackdrop.updateValue(value) },
 						get ValCreateat() { return vm.model.ValCreateat.value },
 						set ValCreateat(value) { vm.model.ValCreateat.updateValue(value) },
 						get ValDescription() { return vm.model.ValDescription.value },

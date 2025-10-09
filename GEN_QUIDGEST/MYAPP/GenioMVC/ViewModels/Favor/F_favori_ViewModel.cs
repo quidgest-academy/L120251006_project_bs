@@ -46,14 +46,14 @@ namespace GenioMVC.ViewModels.Favor
 		[ValidateSetAccess]
 		public TableDBEdit<GenioMVC.Models.Userp> TableUserpName { get; set; }
 		/// <summary>
-		/// Title: "Favorite at" | Type: "D"
-		/// </summary>
-		public DateTime? ValFavorite_at { get; set; }
-		/// <summary>
 		/// Title: "Title" | Type: "C"
 		/// </summary>
 		[ValidateSetAccess]
 		public TableDBEdit<GenioMVC.Models.Movie> TableMovieTitle { get; set; }
+		/// <summary>
+		/// Title: "Favorite at" | Type: "D"
+		/// </summary>
+		public DateTime? ValFavorite_at { get; set; }
 
 
 

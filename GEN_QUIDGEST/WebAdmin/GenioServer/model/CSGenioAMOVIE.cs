@@ -129,6 +129,16 @@ namespace CSGenio.business
 			info.RegisterFieldDB(Qfield);
 
 			//- - - - - - - - - - - - - - - - - - -
+			Qfield = new Field(info.Alias, "backdrop", FieldType.IMAGE);
+			Qfield.FieldDescription = "Backdrop";
+			Qfield.FieldSize =  3;
+			Qfield.MQueue = false;
+			Qfield.CavDesignation = "BACKDROP05167";
+
+			Qfield.Dupmsg = "";
+			info.RegisterFieldDB(Qfield);
+
+			//- - - - - - - - - - - - - - - - - - -
 			Qfield = new Field(info.Alias, "zzstate", FieldType.INTEGER);
 			Qfield.FieldDescription = "Estado da ficha";
 			info.RegisterFieldDB(Qfield);
@@ -375,6 +385,17 @@ namespace CSGenio.business
 			set { insertNameValueField(FldNumberoflikes, value); }
 		}
 
+		/// <summary>Field : "Backdrop" Tipo: "IJ" Formula:  ""</summary>
+		public static FieldRef FldBackdrop { get { return m_fldBackdrop; } }
+		private static FieldRef m_fldBackdrop = new FieldRef("movie", "backdrop");
+
+		/// <summary>Field : "Backdrop" Tipo: "IJ" Formula:  ""</summary>
+		public byte[] ValBackdrop
+		{
+			get { return (byte[])returnValueField(FldBackdrop); }
+			set { insertNameValueField(FldBackdrop, value); }
+		}
+
 		/// <summary>Field : "ZZSTATE" Type: "INT" Formula:  ""</summary>
 		public static FieldRef FldZzstate { get { return m_fldZzstate; } }
 		private static FieldRef m_fldZzstate = new FieldRef("movie", "zzstate");
@@ -472,7 +493,7 @@ namespace CSGenio.business
 
  
 
-         
+          
 
 	}
 }

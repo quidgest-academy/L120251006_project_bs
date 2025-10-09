@@ -42,6 +42,9 @@
   <msg id="Cc" code="CC35482">
     <ENUS>Cc</ENUS>
   </msg>
+  <msg id="Backdrop" code="BACKDROP05167">
+    <ENUS>Backdrop</ENUS>
+  </msg>
   <msg id="Create a website alert" code="CREATE_A_WEBSITE_ALE02013">
     <ENUS>Create a website alert</ENUS>
   </msg>

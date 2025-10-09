@@ -33,6 +33,16 @@ namespace GenioMVC.ViewModels.Movie
 
 		#endregion
 		/// <summary>
+		/// Title: "Poster" | Type: "IJ"
+		/// </summary>
+		[ImageThumbnailJsonConverter(30, 50)]
+		public GenioMVC.Models.ImageModel ValPoster { get; set; }
+		/// <summary>
+		/// Title: "Backdrop" | Type: "IJ"
+		/// </summary>
+		[ImageThumbnailJsonConverter(30, 0)]
+		public GenioMVC.Models.ImageModel ValBackdrop { get; set; }
+		/// <summary>
 		/// Title: "Title" | Type: "C"
 		/// </summary>
 		public string ValTitle { get; set; }
@@ -53,11 +63,6 @@ namespace GenioMVC.ViewModels.Movie
 		/// </summary>
 		[JsonIgnore]
 		public SelectList List_ValMoviesgenre { get; set; }
-		/// <summary>
-		/// Title: "Poster" | Type: "IJ"
-		/// </summary>
-		[ImageThumbnailJsonConverter(100, 50)]
-		public GenioMVC.Models.ImageModel ValPoster { get; set; }
 		/// <summary>
 		/// Title: "Discription" | Type: "MO"
 		/// </summary>
@@ -200,11 +205,12 @@ namespace GenioMVC.ViewModels.Movie
 
 			try
 			{
+				ValPoster = ViewModelConversion.ToImage(m.ValPoster);
+				ValBackdrop = ViewModelConversion.ToImage(m.ValBackdrop);
 				ValTitle = ViewModelConversion.ToString(m.ValTitle);
 				ValRealease_date = ViewModelConversion.ToDateTime(m.ValRealease_date);
 				ValCreateat = ViewModelConversion.ToDateTime(m.ValCreateat);
 				ValMoviesgenre = ViewModelConversion.ToString(m.ValMoviesgenre);
-				ValPoster = ViewModelConversion.ToImage(m.ValPoster);
 				ValDescription = ViewModelConversion.ToString(m.ValDescription);
 				ValNumberoflikes = ViewModelConversion.ToNumeric(m.ValNumberoflikes);
 				ValCodmovie = ViewModelConversion.ToString(m.ValCodmovie);
@@ -233,12 +239,14 @@ namespace GenioMVC.ViewModels.Movie
 
 			try
 			{
+				if (ValPoster == null || !ValPoster.IsThumbnail)
+					m.ValPoster = ViewModelConversion.ToImage(ValPoster);
+				if (ValBackdrop == null || !ValBackdrop.IsThumbnail)
+					m.ValBackdrop = ViewModelConversion.ToImage(ValBackdrop);
 				m.ValTitle = ViewModelConversion.ToString(ValTitle);
 				m.ValRealease_date = ViewModelConversion.ToDateTime(ValRealease_date);
 				m.ValCreateat = ViewModelConversion.ToDateTime(ValCreateat);
 				m.ValMoviesgenre = ViewModelConversion.ToString(ValMoviesgenre);
-				if (ValPoster == null || !ValPoster.IsThumbnail)
-					m.ValPoster = ViewModelConversion.ToImage(ValPoster);
 				m.ValDescription = ViewModelConversion.ToString(ValDescription);
 				m.ValCodmovie = ViewModelConversion.ToString(ValCodmovie);
 
@@ -274,6 +282,12 @@ namespace GenioMVC.ViewModels.Movie
 
 				switch (fullFieldName)
 				{
+					case "movie.poster":
+						this.ValPoster = ViewModelConversion.ToImage(_value);
+						break;
+					case "movie.backdrop":
+						this.ValBackdrop = ViewModelConversion.ToImage(_value);
+						break;
 					case "movie.title":
 						this.ValTitle = ViewModelConversion.ToString(_value);
 						break;
@@ -285,9 +299,6 @@ namespace GenioMVC.ViewModels.Movie
 						break;
 					case "movie.moviesgenre":
 						this.ValMoviesgenre = ViewModelConversion.ToString(_value);
-						break;
-					case "movie.poster":
-						this.ValPoster = ViewModelConversion.ToImage(_value);
 						break;
 					case "movie.description":
 						this.ValDescription = ViewModelConversion.ToString(_value);
@@ -458,11 +469,12 @@ namespace GenioMVC.ViewModels.Movie
 		{
 			return identifier switch
 			{
+				"movie.poster" => ViewModelConversion.ToImage(modelValue),
+				"movie.backdrop" => ViewModelConversion.ToImage(modelValue),
 				"movie.title" => ViewModelConversion.ToString(modelValue),
 				"movie.realease_date" => ViewModelConversion.ToDateTime(modelValue),
 				"movie.createat" => ViewModelConversion.ToDateTime(modelValue),
 				"movie.moviesgenre" => ViewModelConversion.ToString(modelValue),
-				"movie.poster" => ViewModelConversion.ToImage(modelValue),
 				"movie.description" => ViewModelConversion.ToString(modelValue),
 				"movie.numberoflikes" => ViewModelConversion.ToNumeric(modelValue),
 				"movie.codmovie" => ViewModelConversion.ToString(modelValue),
@@ -475,6 +487,8 @@ namespace GenioMVC.ViewModels.Movie
 		{
 			if (ValPoster != null)
 				ValPoster.Ticket = Helpers.Helpers.GetFileTicket(m_userContext.User, CSGenio.business.Area.AreaMOVIE, CSGenioAmovie.FldPoster.Field, null, ValCodmovie);
+			if (ValBackdrop != null)
+				ValBackdrop.Ticket = Helpers.Helpers.GetFileTicket(m_userContext.User, CSGenio.business.Area.AreaMOVIE, CSGenioAmovie.FldBackdrop.Field, null, ValCodmovie);
 		}
 
 		#region Charts

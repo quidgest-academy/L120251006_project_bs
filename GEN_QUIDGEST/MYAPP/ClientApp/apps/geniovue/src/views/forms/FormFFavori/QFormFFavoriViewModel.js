@@ -88,15 +88,6 @@ export default class ViewModel extends FormViewModelBase
 		}).cloneFrom(values?.TableUserpName))
 		this.stopWatchers.push(watch(() => this.TableUserpName.value, (newValue, oldValue) => this.onUpdate('userp.name', this.TableUserpName, newValue, oldValue)))
 
-		this.ValFavorite_at = reactive(new modelFieldType.Date({
-			id: 'ValFavorite_at',
-			originId: 'ValFavorite_at',
-			area: 'FAVOR',
-			field: 'FAVDATE',
-			description: computed(() => this.Resources.FAVORITE_AT27922),
-		}).cloneFrom(values?.ValFavorite_at))
-		this.stopWatchers.push(watch(() => this.ValFavorite_at.value, (newValue, oldValue) => this.onUpdate('favor.favorite_at', this.ValFavorite_at, newValue, oldValue)))
-
 		this.TableMovieTitle = reactive(new modelFieldType.String({
 			type: 'Lookup',
 			id: 'TableMovieTitle',
@@ -107,6 +98,15 @@ export default class ViewModel extends FormViewModelBase
 			description: computed(() => this.Resources.TITLE21885),
 		}).cloneFrom(values?.TableMovieTitle))
 		this.stopWatchers.push(watch(() => this.TableMovieTitle.value, (newValue, oldValue) => this.onUpdate('movie.title', this.TableMovieTitle, newValue, oldValue)))
+
+		this.ValFavorite_at = reactive(new modelFieldType.Date({
+			id: 'ValFavorite_at',
+			originId: 'ValFavorite_at',
+			area: 'FAVOR',
+			field: 'FAVDATE',
+			description: computed(() => this.Resources.FAVORITE_AT27922),
+		}).cloneFrom(values?.ValFavorite_at))
+		this.stopWatchers.push(watch(() => this.ValFavorite_at.value, (newValue, oldValue) => this.onUpdate('favor.favorite_at', this.ValFavorite_at, newValue, oldValue)))
 	}
 
 	/**
