@@ -196,7 +196,7 @@ namespace GenioMVC.ViewModels.Chara
 			// Set table name (used in getting searchable column names)
 			Menu.TableName = TableAlias;
 
-			Menu.SetFilters(false, false);
+			Menu.SetFilters(false, true);
 
 
 			crs.SubSets.Add(ProcessSearchFilters(Menu, GetSearchColumns(tableConfig.ColumnConfiguration), tableConfig));
@@ -205,6 +205,48 @@ namespace GenioMVC.ViewModels.Chara
 			//Subfilters
 			CriteriaSet subfilters = CriteriaSet.And();
 
+			if (!tableConfig.StaticFilters.ContainsKey("filter_MOV_Menu_31_GENREFILTE"))
+				tableConfig.StaticFilters.Add("filter_MOV_Menu_31_GENREFILTE", null);
+
+			{
+				var groupFilters = CriteriaSet.Or();
+				bool filter_MOV_Menu_31_GENREFILTE_1 = false;
+				if (tableConfig.StaticFilters["filter_MOV_Menu_31_GENREFILTE"] != null)
+					filter_MOV_Menu_31_GENREFILTE_1 = tableConfig.StaticFilters["filter_MOV_Menu_31_GENREFILTE"].Contains("1");
+				if (filter_MOV_Menu_31_GENREFILTE_1)
+				{
+					groupFilters.Equal(CSGenioAchara.FldGenre, "M");
+
+				}
+
+				bool filter_MOV_Menu_31_GENREFILTE_2 = false;
+				if (tableConfig.StaticFilters["filter_MOV_Menu_31_GENREFILTE"] != null)
+					filter_MOV_Menu_31_GENREFILTE_2 = tableConfig.StaticFilters["filter_MOV_Menu_31_GENREFILTE"].Contains("2");
+				if (filter_MOV_Menu_31_GENREFILTE_2)
+				{
+					groupFilters.Equal(CSGenioAchara.FldGenre, "F");
+
+				}
+
+				bool filter_MOV_Menu_31_GENREFILTE_3 = false;
+				if (tableConfig.StaticFilters["filter_MOV_Menu_31_GENREFILTE"] != null)
+					filter_MOV_Menu_31_GENREFILTE_3 = tableConfig.StaticFilters["filter_MOV_Menu_31_GENREFILTE"].Contains("3");
+				if (filter_MOV_Menu_31_GENREFILTE_3)
+				{
+					groupFilters.Equal(CSGenioAchara.FldGenre, "O");
+
+				}
+
+				bool filter_MOV_Menu_31_GENREFILTE_4 = false;
+				if (tableConfig.StaticFilters["filter_MOV_Menu_31_GENREFILTE"] != null)
+					filter_MOV_Menu_31_GENREFILTE_4 = tableConfig.StaticFilters["filter_MOV_Menu_31_GENREFILTE"].Contains("4");
+				if (filter_MOV_Menu_31_GENREFILTE_4)
+				{
+
+				}
+
+				subfilters.SubSets.Add(groupFilters);
+			}
 
 			crs.SubSets.Add(subfilters);
 

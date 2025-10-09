@@ -48,6 +48,11 @@ namespace GenioMVC.Controllers
 			// Table configuration load options
 			CSGenio.framework.TableConfiguration.TableConfigurationLoadOptions tableConfigOptions = new CSGenio.framework.TableConfiguration.TableConfigurationLoadOptions();
 
+			// Static filter "order" fields that have changed
+			tableConfigOptions.StaticFiltersKeyShiftValues = new Dictionary<string, int>
+			{
+				{ "filter_MOV_Menu_31_GENREFILTE", 0 }
+			};
 
 			// Determine which table configuration to use and load it
 			CSGenio.framework.TableConfiguration.TableConfiguration tableConfig = TableUiSettings.Load(

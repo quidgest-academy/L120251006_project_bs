@@ -315,6 +315,9 @@
   <msg id="Desautorizado" code="DESAUTORIZADO34584">
     <ENUS>Desautorizado</ENUS>
   </msg>
+  <msg id="All" code="ALL38603">
+    <ENUS>All</ENUS>
+  </msg>
   <msg id="Movie_id" code="MOVIE_ID54960">
     <ENUS>Movie_id</ENUS>
   </msg>
