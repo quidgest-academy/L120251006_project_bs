@@ -145,9 +145,9 @@ namespace CSGenio.business
 			//- - - - - - - - - - - - - - - - - - -
 			Qfield = new Field(info.Alias, "averagerate", FieldType.NUMERIC);
 			Qfield.FieldDescription = "Average Rate";
-			Qfield.FieldSize =  2;
+			Qfield.FieldSize =  9;
 			Qfield.MQueue = false;
-			Qfield.IntegerDigits = 2;
+			Qfield.IntegerDigits = 9;
 			Qfield.CavDesignation = "AVERAGE_RATE24140";
 
 			Qfield.Dupmsg = "";
@@ -457,11 +457,11 @@ namespace CSGenio.business
 			set { insertNameValueField(FldBackdrop, value); }
 		}
 
-		/// <summary>Field : "Average Rate" Tipo: "N" Formula: + "[MOVIE->SUMAVG]/[MOVIE->TOTALRAT]"</summary>
+		/// <summary>Field : "Average Rate" Tipo: "ND" Formula: + "[MOVIE->SUMAVG]/[MOVIE->TOTALRAT]"</summary>
 		public static FieldRef FldAveragerate { get { return m_fldAveragerate; } }
 		private static FieldRef m_fldAveragerate = new FieldRef("movie", "averagerate");
 
-		/// <summary>Field : "Average Rate" Tipo: "N" Formula: + "[MOVIE->SUMAVG]/[MOVIE->TOTALRAT]"</summary>
+		/// <summary>Field : "Average Rate" Tipo: "ND" Formula: + "[MOVIE->SUMAVG]/[MOVIE->TOTALRAT]"</summary>
 		public decimal ValAveragerate
 		{
 			get { return (decimal)returnValueField(FldAveragerate); }

@@ -140,7 +140,7 @@ export default class ViewModel extends FormViewModelBase
 			originId: 'ValAveragerate',
 			area: 'MOVIE',
 			field: 'ARATE',
-			maxDigits: 2,
+			maxDigits: 9,
 			decimalDigits: 0,
 			isFixed: true,
 			valueFormula: {
