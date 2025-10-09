@@ -292,6 +292,8 @@ namespace GenioMVC.ViewModels
 
 				//FOR: MENU LIST SORTING
 				Dictionary<string, OrderedDictionary> allSortOrders = new Dictionary<string, OrderedDictionary>();
+				allSortOrders.Add("MOVIE.REALEASE_DATE", new OrderedDictionary());
+				allSortOrders["MOVIE.REALEASE_DATE"].Add("MOVIE.REALEASE_DATE", "D");
 
 
 
@@ -304,6 +306,12 @@ namespace GenioMVC.ViewModels
 
 				List<ColumnSort> sorts = GetRequestSorts(this.Menu, tableConfig.ColumnOrderBy, "movie", allSortOrders);
 
+				if (sorts == null || sorts.Count == 0)
+				{
+					sorts = new List<ColumnSort>();
+				sorts.Add(new ColumnSort(new ColumnReference(CSGenioAmovie.FldRealease_date), SortOrder.Descending));
+
+				}
 
 				FieldRef[] fields = new FieldRef[] { CSGenioAmovie.FldCodmovie, CSGenioAmovie.FldZzstate, CSGenioAmovie.FldTitle, CSGenioAmovie.FldPoster, CSGenioAmovie.FldRealease_date };
 

@@ -125,6 +125,21 @@
 							v-on="controls.HOMP____PSEUDFIELD002.handlers" />
 					</q-control-wrapper>
 				</q-row-container>
+				<q-row-container v-if="controls.HOMP____PSEUDFIELD003.isVisible">
+					<q-control-wrapper
+						v-if="controls.HOMP____PSEUDFIELD003.isVisible"
+						class="control-join-group">
+						<q-table
+							v-if="controls.HOMP____PSEUDFIELD003.isVisible"
+							v-bind="controls.HOMP____PSEUDFIELD003"
+							v-on="controls.HOMP____PSEUDFIELD003.handlers" />
+						<q-table-extra-extension
+							v-if="controls.HOMP____PSEUDFIELD003.isVisible"
+							:list-ctrl="controls.HOMP____PSEUDFIELD003"
+							:filter-operators="controls.HOMP____PSEUDFIELD003.filterOperators"
+							v-on="controls.HOMP____PSEUDFIELD003.handlers" />
+					</q-control-wrapper>
+				</q-row-container>
 			</template>
 		</div>
 	</teleport>
@@ -1189,8 +1204,8 @@
 							defaultSearchColumnName: 'ValTitle',
 							defaultSearchColumnNameOriginal: 'ValTitle',
 							defaultColumnSorting: {
-								columnName: '',
-								sortOrder: 'asc'
+								columnName: 'ValRealease_date',
+								sortOrder: 'desc'
 							}
 						},
 						globalEvents: ['changed-MOVIE'],
