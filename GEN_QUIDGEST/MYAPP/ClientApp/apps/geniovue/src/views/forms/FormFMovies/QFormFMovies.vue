@@ -331,6 +331,25 @@
 						</q-group-collapsible>
 					</q-control-wrapper>
 				</q-row-container>
+				<q-row-container v-if="controls.F_MOVIESMOVIEBACKDROP.isVisible">
+					<q-control-wrapper
+						v-if="controls.F_MOVIESMOVIEBACKDROP.isVisible"
+						class="control-join-group">
+						<base-input-structure
+							v-if="controls.F_MOVIESMOVIEBACKDROP.isVisible"
+							class="q-image"
+							v-bind="controls.F_MOVIESMOVIEBACKDROP"
+							v-on="controls.F_MOVIESMOVIEBACKDROP.handlers"
+							:loading="controls.F_MOVIESMOVIEBACKDROP.props.loading"
+							:reporting-mode-on="reportingModeCAV"
+							:suggestion-mode-on="suggestionModeOn">
+							<q-image
+								v-if="controls.F_MOVIESMOVIEBACKDROP.isVisible"
+								v-bind="controls.F_MOVIESMOVIEBACKDROP.props"
+								v-on="controls.F_MOVIESMOVIEBACKDROP.handlers" />
+						</base-input-structure>
+					</q-control-wrapper>
+				</q-row-container>
 			</template>
 		</div>
 	</teleport>
@@ -1170,6 +1189,23 @@
 							},
 						],
 					}, this),
+					F_MOVIESMOVIEBACKDROP: new fieldControlClass.ImageControl({
+						modelField: 'ValBackdrop',
+						valueChangeEvent: 'fieldChange:movie.backdrop',
+						id: 'F_MOVIESMOVIEBACKDROP',
+						name: 'BACKDROP',
+						size: 'mini',
+						label: computed(() => this.Resources.BACKDROP05167),
+						placeholder: '',
+						labelPosition: computed(() => this.labelAlignment.topleft),
+						height: 50,
+						width: 100,
+						dataTitle: computed(() => genericFunctions.formatString(vm.Resources.IMAGEM_UTILIZADA_PAR17299, vm.Resources.BACKDROP05167)),
+						maxFileSize: 10485760, // In bytes.
+						maxFileSizeLabel: '10 MB',
+						controlLimits: [
+						],
+					}, this),
 				},
 
 				model: new FormViewModel(this, {
@@ -1196,6 +1232,8 @@
 				 */
 				dataApi: {
 					Movie: {
+						get ValBackdrop() { return vm.model.ValBackdrop.value },
+						set ValBackdrop(value) { vm.model.ValBackdrop.updateValue(value) },
 						get ValCreateat() { return vm.model.ValCreateat.value },
 						set ValCreateat(value) { vm.model.ValCreateat.updateValue(value) },
 						get ValDescription() { return vm.model.ValDescription.value },

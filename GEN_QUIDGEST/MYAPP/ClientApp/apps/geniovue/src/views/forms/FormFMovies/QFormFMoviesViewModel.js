@@ -122,6 +122,15 @@ export default class ViewModel extends FormViewModelBase
 			description: '',
 		}).cloneFrom(values?.ValNumberoflikes))
 		this.stopWatchers.push(watch(() => this.ValNumberoflikes.value, (newValue, oldValue) => this.onUpdate('movie.numberoflikes', this.ValNumberoflikes, newValue, oldValue)))
+
+		this.ValBackdrop = reactive(new modelFieldType.Image({
+			id: 'ValBackdrop',
+			originId: 'ValBackdrop',
+			area: 'MOVIE',
+			field: 'BACKDROP',
+			description: computed(() => this.Resources.BACKDROP05167),
+		}).cloneFrom(values?.ValBackdrop))
+		this.stopWatchers.push(watch(() => this.ValBackdrop.value, (newValue, oldValue) => this.onUpdate('movie.backdrop', this.ValBackdrop, newValue, oldValue)))
 	}
 
 	/**

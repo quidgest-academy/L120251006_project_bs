@@ -72,6 +72,11 @@ public class F_moviesForm : Form
 	/// </summary>
 	public ListControl PseudDatachar => new ListControl(driver, ContainerLocator, "#F_MOVIESPSEUDDATACHAR");
 
+	/// <summary>
+	/// Backdrop
+	/// </summary>
+	public BaseInputControl MovieBackdrop => new BaseInputControl(driver, ContainerLocator, "container-F_MOVIESMOVIEBACKDROP", "#F_MOVIESMOVIEBACKDROP");
+
 	public F_moviesForm(IWebDriver driver, FORM_MODE mode, By? containerLocator = null)
 		: base(driver, mode, "F_MOVIES", containerLocator: containerLocator) { }
 }
