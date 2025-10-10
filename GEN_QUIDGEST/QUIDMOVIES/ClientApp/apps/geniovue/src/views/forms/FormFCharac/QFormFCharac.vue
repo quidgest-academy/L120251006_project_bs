@@ -103,9 +103,9 @@
 							v-bind="controls.F_CHARACPSEUDNEWGRP01"
 							:is-visible="controls.F_CHARACPSEUDNEWGRP01.isVisible">
 							<!-- Start F_CHARACPSEUDNEWGRP01 -->
-							<q-row-container v-if="controls.F_CHARACCHARAPHOTO___.isVisible || controls.F_CHARACCHARAGENRE___.isVisible">
+							<q-row-container v-if="controls.F_CHARACCHARAPHOTO___.isVisible">
 								<q-control-wrapper
-									v-if="controls.F_CHARACCHARAPHOTO___.isVisible || controls.F_CHARACCHARAGENRE___.isVisible"
+									v-if="controls.F_CHARACCHARAPHOTO___.isVisible"
 									class="control-join-group">
 									<base-input-structure
 										v-if="controls.F_CHARACCHARAPHOTO___.isVisible"
@@ -120,6 +120,12 @@
 											v-bind="controls.F_CHARACCHARAPHOTO___.props"
 											v-on="controls.F_CHARACCHARAPHOTO___.handlers" />
 									</base-input-structure>
+								</q-control-wrapper>
+							</q-row-container>
+							<q-row-container v-if="controls.F_CHARACCHARAGENRE___.isVisible">
+								<q-control-wrapper
+									v-if="controls.F_CHARACCHARAGENRE___.isVisible"
+									class="control-join-group">
 									<base-input-structure
 										v-if="controls.F_CHARACCHARAGENRE___.isVisible"
 										class="i-radio-container"
@@ -584,8 +590,8 @@
 						placeholder: '',
 						labelPosition: computed(() => this.labelAlignment.topleft),
 						container: 'F_CHARACPSEUDNEWGRP01',
-						height: 50,
-						width: 30,
+						height: 500,
+						width: 300,
 						dataTitle: computed(() => genericFunctions.formatString(vm.Resources.IMAGEM_UTILIZADA_PAR17299, vm.Resources.PHOTO51874)),
 						maxFileSize: 10485760, // In bytes.
 						maxFileSizeLabel: '10 MB',

@@ -760,7 +760,7 @@
 						labelPosition: computed(() => this.labelAlignment.topleft),
 						container: 'F_MOVIESPSEUDNEWGRP02',
 						height: 500,
-						width: 30,
+						width: 300,
 						dataTitle: computed(() => genericFunctions.formatString(vm.Resources.IMAGEM_UTILIZADA_PAR17299, vm.Resources.POSTER52933)),
 						maxFileSize: 10485760, // In bytes.
 						maxFileSizeLabel: '10 MB',
