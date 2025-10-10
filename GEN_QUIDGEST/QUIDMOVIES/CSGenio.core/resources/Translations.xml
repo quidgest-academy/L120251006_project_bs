@@ -117,6 +117,9 @@
   <msg id="Date" code="DATE18475">
     <ENUS>Date</ENUS>
   </msg>
+  <msg id="N" code="N51933">
+    <ENUS>N</ENUS>
+  </msg>
   <msg id="Start time" code="START_TIME30037">
     <ENUS>Start time</ENUS>
   </msg>

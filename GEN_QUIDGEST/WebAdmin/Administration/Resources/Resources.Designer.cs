@@ -412,6 +412,15 @@ namespace Administration.Resources {
         }
 
         /// <summary>
+        ///   Looks up a localized string similar to "N"
+        /// </summary>
+        public static string N51933 {
+            get {
+                return ResourceManager.GetString("N51933", resourceCulture);
+            }
+        }
+
+        /// <summary>
         ///   Looks up a localized string similar to "Start time"
         /// </summary>
         public static string START_TIME30037 {
