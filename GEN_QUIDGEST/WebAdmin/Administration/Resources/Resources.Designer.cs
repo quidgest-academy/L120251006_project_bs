@@ -1564,6 +1564,15 @@ namespace Administration.Resources {
         }
 
         /// <summary>
+        ///   Looks up a localized string similar to "QuidMovies"
+        /// </summary>
+        public static string QUIDMOVIES47413 {
+            get {
+                return ResourceManager.GetString("QUIDMOVIES47413", resourceCulture);
+            }
+        }
+
+        /// <summary>
         ///   Looks up a localized string similar to "Obs"
         /// </summary>
         public static string OBS42026 {

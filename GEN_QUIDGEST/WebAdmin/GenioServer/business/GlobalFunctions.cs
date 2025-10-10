@@ -1624,9 +1624,9 @@ namespace CSGenio.business
         }
 
         /// <summary>
-        /// My application theme variables
+        /// QuidMovies theme variables
         /// </summary>
-        private static readonly Dictionary<string, string> MYAPP_THEME_VARIABLES = new Dictionary<string, string>()
+        private static readonly Dictionary<string, string> QUIDMOVIES_THEME_VARIABLES = new Dictionary<string, string>()
         {
             { "$footer-bg", "transparent" },
             { "$menu-sidebar-width", "16rem" },
@@ -1651,7 +1651,7 @@ namespace CSGenio.business
             { "$action-focus-color", "#201060" },
             { "$input-focus-color", "rgba(0, 169, 206, 0.35)" },
             { "$button-focus-color", "rgba(238, 96, 2, 0.5)" },
-            { "$body-bg", "$white" },
+            { "$body-bg", "#FFFFFF" },
             { "$body-color", "#202428" },
             { "$input-btn-padding-y", "0.26rem" },
             { "$input-btn-padding-x", "0.25rem" },
@@ -1704,8 +1704,8 @@ namespace CSGenio.business
         /// <returns>theme variable Value</returns>
         public static string GetThemeVariable(string appID, string variable)
         {
-            if ("MYAPP" == appID)
-                return MYAPP_THEME_VARIABLES[variable];
+            if ("QUIDMOVIES" == appID)
+                return QUIDMOVIES_THEME_VARIABLES[variable];
             return "";
         }
 

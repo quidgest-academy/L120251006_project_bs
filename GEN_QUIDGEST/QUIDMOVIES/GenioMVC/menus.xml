@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-16"?>
+<ArrayOfMenuEntry xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <MenuEntry TYPE="ITEM" DESC="MY_APPLICATION56216" ID="MOV" IMG="" IMGVUE="" LVL="0" PREVIEW="false" SEPARATES="false" SUMMENU="false" HIDEMENUSUM="false" HASCONDITION="false" ISFORM="false">
+    <MENU TYPE="ITEM" DESC="___HOME43998" SIGLA="" ID="1" HELPTITLE="" LVL="1" PREVIEW="false" SEPARATES="false" SUMMENU="false" HIDEMENUSUM="false" HASCONDITION="false" ISFORM="false" ORDER="1" DEFAULTACTION="">
+      <ACCESS>1</ACCESS>
+      <MENU TYPE="ITEM" ID="11" PRTID="1" IMG="" ACT="GenGenio.MenuFormConsulta" ACTMVC="Homp_Show" ACTVUE="form-HOMP" CONT="Home" LVL="-1" PREVIEW="false" SEPARATES="false" SUMMENU="false" HIDEMENUSUM="false" HASCONDITION="false" ISFORM="true" FORMMODE="SHOW" ORDER="11" />
+    </MENU>
+    <MENU TYPE="ITEM" DESC="__FAV_MOVIES17046" SIGLA="" ID="2" HELPTITLE="" LVL="1" PREVIEW="false" SEPARATES="false" SUMMENU="false" HIDEMENUSUM="false" HASCONDITION="false" ISFORM="false" ORDER="2" DEFAULTACTION="">
+      <ACCESS>1</ACCESS>
+      <MENU TYPE="ITEM" DESC="FAVORITES12182" ID="21" PRTID="2" IMG="" ACT="GenGenio.MenuDBEdit" ACTMVC="MOV_Menu_21" ACTVUE="menu-MOV_21" CONT="FAVOR" LVL="-1" PREVIEW="false" SEPARATES="false" SUMMENU="false" HIDEMENUSUM="false" HASCONDITION="false" ISFORM="false" ORDER="21">
+        <MENU TYPE="ITEM" ID="211" PRTID="21" IMG="" ACT="GenGenio.MenuFormConsulta" LVL="-1" PREVIEW="false" SEPARATES="false" SUMMENU="false" HIDEMENUSUM="false" HASCONDITION="false" ISFORM="false" ORDER="211" />
+      </MENU>
+    </MENU>
+    <MENU TYPE="ITEM" DESC="CHARACTERS03735" SIGLA="" ID="3" HELPTITLE="" IMG="~/Content/img/wizard.png?v=87" IMGVUE="wizard.png?v=87" FNT="" SVG="" LVL="1" PREVIEW="false" SEPARATES="false" SUMMENU="false" HIDEMENUSUM="false" HASCONDITION="false" ISFORM="false" ORDER="3" DEFAULTACTION="">
+      <ACCESS>1</ACCESS>
+      <MENU TYPE="ITEM" DESC="CHARACTERS03735" ID="31" PRTID="3" IMG="" ACT="GenGenio.MenuDBEdit" ACTMVC="MOV_Menu_31" ACTVUE="menu-MOV_31" CONT="CHARA" LVL="-1" PREVIEW="false" SEPARATES="false" SUMMENU="false" HIDEMENUSUM="false" HASCONDITION="false" ISFORM="false" ORDER="31">
+        <MENU TYPE="ITEM" ID="311" PRTID="31" IMG="" ACT="GenGenio.MenuFormConsulta" LVL="-1" PREVIEW="false" SEPARATES="false" SUMMENU="false" HIDEMENUSUM="false" HASCONDITION="false" ISFORM="false" ORDER="311" />
+      </MENU>
+    </MENU>
+    <MENU TYPE="ITEM" DESC="INSERTDATA01141" SIGLA="" ID="4" HELPTITLE="" IMG="~/Content/img/diskette.png?v=87" IMGVUE="diskette.png?v=87" FNT="" SVG="" LVL="1" PREVIEW="false" SEPARATES="false" SUMMENU="false" HIDEMENUSUM="false" HASCONDITION="false" ISFORM="false" ORDER="4" DEFAULTACTION="">
+      <ACCESS>99</ACCESS>
+      <MENU TYPE="ITEM" DESC="LIST_MOVIES54898" SIGLA="" ID="41" PRTID="4" HELPTITLE="" LVL="2" PREVIEW="false" SEPARATES="false" SUMMENU="false" HIDEMENUSUM="false" HASCONDITION="false" ISFORM="false" ORDER="41" DEFAULTACTION="">
+        <ACCESS>99</ACCESS>
+        <MENU TYPE="ITEM" DESC="MOVIES48538" ID="411" PRTID="41" IMG="" ACT="GenGenio.MenuDBEdit" ACTMVC="MOV_Menu_411" ACTVUE="menu-MOV_411" CONT="MOVIE" LVL="-1" PREVIEW="false" SEPARATES="false" SUMMENU="false" HIDEMENUSUM="false" HASCONDITION="false" ISFORM="false" ORDER="411">
+          <MENU TYPE="ITEM" ID="4111" PRTID="411" IMG="" ACT="GenGenio.MenuFormConsulta" LVL="-1" PREVIEW="false" SEPARATES="false" SUMMENU="false" HIDEMENUSUM="false" HASCONDITION="false" ISFORM="false" ORDER="4111" />
+        </MENU>
+      </MENU>
+      <MENU TYPE="ITEM" DESC="CHARACTERS_IN_MOVIES46696" SIGLA="" ID="42" PRTID="4" HELPTITLE="" LVL="2" PREVIEW="false" SEPARATES="false" SUMMENU="false" HIDEMENUSUM="false" HASCONDITION="false" ISFORM="false" ORDER="42" DEFAULTACTION="">
+        <ACCESS>1</ACCESS>
+        <MENU TYPE="ITEM" DESC="MOVIES48538" ID="421" PRTID="42" IMG="" ACT="GenGenio.MenuDBEdit" ACTMVC="MOV_Menu_421" ACTVUE="menu-MOV_421" CONT="MOVIE" LVL="-1" PREVIEW="false" SEPARATES="false" SUMMENU="false" HIDEMENUSUM="false" HASCONDITION="false" ISFORM="false" ORDER="421">
+          <MENU TYPE="ITEM" DESC="CHARACTERS03735" ID="4211" PRTID="421" IMG="" ACT="GenGenio.MenuDBEdit" ACTMVC="MOV_Menu_4211" ACTVUE="menu-MOV_4211" CONT="CHARA" LVL="-1" PREVIEW="false" SEPARATES="false" SUMMENU="false" HIDEMENUSUM="false" HASCONDITION="false" ISFORM="false" ORDER="4211">
+            <MENU TYPE="ITEM" ID="42111" PRTID="4211" IMG="" ACT="GenGenio.MenuFormConsulta" LVL="-1" PREVIEW="false" SEPARATES="false" SUMMENU="false" HIDEMENUSUM="false" HASCONDITION="false" ISFORM="false" ORDER="42111" />
+          </MENU>
+        </MENU>
+      </MENU>
+    </MENU>
+    <MENU TYPE="ITEM" DESC="DEBUG10585" SIGLA="" ID="5" HELPTITLE="" IMG="~/Content/img/bug.png?v=87" IMGVUE="bug.png?v=87" FNT="" SVG="" LVL="1" PREVIEW="false" SEPARATES="true" SUMMENU="false" HIDEMENUSUM="false" HASCONDITION="false" ISFORM="false" ORDER="5" DEFAULTACTION="">
+      <ACCESS>99</ACCESS>
+      <MENU TYPE="ITEM" DESC="USER_PROFILE06358" SIGLA="" ID="51" PRTID="5" HELPTITLE="" LVL="2" PREVIEW="false" SEPARATES="false" SUMMENU="false" HIDEMENUSUM="false" HASCONDITION="false" ISFORM="false" ORDER="51" DEFAULTACTION="">
+        <ACCESS>99</ACCESS>
+        <MENU TYPE="ITEM" DESC="USER_PROFILE06358" ID="511" PRTID="51" IMG="" ACT="GenGenio.MenuDBEdit" ACTMVC="MOV_Menu_511" ACTVUE="menu-MOV_511" CONT="USERP" LVL="-1" PREVIEW="false" SEPARATES="false" SUMMENU="false" HIDEMENUSUM="false" HASCONDITION="false" ISFORM="false" ORDER="511">
+          <MENU TYPE="ITEM" ID="5111" PRTID="511" IMG="" ACT="GenGenio.MenuFormConsulta" LVL="-1" PREVIEW="false" SEPARATES="false" SUMMENU="false" HIDEMENUSUM="false" HASCONDITION="false" ISFORM="false" ORDER="5111" />
+        </MENU>
+      </MENU>
+      <MENU TYPE="ITEM" DESC="LIST_OF_CHARACTERS34112" SIGLA="" ID="52" PRTID="5" HELPTITLE="" LVL="2" PREVIEW="false" SEPARATES="false" SUMMENU="false" HIDEMENUSUM="false" HASCONDITION="false" ISFORM="false" ORDER="52" DEFAULTACTION="">
+        <ACCESS>99</ACCESS>
+        <MENU TYPE="ITEM" DESC="CHARACTERS03735" ID="521" PRTID="52" IMG="" ACT="GenGenio.MenuDBEdit" ACTMVC="MOV_Menu_521" ACTVUE="menu-MOV_521" CONT="CHARA" LVL="-1" PREVIEW="false" SEPARATES="false" SUMMENU="false" HIDEMENUSUM="false" HASCONDITION="false" ISFORM="false" ORDER="521">
+          <MENU TYPE="ITEM" ID="5211" PRTID="521" IMG="" ACT="GenGenio.MenuFormConsulta" LVL="-1" PREVIEW="false" SEPARATES="false" SUMMENU="false" HIDEMENUSUM="false" HASCONDITION="false" ISFORM="false" ORDER="5211" />
+        </MENU>
+      </MENU>
+      <MENU TYPE="ITEM" DESC="LIST_OF_FAVORITES05973" SIGLA="" ID="53" PRTID="5" HELPTITLE="" LVL="2" PREVIEW="false" SEPARATES="false" SUMMENU="false" HIDEMENUSUM="false" HASCONDITION="false" ISFORM="false" ORDER="53" DEFAULTACTION="">
+        <ACCESS>99</ACCESS>
+        <MENU TYPE="ITEM" DESC="FAVORITES12182" ID="531" PRTID="53" IMG="" ACT="GenGenio.MenuDBEdit" ACTMVC="MOV_Menu_531" ACTVUE="menu-MOV_531" CONT="FAVOR" LVL="-1" PREVIEW="false" SEPARATES="false" SUMMENU="false" HIDEMENUSUM="false" HASCONDITION="false" ISFORM="false" ORDER="531">
+          <MENU TYPE="ITEM" ID="5311" PRTID="531" IMG="" ACT="GenGenio.MenuFormConsulta" LVL="-1" PREVIEW="false" SEPARATES="false" SUMMENU="false" HIDEMENUSUM="false" HASCONDITION="false" ISFORM="false" ORDER="5311" />
+        </MENU>
+      </MENU>
+      <MENU TYPE="ITEM" DESC="LIST_OF_COMMENTS08505" SIGLA="" ID="54" PRTID="5" HELPTITLE="" LVL="2" PREVIEW="false" SEPARATES="false" SUMMENU="false" HIDEMENUSUM="false" HASCONDITION="false" ISFORM="false" ORDER="54" DEFAULTACTION="">
+        <ACCESS>99</ACCESS>
+        <MENU TYPE="ITEM" DESC="COMMENTS30895" ID="541" PRTID="54" IMG="" ACT="GenGenio.MenuDBEdit" ACTMVC="MOV_Menu_541" ACTVUE="menu-MOV_541" CONT="COMME" LVL="-1" PREVIEW="false" SEPARATES="false" SUMMENU="false" HIDEMENUSUM="false" HASCONDITION="false" ISFORM="false" ORDER="541">
+          <MENU TYPE="ITEM" ID="5411" PRTID="541" IMG="" ACT="GenGenio.MenuFormConsulta" LVL="-1" PREVIEW="false" SEPARATES="false" SUMMENU="false" HIDEMENUSUM="false" HASCONDITION="false" ISFORM="false" ORDER="5411" />
+        </MENU>
+      </MENU>
+      <MENU TYPE="ITEM" DESC="RATTING61217" SIGLA="" ID="55" PRTID="5" HELPTITLE="" LVL="2" PREVIEW="false" SEPARATES="false" SUMMENU="false" HIDEMENUSUM="false" HASCONDITION="false" ISFORM="false" ORDER="55" DEFAULTACTION="">
+        <ACCESS>1</ACCESS>
+        <MENU TYPE="ITEM" DESC="RATTING61217" ID="551" PRTID="55" IMG="" ACT="GenGenio.MenuDBEdit" ACTMVC="MOV_Menu_551" ACTVUE="menu-MOV_551" CONT="RATTI" LVL="-1" PREVIEW="false" SEPARATES="false" SUMMENU="false" HIDEMENUSUM="false" HASCONDITION="false" ISFORM="false" ORDER="551">
+          <MENU TYPE="ITEM" ID="5511" PRTID="551" IMG="" ACT="GenGenio.MenuFormConsulta" LVL="-1" PREVIEW="false" SEPARATES="false" SUMMENU="false" HIDEMENUSUM="false" HASCONDITION="false" ISFORM="false" ORDER="5511" />
+        </MENU>
+      </MENU>
+    </MENU>
+  </MenuEntry>
+</ArrayOfMenuEntry>
