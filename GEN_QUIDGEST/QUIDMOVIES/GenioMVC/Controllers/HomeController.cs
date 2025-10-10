@@ -310,14 +310,14 @@ namespace GenioMVC.Controllers
 		}
 
 		//
-		// GET: /Home/Homp_ValField002
-		// POST: /Home/Homp_ValField002
-		[ActionName("Homp_ValField002")]
-		public ActionResult Homp_ValField002([FromBody]RequestLookupModel requestModel)
+		// GET: /Home/Homp_ValField003
+		// POST: /Home/Homp_ValField003
+		[ActionName("Homp_ValField003")]
+		public ActionResult Homp_ValField003([FromBody]RequestLookupModel requestModel)
 		{
 			var queryParams = requestModel.QueryParams;
 
-			int perPage = CSGenio.framework.Configuration.NrRegDBedit;
+			int perPage = 5;
 			string rowsPerPageOptionsString = "";
 
 			NameValueCollection requestValues = [];
@@ -325,7 +325,7 @@ namespace GenioMVC.Controllers
 			foreach (var kv in queryParams ?? [])
 				requestValues.Add(kv.Key, kv.Value);
 
-			Homp_ValField002_ViewModel model = new(UserContext.Current);
+			Homp_ValField003_ViewModel model = new(UserContext.Current);
 
 			// Table configuration load options
 			CSGenio.framework.TableConfiguration.TableConfigurationLoadOptions tableConfigOptions = new CSGenio.framework.TableConfiguration.TableConfigurationLoadOptions();
@@ -363,14 +363,14 @@ namespace GenioMVC.Controllers
 		}
 
 		//
-		// GET: /Home/Homp_ValField003
-		// POST: /Home/Homp_ValField003
-		[ActionName("Homp_ValField003")]
-		public ActionResult Homp_ValField003([FromBody]RequestLookupModel requestModel)
+		// GET: /Home/Homp_ValField002
+		// POST: /Home/Homp_ValField002
+		[ActionName("Homp_ValField002")]
+		public ActionResult Homp_ValField002([FromBody]RequestLookupModel requestModel)
 		{
 			var queryParams = requestModel.QueryParams;
 
-			int perPage = 5;
+			int perPage = CSGenio.framework.Configuration.NrRegDBedit;
 			string rowsPerPageOptionsString = "";
 
 			NameValueCollection requestValues = [];
@@ -378,7 +378,7 @@ namespace GenioMVC.Controllers
 			foreach (var kv in queryParams ?? [])
 				requestValues.Add(kv.Key, kv.Value);
 
-			Homp_ValField003_ViewModel model = new(UserContext.Current);
+			Homp_ValField002_ViewModel model = new(UserContext.Current);
 
 			// Table configuration load options
 			CSGenio.framework.TableConfiguration.TableConfigurationLoadOptions tableConfigOptions = new CSGenio.framework.TableConfiguration.TableConfigurationLoadOptions();

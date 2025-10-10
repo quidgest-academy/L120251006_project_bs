@@ -13,14 +13,14 @@ public class HompForm : Form
 	public ListControl PseudField001 => new ListControl(driver, ContainerLocator, "#HOMP____PSEUDFIELD001");
 
 	/// <summary>
-	/// Movies
-	/// </summary>
-	public ListControl PseudField002 => new ListControl(driver, ContainerLocator, "#HOMP____PSEUDFIELD002");
-
-	/// <summary>
 	/// Best Rating
 	/// </summary>
 	public ListControl PseudField003 => new ListControl(driver, ContainerLocator, "#HOMP____PSEUDFIELD003");
+
+	/// <summary>
+	/// Movies
+	/// </summary>
+	public ListControl PseudField002 => new ListControl(driver, ContainerLocator, "#HOMP____PSEUDFIELD002");
 
 	public HompForm(IWebDriver driver, FORM_MODE mode, By? containerLocator = null)
 		: base(driver, mode, "HOMP", containerLocator: containerLocator) { }
