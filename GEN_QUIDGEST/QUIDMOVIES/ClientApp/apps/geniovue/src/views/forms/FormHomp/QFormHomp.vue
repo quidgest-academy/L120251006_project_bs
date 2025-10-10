@@ -91,19 +91,7 @@
 			data-key="HOMP"
 			:data-loading="!formInitialDataLoaded">
 			<template v-if="formControl.initialized && showFormBody">
-				<q-row-container v-if="controls.HOMP____PSEUDNEWGRP01.isVisible || controls.HOMP____PSEUDFIELD001.isVisible || controls.HOMP____PSEUDNEWGRP03.isVisible">
-					<q-control-wrapper
-						v-if="controls.HOMP____PSEUDNEWGRP01.isVisible"
-						class="control-join-group">
-						<q-group-box-container
-							v-if="controls.HOMP____PSEUDNEWGRP01.isVisible"
-							id="HOMP____PSEUDNEWGRP01"
-							v-bind="controls.HOMP____PSEUDNEWGRP01"
-							:is-visible="controls.HOMP____PSEUDNEWGRP01.isVisible">
-							<!-- Start HOMP____PSEUDNEWGRP01 -->
-							<!-- End HOMP____PSEUDNEWGRP01 -->
-						</q-group-box-container>
-					</q-control-wrapper>
+				<q-row-container v-if="controls.HOMP____PSEUDFIELD001.isVisible">
 					<q-control-wrapper
 						v-if="controls.HOMP____PSEUDFIELD001.isVisible"
 						class="control-join-group control-dynamic-group">
@@ -117,18 +105,6 @@
 							:list-ctrl="controls.HOMP____PSEUDFIELD001"
 							:filter-operators="controls.HOMP____PSEUDFIELD001.filterOperators"
 							v-on="controls.HOMP____PSEUDFIELD001.handlers" />
-					</q-control-wrapper>
-					<q-control-wrapper
-						v-if="controls.HOMP____PSEUDNEWGRP03.isVisible"
-						class="control-join-group">
-						<q-group-box-container
-							v-if="controls.HOMP____PSEUDNEWGRP03.isVisible"
-							id="HOMP____PSEUDNEWGRP03"
-							v-bind="controls.HOMP____PSEUDNEWGRP03"
-							:is-visible="controls.HOMP____PSEUDNEWGRP03.isVisible">
-							<!-- Start HOMP____PSEUDNEWGRP03 -->
-							<!-- End HOMP____PSEUDNEWGRP03 -->
-						</q-group-box-container>
 					</q-control-wrapper>
 				</q-row-container>
 				<q-row-container
@@ -163,22 +139,6 @@
 							:list-ctrl="controls.HOMP____PSEUDFIELD003"
 							:filter-operators="controls.HOMP____PSEUDFIELD003.filterOperators"
 							v-on="controls.HOMP____PSEUDFIELD003.handlers" />
-					</q-control-wrapper>
-				</q-row-container>
-				<q-row-container
-					v-if="controls.HOMP____PSEUDNEWGRP02.isVisible"
-					is-large>
-					<q-control-wrapper
-						v-if="controls.HOMP____PSEUDNEWGRP02.isVisible"
-						class="row-line-group">
-						<q-group-box-container
-							v-if="controls.HOMP____PSEUDNEWGRP02.isVisible"
-							id="HOMP____PSEUDNEWGRP02"
-							v-bind="controls.HOMP____PSEUDNEWGRP02"
-							:is-visible="controls.HOMP____PSEUDNEWGRP02.isVisible">
-							<!-- Start HOMP____PSEUDNEWGRP02 -->
-							<!-- End HOMP____PSEUDNEWGRP02 -->
-						</q-group-box-container>
 					</q-control-wrapper>
 				</q-row-container>
 			</template>
@@ -476,19 +436,6 @@
 				},
 
 				controls: {
-					HOMP____PSEUDNEWGRP01: new fieldControlClass.GroupControl({
-						id: 'HOMP____PSEUDNEWGRP01',
-						name: 'NEWGRP01',
-						size: 'xlarge',
-						label: computed(() => this.Resources.____________________64598),
-						placeholder: '',
-						labelPosition: computed(() => this.labelAlignment.topleft),
-						isCollapsible: false,
-						anchored: false,
-						directChildren: [],
-						controlLimits: [
-						],
-					}, this),
 					HOMP____PSEUDFIELD001: new fieldControlClass.TableSpecialRenderingControl({
 						id: 'HOMP____PSEUDFIELD001',
 						name: 'FIELD001',
@@ -757,19 +704,6 @@
 								}
 							},
 						],
-						controlLimits: [
-						],
-					}, this),
-					HOMP____PSEUDNEWGRP03: new fieldControlClass.GroupControl({
-						id: 'HOMP____PSEUDNEWGRP03',
-						name: 'NEWGRP03',
-						size: 'medium',
-						label: '',
-						placeholder: '',
-						labelPosition: computed(() => this.labelAlignment.topleft),
-						isCollapsible: false,
-						anchored: false,
-						directChildren: [],
 						controlLimits: [
 						],
 					}, this),
@@ -1351,19 +1285,6 @@
 						controlLimits: [
 						],
 					}, this),
-					HOMP____PSEUDNEWGRP02: new fieldControlClass.GroupControl({
-						id: 'HOMP____PSEUDNEWGRP02',
-						name: 'NEWGRP02',
-						size: 'block',
-						label: computed(() => this.Resources.NEW_ZONE54096),
-						placeholder: '',
-						labelPosition: computed(() => this.labelAlignment.topleft),
-						isCollapsible: false,
-						anchored: false,
-						directChildren: [],
-						controlLimits: [
-						],
-					}, this),
 				},
 
 				model: new FormViewModel(this, {
@@ -1374,9 +1295,6 @@
 				}),
 
 				groupFields: readonly([
-					'HOMP____PSEUDNEWGRP01',
-					'HOMP____PSEUDNEWGRP03',
-					'HOMP____PSEUDNEWGRP02',
 				]),
 
 				tableFields: readonly([
