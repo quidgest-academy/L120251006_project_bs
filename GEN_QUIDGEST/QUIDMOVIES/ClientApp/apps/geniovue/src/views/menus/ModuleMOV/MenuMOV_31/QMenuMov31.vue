@@ -266,6 +266,40 @@
 								sortOrder: 'asc'
 							}
 						},
+						groupFilters: [
+							{
+								id: 'filter_MOV_Menu_31_GENREFILTE',
+								isMultiple: false,
+								filters: [
+									{
+										id: 'filter_MOV_Menu_31_GENREFILTE_1',
+										key: '1',
+										value: computed(() => this.Resources.MALE32397),
+										selected: false
+									},
+									{
+										id: 'filter_MOV_Menu_31_GENREFILTE_2',
+										key: '2',
+										value: computed(() => this.Resources.FEMALE46107),
+										selected: false
+									},
+									{
+										id: 'filter_MOV_Menu_31_GENREFILTE_3',
+										key: '3',
+										value: computed(() => this.Resources.OTHER37293),
+										selected: false
+									},
+									{
+										id: 'filter_MOV_Menu_31_GENREFILTE_4',
+										key: '4',
+										value: computed(() => this.Resources.ALL38603),
+										selected: false
+									},
+								],
+								value: '',
+								defaultValue: ''
+							},
+						],
 						globalEvents: ['changed-MOVIE', 'changed-CHARA'],
 						uuid: '6087e1a7-1c91-4f28-8033-8a60430d40a2',
 						allSelectedRows: 'false',
@@ -357,6 +391,19 @@
 										rawValue: 'regular',
 										isMapped: false
 									},
+								},
+								groups: {
+								}
+							},
+							{
+								id: 'LIST',
+								type: 'list',
+								subtype: '',
+								label: computed(() => this.Resources.LISTA13474),
+								order: 2,
+								mappingVariables: readonly({
+								}),
+								styleVariables: {
 								},
 								groups: {
 								}

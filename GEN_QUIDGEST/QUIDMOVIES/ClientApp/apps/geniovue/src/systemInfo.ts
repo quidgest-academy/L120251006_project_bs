@@ -7,12 +7,12 @@ export const systemInfo = {
 	applicationName: 'QuidMovies',
 
 	genio: {
-		buildVersion: 116,
+		buildVersion: 117,
 		dbIdxVersion: 30,
 		dbVersion: '2530',
 		genioVersion: '374,11',
 		trackChangesVersion: '0',
-		assemblyVersion: '374,11.2530.0.116',
+		assemblyVersion: '374,11.2530.0.117',
 		generationDate: {
 			year: 2025,
 			month: 10,
