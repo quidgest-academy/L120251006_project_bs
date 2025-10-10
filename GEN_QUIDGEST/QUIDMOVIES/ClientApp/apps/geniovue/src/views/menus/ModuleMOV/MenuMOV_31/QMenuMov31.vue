@@ -217,6 +217,11 @@
 							tableTitle: computed(() => this.Resources.CHARACTERS03735),
 							showAlternatePagination: true,
 							permissions: {
+								canView: false,
+								canEdit: false,
+								canDuplicate: false,
+								canDelete: false,
+								canInsert: false
 							},
 							searchBarConfig: {
 								visibility: true,
@@ -225,91 +230,6 @@
 							filtersVisible: true,
 							allowColumnFilters: true,
 							allowColumnSort: true,
-							crudActions: [
-								{
-									id: 'show',
-									name: 'show',
-									title: computed(() => this.Resources.CONSULTAR57388),
-									icon: {
-										icon: 'view'
-									},
-									isInReadOnly: true,
-									params: {
-										action: vm.openFormAction,
-										type: 'form',
-										formName: 'F_CHARAC',
-										mode: 'SHOW',
-										isControlled: true
-									}
-								},
-								{
-									id: 'edit',
-									name: 'edit',
-									title: computed(() => this.Resources.EDITAR11616),
-									icon: {
-										icon: 'pencil'
-									},
-									isInReadOnly: true,
-									params: {
-										action: vm.openFormAction,
-										type: 'form',
-										formName: 'F_CHARAC',
-										mode: 'EDIT',
-										isControlled: true
-									}
-								},
-								{
-									id: 'duplicate',
-									name: 'duplicate',
-									title: computed(() => this.Resources.DUPLICAR09748),
-									icon: {
-										icon: 'duplicate'
-									},
-									isInReadOnly: true,
-									params: {
-										action: vm.openFormAction,
-										type: 'form',
-										formName: 'F_CHARAC',
-										mode: 'DUPLICATE',
-										isControlled: true
-									}
-								},
-								{
-									id: 'delete',
-									name: 'delete',
-									title: computed(() => this.Resources.ELIMINAR21155),
-									icon: {
-										icon: 'delete'
-									},
-									isInReadOnly: true,
-									params: {
-										action: vm.openFormAction,
-										type: 'form',
-										formName: 'F_CHARAC',
-										mode: 'DELETE',
-										isControlled: true
-									}
-								}
-							],
-							generalActions: [
-								{
-									id: 'insert',
-									name: 'insert',
-									title: computed(() => this.Resources.INSERIR43365),
-									icon: {
-										icon: 'add'
-									},
-									isInReadOnly: true,
-									params: {
-										action: vm.openFormAction,
-										type: 'form',
-										formName: 'F_CHARAC',
-										mode: 'NEW',
-										repeatInsertion: false,
-										isControlled: true
-									}
-								},
-							],
 							generalCustomActions: [
 							],
 							groupActions: [
@@ -319,6 +239,19 @@
 							MCActions: [
 							],
 							rowClickAction: {
+								id: 'RCA_MOV_311',
+								name: 'form-F_CHARAC',
+								params: {
+									isRoute: true,
+									limits: [
+										{
+											identifier: 'id',
+											fnValueSelector: (row) => row.ValCodchara
+										},
+									],
+									isControlled: true,
+									action: vm.openFormAction, type: 'form', mode: 'SHOW', formName: 'F_CHARAC'
+								}
 							},
 							formsDefinition: {
 								'F_CHARAC': {

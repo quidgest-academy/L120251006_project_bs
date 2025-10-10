@@ -62,6 +62,7 @@ namespace CSGenio.business
 
             Qfield.NotNull = true;
 			Qfield.Dupmsg = "";
+            Qfield.NotDup = true;
 			info.RegisterFieldDB(Qfield);
 
 			//- - - - - - - - - - - - - - - - - - -

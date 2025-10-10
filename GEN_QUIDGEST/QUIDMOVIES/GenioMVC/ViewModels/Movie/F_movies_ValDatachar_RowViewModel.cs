@@ -83,6 +83,10 @@ public class F_movies_ValDatachar_RowViewModel : Models.Chara
 		bool canDuplicate = true;
 		bool canInsert = true;
 
+		using (new CSGenio.persistence.ScopedPersistentSupport(m_userContext.PersistentSupport))
+		{
+		}
+
 		BtnPermission = new TableRowCrudButtonPermissions()
 		{
 			ViewBtnDisabled = !canView,
