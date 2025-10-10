@@ -721,6 +721,7 @@
 						container: 'F_MOVADMPSEUDNEWGRP01',
 						maxLength: 80,
 						labelId: 'label_F_MOVADMMOVIETITLE___',
+						mustBeFilled: true,
 						controlLimits: [
 						],
 					}, this),

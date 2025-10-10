@@ -294,7 +294,7 @@ namespace GenioMVC.ViewModels
 				//FOR: MENU LIST SORTING
 				Dictionary<string, OrderedDictionary> allSortOrders = new Dictionary<string, OrderedDictionary>();
 				allSortOrders.Add("MOVIE.AVERAGERATE", new OrderedDictionary());
-				allSortOrders["MOVIE.AVERAGERATE"].Add("MOVIE.AVERAGERATE", "A");
+				allSortOrders["MOVIE.AVERAGERATE"].Add("MOVIE.AVERAGERATE", "D");
 
 
 
@@ -310,7 +310,7 @@ namespace GenioMVC.ViewModels
 				if (sorts == null || sorts.Count == 0)
 				{
 					sorts = new List<ColumnSort>();
-				sorts.Add(new ColumnSort(new ColumnReference(CSGenioAmovie.FldAveragerate), SortOrder.Ascending));
+				sorts.Add(new ColumnSort(new ColumnReference(CSGenioAmovie.FldAveragerate), SortOrder.Descending));
 
 				}
 

@@ -507,6 +507,8 @@ namespace GenioMVC.ViewModels.Movie
 
 			validator.StringLength("ValTitle", Resources.Resources.TITLE21885, ValTitle, 80);
 
+			validator.Required("ValTitle", Resources.Resources.TITLE21885, ViewModelConversion.ToString(ValTitle), FieldType.TEXT.GetFormatting());
+
 			validator.Required("ValMoviesgenre", Resources.Resources.MOVIES_GENRE22042, ViewModelConversion.ToString(ValMoviesgenre), FieldType.ARRAY_TEXT.GetFormatting());
 
 

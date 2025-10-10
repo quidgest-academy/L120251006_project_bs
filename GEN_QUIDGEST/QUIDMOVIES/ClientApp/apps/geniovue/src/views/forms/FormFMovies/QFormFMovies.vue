@@ -779,6 +779,7 @@
 						container: 'F_MOVIESPSEUDNEWGRP02',
 						maxLength: 80,
 						labelId: 'label_F_MOVIESMOVIETITLE___',
+						mustBeFilled: true,
 						controlLimits: [
 						],
 					}, this),

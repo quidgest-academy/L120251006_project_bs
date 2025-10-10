@@ -909,7 +909,7 @@
 							defaultSearchColumnNameOriginal: 'ValTitle',
 							defaultColumnSorting: {
 								columnName: 'ValAveragerate',
-								sortOrder: 'asc'
+								sortOrder: 'desc'
 							}
 						},
 						globalEvents: ['changed-MOVIE'],
