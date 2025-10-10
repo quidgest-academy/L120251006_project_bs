@@ -91,30 +91,12 @@
 			data-key="HOMP"
 			:data-loading="!formInitialDataLoaded">
 			<template v-if="formControl.initialized && showFormBody">
-				<q-row-container v-if="controls.HOMP____PSEUDFIELD004.isVisible || controls.HOMP____PSEUDFIELD001.isVisible">
-					<q-control-wrapper
-						v-if="controls.HOMP____PSEUDFIELD004.isVisible"
-						class="control-join-group">
-						<base-input-structure
-							v-if="controls.HOMP____PSEUDFIELD004.isVisible"
-							class="q-image"
-							v-bind="controls.HOMP____PSEUDFIELD004"
-							v-on="controls.HOMP____PSEUDFIELD004.handlers"
-							:loading="controls.HOMP____PSEUDFIELD004.props.loading"
-							:reporting-mode-on="reportingModeCAV"
-							:suggestion-mode-on="suggestionModeOn">
-							<q-image
-								v-if="controls.HOMP____PSEUDFIELD004.isVisible"
-								v-bind="controls.HOMP____PSEUDFIELD004.props"
-								v-on="controls.HOMP____PSEUDFIELD004.handlers" />
-						</base-input-structure>
-					</q-control-wrapper>
+				<q-row-container v-if="controls.HOMP____PSEUDFIELD001.isVisible">
 					<q-control-wrapper
 						v-if="controls.HOMP____PSEUDFIELD001.isVisible"
-						class="control-join-group control-dynamic-group">
+						class="control-join-group">
 						<q-table
 							v-if="controls.HOMP____PSEUDFIELD001.isVisible"
-							class="align-items: center"
 							v-bind="controls.HOMP____PSEUDFIELD001"
 							v-on="controls.HOMP____PSEUDFIELD001.handlers" />
 						<q-table-extra-extension
@@ -453,29 +435,10 @@
 				},
 
 				controls: {
-					HOMP____PSEUDFIELD004: new fieldControlClass.ImageControl({
-						id: 'HOMP____PSEUDFIELD004',
-						name: 'FIELD004',
-						size: 'mini',
-						hasLabel: false,
-						label: computed(() => this.Resources.N51933),
-						placeholder: '',
-						labelPosition: computed(() => this.labelAlignment.topleft),
-						icon: {
-							icon: computed(() => `${this.$app.resourcesPath}void.webp?v=102`),
-							type: 'img',
-						},
-						height: 0,
-						width: 0,
-						dataTitle: computed(() => genericFunctions.formatString(vm.Resources.IMAGEM_UTILIZADA_PAR17299, vm.Resources.N51933)),
-						isStatic: true,
-						controlLimits: [
-						],
-					}, this),
 					HOMP____PSEUDFIELD001: new fieldControlClass.TableSpecialRenderingControl({
 						id: 'HOMP____PSEUDFIELD001',
 						name: 'FIELD001',
-						size: 'block',
+						size: '',
 						label: computed(() => this.Resources.RECENT_MOVIES43228),
 						placeholder: '',
 						labelPosition: computed(() => this.labelAlignment.topleft),

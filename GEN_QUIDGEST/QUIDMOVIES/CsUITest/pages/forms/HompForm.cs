@@ -8,11 +8,6 @@ namespace quidgest.uitests.pages.forms;
 public class HompForm : Form
 {
 	/// <summary>
-	/// N
-	/// </summary>
-	public IWebElement PseudField004 => throw new NotImplementedException();
-
-	/// <summary>
 	/// Recent movies
 	/// </summary>
 	public ListControl PseudField001 => new ListControl(driver, ContainerLocator, "#HOMP____PSEUDFIELD001");
