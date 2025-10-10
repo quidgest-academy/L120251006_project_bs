@@ -319,19 +319,6 @@
 							MCActions: [
 							],
 							rowClickAction: {
-								id: 'RCA_MOV_311',
-								name: 'form-F_CHARAC',
-								params: {
-									isRoute: true,
-									limits: [
-										{
-											identifier: 'id',
-											fnValueSelector: (row) => row.ValCodchara
-										},
-									],
-									isControlled: true,
-									action: vm.openFormAction, type: 'form', mode: 'SHOW', formName: 'F_CHARAC'
-								}
 							},
 							formsDefinition: {
 								'F_CHARAC': {
