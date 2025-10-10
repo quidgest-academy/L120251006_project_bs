@@ -486,11 +486,11 @@ namespace CSGenio.business
 			set { insertNameValueField(FldSumavg, value); }
 		}
 
-		/// <summary>Field : "Average Rate" Tipo: "ND" Formula: + "[MOVIE->SUMAVG]/iif([MOVIE->TOTALRAT]==0,1,[MOVIE->TOTALRAT])"</summary>
+		/// <summary>Field : "Average Rate" Tipo: "N" Formula: + "[MOVIE->SUMAVG]/iif([MOVIE->TOTALRAT]==0,1,[MOVIE->TOTALRAT])"</summary>
 		public static FieldRef FldAveragerate { get { return m_fldAveragerate; } }
 		private static FieldRef m_fldAveragerate = new FieldRef("movie", "averagerate");
 
-		/// <summary>Field : "Average Rate" Tipo: "ND" Formula: + "[MOVIE->SUMAVG]/iif([MOVIE->TOTALRAT]==0,1,[MOVIE->TOTALRAT])"</summary>
+		/// <summary>Field : "Average Rate" Tipo: "N" Formula: + "[MOVIE->SUMAVG]/iif([MOVIE->TOTALRAT]==0,1,[MOVIE->TOTALRAT])"</summary>
 		public decimal ValAveragerate
 		{
 			get { return (decimal)returnValueField(FldAveragerate); }

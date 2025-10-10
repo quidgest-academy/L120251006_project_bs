@@ -64,7 +64,7 @@ namespace GenioMVC.ViewModels.Movie
 		[ValidateSetAccess]
 		public decimal? ValNumberoflikes { get; set; }
 		/// <summary>
-		/// Title: "Average Rate" | Type: "ND"
+		/// Title: "Average Rate" | Type: "N"
 		/// </summary>
 		[ValidateSetAccess]
 		public decimal? ValAveragerate { get; set; }
