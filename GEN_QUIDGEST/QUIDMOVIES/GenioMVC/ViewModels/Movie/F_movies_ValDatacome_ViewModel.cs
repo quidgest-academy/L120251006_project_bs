@@ -129,8 +129,6 @@ namespace GenioMVC.ViewModels.Movie
 			[
 				new Exports.QColumn(CSGenioAcomme.FldPost, FieldType.MEMO, Resources.Resources.POST24992, 30, 3, true),
 				new Exports.QColumn(CSGenioAuserp.FldName, FieldType.TEXT, Resources.Resources.NAME31974, 30, 0, true),
-				new Exports.QColumn(CSGenioAcomme.FldCreateat, FieldType.DATE, Resources.Resources.CREATE_AT36393, 8, 0, true),
-				new Exports.QColumn(CSGenioAmovie.FldTitle, FieldType.TEXT, Resources.Resources.TITLE21885, 30, 0, true),
 			];
 		}
 
@@ -317,7 +315,7 @@ namespace GenioMVC.ViewModels.Movie
 				List<ColumnSort> sorts = GetRequestSorts(this.Menu, tableConfig.ColumnOrderBy, "comme", allSortOrders);
 
 
-				FieldRef[] fields = new FieldRef[] { CSGenioAcomme.FldCodcomme, CSGenioAcomme.FldZzstate, CSGenioAcomme.FldPost, CSGenioAcomme.FldCoduserp, CSGenioAuserp.FldCoduserp, CSGenioAuserp.FldName, CSGenioAcomme.FldCreateat, CSGenioAcomme.FldCodmovie, CSGenioAmovie.FldCodmovie, CSGenioAmovie.FldTitle };
+				FieldRef[] fields = new FieldRef[] { CSGenioAcomme.FldCodcomme, CSGenioAcomme.FldZzstate, CSGenioAcomme.FldPost, CSGenioAcomme.FldCoduserp, CSGenioAuserp.FldCoduserp, CSGenioAuserp.FldName };
 
 
 				// Totalizers
@@ -463,17 +461,12 @@ namespace GenioMVC.ViewModels.Movie
 						model.klass.insertNameValueField(Qfield.FullName, Qfield.Value); break;
 					case "userp":
 						model.Userp.klass.insertNameValueField(Qfield.FullName, Qfield.Value); break;
-					case "movie":
-						model.Movie.klass.insertNameValueField(Qfield.FullName, Qfield.Value); break;
 					default:
 						break;
 				}
 			}
 
 			model.InitRowData();
-
-			// Use the parent context, so the formulas are calculated with the current values.
-			model.Movie = ParentCtx as Models.Movie;
 
 			return model;
 		}
@@ -519,15 +512,13 @@ namespace GenioMVC.ViewModels.Movie
 
 		private static readonly string[] _fieldsToSerialize =
 		[
-			"Comme", "Comme.ValCodcomme", "Comme.ValZzstate", "Comme.ValPost", "Userp", "Userp.ValName", "Comme.ValCreateat", "Movie", "Movie.ValTitle", "Comme.ValCodmovie", "Comme.ValCoduserp"
+			"Comme", "Comme.ValCodcomme", "Comme.ValZzstate", "Comme.ValPost", "Userp", "Userp.ValName", "Comme.ValCodmovie", "Comme.ValCoduserp"
 		];
 
 		private static readonly List<TableSearchColumn> _searchableColumns =
 		[
 			new TableSearchColumn("ValPost", CSGenioAcomme.FldPost, typeof(string)),
 			new TableSearchColumn("Userp_ValName", CSGenioAuserp.FldName, typeof(string), defaultSearch : true),
-			new TableSearchColumn("ValCreateat", CSGenioAcomme.FldCreateat, typeof(DateTime?)),
-			new TableSearchColumn("Movie_ValTitle", CSGenioAmovie.FldTitle, typeof(string), defaultSearch : true),
 		];
 	}
 }

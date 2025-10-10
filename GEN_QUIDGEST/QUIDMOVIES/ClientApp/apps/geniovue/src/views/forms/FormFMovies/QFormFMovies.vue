@@ -327,7 +327,7 @@
 							<q-row-container v-if="controls.F_MOVIESPSEUDDATACOME.isVisible">
 								<q-control-wrapper
 									v-if="controls.F_MOVIESPSEUDDATACOME.isVisible"
-									class="control-join-group">
+									class="control-join-group control-dynamic-group">
 									<q-table
 										v-if="controls.F_MOVIESPSEUDDATACOME.isVisible"
 										v-bind="controls.F_MOVIESPSEUDDATACOME"
@@ -965,7 +965,7 @@
 					F_MOVIESPSEUDDATACOME: new fieldControlClass.TableListControl({
 						id: 'F_MOVIESPSEUDDATACOME',
 						name: 'DATACOME',
-						size: '',
+						size: 'block',
 						label: computed(() => this.Resources.COMMENTS30895),
 						placeholder: '',
 						labelPosition: computed(() => this.labelAlignment.topleft),
@@ -992,25 +992,6 @@
 								dataLength: 50,
 								scrollData: 30,
 								pkColumn: 'ValCoduserp',
-							}, computed(() => vm.model), computed(() => vm.internalEvents)),
-							new listColumnTypes.DateColumn({
-								order: 3,
-								name: 'ValCreateat',
-								area: 'COMME',
-								field: 'CREATEAT',
-								label: computed(() => this.Resources.CREATE_AT36393),
-								scrollData: 8,
-								dateTimeType: 'date',
-							}, computed(() => vm.model), computed(() => vm.internalEvents)),
-							new listColumnTypes.TextColumn({
-								order: 4,
-								name: 'Movie.ValTitle',
-								area: 'MOVIE',
-								field: 'TITLE',
-								label: computed(() => this.Resources.TITLE21885),
-								dataLength: 80,
-								scrollData: 30,
-								pkColumn: 'ValCodmovie',
 							}, computed(() => vm.model), computed(() => vm.internalEvents)),
 						],
 						config: {
@@ -1044,8 +1025,8 @@
 							},
 							formsDefinition: {
 							},
-							defaultSearchColumnName: 'Movie.ValTitle',
-							defaultSearchColumnNameOriginal: 'Movie.ValTitle',
+							defaultSearchColumnName: 'Userp.ValName',
+							defaultSearchColumnNameOriginal: 'Userp.ValName',
 							defaultColumnSorting: {
 								columnName: '',
 								sortOrder: 'asc'

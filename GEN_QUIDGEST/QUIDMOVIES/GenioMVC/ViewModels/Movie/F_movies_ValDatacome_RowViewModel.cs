@@ -45,18 +45,6 @@ public class F_movies_ValDatacome_RowViewModel : Models.Comme
 				Area = "USERP",
 				Field = "NAME",
 			},
-			new ListColumn()
-			{
-				Order = 3,
-				Area = "COMME",
-				Field = "CREATEAT",
-			},
-			new ListColumn()
-			{
-				Order = 4,
-				Area = "MOVIE",
-				Field = "TITLE",
-			},
 		];
 	}
 
