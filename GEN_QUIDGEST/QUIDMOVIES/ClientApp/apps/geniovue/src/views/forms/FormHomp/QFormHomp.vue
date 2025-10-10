@@ -91,10 +91,23 @@
 			data-key="HOMP"
 			:data-loading="!formInitialDataLoaded">
 			<template v-if="formControl.initialized && showFormBody">
-				<q-row-container v-if="controls.HOMP____PSEUDFIELD001.isVisible">
+				<q-row-container v-if="controls.HOMP____PSEUDFIELD004.isVisible || controls.HOMP____PSEUDFIELD001.isVisible">
 					<q-control-wrapper
-						v-if="controls.HOMP____PSEUDFIELD001.isVisible"
+						v-if="controls.HOMP____PSEUDFIELD004.isVisible || controls.HOMP____PSEUDFIELD001.isVisible"
 						class="control-join-group control-dynamic-group">
+						<base-input-structure
+							v-if="controls.HOMP____PSEUDFIELD004.isVisible"
+							class="q-image"
+							v-bind="controls.HOMP____PSEUDFIELD004"
+							v-on="controls.HOMP____PSEUDFIELD004.handlers"
+							:loading="controls.HOMP____PSEUDFIELD004.props.loading"
+							:reporting-mode-on="reportingModeCAV"
+							:suggestion-mode-on="suggestionModeOn">
+							<q-image
+								v-if="controls.HOMP____PSEUDFIELD004.isVisible"
+								v-bind="controls.HOMP____PSEUDFIELD004.props"
+								v-on="controls.HOMP____PSEUDFIELD004.handlers" />
+						</base-input-structure>
 						<q-table
 							v-if="controls.HOMP____PSEUDFIELD001.isVisible"
 							class="align-items: center"
@@ -436,6 +449,20 @@
 				},
 
 				controls: {
+					HOMP____PSEUDFIELD004: new fieldControlClass.ImageControl({
+						id: 'HOMP____PSEUDFIELD004',
+						name: 'FIELD004',
+						size: 'medium',
+						hasLabel: false,
+						label: '',
+						placeholder: '',
+						labelPosition: computed(() => this.labelAlignment.topleft),
+						height: 0,
+						width: 150,
+						isStatic: true,
+						controlLimits: [
+						],
+					}, this),
 					HOMP____PSEUDFIELD001: new fieldControlClass.TableSpecialRenderingControl({
 						id: 'HOMP____PSEUDFIELD001',
 						name: 'FIELD001',
