@@ -186,6 +186,9 @@
   <data name="SENDS_ATTACHMENT_64661" xml:space="preserve">
     <value>Sends attachment?</value>
   </data>
+  <data name="NEW_ZONE54096" xml:space="preserve">
+    <value>New Zone</value>
+  </data>
   <data name="OTHER37293" xml:space="preserve">
     <value>Other</value>
   </data>

@@ -91,12 +91,15 @@
 			data-key="HOMP"
 			:data-loading="!formInitialDataLoaded">
 			<template v-if="formControl.initialized && showFormBody">
-				<q-row-container
-					v-if="controls.HOMP____PSEUDFIELD001.isVisible"
-					is-large>
+				<q-row-container v-if="controls.HOMP____PSEUDNEWGRP01.isVisible || controls.HOMP____PSEUDFIELD001.isVisible || controls.HOMP____PSEUDNEWGRP02.isVisible">
 					<q-control-wrapper
-						v-if="controls.HOMP____PSEUDFIELD001.isVisible"
-						class="row-line-group">
+						v-if="controls.HOMP____PSEUDNEWGRP01.isVisible"
+						class="control-join-group">
+						<!-- Field type not yet supported (WZ). Form: HOMP, Field: [PSEUD->NEWGRP01] -->
+					</q-control-wrapper>
+					<q-control-wrapper
+						v-if="controls.HOMP____PSEUDFIELD001.isVisible || controls.HOMP____PSEUDNEWGRP02.isVisible"
+						class="control-join-group control-dynamic-group">
 						<q-table
 							v-if="controls.HOMP____PSEUDFIELD001.isVisible"
 							class="align-items: center"
@@ -107,6 +110,7 @@
 							:list-ctrl="controls.HOMP____PSEUDFIELD001"
 							:filter-operators="controls.HOMP____PSEUDFIELD001.filterOperators"
 							v-on="controls.HOMP____PSEUDFIELD001.handlers" />
+						<!-- Field type not yet supported (WZ). Form: HOMP, Field: [PSEUD->NEWGRP02] -->
 					</q-control-wrapper>
 				</q-row-container>
 				<q-row-container

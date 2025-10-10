@@ -69,6 +69,9 @@
   <msg id="Sends attachment?" code="SENDS_ATTACHMENT_64661">
     <ENUS>Sends attachment?</ENUS>
   </msg>
+  <msg id="New Zone" code="NEW_ZONE54096">
+    <ENUS>New Zone</ENUS>
+  </msg>
   <msg id="Other" code="OTHER37293">
     <ENUS>Other</ENUS>
   </msg>

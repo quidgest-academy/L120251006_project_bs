@@ -270,6 +270,15 @@ namespace GenioMVC.Resources
 		}
 
 		/// <summary>
+		///   Looks up a localized string similar to "New Zone"
+		/// </summary>
+		public static string NEW_ZONE54096 {
+			get {
+				return ResourceManager.GetString("NEW_ZONE54096", resourceCulture);
+			}
+		}
+
+		/// <summary>
 		///   Looks up a localized string similar to "Other"
 		/// </summary>
 		public static string OTHER37293 {
