@@ -174,6 +174,18 @@
 								scrollData: 30,
 								pkColumn: 'ValCoduserp',
 							}, computed(() => vm.model), computed(() => vm.internalEvents)),
+							new listColumnTypes.ImageColumn({
+								order: 4,
+								name: 'Movie.ValPoster',
+								area: 'MOVIE',
+								field: 'POSTER',
+								label: computed(() => this.Resources.POSTER52933),
+								dataTitle: computed(() => genericFunctions.formatString(vm.Resources.IMAGEM_UTILIZADA_PAR58591, vm.Resources.POSTER52933)),
+								scrollData: 3,
+								sortable: false,
+								searchable: false,
+								pkColumn: 'ValCodmovie',
+							}, computed(() => vm.model), computed(() => vm.internalEvents)),
 						],
 						config: {
 							name: 'MOV_Menu_21',
@@ -336,6 +348,7 @@
 										allowsMultiple: false,
 										sources: [
 											'MOVIE.TITLE',
+											'MOVIE.POSTER',
 										]
 									},
 								}),

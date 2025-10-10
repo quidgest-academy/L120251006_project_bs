@@ -128,7 +128,7 @@ export default class ViewModel extends FormViewModelBase
 			originId: 'ValDescription',
 			area: 'MOVIE',
 			field: 'DISCRIPT',
-			fillWhen: {
+			showWhen: {
 				// eslint-disable-next-line @typescript-eslint/no-unused-vars
 				fnFormula(params)
 				{

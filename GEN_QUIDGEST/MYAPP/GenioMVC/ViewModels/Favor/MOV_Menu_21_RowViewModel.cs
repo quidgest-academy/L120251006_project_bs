@@ -51,6 +51,12 @@ public class MOV_Menu_21_RowViewModel : Models.Favor
 				Area = "USERP",
 				Field = "NAME",
 			},
+			new ListColumn()
+			{
+				Order = 4,
+				Area = "MOVIE",
+				Field = "POSTER",
+			},
 		];
 	}
 

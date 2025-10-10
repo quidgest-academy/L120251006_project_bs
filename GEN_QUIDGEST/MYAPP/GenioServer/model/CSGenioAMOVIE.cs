@@ -121,7 +121,7 @@ namespace CSGenio.business
 			Qfield.Dupmsg = "";
 			argumentsListByArea = new List<ByAreaArguments>();
 			argumentsListByArea.Add(new ByAreaArguments(new string[] {"title"}, new int[] {0}, "movie", "codmovie"));
-			Qfield.FillWhen = new ConditionFormula(argumentsListByArea, 1, delegate(object[] args, User user, string module, PersistentSupport sp) {
+			Qfield.ShowWhen = new ConditionFormula(argumentsListByArea, 1, delegate(object[] args, User user, string module, PersistentSupport sp) {
 				return !(((string)args[0]) == "");
 			});
 			info.RegisterFieldDB(Qfield);

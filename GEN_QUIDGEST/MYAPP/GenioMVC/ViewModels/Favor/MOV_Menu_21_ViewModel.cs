@@ -99,7 +99,7 @@ namespace GenioMVC.ViewModels.Favor
 			conditions.SubSets.Add(GetCustomizedStaticLimits(StaticLimits));
 
 			// Checks for foreign tables in fields and conditions
-			FieldRef[] fields = new FieldRef[] { CSGenioAfavor.FldCodfavor, CSGenioAfavor.FldZzstate, CSGenioAfavor.FldFavorite_at, CSGenioAfavor.FldMovieid, CSGenioAmovie.FldCodmovie, CSGenioAmovie.FldTitle, CSGenioAfavor.FldCoduserp, CSGenioAuserp.FldCoduserp, CSGenioAuserp.FldName };
+			FieldRef[] fields = new FieldRef[] { CSGenioAfavor.FldCodfavor, CSGenioAfavor.FldZzstate, CSGenioAfavor.FldFavorite_at, CSGenioAfavor.FldMovieid, CSGenioAmovie.FldCodmovie, CSGenioAmovie.FldTitle, CSGenioAfavor.FldCoduserp, CSGenioAuserp.FldCoduserp, CSGenioAuserp.FldName, CSGenioAmovie.FldPoster };
 
 			ListingMVC<CSGenioAfavor> listing = new(fields, null, 1, 1, false, user, true, string.Empty, false);
 			SelectQuery qs = sp.getSelectQueryFromListingMVC(conditions, listing);
@@ -333,7 +333,7 @@ namespace GenioMVC.ViewModels.Favor
 
 				}
 
-				FieldRef[] fields = new FieldRef[] { CSGenioAfavor.FldCodfavor, CSGenioAfavor.FldZzstate, CSGenioAfavor.FldFavorite_at, CSGenioAfavor.FldMovieid, CSGenioAmovie.FldCodmovie, CSGenioAmovie.FldTitle, CSGenioAfavor.FldCoduserp, CSGenioAuserp.FldCoduserp, CSGenioAuserp.FldName };
+				FieldRef[] fields = new FieldRef[] { CSGenioAfavor.FldCodfavor, CSGenioAfavor.FldZzstate, CSGenioAfavor.FldFavorite_at, CSGenioAfavor.FldMovieid, CSGenioAmovie.FldCodmovie, CSGenioAmovie.FldTitle, CSGenioAfavor.FldCoduserp, CSGenioAuserp.FldCoduserp, CSGenioAuserp.FldName, CSGenioAmovie.FldPoster };
 
 
 				// Totalizers
@@ -489,6 +489,7 @@ namespace GenioMVC.ViewModels.Favor
 
 			model.InitRowData();
 
+			SetTicketToImageFields(model);
 			return model;
 		}
 
@@ -533,7 +534,7 @@ namespace GenioMVC.ViewModels.Favor
 
 		private static readonly string[] _fieldsToSerialize =
 		[
-			"Favor", "Favor.ValCodfavor", "Favor.ValZzstate", "Favor.ValFavorite_at", "Movie", "Movie.ValTitle", "Userp", "Userp.ValName", "Favor.ValMovieid", "Favor.ValCoduserp"
+			"Favor", "Favor.ValCodfavor", "Favor.ValZzstate", "Favor.ValFavorite_at", "Movie", "Movie.ValTitle", "Userp", "Userp.ValName", "Movie.ValPoster", "Favor.ValMovieid", "Favor.ValCoduserp"
 		];
 
 		private static readonly List<TableSearchColumn> _searchableColumns =
@@ -542,5 +543,12 @@ namespace GenioMVC.ViewModels.Favor
 			new TableSearchColumn("Movie_ValTitle", CSGenioAmovie.FldTitle, typeof(string)),
 			new TableSearchColumn("Userp_ValName", CSGenioAuserp.FldName, typeof(string)),
 		];
+		protected void SetTicketToImageFields(Models.Favor row)
+		{
+			if (row == null)
+				return;
+
+			row.Movie.ValPosterQTicket = Helpers.Helpers.GetFileTicket(m_userContext.User, CSGenio.business.Area.AreaMOVIE, CSGenioAmovie.FldPoster.Field, null, row.Movie.ValCodmovie);
+		}
 	}
 }

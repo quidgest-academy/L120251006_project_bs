@@ -71,7 +71,6 @@ namespace CSGenio.business
 			Qfield.MQueue = false;
 			Qfield.CavDesignation = "ACTOR_NAME48089";
 
-            Qfield.NotNull = true;
 			Qfield.Dupmsg = "";
 			info.RegisterFieldDB(Qfield);
 

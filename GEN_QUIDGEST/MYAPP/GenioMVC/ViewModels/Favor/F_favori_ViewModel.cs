@@ -43,7 +43,7 @@ namespace GenioMVC.ViewModels.Favor
 		/// <summary>
 		/// Title: "Poster" | Type: "IJ"
 		/// </summary>
-		[ImageThumbnailJsonConverter(30, 0)]
+		[ImageThumbnailJsonConverter(30, 50)]
 		[ValidateSetAccess]
 		public GenioMVC.Models.ImageModel MovieValPoster 
 		{

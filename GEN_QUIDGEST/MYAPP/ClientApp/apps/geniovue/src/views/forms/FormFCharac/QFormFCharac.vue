@@ -637,7 +637,6 @@
 						container: 'F_CHARACPSEUDNEWGRP01',
 						maxLength: 80,
 						labelId: 'label_F_CHARACCHARAACTORNAM',
-						mustBeFilled: true,
 						controlLimits: [
 						],
 						showWhen: {
