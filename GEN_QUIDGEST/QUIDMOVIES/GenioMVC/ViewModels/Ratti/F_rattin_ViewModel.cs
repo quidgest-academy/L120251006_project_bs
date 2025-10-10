@@ -416,6 +416,10 @@ namespace GenioMVC.ViewModels.Ratti
 			CrudViewModelFieldValidator validator = new(m_userContext.User.Language);
 
 
+			validator.Required("ValCoduserp", Resources.Resources.NAME31974, ViewModelConversion.ToString(ValCoduserp), FieldType.KEY_INT.GetFormatting());
+
+			validator.Required("ValRate", Resources.Resources.RATE50728, ViewModelConversion.ToNumeric(ValRate), FieldType.NUMERIC.GetFormatting());
+
 
 			return validator.GetResult();
 		}

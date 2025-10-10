@@ -130,11 +130,11 @@ namespace CSGenio.business
 
 			//- - - - - - - - - - - - - - - - - - -
 			Qfield = new Field(info.Alias, "numberoflikes", FieldType.NUMERIC);
-			Qfield.FieldDescription = "";
+			Qfield.FieldDescription = "NumberofLikes";
 			Qfield.FieldSize =  9;
 			Qfield.MQueue = false;
 			Qfield.IntegerDigits = 9;
-			Qfield.CavDesignation = "";
+			Qfield.CavDesignation = "NUMBEROFLIKES37010";
 
 			Qfield.Dupmsg = "";
 			info.RegisterFieldDB(Qfield);
@@ -443,11 +443,11 @@ namespace CSGenio.business
 			set { insertNameValueField(FldDescription, value); }
 		}
 
-		/// <summary>Field : "" Tipo: "N" Formula: SR "[FAVOR->1]"</summary>
+		/// <summary>Field : "NumberofLikes" Tipo: "N" Formula: SR "[FAVOR->1]"</summary>
 		public static FieldRef FldNumberoflikes { get { return m_fldNumberoflikes; } }
 		private static FieldRef m_fldNumberoflikes = new FieldRef("movie", "numberoflikes");
 
-		/// <summary>Field : "" Tipo: "N" Formula: SR "[FAVOR->1]"</summary>
+		/// <summary>Field : "NumberofLikes" Tipo: "N" Formula: SR "[FAVOR->1]"</summary>
 		public decimal ValNumberoflikes
 		{
 			get { return (decimal)returnValueField(FldNumberoflikes); }

@@ -609,6 +609,7 @@
 							set 'userp.coduserp'(value) { vm.model.ValCoduserp.updateValue(value) },
 							set 'userp.name'(value) { vm.model.TableUserpName.updateValue(value) },
 						}),
+						mustBeFilled: true,
 						controlLimits: [
 							// The non-duplication prefix field of the unique foreign key field.
 							{
@@ -630,6 +631,7 @@
 						labelPosition: computed(() => this.labelAlignment.topleft),
 						maxIntegers: 1,
 						maxDecimals: 0,
+						mustBeFilled: true,
 						viewModes: [
 							{
 								id: 'RATING',

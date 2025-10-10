@@ -1629,6 +1629,15 @@ namespace GenioMVC.Resources
 		}
 
 		/// <summary>
+		///   Looks up a localized string similar to "NumberofLikes"
+		/// </summary>
+		public static string NUMBEROFLIKES37010 {
+			get {
+				return ResourceManager.GetString("NUMBEROFLIKES37010", resourceCulture);
+			}
+		}
+
+		/// <summary>
 		///   Looks up a localized string similar to "Rating"
 		/// </summary>
 		public static string RATING45804 {

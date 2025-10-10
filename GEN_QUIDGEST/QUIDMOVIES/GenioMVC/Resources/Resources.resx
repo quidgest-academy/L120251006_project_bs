@@ -639,6 +639,9 @@
 	<data name="FEEDBACK_ZONE21601" xml:space="preserve">
 		<value>feedback zone</value>
 	</data>
+	<data name="NUMBEROFLIKES37010" xml:space="preserve">
+		<value>NumberofLikes</value>
+	</data>
 	<data name="RATING45804" xml:space="preserve">
 		<value>Rating</value>
 	</data>

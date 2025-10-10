@@ -72,6 +72,7 @@ namespace CSGenio.business
 			Qfield.CavDesignation = "EMAIL25170";
 
 			Qfield.Dupmsg = "";
+            Qfield.NotDup = true;
 			Qfield.FillingRule = (rule) =>
 			{
 				return Validation.validateEM(rule);

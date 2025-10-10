@@ -522,6 +522,9 @@
   <msg id="feedback zone" code="FEEDBACK_ZONE21601">
     <ENUS>feedback zone</ENUS>
   </msg>
+  <msg id="NumberofLikes" code="NUMBEROFLIKES37010">
+    <ENUS>NumberofLikes</ENUS>
+  </msg>
   <msg id="Rating" code="RATING45804">
     <ENUS>Rating</ENUS>
   </msg>

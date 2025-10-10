@@ -175,7 +175,7 @@ export default class ViewModel extends FormViewModelBase
 			maxDigits: 9,
 			decimalDigits: 0,
 			isFixed: true,
-			description: '',
+			description: computed(() => this.Resources.NUMBEROFLIKES37010),
 		}).cloneFrom(values?.ValNumberoflikes))
 		this.stopWatchers.push(watch(() => this.ValNumberoflikes.value, (newValue, oldValue) => this.onUpdate('movie.numberoflikes', this.ValNumberoflikes, newValue, oldValue)))
 

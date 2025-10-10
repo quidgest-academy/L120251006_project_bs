@@ -71,6 +71,7 @@ namespace CSGenio.business
 			Qfield.MQueue = false;
 			Qfield.CavDesignation = "USER_ID19581";
 
+            Qfield.NotNull = true;
 			Qfield.Dupmsg = "Already Rated Movie";
             Qfield.NotDup = true;
             Qfield.PrefNDup = "codmovie";
@@ -84,6 +85,7 @@ namespace CSGenio.business
 			Qfield.IntegerDigits = 1;
 			Qfield.CavDesignation = "RATE50728";
 
+            Qfield.NotNull = true;
 			Qfield.Dupmsg = "";
 			info.RegisterFieldDB(Qfield);
 
