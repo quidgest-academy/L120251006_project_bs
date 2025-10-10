@@ -99,6 +99,7 @@
 						class="row-line-group">
 						<q-table
 							v-if="controls.HOMP____PSEUDFIELD001.isVisible"
+							class="align-items: center"
 							v-bind="controls.HOMP____PSEUDFIELD001"
 							v-on="controls.HOMP____PSEUDFIELD001.handlers" />
 						<q-table-extra-extension
