@@ -721,11 +721,11 @@
 							}, computed(() => vm.model), computed(() => vm.internalEvents)),
 							new listColumnTypes.ImageColumn({
 								order: 2,
-								name: 'ValPoster',
+								name: 'ValBackdrop',
 								area: 'MOVIE',
-								field: 'POSTER',
-								label: computed(() => this.Resources.POSTER52933),
-								dataTitle: computed(() => genericFunctions.formatString(vm.Resources.IMAGEM_UTILIZADA_PAR58591, vm.Resources.POSTER52933)),
+								field: 'BACKDROP',
+								label: computed(() => this.Resources.BACKDROP05167),
+								dataTitle: computed(() => genericFunctions.formatString(vm.Resources.IMAGEM_UTILIZADA_PAR58591, vm.Resources.BACKDROP05167)),
 								scrollData: 3,
 								sortable: false,
 								searchable: false,
@@ -938,7 +938,7 @@
 									slideImage: {
 										allowsMultiple: false,
 										sources: [
-											'MOVIE.POSTER',
+											'MOVIE.BACKDROP',
 										]
 									},
 								}),
