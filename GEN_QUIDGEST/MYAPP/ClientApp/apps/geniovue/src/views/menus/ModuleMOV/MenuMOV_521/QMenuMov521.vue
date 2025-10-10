@@ -71,17 +71,17 @@
 	import qProjArrays from '@/api/genio/projectArrays.js'
 	/* eslint-enable @typescript-eslint/no-unused-vars */
 
-	import MenuViewModel from './QMenuMOV_431ViewModel.js'
+	import MenuViewModel from './QMenuMOV_521ViewModel.js'
 
-	const requiredTextResources = ['QMenuMOV_431', 'hardcoded', 'messages']
+	const requiredTextResources = ['QMenuMOV_521', 'hardcoded', 'messages']
 
 /* eslint-disable indent, vue/html-indent, vue/script-indent */
-// USE /[MANUAL MOV FORM_INCLUDEJS MOV_MENU_431]/
+// USE /[MANUAL MOV FORM_INCLUDEJS MOV_MENU_521]/
 // eslint-disable-next-line
 /* eslint-enable indent, vue/html-indent, vue/script-indent */
 
 	export default {
-		name: 'QMenuMov431',
+		name: 'QMenuMov521',
 
 		mixins: [
 			MenuHandlers
@@ -110,23 +110,23 @@
 			// eslint-disable-next-line
 			const vm = this
 			return {
-				componentOnLoadProc: asyncProcM.getProcListMonitor('QMenuMOV_431', false),
+				componentOnLoadProc: asyncProcM.getProcListMonitor('QMenuMOV_521', false),
 
 				interfaceMetadata: {
-					id: 'QMenuMOV_431', // Used for resources
+					id: 'QMenuMOV_521', // Used for resources
 					requiredTextResources
 				},
 
 				menuInfo: {
-					id: '431',
+					id: '521',
 					isMenuList: true,
 					designation: computed(() => this.Resources.CHARACTERS03735),
-					acronym: 'MOV_431',
+					acronym: 'MOV_521',
 					name: 'CHARA',
-					route: 'menu-MOV_431',
-					order: '431',
+					route: 'menu-MOV_521',
+					order: '521',
 					controller: 'CHARA',
-					action: 'MOV_Menu_431',
+					action: 'MOV_Menu_521',
 					isPopup: false
 				},
 
@@ -135,9 +135,9 @@
 				controls: {
 					menu: new controlClass.TableListControl({
 						fnHydrateViewModel: (data) => vm.model.hydrate(data),
-						id: 'MOV_Menu_431',
+						id: 'MOV_Menu_521',
 						controller: 'CHARA',
-						action: 'MOV_Menu_431',
+						action: 'MOV_Menu_521',
 						hasDependencies: false,
 						isInCollapsible: false,
 						tableModeClasses: [
@@ -196,7 +196,7 @@
 							}, computed(() => vm.model), computed(() => vm.internalEvents)),
 						],
 						config: {
-							name: 'MOV_Menu_431',
+							name: 'MOV_Menu_521',
 							serverMode: true,
 							pkColumn: 'ValCodchara',
 							tableAlias: 'CHARA',
@@ -308,7 +308,7 @@
 							MCActions: [
 							],
 							rowClickAction: {
-								id: 'RCA_MOV_4311',
+								id: 'RCA_MOV_5211',
 								name: 'form-F_CHARAC',
 								params: {
 									isRoute: true,
@@ -361,7 +361,7 @@
 		mounted()
 		{
 /* eslint-disable indent, vue/html-indent, vue/script-indent */
-// USE /[MANUAL MOV FORM_CODEJS MOV_MENU_431]/
+// USE /[MANUAL MOV FORM_CODEJS MOV_MENU_521]/
 // eslint-disable-next-line
 /* eslint-enable indent, vue/html-indent, vue/script-indent */
 		},
@@ -369,18 +369,18 @@
 		beforeUnmount()
 		{
 /* eslint-disable indent, vue/html-indent, vue/script-indent */
-// USE /[MANUAL MOV COMPONENT_BEFORE_UNMOUNT MOV_MENU_431]/
+// USE /[MANUAL MOV COMPONENT_BEFORE_UNMOUNT MOV_MENU_521]/
 // eslint-disable-next-line
 /* eslint-enable indent, vue/html-indent, vue/script-indent */
 		},
 
 		methods: {
 /* eslint-disable indent, vue/html-indent, vue/script-indent */
-// USE /[MANUAL MOV FUNCTIONS_JS MOV_431]/
+// USE /[MANUAL MOV FUNCTIONS_JS MOV_521]/
 // eslint-disable-next-line
 /* eslint-enable indent, vue/html-indent, vue/script-indent */
 /* eslint-disable indent, vue/html-indent, vue/script-indent */
-// USE /[MANUAL MOV LISTING_CODEJS MOV_MENU_431]/
+// USE /[MANUAL MOV LISTING_CODEJS MOV_MENU_521]/
 // eslint-disable-next-line
 /* eslint-enable indent, vue/html-indent, vue/script-indent */
 		}

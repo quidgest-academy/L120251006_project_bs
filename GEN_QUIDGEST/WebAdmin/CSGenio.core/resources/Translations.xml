@@ -78,6 +78,9 @@
   <msg id="Entid key" code="ENTID_KEY04396">
     <ENUS>Entid key</ENUS>
   </msg>
+  <msg id="Debug" code="DEBUG10585">
+    <ENUS>Debug</ENUS>
+  </msg>
   <msg id="Modules" code="MODULES33542">
     <ENUS>Modules</ENUS>
   </msg>
@@ -347,6 +350,9 @@
   </msg>
   <msg id="Info" code="INFO27076">
     <ENUS>Info</ENUS>
+  </msg>
+  <msg id="InsertData" code="INSERTDATA01141">
+    <ENUS>InsertData</ENUS>
   </msg>
   <msg id="Desautorizado" code="DESAUTORIZADO34584">
     <ENUS>Desautorizado</ENUS>

@@ -4,18 +4,18 @@ using CSGenio.business;
 using CSGenio.framework;
 using GenioMVC.Models.Navigation;
 
-namespace GenioMVC.ViewModels.Comme;
+namespace GenioMVC.ViewModels.Ratti;
 
-public class MOV_Menu_461_RowViewModel : Models.Comme
+public class MOV_Menu_551_RowViewModel : Models.Ratti
 {
 	#region Constructors
 
-	public MOV_Menu_461_RowViewModel(UserContext userContext, bool isEmpty = false, string[]? fieldsToSerialize = null) : base(userContext, isEmpty, fieldsToSerialize)
+	public MOV_Menu_551_RowViewModel(UserContext userContext, bool isEmpty = false, string[]? fieldsToSerialize = null) : base(userContext, isEmpty, fieldsToSerialize)
 	{
 		InitRowProperties();
 	}
 
-	public MOV_Menu_461_RowViewModel(UserContext userContext, CSGenioAcomme val, bool isEmpty = false, string[]? fieldsToSerialize = null) : base(userContext, val, isEmpty, fieldsToSerialize)
+	public MOV_Menu_551_RowViewModel(UserContext userContext, CSGenioAratti val, bool isEmpty = false, string[]? fieldsToSerialize = null) : base(userContext, val, isEmpty, fieldsToSerialize)
 	{
 		InitRowProperties();
 	}
@@ -36,26 +36,26 @@ public class MOV_Menu_461_RowViewModel : Models.Comme
 			new ListColumn()
 			{
 				Order = 1,
-				Area = "COMME",
-				Field = "POST",
+				Area = "RATTI",
+				Field = "RATE",
 			},
 			new ListColumn()
 			{
 				Order = 2,
-				Area = "USERP",
-				Field = "NAME",
+				Area = "RATTI",
+				Field = "RATEDAT",
 			},
 			new ListColumn()
 			{
 				Order = 3,
-				Area = "COMME",
-				Field = "CREATEAT",
+				Area = "MOVIE",
+				Field = "TITLE",
 			},
 			new ListColumn()
 			{
 				Order = 4,
-				Area = "MOVIE",
-				Field = "TITLE",
+				Area = "USERP",
+				Field = "NAME",
 			},
 		];
 	}

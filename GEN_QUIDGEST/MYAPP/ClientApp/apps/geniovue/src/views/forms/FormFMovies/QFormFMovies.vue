@@ -318,11 +318,11 @@
 					<q-control-wrapper
 						v-if="controls.F_MOVIESPSEUDNEWGRP04.isVisible"
 						class="row-line-group">
-						<q-group-box-container
+						<q-group-collapsible
 							v-if="controls.F_MOVIESPSEUDNEWGRP04.isVisible"
 							id="F_MOVIESPSEUDNEWGRP04"
 							v-bind="controls.F_MOVIESPSEUDNEWGRP04"
-							:is-visible="controls.F_MOVIESPSEUDNEWGRP04.isVisible">
+							v-on="controls.F_MOVIESPSEUDNEWGRP04.handlers">
 							<!-- Start F_MOVIESPSEUDNEWGRP04 -->
 							<q-row-container v-if="controls.F_MOVIESPSEUDDATACOME.isVisible">
 								<q-control-wrapper
@@ -360,7 +360,7 @@
 								</q-control-wrapper>
 							</q-row-container>
 							<!-- End F_MOVIESPSEUDNEWGRP04 -->
-						</q-group-box-container>
+						</q-group-collapsible>
 					</q-control-wrapper>
 				</q-row-container>
 				<q-row-container
@@ -745,6 +745,7 @@
 						isCollapsible: false,
 						anchored: false,
 						directChildren: ['F_MOVIESMOVIEPOSTER__', 'F_MOVIESMOVIETITLE___', 'F_MOVIESMOVIEDISCRIPT', 'F_MOVIESMOVIEMOVIEGEN', 'F_MOVIESMOVIERELDATE_'],
+						mustBeFilled: true,
 						controlLimits: [
 						],
 					}, this),
@@ -759,7 +760,7 @@
 						labelPosition: computed(() => this.labelAlignment.topleft),
 						container: 'F_MOVIESPSEUDNEWGRP02',
 						height: 500,
-						width: 300,
+						width: 30,
 						dataTitle: computed(() => genericFunctions.formatString(vm.Resources.IMAGEM_UTILIZADA_PAR17299, vm.Resources.POSTER52933)),
 						maxFileSize: 10485760, // In bytes.
 						maxFileSizeLabel: '10 MB',
@@ -807,6 +808,7 @@
 						container: 'F_MOVIESPSEUDNEWGRP02',
 						maxLength: 15,
 						labelId: 'label_F_MOVIESMOVIEMOVIEGEN',
+						mustBeFilled: true,
 						arrayName: 'MOVIEGENRE',
 						columns: 0,
 						controlLimits: [
@@ -954,7 +956,7 @@
 						label: computed(() => this.Resources.COMMENTS30895),
 						placeholder: '',
 						labelPosition: computed(() => this.labelAlignment.topleft),
-						isCollapsible: false,
+						isCollapsible: true,
 						anchored: false,
 						directChildren: ['F_MOVIESPSEUDDATACOME', 'F_MOVIESPSEUDFIELD002'],
 						controlLimits: [
@@ -971,7 +973,7 @@
 						controller: 'MOVIE',
 						action: 'F_movies_ValDatacome',
 						hasDependencies: false,
-						isInCollapsible: false,
+						isInCollapsible: true,
 						columnsOriginal: [
 							new listColumnTypes.TextColumn({
 								order: 1,

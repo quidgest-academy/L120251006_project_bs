@@ -95,6 +95,7 @@ namespace CSGenio.business
 			Qfield.MQueue = false;
 			Qfield.CavDesignation = "MOVIES_GENRE22042";
 
+            Qfield.NotNull = true;
 			Qfield.Dupmsg = "";
             Qfield.ArrayName = "dbo.GetValArrayCmoviegenre";
             Qfield.ArrayClassName = "Moviegenre";

@@ -85,11 +85,12 @@ public class AppPage: PageObject
 		res.AddMenu(module, "4", null);
 		res.AddMenu(module, "41", "4");
 		res.AddMenu(module, "42", "4");
-		res.AddMenu(module, "43", "4");
-		res.AddMenu(module, "44", "4");
-		res.AddMenu(module, "45", "4");
-		res.AddMenu(module, "46", "4");
-		res.AddMenu(module, "47", "4");
+		res.AddMenu(module, "5", null);
+		res.AddMenu(module, "51", "5");
+		res.AddMenu(module, "52", "5");
+		res.AddMenu(module, "53", "5");
+		res.AddMenu(module, "54", "5");
+		res.AddMenu(module, "55", "5");
         return res;
     }
 }

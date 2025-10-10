@@ -71,17 +71,17 @@
 	import qProjArrays from '@/api/genio/projectArrays.js'
 	/* eslint-enable @typescript-eslint/no-unused-vars */
 
-	import MenuViewModel from './QMenuMOV_461ViewModel.js'
+	import MenuViewModel from './QMenuMOV_511ViewModel.js'
 
-	const requiredTextResources = ['QMenuMOV_461', 'hardcoded', 'messages']
+	const requiredTextResources = ['QMenuMOV_511', 'hardcoded', 'messages']
 
 /* eslint-disable indent, vue/html-indent, vue/script-indent */
-// USE /[MANUAL MOV FORM_INCLUDEJS MOV_MENU_461]/
+// USE /[MANUAL MOV FORM_INCLUDEJS MOV_MENU_511]/
 // eslint-disable-next-line
 /* eslint-enable indent, vue/html-indent, vue/script-indent */
 
 	export default {
-		name: 'QMenuMov461',
+		name: 'QMenuMov511',
 
 		mixins: [
 			MenuHandlers
@@ -110,23 +110,23 @@
 			// eslint-disable-next-line
 			const vm = this
 			return {
-				componentOnLoadProc: asyncProcM.getProcListMonitor('QMenuMOV_461', false),
+				componentOnLoadProc: asyncProcM.getProcListMonitor('QMenuMOV_511', false),
 
 				interfaceMetadata: {
-					id: 'QMenuMOV_461', // Used for resources
+					id: 'QMenuMOV_511', // Used for resources
 					requiredTextResources
 				},
 
 				menuInfo: {
-					id: '461',
+					id: '511',
 					isMenuList: true,
-					designation: computed(() => this.Resources.COMMENTS30895),
-					acronym: 'MOV_461',
-					name: 'COMME',
-					route: 'menu-MOV_461',
-					order: '461',
-					controller: 'COMME',
-					action: 'MOV_Menu_461',
+					designation: computed(() => this.Resources.USER_PROFILE06358),
+					acronym: 'MOV_511',
+					name: 'USERP',
+					route: 'menu-MOV_511',
+					order: '511',
+					controller: 'USERP',
+					action: 'MOV_Menu_511',
 					isPopup: false
 				},
 
@@ -135,9 +135,9 @@
 				controls: {
 					menu: new controlClass.TableListControl({
 						fnHydrateViewModel: (data) => vm.model.hydrate(data),
-						id: 'MOV_Menu_461',
-						controller: 'COMME',
-						action: 'MOV_Menu_461',
+						id: 'MOV_Menu_511',
+						controller: 'USERP',
+						action: 'MOV_Menu_511',
 						hasDependencies: false,
 						isInCollapsible: false,
 						tableModeClasses: [
@@ -147,51 +147,43 @@
 						columnsOriginal: [
 							new listColumnTypes.TextColumn({
 								order: 1,
-								name: 'ValPost',
-								area: 'COMME',
-								field: 'POST',
-								label: computed(() => this.Resources.POST24992),
+								name: 'ValEmail',
+								area: 'USERP',
+								field: 'EMAIL',
+								label: computed(() => this.Resources.EMAIL25170),
+								dataLength: 80,
 								scrollData: 30,
 							}, computed(() => vm.model), computed(() => vm.internalEvents)),
-							new listColumnTypes.TextColumn({
+							new listColumnTypes.ImageColumn({
 								order: 2,
-								name: 'Userp.ValName',
+								name: 'ValPhoto',
+								area: 'USERP',
+								field: 'PHOTO',
+								label: computed(() => this.Resources.PHOTO51874),
+								dataTitle: computed(() => genericFunctions.formatString(vm.Resources.IMAGEM_UTILIZADA_PAR58591, vm.Resources.PHOTO51874)),
+								scrollData: 3,
+								sortable: false,
+								searchable: false,
+							}, computed(() => vm.model), computed(() => vm.internalEvents)),
+							new listColumnTypes.TextColumn({
+								order: 3,
+								name: 'ValName',
 								area: 'USERP',
 								field: 'NAME',
 								label: computed(() => this.Resources.NAME31974),
 								dataLength: 50,
 								scrollData: 30,
-								pkColumn: 'ValCoduserp',
-							}, computed(() => vm.model), computed(() => vm.internalEvents)),
-							new listColumnTypes.DateColumn({
-								order: 3,
-								name: 'ValCreateat',
-								area: 'COMME',
-								field: 'CREATEAT',
-								label: computed(() => this.Resources.CREATE_AT36393),
-								scrollData: 8,
-								dateTimeType: 'date',
-							}, computed(() => vm.model), computed(() => vm.internalEvents)),
-							new listColumnTypes.TextColumn({
-								order: 4,
-								name: 'Movie.ValTitle',
-								area: 'MOVIE',
-								field: 'TITLE',
-								label: computed(() => this.Resources.TITLE21885),
-								dataLength: 80,
-								scrollData: 30,
-								pkColumn: 'ValCodmovie',
 							}, computed(() => vm.model), computed(() => vm.internalEvents)),
 						],
 						config: {
-							name: 'MOV_Menu_461',
+							name: 'MOV_Menu_511',
 							serverMode: true,
-							pkColumn: 'ValCodcomme',
-							tableAlias: 'COMME',
-							tableNamePlural: computed(() => this.Resources.COMMENTS30895),
+							pkColumn: 'ValCoduserp',
+							tableAlias: 'USERP',
+							tableNamePlural: computed(() => this.Resources.USER_PROFILE06358),
 							viewManagement: '',
 							showLimitsInfo: true,
-							tableTitle: computed(() => this.Resources.COMMENTS30895),
+							tableTitle: computed(() => this.Resources.USER_PROFILE06358),
 							showAlternatePagination: true,
 							permissions: {
 							},
@@ -214,7 +206,7 @@
 									params: {
 										action: vm.openFormAction,
 										type: 'form',
-										formName: 'F_COMMEN',
+										formName: 'F_USER',
 										mode: 'SHOW',
 										isControlled: true
 									}
@@ -230,7 +222,7 @@
 									params: {
 										action: vm.openFormAction,
 										type: 'form',
-										formName: 'F_COMMEN',
+										formName: 'F_USER',
 										mode: 'EDIT',
 										isControlled: true
 									}
@@ -246,7 +238,7 @@
 									params: {
 										action: vm.openFormAction,
 										type: 'form',
-										formName: 'F_COMMEN',
+										formName: 'F_USER',
 										mode: 'DUPLICATE',
 										isControlled: true
 									}
@@ -262,7 +254,7 @@
 									params: {
 										action: vm.openFormAction,
 										type: 'form',
-										formName: 'F_COMMEN',
+										formName: 'F_USER',
 										mode: 'DELETE',
 										isControlled: true
 									}
@@ -280,7 +272,7 @@
 									params: {
 										action: vm.openFormAction,
 										type: 'form',
-										formName: 'F_COMMEN',
+										formName: 'F_USER',
 										mode: 'NEW',
 										repeatInsertion: false,
 										isControlled: true
@@ -296,35 +288,35 @@
 							MCActions: [
 							],
 							rowClickAction: {
-								id: 'RCA_MOV_4611',
-								name: 'form-F_COMMEN',
+								id: 'RCA_MOV_5111',
+								name: 'form-F_USER',
 								params: {
 									isRoute: true,
 									limits: [
 										{
 											identifier: 'id',
-											fnValueSelector: (row) => row.ValCodcomme
+											fnValueSelector: (row) => row.ValCoduserp
 										},
 									],
 									isControlled: true,
-									action: vm.openFormAction, type: 'form', mode: 'SHOW', formName: 'F_COMMEN'
+									action: vm.openFormAction, type: 'form', mode: 'SHOW', formName: 'F_USER'
 								}
 							},
 							formsDefinition: {
-								'F_COMMEN': {
-									fnKeySelector: (row) => row.Fields.ValCodcomme,
+								'F_USER': {
+									fnKeySelector: (row) => row.Fields.ValCoduserp,
 									isPopup: false
 								},
 							},
-							defaultSearchColumnName: '',
-							defaultSearchColumnNameOriginal: '',
+							defaultSearchColumnName: 'ValName',
+							defaultSearchColumnNameOriginal: 'ValName',
 							defaultColumnSorting: {
-								columnName: 'ValCreateat',
+								columnName: 'ValEmail',
 								sortOrder: 'asc'
 							}
 						},
-						globalEvents: ['changed-COMME', 'changed-USERP', 'changed-MOVIE'],
-						uuid: '5d141bc5-0e43-4e72-a312-980929757c58',
+						globalEvents: ['changed-PSW', 'changed-USERP'],
+						uuid: '468d0795-c920-4076-8f0b-616e43cf51fe',
 						allSelectedRows: 'false',
 						headerLevel: 1,
 					}, this),
@@ -349,7 +341,7 @@
 		mounted()
 		{
 /* eslint-disable indent, vue/html-indent, vue/script-indent */
-// USE /[MANUAL MOV FORM_CODEJS MOV_MENU_461]/
+// USE /[MANUAL MOV FORM_CODEJS MOV_MENU_511]/
 // eslint-disable-next-line
 /* eslint-enable indent, vue/html-indent, vue/script-indent */
 		},
@@ -357,18 +349,18 @@
 		beforeUnmount()
 		{
 /* eslint-disable indent, vue/html-indent, vue/script-indent */
-// USE /[MANUAL MOV COMPONENT_BEFORE_UNMOUNT MOV_MENU_461]/
+// USE /[MANUAL MOV COMPONENT_BEFORE_UNMOUNT MOV_MENU_511]/
 // eslint-disable-next-line
 /* eslint-enable indent, vue/html-indent, vue/script-indent */
 		},
 
 		methods: {
 /* eslint-disable indent, vue/html-indent, vue/script-indent */
-// USE /[MANUAL MOV FUNCTIONS_JS MOV_461]/
+// USE /[MANUAL MOV FUNCTIONS_JS MOV_511]/
 // eslint-disable-next-line
 /* eslint-enable indent, vue/html-indent, vue/script-indent */
 /* eslint-disable indent, vue/html-indent, vue/script-indent */
-// USE /[MANUAL MOV LISTING_CODEJS MOV_MENU_461]/
+// USE /[MANUAL MOV LISTING_CODEJS MOV_MENU_511]/
 // eslint-disable-next-line
 /* eslint-enable indent, vue/html-indent, vue/script-indent */
 		}

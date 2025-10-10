@@ -71,17 +71,17 @@
 	import qProjArrays from '@/api/genio/projectArrays.js'
 	/* eslint-enable @typescript-eslint/no-unused-vars */
 
-	import MenuViewModel from './QMenuMOV_451ViewModel.js'
+	import MenuViewModel from './QMenuMOV_551ViewModel.js'
 
-	const requiredTextResources = ['QMenuMOV_451', 'hardcoded', 'messages']
+	const requiredTextResources = ['QMenuMOV_551', 'hardcoded', 'messages']
 
 /* eslint-disable indent, vue/html-indent, vue/script-indent */
-// USE /[MANUAL MOV FORM_INCLUDEJS MOV_MENU_451]/
+// USE /[MANUAL MOV FORM_INCLUDEJS MOV_MENU_551]/
 // eslint-disable-next-line
 /* eslint-enable indent, vue/html-indent, vue/script-indent */
 
 	export default {
-		name: 'QMenuMov451',
+		name: 'QMenuMov551',
 
 		mixins: [
 			MenuHandlers
@@ -110,23 +110,23 @@
 			// eslint-disable-next-line
 			const vm = this
 			return {
-				componentOnLoadProc: asyncProcM.getProcListMonitor('QMenuMOV_451', false),
+				componentOnLoadProc: asyncProcM.getProcListMonitor('QMenuMOV_551', false),
 
 				interfaceMetadata: {
-					id: 'QMenuMOV_451', // Used for resources
+					id: 'QMenuMOV_551', // Used for resources
 					requiredTextResources
 				},
 
 				menuInfo: {
-					id: '451',
+					id: '551',
 					isMenuList: true,
-					designation: computed(() => this.Resources.FAVORITES12182),
-					acronym: 'MOV_451',
-					name: 'FAVOR',
-					route: 'menu-MOV_451',
-					order: '451',
-					controller: 'FAVOR',
-					action: 'MOV_Menu_451',
+					designation: computed(() => this.Resources.RATTING61217),
+					acronym: 'MOV_551',
+					name: 'RATTI',
+					route: 'menu-MOV_551',
+					order: '551',
+					controller: 'RATTI',
+					action: 'MOV_Menu_551',
 					isPopup: false
 				},
 
@@ -135,9 +135,9 @@
 				controls: {
 					menu: new controlClass.TableListControl({
 						fnHydrateViewModel: (data) => vm.model.hydrate(data),
-						id: 'MOV_Menu_451',
-						controller: 'FAVOR',
-						action: 'MOV_Menu_451',
+						id: 'MOV_Menu_551',
+						controller: 'RATTI',
+						action: 'MOV_Menu_551',
 						hasDependencies: false,
 						isInCollapsible: false,
 						tableModeClasses: [
@@ -145,17 +145,27 @@
 							'page-full-height'
 						],
 						columnsOriginal: [
-							new listColumnTypes.DateColumn({
+							new listColumnTypes.NumericColumn({
 								order: 1,
-								name: 'ValFavorite_at',
-								area: 'FAVOR',
-								field: 'FAVORITE_AT',
-								label: computed(() => this.Resources.FAVORITE_AT27922),
-								scrollData: 8,
-								dateTimeType: 'date',
+								name: 'ValRate',
+								area: 'RATTI',
+								field: 'RATE',
+								label: computed(() => this.Resources.RATE50728),
+								scrollData: 1,
+								maxDigits: 1,
+								decimalPlaces: 0,
+							}, computed(() => vm.model), computed(() => vm.internalEvents)),
+							new listColumnTypes.DateColumn({
+								order: 2,
+								name: 'ValRatedat',
+								area: 'RATTI',
+								field: 'RATEDAT',
+								label: computed(() => this.Resources.RATE_AT01141),
+								scrollData: 16,
+								dateTimeType: 'dateTime',
 							}, computed(() => vm.model), computed(() => vm.internalEvents)),
 							new listColumnTypes.TextColumn({
-								order: 2,
+								order: 3,
 								name: 'Movie.ValTitle',
 								area: 'MOVIE',
 								field: 'TITLE',
@@ -165,7 +175,7 @@
 								pkColumn: 'ValCodmovie',
 							}, computed(() => vm.model), computed(() => vm.internalEvents)),
 							new listColumnTypes.TextColumn({
-								order: 3,
+								order: 4,
 								name: 'Userp.ValName',
 								area: 'USERP',
 								field: 'NAME',
@@ -176,14 +186,14 @@
 							}, computed(() => vm.model), computed(() => vm.internalEvents)),
 						],
 						config: {
-							name: 'MOV_Menu_451',
+							name: 'MOV_Menu_551',
 							serverMode: true,
-							pkColumn: 'ValCodfavor',
-							tableAlias: 'FAVOR',
-							tableNamePlural: computed(() => this.Resources.FAVORITES12182),
+							pkColumn: 'ValCodratti',
+							tableAlias: 'RATTI',
+							tableNamePlural: computed(() => this.Resources.RATTING61217),
 							viewManagement: '',
 							showLimitsInfo: true,
-							tableTitle: computed(() => this.Resources.FAVORITES12182),
+							tableTitle: computed(() => this.Resources.RATTING61217),
 							showAlternatePagination: true,
 							permissions: {
 							},
@@ -206,7 +216,7 @@
 									params: {
 										action: vm.openFormAction,
 										type: 'form',
-										formName: 'F_FAVORI',
+										formName: 'F_RATTIN',
 										mode: 'SHOW',
 										isControlled: true
 									}
@@ -222,7 +232,7 @@
 									params: {
 										action: vm.openFormAction,
 										type: 'form',
-										formName: 'F_FAVORI',
+										formName: 'F_RATTIN',
 										mode: 'EDIT',
 										isControlled: true
 									}
@@ -238,7 +248,7 @@
 									params: {
 										action: vm.openFormAction,
 										type: 'form',
-										formName: 'F_FAVORI',
+										formName: 'F_RATTIN',
 										mode: 'DUPLICATE',
 										isControlled: true
 									}
@@ -254,7 +264,7 @@
 									params: {
 										action: vm.openFormAction,
 										type: 'form',
-										formName: 'F_FAVORI',
+										formName: 'F_RATTIN',
 										mode: 'DELETE',
 										isControlled: true
 									}
@@ -272,7 +282,7 @@
 									params: {
 										action: vm.openFormAction,
 										type: 'form',
-										formName: 'F_FAVORI',
+										formName: 'F_RATTIN',
 										mode: 'NEW',
 										repeatInsertion: false,
 										isControlled: true
@@ -288,35 +298,35 @@
 							MCActions: [
 							],
 							rowClickAction: {
-								id: 'RCA_MOV_4511',
-								name: 'form-F_FAVORI',
+								id: 'RCA_MOV_5511',
+								name: 'form-F_RATTIN',
 								params: {
 									isRoute: true,
 									limits: [
 										{
 											identifier: 'id',
-											fnValueSelector: (row) => row.ValCodfavor
+											fnValueSelector: (row) => row.ValCodratti
 										},
 									],
 									isControlled: true,
-									action: vm.openFormAction, type: 'form', mode: 'SHOW', formName: 'F_FAVORI'
+									action: vm.openFormAction, type: 'form', mode: 'SHOW', formName: 'F_RATTIN'
 								}
 							},
 							formsDefinition: {
-								'F_FAVORI': {
-									fnKeySelector: (row) => row.Fields.ValCodfavor,
+								'F_RATTIN': {
+									fnKeySelector: (row) => row.Fields.ValCodratti,
 									isPopup: true
 								},
 							},
 							defaultSearchColumnName: '',
 							defaultSearchColumnNameOriginal: '',
 							defaultColumnSorting: {
-								columnName: 'ValFavorite_at',
+								columnName: 'ValRatedat',
 								sortOrder: 'asc'
 							}
 						},
-						globalEvents: ['changed-MOVIE', 'changed-USERP', 'changed-FAVOR'],
-						uuid: '18499c05-7ba4-438e-af8a-976e3d3593ba',
+						globalEvents: ['changed-RATTI', 'changed-MOVIE', 'changed-USERP'],
+						uuid: 'ca901659-2549-4669-ae55-6675bd348d58',
 						allSelectedRows: 'false',
 						headerLevel: 1,
 					}, this),
@@ -341,7 +351,7 @@
 		mounted()
 		{
 /* eslint-disable indent, vue/html-indent, vue/script-indent */
-// USE /[MANUAL MOV FORM_CODEJS MOV_MENU_451]/
+// USE /[MANUAL MOV FORM_CODEJS MOV_MENU_551]/
 // eslint-disable-next-line
 /* eslint-enable indent, vue/html-indent, vue/script-indent */
 		},
@@ -349,18 +359,18 @@
 		beforeUnmount()
 		{
 /* eslint-disable indent, vue/html-indent, vue/script-indent */
-// USE /[MANUAL MOV COMPONENT_BEFORE_UNMOUNT MOV_MENU_451]/
+// USE /[MANUAL MOV COMPONENT_BEFORE_UNMOUNT MOV_MENU_551]/
 // eslint-disable-next-line
 /* eslint-enable indent, vue/html-indent, vue/script-indent */
 		},
 
 		methods: {
 /* eslint-disable indent, vue/html-indent, vue/script-indent */
-// USE /[MANUAL MOV FUNCTIONS_JS MOV_451]/
+// USE /[MANUAL MOV FUNCTIONS_JS MOV_551]/
 // eslint-disable-next-line
 /* eslint-enable indent, vue/html-indent, vue/script-indent */
 /* eslint-disable indent, vue/html-indent, vue/script-indent */
-// USE /[MANUAL MOV LISTING_CODEJS MOV_MENU_451]/
+// USE /[MANUAL MOV LISTING_CODEJS MOV_MENU_551]/
 // eslint-disable-next-line
 /* eslint-enable indent, vue/html-indent, vue/script-indent */
 		}

@@ -156,9 +156,10 @@ public class MOV_Menu_421_RowViewModel : Models.Movie
 
 	/// <summary>
 	/// The background color
+	/// Formula: iif([MOVIE->RELDATE]>[Today],HEXCOLOUR("f7c65c"),iif([MOVIE->RELDATE]<[Today],HEXCOLOUR("4deb94"),HEXCOLOUR("ffffff")))
 	/// </summary>
 	[JsonPropertyName("backgroundColor")]
-	public string BackgroundColor => "";
+	public string BackgroundColor => ((((DateTime)this.ValRealease_date)>DateTime.Today)?("#"+"f7c65c"):(((((DateTime)this.ValRealease_date)<DateTime.Today)?("#"+"4deb94"):("#"+"ffffff"))));
 
 	/// <summary>
 	/// Runs init logic that depends on row data.

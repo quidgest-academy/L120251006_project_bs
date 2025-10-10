@@ -35,7 +35,7 @@ namespace GenioMVC.ViewModels.Movie
 		/// <summary>
 		/// Title: "Poster" | Type: "IJ"
 		/// </summary>
-		[ImageThumbnailJsonConverter(300, 500)]
+		[ImageThumbnailJsonConverter(30, 500)]
 		public GenioMVC.Models.ImageModel ValPoster { get; set; }
 		/// <summary>
 		/// Title: "Title" | Type: "C"
@@ -506,6 +506,8 @@ namespace GenioMVC.ViewModels.Movie
 			CrudViewModelFieldValidator validator = new(m_userContext.User.Language);
 
 			validator.StringLength("ValTitle", Resources.Resources.TITLE21885, ValTitle, 80);
+
+			validator.Required("ValMoviesgenre", Resources.Resources.MOVIES_GENRE22042, ViewModelConversion.ToString(ValMoviesgenre), FieldType.ARRAY_TEXT.GetFormatting());
 
 
 			return validator.GetResult();

@@ -255,11 +255,11 @@
 					<q-control-wrapper
 						v-if="controls.F_MOVADMPSEUDNEWGRP02.isVisible"
 						class="row-line-group">
-						<q-group-box-container
+						<q-group-collapsible
 							v-if="controls.F_MOVADMPSEUDNEWGRP02.isVisible"
 							id="F_MOVADMPSEUDNEWGRP02"
 							v-bind="controls.F_MOVADMPSEUDNEWGRP02"
-							:is-visible="controls.F_MOVADMPSEUDNEWGRP02.isVisible">
+							v-on="controls.F_MOVADMPSEUDNEWGRP02.handlers">
 							<!-- Start F_MOVADMPSEUDNEWGRP02 -->
 							<q-row-container v-if="controls.F_MOVADMMOVIENUMBEROF.isVisible || controls.F_MOVADMMOVIELASTRATE.isVisible || controls.F_MOVADMMOVIEARATE___.isVisible">
 								<q-control-wrapper
@@ -315,7 +315,7 @@
 								</q-control-wrapper>
 							</q-row-container>
 							<!-- End F_MOVADMPSEUDNEWGRP02 -->
-						</q-group-box-container>
+						</q-group-collapsible>
 					</q-control-wrapper>
 				</q-row-container>
 			</template>
@@ -669,6 +669,7 @@
 						isCollapsible: false,
 						anchored: false,
 						directChildren: ['F_MOVADMMOVIEPOSTER__', 'F_MOVADMMOVIEBACKDROP', 'F_MOVADMMOVIETITLE___', 'F_MOVADMMOVIERELDATE_', 'F_MOVADMMOVIECREATEAT', 'F_MOVADMMOVIEMOVIEGEN', 'F_MOVADMMOVIEDISCRIPT'],
+						mustBeFilled: true,
 						controlLimits: [
 						],
 					}, this),
@@ -762,6 +763,7 @@
 						container: 'F_MOVADMPSEUDNEWGRP01',
 						maxLength: 15,
 						labelId: 'label_F_MOVADMMOVIEMOVIEGEN',
+						mustBeFilled: true,
 						arrayName: 'MOVIEGENRE',
 						columns: 0,
 						controlLimits: [
@@ -789,7 +791,7 @@
 						label: computed(() => this.Resources.FEEDBACK_ZONE21601),
 						placeholder: '',
 						labelPosition: computed(() => this.labelAlignment.topleft),
-						isCollapsible: false,
+						isCollapsible: true,
 						anchored: false,
 						directChildren: ['F_MOVADMMOVIENUMBEROF', 'F_MOVADMMOVIELASTRATE', 'F_MOVADMMOVIEARATE___'],
 						controlLimits: [

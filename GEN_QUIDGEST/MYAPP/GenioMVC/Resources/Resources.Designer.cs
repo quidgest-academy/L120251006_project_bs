@@ -297,6 +297,15 @@ namespace GenioMVC.Resources
 		}
 
 		/// <summary>
+		///   Looks up a localized string similar to "Debug"
+		/// </summary>
+		public static string DEBUG10585 {
+			get {
+				return ResourceManager.GetString("DEBUG10585", resourceCulture);
+			}
+		}
+
+		/// <summary>
 		///   Looks up a localized string similar to "Modules"
 		/// </summary>
 		public static string MODULES33542 {
@@ -1103,6 +1112,15 @@ namespace GenioMVC.Resources
 		public static string INFO27076 {
 			get {
 				return ResourceManager.GetString("INFO27076", resourceCulture);
+			}
+		}
+
+		/// <summary>
+		///   Looks up a localized string similar to "InsertData"
+		/// </summary>
+		public static string INSERTDATA01141 {
+			get {
+				return ResourceManager.GetString("INSERTDATA01141", resourceCulture);
 			}
 		}
 

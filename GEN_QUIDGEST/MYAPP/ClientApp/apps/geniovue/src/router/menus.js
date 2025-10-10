@@ -5,13 +5,13 @@ export default function getMenusRoutes()
 {
 	return [
 		{
-			path: '/:culture/:system/MOV/menu/MOV_471',
-			name: 'menu-MOV_471',
-			component: () => import('@/views/menus/ModuleMOV/MenuMOV_471/QMenuMov471.vue'),
+			path: '/:culture/:system/MOV/menu/MOV_551',
+			name: 'menu-MOV_551',
+			component: () => import('@/views/menus/ModuleMOV/MenuMOV_551/QMenuMov551.vue'),
 			meta: {
 				routeType: 'menu',
 				module: 'MOV',
-				order: '471',
+				order: '551',
 				baseArea: 'RATTI',
 				hasInitialPHE: false,
 				humanKeyFields: [],
@@ -31,26 +31,26 @@ export default function getMenusRoutes()
 			}
 		},
 		{
-			path: '/:culture/:system/MOV/menu/MOV_451',
-			name: 'menu-MOV_451',
-			component: () => import('@/views/menus/ModuleMOV/MenuMOV_451/QMenuMov451.vue'),
+			path: '/:culture/:system/MOV/menu/MOV_531',
+			name: 'menu-MOV_531',
+			component: () => import('@/views/menus/ModuleMOV/MenuMOV_531/QMenuMov531.vue'),
 			meta: {
 				routeType: 'menu',
 				module: 'MOV',
-				order: '451',
+				order: '531',
 				baseArea: 'FAVOR',
 				hasInitialPHE: false,
 				humanKeyFields: [],
 			}
 		},
 		{
-			path: '/:culture/:system/MOV/menu/MOV_441',
-			name: 'menu-MOV_441',
-			component: () => import('@/views/menus/ModuleMOV/MenuMOV_441/QMenuMov441.vue'),
+			path: '/:culture/:system/MOV/menu/MOV_511',
+			name: 'menu-MOV_511',
+			component: () => import('@/views/menus/ModuleMOV/MenuMOV_511/QMenuMov511.vue'),
 			meta: {
 				routeType: 'menu',
 				module: 'MOV',
-				order: '441',
+				order: '511',
 				baseArea: 'USERP',
 				hasInitialPHE: false,
 				humanKeyFields: ['ValName'],
@@ -83,13 +83,13 @@ export default function getMenusRoutes()
 			}
 		},
 		{
-			path: '/:culture/:system/MOV/menu/MOV_461',
-			name: 'menu-MOV_461',
-			component: () => import('@/views/menus/ModuleMOV/MenuMOV_461/QMenuMov461.vue'),
+			path: '/:culture/:system/MOV/menu/MOV_541',
+			name: 'menu-MOV_541',
+			component: () => import('@/views/menus/ModuleMOV/MenuMOV_541/QMenuMov541.vue'),
 			meta: {
 				routeType: 'menu',
 				module: 'MOV',
-				order: '461',
+				order: '541',
 				baseArea: 'COMME',
 				hasInitialPHE: false,
 				humanKeyFields: [],
@@ -124,13 +124,13 @@ export default function getMenusRoutes()
 			}
 		},
 		{
-			path: '/:culture/:system/MOV/menu/MOV_431',
-			name: 'menu-MOV_431',
-			component: () => import('@/views/menus/ModuleMOV/MenuMOV_431/QMenuMov431.vue'),
+			path: '/:culture/:system/MOV/menu/MOV_521',
+			name: 'menu-MOV_521',
+			component: () => import('@/views/menus/ModuleMOV/MenuMOV_521/QMenuMov521.vue'),
 			meta: {
 				routeType: 'menu',
 				module: 'MOV',
-				order: '431',
+				order: '521',
 				baseArea: 'CHARA',
 				hasInitialPHE: false,
 				humanKeyFields: ['ValName'],

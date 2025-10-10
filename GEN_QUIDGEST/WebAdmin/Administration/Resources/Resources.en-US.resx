@@ -195,6 +195,9 @@
   <data name="ENTID_KEY04396" xml:space="preserve">
     <value>Entid key</value>
   </data>
+  <data name="DEBUG10585" xml:space="preserve">
+    <value>Debug</value>
+  </data>
   <data name="MODULES33542" xml:space="preserve">
     <value>Modules</value>
   </data>
@@ -464,6 +467,9 @@
   </data>
   <data name="INFO27076" xml:space="preserve">
     <value>Info</value>
+  </data>
+  <data name="INSERTDATA01141" xml:space="preserve">
+    <value>InsertData</value>
   </data>
   <data name="DESAUTORIZADO34584" xml:space="preserve">
     <value>Desautorizado</value>
