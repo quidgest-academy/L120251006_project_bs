@@ -840,8 +840,8 @@
 						labelPosition: computed(() => this.labelAlignment.topleft),
 						container: 'F_MOVADMPSEUDNEWGRP02',
 						isFormulaBlocked: true,
-						maxIntegers: 9,
-						maxDecimals: 0,
+						maxIntegers: 6,
+						maxDecimals: 2,
 						controlLimits: [
 						],
 					}, this),

@@ -122,7 +122,7 @@ namespace GenioMVC.ViewModels
 			[
 				new Exports.QColumn(CSGenioAmovie.FldTitle, FieldType.TEXT, Resources.Resources.TITLE21885, 30, 0, true),
 				new Exports.QColumn(CSGenioAmovie.FldRealease_date, FieldType.DATE, Resources.Resources.REALEASE_DATE49316, 8, 0, true),
-				new Exports.QColumn(CSGenioAmovie.FldAveragerate, FieldType.NUMERIC, Resources.Resources.AVERAGE_RATE24140, 9, 0, true),
+				new Exports.QColumn(CSGenioAmovie.FldAveragerate, FieldType.NUMERIC, Resources.Resources.AVERAGE_RATE24140, 9, 2, true),
 			];
 		}
 

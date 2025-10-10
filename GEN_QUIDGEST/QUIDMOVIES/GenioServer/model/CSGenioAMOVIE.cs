@@ -175,7 +175,8 @@ namespace CSGenio.business
 			Qfield.FieldDescription = "Average Rate";
 			Qfield.FieldSize =  9;
 			Qfield.MQueue = false;
-			Qfield.IntegerDigits = 9;
+			Qfield.IntegerDigits = 6;
+			Qfield.Decimals = 2;
 			Qfield.CavDesignation = "AVERAGE_RATE24140";
 
 			Qfield.Dupmsg = "";

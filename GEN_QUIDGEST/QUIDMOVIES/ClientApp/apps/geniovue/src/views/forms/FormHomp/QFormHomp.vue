@@ -746,8 +746,8 @@
 								field: 'AVERAGERATE',
 								label: computed(() => this.Resources.AVERAGE_RATE24140),
 								scrollData: 9,
-								maxDigits: 9,
-								decimalPlaces: 0,
+								maxDigits: 6,
+								decimalPlaces: 2,
 							}, computed(() => vm.model), computed(() => vm.internalEvents)),
 						],
 						config: {

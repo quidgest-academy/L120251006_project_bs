@@ -154,7 +154,7 @@ namespace GenioMVC.ViewModels.Movie
 				new Exports.QColumn(CSGenioAmovie.FldTotalrate, FieldType.NUMERIC, Resources.Resources.TOTAL_RATE13592, 6, 0, true),
 				new Exports.QColumn(CSGenioAmovie.FldLastrate, FieldType.NUMERIC, Resources.Resources.LASTRATE08537, 1, 0, true),
 				new Exports.QColumn(CSGenioAmovie.FldSumavg, FieldType.NUMERIC, string.Empty, 6, 0, true),
-				new Exports.QColumn(CSGenioAmovie.FldAveragerate, FieldType.NUMERIC, Resources.Resources.AVERAGE_RATE24140, 9, 0, true),
+				new Exports.QColumn(CSGenioAmovie.FldAveragerate, FieldType.NUMERIC, Resources.Resources.AVERAGE_RATE24140, 9, 2, true),
 			];
 		}
 
