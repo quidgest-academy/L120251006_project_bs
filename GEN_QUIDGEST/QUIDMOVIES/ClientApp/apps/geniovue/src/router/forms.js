@@ -59,17 +59,6 @@ export default function getFormsRoutes()
 			}
 		},
 		{
-			path: '/:culture/:system/:module/form/F_PROFIL/:mode/:id?',
-			name: 'form-F_PROFIL',
-			props: route => propsConverter(route),
-			component: () => import('@/views/forms/FormFProfil/QFormFProfil.vue'),
-			meta: {
-				routeType: 'form',
-				baseArea: 'USERP',
-				humanKeyFields: ['ValName']
-			}
-		},
-		{
 			path: '/:culture/:system/:module/form/F_RATTIN/:mode/:id?',
 			name: 'form-F_RATTIN',
 			props: route => propsConverter(route),

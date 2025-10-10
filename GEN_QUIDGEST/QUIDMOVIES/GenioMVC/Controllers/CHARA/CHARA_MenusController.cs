@@ -28,32 +28,27 @@ namespace GenioMVC.Controllers
 {
 	public partial class CharaController : ControllerBase
 	{
-		private static readonly NavigationLocation ACTION_MOV_MENU_41 = new NavigationLocation("CHARACTERS03735", "MOV_Menu_41", "Chara") { vueRouteName = "menu-MOV_41" };
-		private static readonly NavigationLocation ACTION_MOV_MENU_5211 = new NavigationLocation("CHARACTERS03735", "MOV_Menu_5211", "Chara") { vueRouteName = "menu-MOV_5211" };
-		private static readonly NavigationLocation ACTION_MOV_MENU_621 = new NavigationLocation("CHARACTERS03735", "MOV_Menu_621", "Chara") { vueRouteName = "menu-MOV_621" };
+		private static readonly NavigationLocation ACTION_MOV_MENU_31 = new NavigationLocation("CHARACTERS03735", "MOV_Menu_31", "Chara") { vueRouteName = "menu-MOV_31" };
+		private static readonly NavigationLocation ACTION_MOV_MENU_4211 = new NavigationLocation("CHARACTERS03735", "MOV_Menu_4211", "Chara") { vueRouteName = "menu-MOV_4211" };
+		private static readonly NavigationLocation ACTION_MOV_MENU_521 = new NavigationLocation("CHARACTERS03735", "MOV_Menu_521", "Chara") { vueRouteName = "menu-MOV_521" };
 
 
 		//
-		// GET: /Chara/MOV_Menu_41
-		[ActionName("MOV_Menu_41")]
+		// GET: /Chara/MOV_Menu_31
+		[ActionName("MOV_Menu_31")]
 		[HttpPost]
-		public ActionResult MOV_Menu_41([FromBody]RequestMenuModel requestModel)
+		public ActionResult MOV_Menu_31([FromBody]RequestMenuModel requestModel)
 		{
 			var queryParams = requestModel.QueryParams;
 
 			int perPage = CSGenio.framework.Configuration.NrRegDBedit;
 			string rowsPerPageOptionsString = "";
 
-			MOV_Menu_41_ViewModel model = new MOV_Menu_41_ViewModel(UserContext.Current);
+			MOV_Menu_31_ViewModel model = new MOV_Menu_31_ViewModel(UserContext.Current);
 
 			// Table configuration load options
 			CSGenio.framework.TableConfiguration.TableConfigurationLoadOptions tableConfigOptions = new CSGenio.framework.TableConfiguration.TableConfigurationLoadOptions();
 
-			// Static filter "order" fields that have changed
-			tableConfigOptions.StaticFiltersKeyShiftValues = new Dictionary<string, int>
-			{
-				{ "filter_MOV_Menu_41_GENREFILTE", 0 }
-			};
 
 			// Determine which table configuration to use and load it
 			CSGenio.framework.TableConfiguration.TableConfiguration tableConfig = TableUiSettings.Load(
@@ -82,7 +77,7 @@ namespace GenioMVC.Controllers
 
 			bool isHomePage = RouteData.Values.ContainsKey("isHomePage") ? (bool)RouteData.Values["isHomePage"] : false;
 			if (isHomePage)
-				Navigation.SetValue("HomePage", "MOV_Menu_41");
+				Navigation.SetValue("HomePage", "MOV_Menu_31");
 
 			//If there was a recent operation on this table then force the primary persistence server to be called and ignore the read only feature
 			if (string.IsNullOrEmpty(Navigation.GetStrValue("ForcePrimaryRead_chara")))
@@ -101,18 +96,18 @@ namespace GenioMVC.Controllers
 				querystring.AddRange(queryParams);
 
 			if (!isHomePage &&
-				(Navigation.CurrentLevel == null || !ACTION_MOV_MENU_41.IsSameAction(Navigation.CurrentLevel.Location)) &&
-				Navigation.CurrentLevel.Location.Action != ACTION_MOV_MENU_41.Action)
+				(Navigation.CurrentLevel == null || !ACTION_MOV_MENU_31.IsSameAction(Navigation.CurrentLevel.Location)) &&
+				Navigation.CurrentLevel.Location.Action != ACTION_MOV_MENU_31.Action)
 				CSGenio.framework.Audit.registAction(UserContext.Current.User, Resources.Resources.MENU01948 + " " + Navigation.CurrentLevel.Location.ShortDescription());
 			else if (isHomePage)
 			{
-				CSGenio.framework.Audit.registAction(UserContext.Current.User, Resources.Resources.MENU01948 + " " + ACTION_MOV_MENU_41.ShortDescription());
+				CSGenio.framework.Audit.registAction(UserContext.Current.User, Resources.Resources.MENU01948 + " " + ACTION_MOV_MENU_31.ShortDescription());
 				Navigation.SetValue("HomePageContainsList", true);
 			}
 
 
 
-// USE /[MANUAL MOV MENU_GET 41]/
+// USE /[MANUAL MOV MENU_GET 31]/
 
 
             try
@@ -129,17 +124,17 @@ namespace GenioMVC.Controllers
 		}
 
 		//
-		// GET: /Chara/MOV_Menu_5211
-		[ActionName("MOV_Menu_5211")]
+		// GET: /Chara/MOV_Menu_4211
+		[ActionName("MOV_Menu_4211")]
 		[HttpPost]
-		public ActionResult MOV_Menu_5211([FromBody]RequestMenuModel requestModel)
+		public ActionResult MOV_Menu_4211([FromBody]RequestMenuModel requestModel)
 		{
 			var queryParams = requestModel.QueryParams;
 
 			int perPage = CSGenio.framework.Configuration.NrRegDBedit;
 			string rowsPerPageOptionsString = "";
 
-			MOV_Menu_5211_ViewModel model = new MOV_Menu_5211_ViewModel(UserContext.Current);
+			MOV_Menu_4211_ViewModel model = new MOV_Menu_4211_ViewModel(UserContext.Current);
 
 			// Table configuration load options
 			CSGenio.framework.TableConfiguration.TableConfigurationLoadOptions tableConfigOptions = new CSGenio.framework.TableConfiguration.TableConfigurationLoadOptions();
@@ -172,7 +167,7 @@ namespace GenioMVC.Controllers
 
 			bool isHomePage = RouteData.Values.ContainsKey("isHomePage") ? (bool)RouteData.Values["isHomePage"] : false;
 			if (isHomePage)
-				Navigation.SetValue("HomePage", "MOV_Menu_5211");
+				Navigation.SetValue("HomePage", "MOV_Menu_4211");
 
 			//If there was a recent operation on this table then force the primary persistence server to be called and ignore the read only feature
 			if (string.IsNullOrEmpty(Navigation.GetStrValue("ForcePrimaryRead_chara")))
@@ -191,12 +186,12 @@ namespace GenioMVC.Controllers
 				querystring.AddRange(queryParams);
 
 			if (!isHomePage &&
-				(Navigation.CurrentLevel == null || !ACTION_MOV_MENU_5211.IsSameAction(Navigation.CurrentLevel.Location)) &&
-				Navigation.CurrentLevel.Location.Action != ACTION_MOV_MENU_5211.Action)
+				(Navigation.CurrentLevel == null || !ACTION_MOV_MENU_4211.IsSameAction(Navigation.CurrentLevel.Location)) &&
+				Navigation.CurrentLevel.Location.Action != ACTION_MOV_MENU_4211.Action)
 				CSGenio.framework.Audit.registAction(UserContext.Current.User, Resources.Resources.MENU01948 + " " + Navigation.CurrentLevel.Location.ShortDescription());
 			else if (isHomePage)
 			{
-				CSGenio.framework.Audit.registAction(UserContext.Current.User, Resources.Resources.MENU01948 + " " + ACTION_MOV_MENU_5211.ShortDescription());
+				CSGenio.framework.Audit.registAction(UserContext.Current.User, Resources.Resources.MENU01948 + " " + ACTION_MOV_MENU_4211.ShortDescription());
 				Navigation.SetValue("HomePageContainsList", true);
 			}
 
@@ -205,7 +200,7 @@ namespace GenioMVC.Controllers
 				Navigation.SetValue("movie", querystring["movie"]);
 
 
-// USE /[MANUAL MOV MENU_GET 5211]/
+// USE /[MANUAL MOV MENU_GET 4211]/
 
 
             try
@@ -222,17 +217,17 @@ namespace GenioMVC.Controllers
 		}
 
 		//
-		// GET: /Chara/MOV_Menu_621
-		[ActionName("MOV_Menu_621")]
+		// GET: /Chara/MOV_Menu_521
+		[ActionName("MOV_Menu_521")]
 		[HttpPost]
-		public ActionResult MOV_Menu_621([FromBody]RequestMenuModel requestModel)
+		public ActionResult MOV_Menu_521([FromBody]RequestMenuModel requestModel)
 		{
 			var queryParams = requestModel.QueryParams;
 
 			int perPage = CSGenio.framework.Configuration.NrRegDBedit;
 			string rowsPerPageOptionsString = "";
 
-			MOV_Menu_621_ViewModel model = new MOV_Menu_621_ViewModel(UserContext.Current);
+			MOV_Menu_521_ViewModel model = new MOV_Menu_521_ViewModel(UserContext.Current);
 
 			// Table configuration load options
 			CSGenio.framework.TableConfiguration.TableConfigurationLoadOptions tableConfigOptions = new CSGenio.framework.TableConfiguration.TableConfigurationLoadOptions();
@@ -265,7 +260,7 @@ namespace GenioMVC.Controllers
 
 			bool isHomePage = RouteData.Values.ContainsKey("isHomePage") ? (bool)RouteData.Values["isHomePage"] : false;
 			if (isHomePage)
-				Navigation.SetValue("HomePage", "MOV_Menu_621");
+				Navigation.SetValue("HomePage", "MOV_Menu_521");
 
 			//If there was a recent operation on this table then force the primary persistence server to be called and ignore the read only feature
 			if (string.IsNullOrEmpty(Navigation.GetStrValue("ForcePrimaryRead_chara")))
@@ -284,18 +279,18 @@ namespace GenioMVC.Controllers
 				querystring.AddRange(queryParams);
 
 			if (!isHomePage &&
-				(Navigation.CurrentLevel == null || !ACTION_MOV_MENU_621.IsSameAction(Navigation.CurrentLevel.Location)) &&
-				Navigation.CurrentLevel.Location.Action != ACTION_MOV_MENU_621.Action)
+				(Navigation.CurrentLevel == null || !ACTION_MOV_MENU_521.IsSameAction(Navigation.CurrentLevel.Location)) &&
+				Navigation.CurrentLevel.Location.Action != ACTION_MOV_MENU_521.Action)
 				CSGenio.framework.Audit.registAction(UserContext.Current.User, Resources.Resources.MENU01948 + " " + Navigation.CurrentLevel.Location.ShortDescription());
 			else if (isHomePage)
 			{
-				CSGenio.framework.Audit.registAction(UserContext.Current.User, Resources.Resources.MENU01948 + " " + ACTION_MOV_MENU_621.ShortDescription());
+				CSGenio.framework.Audit.registAction(UserContext.Current.User, Resources.Resources.MENU01948 + " " + ACTION_MOV_MENU_521.ShortDescription());
 				Navigation.SetValue("HomePageContainsList", true);
 			}
 
 
 
-// USE /[MANUAL MOV MENU_GET 621]/
+// USE /[MANUAL MOV MENU_GET 521]/
 
 
             try

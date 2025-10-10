@@ -153,22 +153,6 @@ namespace GenioMVC.Controllers
 
 
 		/// <summary>
-		/// Recalculate formulas of the "F_profil" form. (++, CT, SR, CL and U1)
-		/// </summary>
-		/// <param name="formData">Current form data</param>
-		/// <returns></returns>
-		[HttpPost]
-		public JsonResult RecalculateFormulas_F_profil([FromBody]F_profil_ViewModel formData)
-		{
-			return GenericRecalculateFormulas(formData, "userp",
-				(primaryKey) => Models.Userp.Find(primaryKey, UserContext.Current, "FF_PROFIL"),
-				(model) => formData.MapToModel(model as Models.Userp)
-			);
-		}
-
-
-
-		/// <summary>
 		/// Recalculate formulas of the "F_user" form. (++, CT, SR, CL and U1)
 		/// </summary>
 		/// <param name="formData">Current form data</param>
