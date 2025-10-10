@@ -8,6 +8,7 @@ export default {
 		app.component('QFormFFavori', defineAsyncComponent(() => import('@/views/forms/FormFFavori/QFormFFavori.vue')))
 		app.component('QFormFMovadm', defineAsyncComponent(() => import('@/views/forms/FormFMovadm/QFormFMovadm.vue')))
 		app.component('QFormFMovies', defineAsyncComponent(() => import('@/views/forms/FormFMovies/QFormFMovies.vue')))
+		app.component('QFormFProfil', defineAsyncComponent(() => import('@/views/forms/FormFProfil/QFormFProfil.vue')))
 		app.component('QFormFRattin', defineAsyncComponent(() => import('@/views/forms/FormFRattin/QFormFRattin.vue')))
 		app.component('QFormFUser', defineAsyncComponent(() => import('@/views/forms/FormFUser/QFormFUser.vue')))
 		app.component('QFormHomp', defineAsyncComponent(() => import('@/views/forms/FormHomp/QFormHomp.vue')))

@@ -120,12 +120,12 @@
 				menuInfo: {
 					id: '31',
 					isMenuList: true,
-					designation: computed(() => this.Resources.CHARACTERS03735),
+					designation: computed(() => this.Resources.USER_PROFILE06358),
 					acronym: 'MOV_31',
-					name: 'CHARA',
+					name: 'USERP',
 					route: 'menu-MOV_31',
 					order: '31',
-					controller: 'CHARA',
+					controller: 'USERP',
 					action: 'MOV_Menu_31',
 					isPopup: false
 				},
@@ -133,10 +133,10 @@
 				model: new MenuViewModel(this),
 
 				controls: {
-					menu: new controlClass.TableSpecialRenderingControl({
+					menu: new controlClass.TableListControl({
 						fnHydrateViewModel: (data) => vm.model.hydrate(data),
 						id: 'MOV_Menu_31',
-						controller: 'CHARA',
+						controller: 'USERP',
 						action: 'MOV_Menu_31',
 						hasDependencies: false,
 						isInCollapsible: false,
@@ -145,32 +145,19 @@
 							'page-full-height'
 						],
 						columnsOriginal: [
-							new listColumnTypes.ArrayColumn({
-								order: 1,
-								name: 'ValGenre',
-								area: 'CHARA',
-								field: 'GENRE',
-								label: computed(() => this.Resources.GENRE63303),
-								dataLength: 1,
-								scrollData: 1,
-								array: computed(() => new qProjArrays.QArrayGenre(vm.$getResource).elements),
-								arrayType: qProjArrays.QArrayGenre.type,
-								arrayDisplayMode: 'D',
-							}, computed(() => vm.model), computed(() => vm.internalEvents)),
 							new listColumnTypes.TextColumn({
-								order: 2,
-								name: 'Movie.ValTitle',
-								area: 'MOVIE',
-								field: 'TITLE',
-								label: computed(() => this.Resources.TITLE21885),
+								order: 1,
+								name: 'ValEmail',
+								area: 'USERP',
+								field: 'EMAIL',
+								label: computed(() => this.Resources.EMAIL25170),
 								dataLength: 80,
 								scrollData: 30,
-								pkColumn: 'ValCodmovie',
 							}, computed(() => vm.model), computed(() => vm.internalEvents)),
 							new listColumnTypes.ImageColumn({
-								order: 3,
+								order: 2,
 								name: 'ValPhoto',
-								area: 'CHARA',
+								area: 'USERP',
 								field: 'PHOTO',
 								label: computed(() => this.Resources.PHOTO51874),
 								dataTitle: computed(() => genericFunctions.formatString(vm.Resources.IMAGEM_UTILIZADA_PAR58591, vm.Resources.PHOTO51874)),
@@ -178,43 +165,25 @@
 								sortable: false,
 								searchable: false,
 							}, computed(() => vm.model), computed(() => vm.internalEvents)),
-							new listColumnTypes.DateColumn({
-								order: 4,
-								name: 'ValCreateat',
-								area: 'CHARA',
-								field: 'CREATEAT',
-								label: computed(() => this.Resources.CREATE_AT36393),
-								scrollData: 8,
-								dateTimeType: 'date',
-							}, computed(() => vm.model), computed(() => vm.internalEvents)),
 							new listColumnTypes.TextColumn({
-								order: 5,
+								order: 3,
 								name: 'ValName',
-								area: 'CHARA',
+								area: 'USERP',
 								field: 'NAME',
 								label: computed(() => this.Resources.NAME31974),
-								dataLength: 80,
-								scrollData: 30,
-							}, computed(() => vm.model), computed(() => vm.internalEvents)),
-							new listColumnTypes.TextColumn({
-								order: 6,
-								name: 'ValActorname',
-								area: 'CHARA',
-								field: 'ACTORNAME',
-								label: computed(() => this.Resources.ACTOR_NAME48089),
-								dataLength: 80,
+								dataLength: 50,
 								scrollData: 30,
 							}, computed(() => vm.model), computed(() => vm.internalEvents)),
 						],
 						config: {
 							name: 'MOV_Menu_31',
 							serverMode: true,
-							pkColumn: 'ValCodchara',
-							tableAlias: 'CHARA',
-							tableNamePlural: computed(() => this.Resources.CHARACTERS03735),
+							pkColumn: 'ValCoduserp',
+							tableAlias: 'USERP',
+							tableNamePlural: computed(() => this.Resources.USER_PROFILE06358),
 							viewManagement: '',
 							showLimitsInfo: true,
-							tableTitle: computed(() => this.Resources.CHARACTERS03735),
+							tableTitle: computed(() => this.Resources.USER_PROFILE06358),
 							showAlternatePagination: true,
 							permissions: {
 							},
@@ -237,7 +206,7 @@
 									params: {
 										action: vm.openFormAction,
 										type: 'form',
-										formName: 'F_CHARAC',
+										formName: 'F_PROFIL',
 										mode: 'SHOW',
 										isControlled: true
 									}
@@ -253,7 +222,7 @@
 									params: {
 										action: vm.openFormAction,
 										type: 'form',
-										formName: 'F_CHARAC',
+										formName: 'F_PROFIL',
 										mode: 'EDIT',
 										isControlled: true
 									}
@@ -269,7 +238,7 @@
 									params: {
 										action: vm.openFormAction,
 										type: 'form',
-										formName: 'F_CHARAC',
+										formName: 'F_PROFIL',
 										mode: 'DUPLICATE',
 										isControlled: true
 									}
@@ -285,7 +254,7 @@
 									params: {
 										action: vm.openFormAction,
 										type: 'form',
-										formName: 'F_CHARAC',
+										formName: 'F_PROFIL',
 										mode: 'DELETE',
 										isControlled: true
 									}
@@ -303,7 +272,7 @@
 									params: {
 										action: vm.openFormAction,
 										type: 'form',
-										formName: 'F_CHARAC',
+										formName: 'F_PROFIL',
 										mode: 'NEW',
 										repeatInsertion: false,
 										isControlled: true
@@ -320,162 +289,35 @@
 							],
 							rowClickAction: {
 								id: 'RCA_MOV_311',
-								name: 'form-F_CHARAC',
+								name: 'form-F_PROFIL',
 								params: {
 									isRoute: true,
 									limits: [
 										{
 											identifier: 'id',
-											fnValueSelector: (row) => row.ValCodchara
+											fnValueSelector: (row) => row.ValCoduserp
 										},
 									],
 									isControlled: true,
-									action: vm.openFormAction, type: 'form', mode: 'SHOW', formName: 'F_CHARAC'
+									action: vm.openFormAction, type: 'form', mode: 'SHOW', formName: 'F_PROFIL'
 								}
 							},
 							formsDefinition: {
-								'F_CHARAC': {
-									fnKeySelector: (row) => row.Fields.ValCodchara,
+								'F_PROFIL': {
+									fnKeySelector: (row) => row.Fields.ValCoduserp,
 									isPopup: false
 								},
 							},
 							defaultSearchColumnName: 'ValName',
 							defaultSearchColumnNameOriginal: 'ValName',
 							defaultColumnSorting: {
-								columnName: 'ValCreateat',
+								columnName: 'ValEmail',
 								sortOrder: 'asc'
 							}
 						},
-						groupFilters: [
-							{
-								id: 'filter_MOV_Menu_31_GENREFILTE',
-								isMultiple: false,
-								filters: [
-									{
-										id: 'filter_MOV_Menu_31_GENREFILTE_1',
-										key: '1',
-										value: computed(() => this.Resources.MALE32397),
-										selected: false
-									},
-									{
-										id: 'filter_MOV_Menu_31_GENREFILTE_2',
-										key: '2',
-										value: computed(() => this.Resources.FEMALE46107),
-										selected: false
-									},
-									{
-										id: 'filter_MOV_Menu_31_GENREFILTE_3',
-										key: '3',
-										value: computed(() => this.Resources.OTHER37293),
-										selected: false
-									},
-									{
-										id: 'filter_MOV_Menu_31_GENREFILTE_4',
-										key: '4',
-										value: computed(() => this.Resources.ALL38603),
-										selected: false
-									},
-								],
-								value: '',
-								defaultValue: ''
-							},
-						],
-						globalEvents: ['changed-MOVIE', 'changed-CHARA'],
-						uuid: '6087e1a7-1c91-4f28-8033-8a60430d40a2',
+						globalEvents: ['changed-PSW', 'changed-USERP'],
+						uuid: '487b3a21-3767-4da5-8de3-e82f835dffcd',
 						allSelectedRows: 'false',
-						viewModes: [
-							{
-								id: 'CARDS',
-								type: 'cards',
-								subtype: 'card-img-top',
-								label: computed(() => this.Resources.CARTOES27587),
-								order: 1,
-								mappingVariables: readonly({
-									title: {
-										allowsMultiple: false,
-										sources: [
-											'CHARA.NAME',
-										]
-									},
-									subtitle: {
-										allowsMultiple: false,
-										sources: [
-											'CHARA.ACTORNAME',
-										]
-									},
-									image: {
-										allowsMultiple: false,
-										sources: [
-											'CHARA.PHOTO',
-										]
-									},
-								}),
-								styleVariables: {
-									actionsAlignment: {
-										rawValue: 'left',
-										isMapped: false
-									},
-									actionsStyle: {
-										rawValue: 'dropdown',
-										isMapped: false
-									},
-									backgroundColor: {
-										rawValue: 'auto',
-										isMapped: false
-									},
-									contentAlignment: {
-										rawValue: 'left',
-										isMapped: false
-									},
-									customFollowupDefaultTarget: {
-										rawValue: 'blank',
-										isMapped: false
-									},
-									customInsertCard: {
-										rawValue: false,
-										isMapped: false
-									},
-									customInsertCardStyle: {
-										rawValue: 'secondary',
-										isMapped: false
-									},
-									displayMode: {
-										rawValue: 'grid',
-										isMapped: false
-									},
-									gridMode: {
-										rawValue: 'fixed',
-										isMapped: false
-									},
-									containerAlignment: {
-										rawValue: 'left',
-										isMapped: false
-									},
-									hoverScaleAmount: {
-										rawValue: '1.00',
-										isMapped: false
-									},
-									imageShape: {
-										rawValue: 'rectangular',
-										isMapped: false
-									},
-									showColumnTitles: {
-										rawValue: false,
-										isMapped: false
-									},
-									showEmptyColumnTitles: {
-										rawValue: true,
-										isMapped: false
-									},
-									size: {
-										rawValue: 'regular',
-										isMapped: false
-									},
-								},
-								groups: {
-								}
-							},
-						],
 						headerLevel: 1,
 					}, this),
 				}

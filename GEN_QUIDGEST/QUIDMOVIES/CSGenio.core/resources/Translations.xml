@@ -519,6 +519,9 @@
   <msg id="Rating" code="RATING45804">
     <ENUS>Rating</ENUS>
   </msg>
+  <msg id="Profile" code="PROFILE65433">
+    <ENUS>Profile</ENUS>
+  </msg>
   <msg id="Hidden" code="HIDDEN49780">
     <ENUS>Hidden</ENUS>
   </msg>

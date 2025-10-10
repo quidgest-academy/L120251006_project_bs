@@ -1618,6 +1618,15 @@ namespace Administration.Resources {
         }
 
         /// <summary>
+        ///   Looks up a localized string similar to "Profile"
+        /// </summary>
+        public static string PROFILE65433 {
+            get {
+                return ResourceManager.GetString("PROFILE65433", resourceCulture);
+            }
+        }
+
+        /// <summary>
         ///   Looks up a localized string similar to "Hidden"
         /// </summary>
         public static string HIDDEN49780 {

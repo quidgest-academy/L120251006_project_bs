@@ -5,13 +5,13 @@ export default function getMenusRoutes()
 {
 	return [
 		{
-			path: '/:culture/:system/MOV/menu/MOV_551',
-			name: 'menu-MOV_551',
-			component: () => import('@/views/menus/ModuleMOV/MenuMOV_551/QMenuMov551.vue'),
+			path: '/:culture/:system/MOV/menu/MOV_651',
+			name: 'menu-MOV_651',
+			component: () => import('@/views/menus/ModuleMOV/MenuMOV_651/QMenuMov651.vue'),
 			meta: {
 				routeType: 'menu',
 				module: 'MOV',
-				order: '551',
+				order: '651',
 				baseArea: 'RATTI',
 				hasInitialPHE: false,
 				humanKeyFields: [],
@@ -31,66 +31,14 @@ export default function getMenusRoutes()
 			}
 		},
 		{
-			path: '/:culture/:system/MOV/menu/MOV_531',
-			name: 'menu-MOV_531',
-			component: () => import('@/views/menus/ModuleMOV/MenuMOV_531/QMenuMov531.vue'),
+			path: '/:culture/:system/MOV/menu/MOV_631',
+			name: 'menu-MOV_631',
+			component: () => import('@/views/menus/ModuleMOV/MenuMOV_631/QMenuMov631.vue'),
 			meta: {
 				routeType: 'menu',
 				module: 'MOV',
-				order: '531',
+				order: '631',
 				baseArea: 'FAVOR',
-				hasInitialPHE: false,
-				humanKeyFields: [],
-			}
-		},
-		{
-			path: '/:culture/:system/MOV/menu/MOV_511',
-			name: 'menu-MOV_511',
-			component: () => import('@/views/menus/ModuleMOV/MenuMOV_511/QMenuMov511.vue'),
-			meta: {
-				routeType: 'menu',
-				module: 'MOV',
-				order: '511',
-				baseArea: 'USERP',
-				hasInitialPHE: false,
-				humanKeyFields: ['ValName'],
-			}
-		},
-		{
-			path: '/:culture/:system/MOV/menu/MOV_411',
-			name: 'menu-MOV_411',
-			component: () => import('@/views/menus/ModuleMOV/MenuMOV_411/QMenuMov411.vue'),
-			meta: {
-				routeType: 'menu',
-				module: 'MOV',
-				order: '411',
-				baseArea: 'MOVIE',
-				hasInitialPHE: false,
-				humanKeyFields: ['ValTitle'],
-			}
-		},
-		{
-			path: '/:culture/:system/MOV/menu/MOV_421',
-			name: 'menu-MOV_421',
-			component: () => import('@/views/menus/ModuleMOV/MenuMOV_421/QMenuMov421.vue'),
-			meta: {
-				routeType: 'menu',
-				module: 'MOV',
-				order: '421',
-				baseArea: 'MOVIE',
-				hasInitialPHE: false,
-				humanKeyFields: ['ValTitle'],
-			}
-		},
-		{
-			path: '/:culture/:system/MOV/menu/MOV_541',
-			name: 'menu-MOV_541',
-			component: () => import('@/views/menus/ModuleMOV/MenuMOV_541/QMenuMov541.vue'),
-			meta: {
-				routeType: 'menu',
-				module: 'MOV',
-				order: '541',
-				baseArea: 'COMME',
 				hasInitialPHE: false,
 				humanKeyFields: [],
 			}
@@ -103,24 +51,35 @@ export default function getMenusRoutes()
 				routeType: 'menu',
 				module: 'MOV',
 				order: '31',
-				baseArea: 'CHARA',
+				baseArea: 'USERP',
 				hasInitialPHE: false,
 				humanKeyFields: ['ValName'],
 			}
 		},
 		{
-			path: '/:culture/:system/MOV/menu/MOV_4211',
-			name: 'menu-MOV_4211',
-			component: () => import('@/views/menus/ModuleMOV/MenuMOV_4211/QMenuMov4211.vue'),
-			beforeEnter: [updateQueryParams],
+			path: '/:culture/:system/MOV/menu/MOV_611',
+			name: 'menu-MOV_611',
+			component: () => import('@/views/menus/ModuleMOV/MenuMOV_611/QMenuMov611.vue'),
 			meta: {
 				routeType: 'menu',
 				module: 'MOV',
-				order: '4211',
-				baseArea: 'CHARA',
+				order: '611',
+				baseArea: 'USERP',
 				hasInitialPHE: false,
 				humanKeyFields: ['ValName'],
-				limitations: ['movie' /* DB */]
+			}
+		},
+		{
+			path: '/:culture/:system/MOV/menu/MOV_511',
+			name: 'menu-MOV_511',
+			component: () => import('@/views/menus/ModuleMOV/MenuMOV_511/QMenuMov511.vue'),
+			meta: {
+				routeType: 'menu',
+				module: 'MOV',
+				order: '511',
+				baseArea: 'MOVIE',
+				hasInitialPHE: false,
+				humanKeyFields: ['ValTitle'],
 			}
 		},
 		{
@@ -131,6 +90,60 @@ export default function getMenusRoutes()
 				routeType: 'menu',
 				module: 'MOV',
 				order: '521',
+				baseArea: 'MOVIE',
+				hasInitialPHE: false,
+				humanKeyFields: ['ValTitle'],
+			}
+		},
+		{
+			path: '/:culture/:system/MOV/menu/MOV_641',
+			name: 'menu-MOV_641',
+			component: () => import('@/views/menus/ModuleMOV/MenuMOV_641/QMenuMov641.vue'),
+			meta: {
+				routeType: 'menu',
+				module: 'MOV',
+				order: '641',
+				baseArea: 'COMME',
+				hasInitialPHE: false,
+				humanKeyFields: [],
+			}
+		},
+		{
+			path: '/:culture/:system/MOV/menu/MOV_41',
+			name: 'menu-MOV_41',
+			component: () => import('@/views/menus/ModuleMOV/MenuMOV_41/QMenuMov41.vue'),
+			meta: {
+				routeType: 'menu',
+				module: 'MOV',
+				order: '41',
+				baseArea: 'CHARA',
+				hasInitialPHE: false,
+				humanKeyFields: ['ValName'],
+			}
+		},
+		{
+			path: '/:culture/:system/MOV/menu/MOV_5211',
+			name: 'menu-MOV_5211',
+			component: () => import('@/views/menus/ModuleMOV/MenuMOV_5211/QMenuMov5211.vue'),
+			beforeEnter: [updateQueryParams],
+			meta: {
+				routeType: 'menu',
+				module: 'MOV',
+				order: '5211',
+				baseArea: 'CHARA',
+				hasInitialPHE: false,
+				humanKeyFields: ['ValName'],
+				limitations: ['movie' /* DB */]
+			}
+		},
+		{
+			path: '/:culture/:system/MOV/menu/MOV_621',
+			name: 'menu-MOV_621',
+			component: () => import('@/views/menus/ModuleMOV/MenuMOV_621/QMenuMov621.vue'),
+			meta: {
+				routeType: 'menu',
+				module: 'MOV',
+				order: '621',
 				baseArea: 'CHARA',
 				hasInitialPHE: false,
 				humanKeyFields: ['ValName'],
